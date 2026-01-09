@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BraiDyn-BC Database | 行動変容を創発する脳ダイナミクス</title>
+    <meta name="description" content="BraiDyn-BC Databaseは、高品質な脳活動・行動データを提供し、行動変容生物学の研究を推進します">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                        <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z" />
+                        <path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                    </svg>
+                </div>
+                <span>BraiDyn-BC</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#database">Database</a></li>
+                <li><a href="#tutorials">Tutorials</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://braidyn-bc.jp/" class="nav-cta" target="_blank">Project Site</a></li>
+            </ul>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-visual"></div>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                学術変革領域A プロジェクト
+            </div>
+
+            <h1>
+                行動変容を創発する<br>脳ダイナミクスの解読
+            </h1>
+
+            <p class="hero-subtitle">
+                BraiDyn-BC Databaseは、高品質な脳活動データと行動データを提供し、<br>
+                「行動変容生物学」の確立を目指す研究者の参入を促進します。
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#database" class="btn btn-primary">
+                    <span>データを探す</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <a href="#about" class="btn btn-secondary">
+                    詳しく見る
+                </a>
+            </div>
+
+        </div>
+
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="section-header">
+                    <div class="section-label">About</div>
+                    <h2>BraiDyn-BC Databaseとは</h2>
+                    <p>
+                        行動変容生物学に参画する研究者を増やすため、高品質な脳活動と行動データの利活用促進とデータ公開を行うプロジェクトです。
+                    </p>
+                </div>
+
+                <div class="about-content">
+                    <div class="about-card">
+                        <h3>プロジェクト概要</h3>
+                        <p>
+                            学術変革領域A「<a href="https://braidyn-bc.jp/" target="_blank"
+                                style="color: var(--color-accent); text-decoration: underline;">行動変容を創発する脳ダイナミクスの解読と操作が開く多元生物学</a>」では、生体が新しい行動を自発的に行うようになる行動変容を解明する「行動変容生物学（BraiDyn-BC）」の創成を行います。本データベースでは、主に総括班により取得された高品質な脳活動と行動データの利活用の促進とデータ公開を行います。
+                        </p>
+                    </div>
+
+                    <div class="about-card">
+                        <h3>データセットについて</h3>
+                        <p>
+                            論文化されていないデータの場合、1個体1セッションの<strong>Sample
+                                dataset</strong>については一般公開を行います。同様の手順で計測された複数個体のデータを<strong>Complete
+                                dataset</strong>と呼び、この利用に関してはデータ出典元の研究室との共同研究をベースとしたデータ共有を行います。Sample datasetはCreative
+                            Commonsなどのライセンスに基づき、研究者は自由に解析を試すことができます。
+                        </p>
+                    </div>
+
+                    <div class="about-card">
+                        <h3>今後の展望</h3>
+                        <p>
+                            現在のデータや解析法の標準化はなされていませんが、今後のアップデートで対応する予定です。データフォーマットや解析パイプラインの統一を進め、より使いやすいデータベースを目指します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Database Section -->
+    <section class="section database" id="database">
+        <div class="container">
+            <div class="section-header center">
+                <div class="section-label">
+                    <span>Database</span>
+                </div>
+                <h2>利用可能なデータセット</h2>
+                <p>
+                    オペラント条件づけと古典条件づけの学習過程を記録した、高品質なデータセットにアクセスできます。
+                </p>
+            </div>
+
+            <div class="database-grid">
+                <!-- Data Card 1 -->
+                <div class="data-card">
+                    <div class="data-card-header">
+                        <h3>オペラント条件づけの学習過程</h3>
+                        <p>Operant Conditioning Learning Process</p>
+                    </div>
+                    <div class="data-card-body">
+                        <p style="margin-bottom: var(--space-md); font-size: 0.9rem;">
+                            2週間にわたり、水報酬のためにレバーを引くことを学習するマウスの学習過程を追跡したデータセット。
+                        </p>
+                        <div class="data-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Data Size</span>
+                                <span class="meta-value">1700 GB</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Individuals</span>
+                                <span class="meta-value">25</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Sessions</span>
+                                <span class="meta-value">15</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Animal</span>
+                                <span class="meta-value">Mouse</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="data-card-footer">
+                        <div class="data-tags">
+                            <span class="tag">Wide-field 1p</span>
+                            <span class="tag">Whole Cortex</span>
+                        </div>
+                        <a href="#" class="data-card-action" aria-label="View details">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Data Card 2 -->
+                <div class="data-card">
+                    <div class="data-card-header">
+                        <span class="complete-badge">Complete</span>
+                        <h3>古典条件づけの学習過程</h3>
+                        <p>Classical Conditioning Learning Process</p>
+                    </div>
+                    <div class="data-card-body">
+                        <p style="margin-bottom: var(--space-md); font-size: 0.9rem;">
+                            音弁別（6kHz vs 10kHz）と水報酬を用いた古典条件づけの完全な縦断的データセット。
+                        </p>
+                        <div class="data-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Data Size</span>
+                                <span class="meta-value">612 GB</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Individuals</span>
+                                <span class="meta-value">2</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Sessions</span>
+                                <span class="meta-value">34</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Animal</span>
+                                <span class="meta-value">Mouse</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="data-card-footer">
+                        <div class="data-tags">
+                            <span class="tag">Wide-field 1p</span>
+                            <span class="tag">Face Camera</span>
+                        </div>
+                        <a href="#" class="data-card-action" aria-label="View details">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Data Card 3 -->
+                <div class="data-card">
+                    <div class="data-card-header">
+                        <span class="sample-badge">Sample</span>
+                        <h3>古典条件づけの学習過程</h3>
+                        <p>Classical Conditioning Sample</p>
+                    </div>
+                    <div class="data-card-body">
+                        <p style="margin-bottom: var(--space-md); font-size: 0.9rem;">
+                            古典条件づけ実験のサンプルデータセット。データ構造の確認やパイプライン開発に最適です。
+                        </p>
+                        <div class="data-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Data Size</span>
+                                <span class="meta-value">18 GB</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Individuals</span>
+                                <span class="meta-value">1</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Sessions</span>
+                                <span class="meta-value">1</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Animal</span>
+                                <span class="meta-value">Mouse</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="data-card-footer">
+                        <div class="data-tags">
+                            <span class="tag">Wide-field 1p</span>
+                            <span class="tag">Body Camera</span>
+                        </div>
+                        <a href="#" class="data-card-action" aria-label="View details">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Data Card 4 -->
+                <div class="data-card">
+                    <div class="data-card-header">
+                        <span class="sample-badge">Sample</span>
+                        <h3>レバー引き運動の学習</h3>
+                        <p>Motor Learning Sample</p>
+                    </div>
+                    <div class="data-card-body">
+                        <p style="margin-bottom: var(--space-md); font-size: 0.9rem;">
+                            レバー引き運動の運動学習に焦点を当てたサンプルデータセット。運動制御の解析に活用できます。
+                        </p>
+                        <div class="data-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Data Size</span>
+                                <span class="meta-value">-</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Individuals</span>
+                                <span class="meta-value">-</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Sessions</span>
+                                <span class="meta-value">-</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Animal</span>
+                                <span class="meta-value">Mouse</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="data-card-footer">
+                        <div class="data-tags">
+                            <span class="tag">Lever-pull</span>
+                            <span class="tag">Motor Control</span>
+                        </div>
+                        <a href="#" class="data-card-action" aria-label="View details">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tutorials Section -->
+    <section class="section tutorials" id="tutorials">
+        <div class="container">
+            <div class="section-header center">
+                <div class="section-label">
+                    <span>Tutorials</span>
+                </div>
+                <h2>データ解析チュートリアル</h2>
+                <p>
+                    NWB形式のデータを活用するためのチュートリアルとドキュメントを提供しています。
+                </p>
+            </div>
+
+            <div class="tutorial-content">
+                <div class="tutorial-visual">
+                    <div class="code-window">
+                        <div class="code-header">
+                            <span class="code-dot red"></span>
+                            <span class="code-dot yellow"></span>
+                            <span class="code-dot green"></span>
+                        </div>
+                        <div class="code-body">
+                            <span class="comment">% NWBファイルからPETHを作成</span><br>
+                            <span class="keyword">nwb</span> = nwbRead(<span
+                                class="string">'sample_data.nwb'</span>);<br><br>
+                            <span class="comment">% 脳活動データの取得</span><br>
+                            <span class="keyword">fluorescence</span> = nwb.processing...<br>
+                            &nbsp;&nbsp;.get(<span class="string">'ophys'</span>).nwbdatainterface...<br>
+                            &nbsp;&nbsp;.get(<span class="string">'DfOverF'</span>);<br><br>
+                            <span class="comment">% Peri-Event Time Histogram</span><br>
+                            <span class="function">plotPETH</span>(fluorescence, events);
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tutorial-list">
+                    <a href="https://boatneck-weeder-7b7.notion.site/MATLAB-Tutorial-NWB-Peri-Event-Time-Histogram-80320cdff81f45ca9ee538b3ac2e571d"
+                        class="tutorial-item" target="_blank">
+                        <div class="tutorial-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                            </svg>
+                        </div>
+                        <div class="tutorial-info">
+                            <h4>MATLAB Tutorial: NWBからPeri-Event Time Histogram作成</h4>
+                            <p>MATLABを使用してNWBファイルからPETHを生成する方法をステップバイステップで解説します。</p>
+                        </div>
+                    </a>
+
+                    <a href="https://drive.google.com/drive/folders/1nf2_1snzNbYD71VT1sMRoWhpkwzBbI7z"
+                        class="tutorial-item" target="_blank">
+                        <div class="tutorial-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                            </svg>
+                        </div>
+                        <div class="tutorial-info">
+                            <h4>Python Tutorial: オペラント条件づけ学習過程の解析</h4>
+                            <p>Google Driveからオペラント条件づけの学習過程に関するPythonチュートリアル一覧にアクセスできます。</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header center">
+                <div class="section-label">
+                    <span>Contact</span>
+                </div>
+                <h2>お問い合わせ</h2>
+            </div>
+
+            <div class="contact-card">
+                <h3>Contact Us</h3>
+                <p>
+                    このサイトは学術変革領域A「行動変容を創発する脳ダイナミクスの解読と操作が開く多元生物学」の総括班により運営されています。<br>
+                    データやWebサイトに関係する問い合わせに関しては、事務局データベース担当までお知らせください。
+                </p>
+                <a href="mailto:braidynbcd@m.u-tokyo.ac.jp" class="contact-email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    braidynbcd@m.u-tokyo.ac.jp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Information Section -->
+    <section class="section info" id="info">
+        <div class="container">
+            <div class="section-header center">
+                <div class="section-label">
+                    <span>Information</span>
+                </div>
+                <h2>各種情報</h2>
+            </div>
+
+            <div class="info-grid">
+                <!-- 更新履歴 -->
+                <div class="info-card" id="updates">
+                    <div class="info-card-header">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3>更新履歴</h3>
+                    </div>
+                    <ul class="update-list">
+                        <li><span class="update-date">2025.3.9</span> Tutorialのアップデート</li>
+                        <li><span class="update-date">2025.2.19</span> オペラント条件付けの学習過程をアップデート</li>
+                        <li><span class="update-date">2024.8.9</span> Sample: オペラント条件づけの学習過程を公開、チュートリアルも作成しました。</li>
+                        <li><span class="update-date">2024.7.24</span> Sample古典条件付けの学習過程のリンクを更新</li>
+                        <li><span class="update-date">2022.8.18</span> サイト公開</li>
+                    </ul>
+                </div>
+
+                <!-- Data License -->
+                <div class="info-card" id="license">
+                    <div class="info-card-header">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                        <h3>Data License</h3>
+                    </div>
+                    <p>データのライセンスと利用条件については各々のページに記載しております。</p>
+                </div>
+
+                <!-- Ethics Statement -->
+                <div class="info-card" id="ethics">
+                    <div class="info-card-header">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <h3>Ethics Statement</h3>
+                    </div>
+                    <p>特別の記載のない限り、動物実験は東京大学大学院医学系研究科動物実験委員会による承認を受けて行われています。AAV、GCaMP等のウイルスや遺伝子を用いる研究では、東京大学大学院医学系研究科遺伝子組換え生物等委員会の承認を得て行われています。各種Cre系統の遺伝子組換えマウスを用いる研究では、東京大学大学院医学系研究科遺伝子組換え生物等委員会の承認を得て行われています。
+                    </p>
+                </div>
+
+                <!-- Privacy Policy -->
+                <div class="info-card" id="privacy">
+                    <div class="info-card-header">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                        </div>
+                        <h3>Privacy Policy</h3>
+                    </div>
+                    <p>このウェブサイトは、サイト訪問、セッション、IPアドレスに関する個人的または非個人的なデータを収集することもあります。これらの情報は、ウェブサイトのパフォーマンスを最適化するための診断やデバッグの目的にのみ使用され、外部で共有されることはありません。
+                    </p>
+                    <p>このデータベースを利用することにより、ご利用者は上記のプライバシーポリシーに同意したものとみなされます。なお、本ポリシーは予告なく改訂されることがあります。</p>
+                </div>
+
+                <!-- Others -->
+                <div class="info-card" id="others">
+                    <div class="info-card-header">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                            </svg>
+                        </div>
+                        <h3>Others</h3>
+                    </div>
+                    <p>このウェブサイトには、私たちが関連性があると考える他のウェブサイトへのリンクが含まれています。これらの他のサイトのコンテンツを維持または更新する責任を負うものではありません。これらのサイトの中に、無関係な情報や不快な情報が含まれていることが判明した場合はご連絡ください。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                            <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z" />
+                            <path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                        </svg>
+                    </div>
+                    <span>BraiDyn-BC Database</span>
+                </a>
+
+                <ul class="footer-links">
+                    <li><a href="#license">Data License</a></li>
+                    <li><a href="#ethics">Ethics Statement</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="https://braidyn-bc.jp/" target="_blank">Project Site</a></li>
+                </ul>
+
+                <p class="copyright">
+                    © Copyright 学術変革領域A「行動変容を創発する脳ダイナミクスの解読と操作が開く多元生物学」総括班 分担者 中江 健
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+
+</html>
