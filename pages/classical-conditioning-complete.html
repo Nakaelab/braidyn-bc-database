@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classical Conditioning Complete Dataset | BraiDyn-BC Database</title>
+    <meta name="description" content="古典条件づけの学習過程における脳活動と行動の完全な縦断的データセット">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        :root {
+            --color-card-dark: rgba(255, 255, 255, 0.03);
+            --color-card-border: rgba(255, 255, 255, 0.08);
+        }
+
+        .dataset-hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(to bottom, var(--color-bg), var(--color-bg-light));
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .breadcrumb {
+            display: flex;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            margin-bottom: 24px;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--color-accent);
+        }
+
+        .dataset-title-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .dataset-title-area h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 8px;
+        }
+
+        .dataset-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-muted);
+        }
+
+        .dataset-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .dataset-stat-card {
+            background: var(--color-card-dark);
+            border: 1px solid var(--color-card-border);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .dataset-stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-text-muted);
+            margin-bottom: 8px;
+        }
+
+        .dataset-stat-value {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-accent);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 60px;
+            padding: 60px 0;
+        }
+
+        .main-content section {
+            margin-bottom: 60px;
+        }
+
+        .main-content h2 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .main-content h3 {
+            font-size: 1.25rem;
+            margin: 32px 0 16px;
+            color: white;
+        }
+
+        .main-content p {
+            margin-bottom: 20px;
+            color: var(--color-text-muted);
+            line-height: 1.8;
+        }
+
+        .info-alert {
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid rgba(74, 158, 255, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .info-alert h4 {
+            color: var(--color-accent);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dir-tree {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.85rem;
+            color: #c9d1d9;
+            margin: 16px 0;
+            line-height: 1.5;
+            border: 1px solid var(--color-card-border);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 24px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th,
+        td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.05);
+            font-weight: 600;
+            color: white;
+        }
+
+        .sidebar-section {
+            margin-bottom: 40px;
+        }
+
+        .sidebar-section h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-text-muted);
+            margin-bottom: 16px;
+        }
+
+        .cite-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--color-border);
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--color-text-muted);
+            word-break: break-all;
+        }
+
+        @media (max-width: 900px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dataset-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                        <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z" />
+                        <path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                    </svg>
+                </div>
+                <span>BraiDyn-BC</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#database">Database</a></li>
+                <li><a href="../index.html#tutorials">Tutorials</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+                <li><a href="https://braidyn-bc.jp/" class="nav-cta" target="_blank">Project Site</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dataset Hero -->
+    <header class="dataset-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span>/</span>
+                <a href="../index.html#database">Database</a>
+                <span>/</span>
+                <span>Classical Conditioning Complete</span>
+            </div>
+
+            <div class="dataset-title-area">
+                <div>
+                    <span class="complete-badge">Complete Dataset</span>
+                    <h1>古典条件づけの学習過程</h1>
+                    <p class="dataset-subtitle">Classical Conditioning Learning Process (Full Longitudinal Data)</p>
+                </div>
+            </div>
+
+            <div class="dataset-stats">
+                <div class="dataset-stat-card">
+                    <div class="dataset-stat-label">Data Size</div>
+                    <div class="dataset-stat-value">612 GB</div>
+                </div>
+                <div class="dataset-stat-card">
+                    <div class="dataset-stat-label">Individuals</div>
+                    <div class="dataset-stat-value">2</div>
+                </div>
+                <div class="dataset-stat-card">
+                    <div class="dataset-stat-label">Sessions</div>
+                    <div class="dataset-stat-value">34</div>
+                </div>
+                <div class="dataset-stat-card">
+                    <div class="dataset-stat-label">Animal</div>
+                    <div class="dataset-stat-value">Mouse</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <main class="main-content">
+                <!-- Abstract -->
+                <section id="abstract">
+                    <h2>Abstract</h2>
+                    <p>
+                        頭部固定マウスに対して古典的条件づけ実験を行いました。条件刺激(CS)として6kHzと10kHzの2種類の異なる音を提示し、無条件刺激(US)として6kHzの場合70%の確率で水を報酬として供給、10kHzの場合30%の確率で水を報酬として供給しました。この実験を2個体のマウスに対して30分間程度、合計17日間行うことで、古典条件づけの学習過程を記録しました。
+                    </p>
+                    <p>
+                        この記録実験において、脳活動をCa<sup>2+</sup>プローブを使い広視野1光子顕微鏡（Wide-field
+                        1p）により皮質全体の計測を行いました。さらにマウスの顔および上半身のビデオデータ(Face Camera, Body
+                        Camera)を計測しました。またマウスの行動データとしてリックや報酬のタイミングを計測しています(Behavior data)。
+                    </p>
+                    <p>
+                        Kondo et. al.
+                        2021では、同様のパラダイムでは古典条件づけの学習後のみの神経活動の解析を行いましたが、本コンプリートデータセットでは、その学習にいたるまでにどのように脳内の活動が変化していくかを縦断的に計測しています。
+                    </p>
+                </section>
+
+                <!-- Dataset Access -->
+                <section id="access">
+                    <h2>Dataset Access</h2>
+                    <div class="info-alert">
+                        <h4>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                            配布・共有について
+                        </h4>
+                        <p style="margin-bottom: 0;">
+                            現在は東京大学松崎研究室との共同研究、もしくは学術変革領域A「行動変容生物学」内での内部共有を想定した配布を行っています。
+                            共有者にはData Descriptionのディレクトリ構造とファイルにアクセスするためのリンクを送付します。
+                            学術変革領域Aの後期公募班の募集タイミングを目処に、Creative Commonsライセンスでの一般公開を予定しています。
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Data Description -->
+                <section id="description">
+                    <h2>Data Description</h2>
+
+                    <h3>Directory Structure</h3>
+                    <p>データセットは以下の3つの主要ディレクトリで構成されています：</p>
+
+                    <div class="dir-tree">
+                        CompleteDataset/<br>
+                        ├── 1_Raw/ # オリジナル計測データ<br>
+                        │ ├── Behavior/ # リック等の行動データ (.lvm)<br>
+                        │ ├── CaData/ # イメージングデータ (.tif)<br>
+                        │ └── Video/ # Face/Bodyカメラ動画 (.avi)<br>
+                        ├── 2_Preprocessed/ # (Coming Soon) 中間処理データ<br>
+                        └── 3_ROIsegmentation/ # 処理済み・ROI抽出済みデータ (.mat)
+                    </div>
+
+                    <h3>Detailed Contents</h3>
+                    <div style="margin-bottom: 32px;">
+                        <h4>1_Raw Data</h4>
+                        <p>個体番号 (RCTg_Pv12, RCTg_Pv13) および計測日ごとに整理されています。</p>
+                        <ul>
+                            <li><strong>Body Camera:</strong> 腹側を30Hzで計測した動画データ。</li>
+                            <li><strong>Face Camera:</strong> 左側面顔を30Hzで計測した動画データ。</li>
+                            <li><strong>Wide Field 1p:</strong> 30Hzで計測されたCa2+イメージングTIFF画像（2GB毎の分割ファイル）。</li>
+                            <li><strong>Behavior Data:</strong> リック、報酬、音周波数等を5000Hzで記録したアナログ信号データ。</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: 32px;">
+                        <h4>3_ROIsegmentation Data</h4>
+                        <p>以下の前処理が適用された <code>stdData</code> 構造体（MATLAB形式）が格納されています：</p>
+                        <ol>
+                            <li>揺れ補正およびAllen CCF v3への位置合わせ</li>
+                            <li>左半球のみのクリッピング</li>
+                            <li>SVDを用いたデノイズ（上位24成分での再構成）</li>
+                            <li>dF/F化（±15秒の時間窓での10パーセンタイルをFとして算出）</li>
+                            <li>ROIベースの神経活動抽出（dmFrC, M1, S1等12箇所、Zスコア化）</li>
+                        </ol>
+                    </div>
+
+                    <div class="table-container">
+                        <h4>Behavior Data Channels</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Channel</th>
+                                    <th>Signal</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ch.1</td>
+                                    <td>Lick (Raw)</td>
+                                    <td>舌のスパウト接触時にHIGH (5V)</td>
+                                </tr>
+                                <tr>
+                                    <td>ch.2</td>
+                                    <td>Reward</td>
+                                    <td>報酬供給タイミングでHIGH</td>
+                                </tr>
+                                <tr>
+                                    <td>ch.3</td>
+                                    <td>Tone Flag</td>
+                                    <td>音吹鳴中にHIGH</td>
+                                </tr>
+                                <tr>
+                                    <td>ch.4</td>
+                                    <td>Imaging Sync</td>
+                                    <td>カメラのシャッター露光タイミング</td>
+                                </tr>
+                                <tr>
+                                    <td>ch.7</td>
+                                    <td>Frequency</td>
+                                    <td>提示中の音の周波数 (kHz)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Results Paradigm -->
+                <section id="results">
+                    <h2>Results & Paradigm</h2>
+                    <div
+                        style="background: rgba(255,255,255,0.05); border-radius: 12px; padding: 24px; margin-bottom: 32px;">
+                        <h4>Learning of Reward Expectations</h4>
+                        <p>
+                            6kHz（報酬確率70%）と10kHz（報酬確率30%）を提示。学習が進むにつれ、高確率の音に対して有意にリック数（期待行動）が増加していく過程が全皮質の活動とともに記録されています。
+                        </p>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3>Contact for Access</h3>
+                    <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 16px;">
+                        本データセットの利用については、事務局データベース担当までお問い合わせください。
+                    </p>
+                    <a href="mailto:braidynbcd@m.u-tokyo.ac.jp" class="btn btn-primary"
+                        style="width: 100%; justify-content: center;">
+                        Email for Access
+                    </a>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Citation</h3>
+                    <div class="cite-box">
+                        Kondo, M., & Matsuzaki, M. (2021). Neuronal representations of reward-predicting cues and
+                        outcome history with movement in the frontal cortex. Cell Reports, 34(5), 108704. doi:
+                        10.1016/j.celrep.2021.108704
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Related Content</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 12px;">
+                            <a href="classical-conditioning-sample.html"
+                                style="font-size: 0.9rem; color: var(--color-accent);">
+                                → View Sample Dataset (18GB)
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="../index.html" class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                            <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z" />
+                            <path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                        </svg>
+                    </div>
+                    <span>BraiDyn-BC Database</span>
+                </a>
+
+                <ul class="footer-links">
+                    <li><a href="../index.html#license">Data License</a></li>
+                    <li><a href="../index.html#ethics">Ethics Statement</a></li>
+                    <li><a href="../index.html#privacy">Privacy Policy</a></li>
+                    <li><a href="https://braidyn-bc.jp/" target="_blank">Project Site</a></li>
+                </ul>
+
+                <p class="copyright">
+                    © Copyright 学術変革領域A「行動変容を創発する脳ダイナミクスの解読と操作が開く多元生物学」総括班 分担者 中江 健
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

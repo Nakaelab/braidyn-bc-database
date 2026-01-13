@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor Learning Sample | BraiDyn-BC Database</title>
+    <meta name="description" content="レバー引き運動の学習課題における広域1光子および2光子イメージングのサンプルデータセット">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        :root {
+            --color-card-dark: rgba(255, 255, 255, 0.03);
+            --color-card-border: rgba(255, 255, 255, 0.08);
+        }
+
+        .dataset-hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(to bottom, var(--color-bg), var(--color-bg-light));
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .breadcrumb {
+            display: flex;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            margin-bottom: 24px;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--color-accent);
+        }
+
+        .dataset-title-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .dataset-title-area h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 8px;
+        }
+
+        .dataset-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-muted);
+        }
+
+        .dataset-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .dataset-stat-card {
+            background: var(--color-card-dark);
+            border: 1px solid var(--color-card-border);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .dataset-stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-text-muted);
+            margin-bottom: 8px;
+        }
+
+        .dataset-stat-value {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-accent);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 60px;
+            padding: 60px 0;
+        }
+
+        .main-content section {
+            margin-bottom: 60px;
+        }
+
+        .main-content h2 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .main-content h3 {
+            font-size: 1.25rem;
+            margin: 32px 0 16px;
+            color: white;
+            border-left: 4px solid var(--color-accent);
+            padding-left: 16px;
+        }
+
+        .main-content p {
+            margin-bottom: 20px;
+            color: var(--color-text-muted);
+            line-height: 1.8;
+        }
+
+        .resource-section {
+            background: var(--color-card-dark);
+            border: 1px solid var(--color-card-border);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 40px;
+        }
+
+        .resource-group-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-accent);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .resource-group-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--color-accent), transparent);
+            opacity: 0.3;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        .resource-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--color-card-border);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .resource-card:hover {
+            border-color: var(--color-accent);
+            background: rgba(74, 158, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .resource-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .resource-meta {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+        }
+
+        .resource-link {
+            font-size: 0.85rem;
+            color: var(--color-accent);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: auto;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge-2p {
+            background: #6366f1;
+            color: white;
+        }
+
+        .badge-1p {
+            background: #ec4899;
+            color: white;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 24px 0;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            border: 1px solid var(--color-card-border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        th,
+        td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--color-card-border);
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.05);
+            font-weight: 600;
+            color: white;
+        }
+
+        .sidebar-section {
+            margin-bottom: 40px;
+        }
+
+        .sidebar-section h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-text-muted);
+            margin-bottom: 16px;
+        }
+
+        .cite-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--color-border);
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--color-text-muted);
+            word-break: break-all;
+        }
+
+        @media (max-width: 900px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dataset-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                        <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z" />
+                        <path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                    </svg>
+                </div>
+                <span>BraiDyn-BC</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#database">Database</a></li>
+                <li><a href="../index.html#tutorials">Tutorials</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+                <li><a href="https://braidyn-bc.jp/" class="nav-cta" target="_blank">Project Site</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dataset Hero -->
+    <header class="dataset-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span>/</span>
+                <a href="../index.html#database">Database</a>
+                <span>/</span>
+                <span>Motor Learning Sample</span>
+            </div>
+
+            <div class="dataset-title-area">
+                <div>
+                    <span class="sample-badge">Sample Dataset</span>
+                    <h1>レバー引き運動の学習</h1>
+                    <p class="dataset-subtitle">Motor Learning of Lever Pull Task</p>
+                </div>
+            </div>
+
+            <div class="dataset-stats">
+                <div class="dataset-stat-card">
+                    <div class="dataset-stat-label">Data Size</div>
+                    <div class="dataset-stat-value">Sample</div>
+                </div>
+                <div class="dataset-stat-card">
+                    <div class="dataset-stat-label">Individuals</div>
+                    <div class="dataset-stat-value">1</div>
+                </div>
+                <div class="dataset-stat-card">
+                    <div class="dataset-stat-label">Sessions</div>
+                    <div class="dataset-stat-value">1 (1p/2p each)</div>
+                </div>
+                <div class="dataset-stat-card">
+                    <div class="dataset-stat-label">Animal</div>
+                    <div class="dataset-stat-value">Mouse</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <main class="main-content">
+                <!-- Abstract -->
+                <section id="abstract">
+                    <h2>Abstract</h2>
+                    <p>
+                        本サンプルデータでは、レバーを適応的に変化する範囲内(Target zone)へと保持することで報酬が得られる運動課題を遂行しているマウスのデータを公開しています。
+                    </p>
+                    <p>
+                        背側大脳皮質の<strong>広域１光子カルシウムイメージング</strong>、および前肢関連背側運動領域(M1)の第2/3層(L2/3)および第5層(L5)の<strong>２光子カルシウムイメージング</strong>のデータを各１セッションずつ含みます。運動学習に伴う皮質全体のダイナミクスから個細胞レベルの活動変化までをマルチスケールに解析することが可能です。
+                    </p>
+                </section>
+
+                <!-- Download Section -->
+                <section id="downloads">
+                    <h2>Downloads</h2>
+
+                    <!-- 2p Resources -->
+                    <div class="resource-section">
+                        <div class="resource-group-title">
+                            <span class="badge badge-2p">Two-Photon Imaging (2p)</span>
+                            Resources
+                        </div>
+                        <div class="resource-grid">
+                            <div class="resource-card">
+                                <span class="resource-name">Raw 2p Images</span>
+                                <span class="resource-meta">30Hz, .oir format</span>
+                                <a href="https://drive.google.com/drive/folders/10A9M7ybWxFTpcy2qbXc1XRIrdGzk0cTe?usp=sharing"
+                                    class="resource-link" target="_blank">Folder Access</a>
+                            </div>
+                            <div class="resource-card">
+                                <span class="resource-name">Face Camera (2p)</span>
+                                <span class="resource-meta">70Hz, .mp4</span>
+                                <a href="https://drive.google.com/file/d/1TVjdUv_HEAbZsRXF5f2LSa8ZbXyZOrhE/view?usp=sharing"
+                                    class="resource-link" target="_blank">Download</a>
+                            </div>
+                            <div class="resource-card">
+                                <span class="resource-name">Body Camera (2p)</span>
+                                <span class="resource-meta">70Hz, .mp4</span>
+                                <a href="https://drive.google.com/file/d/13jNFF4K_2KyAqokdoqqKzQcx22nyeZ6U/view?usp=sharing"
+                                    class="resource-link" target="_blank">Download</a>
+                            </div>
+                            <div class="resource-card">
+                                <span class="resource-name">Behavior Data (2p)</span>
+                                <span class="resource-meta">5kHz, .lvm</span>
+                                <a href="https://drive.google.com/file/d/1Y_RocHZKpDvr6-lD-reKM6BtJTX90Laa/view?usp=sharing"
+                                    class="resource-link" target="_blank">Download</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 1p Resources -->
+                    <div class="resource-section">
+                        <div class="resource-group-title">
+                            <span class="badge badge-1p">Wide-Field Imaging (1p)</span>
+                            Resources
+                        </div>
+                        <div class="resource-grid">
+                            <div class="resource-card">
+                                <span class="resource-name">Raw 1p Images</span>
+                                <span class="resource-meta">30Hz, .sifx format</span>
+                                <a href="https://drive.google.com/drive/folders/1Cm9xSXFSjCiTdy8EPsWv26kyu-igJSlF?usp=sharing"
+                                    class="resource-link" target="_blank">Folder Access</a>
+                            </div>
+                            <div class="resource-card">
+                                <span class="resource-name">Face Camera (1p)</span>
+                                <span class="resource-meta">70Hz, .mp4</span>
+                                <a href="https://drive.google.com/file/d/1HJsX2dRqZix-tY66S4SRmPBuwiyTbOki/view?usp=sharing"
+                                    class="resource-link" target="_blank">Download</a>
+                            </div>
+                            <div class="resource-card">
+                                <span class="resource-name">Body Camera (1p)</span>
+                                <span class="resource-meta">5kHz Synchronized</span>
+                                <a href="https://drive.google.com/file/d/1YSOj7o7yXGLFi3H8Snx9e0Um9eA2L6G4/view?usp=sharing"
+                                    class="resource-link" target="_blank">Download</a>
+                            </div>
+                            <div class="resource-card">
+                                <span class="resource-name">Behavior Data (1p)</span>
+                                <span class="resource-meta">5kHz, .lvm</span>
+                                <a href="https://drive.google.com/file/d/1zHu86snLE1W7DfJVUpwPBHTcfRV4GrEB/view?usp=sharing"
+                                    class="resource-link" target="_blank">Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Data Description -->
+                <section id="description">
+                    <h2>Data Description</h2>
+
+                    <h3>Behavior Data Channels (.lvm)</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>CH</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ch.1</td>
+                                    <td>Lever Trajectory</td>
+                                    <td>レバー位置 (unit: mm)</td>
+                                </tr>
+                                <tr>
+                                    <td>ch.3</td>
+                                    <td>Imaging Sync</td>
+                                    <td>2p: LOW to HIGH / 1p: HIGH to LOW</td>
+                                </tr>
+                                <tr>
+                                    <td>ch.4</td>
+                                    <td>Video Sync</td>
+                                    <td>Body/Face Camera取得タイミング (LOW to HIGH)</td>
+                                </tr>
+                                <tr>
+                                    <td>ch.5</td>
+                                    <td>Lever State</td>
+                                    <td>1: &lt; Base threshold, 2: &gt; Base &amp; outside Target, 3: In Target zone
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ch.6</td>
+                                    <td>Task State</td>
+                                    <td>0/1: ITI, 2: Ready, 3: Go, 4: Success, 5: Failure</td>
+                                </tr>
+                                <tr>
+                                    <td>ch.7</td>
+                                    <td>Target Upper</td>
+                                    <td>Target zoneの上限</td>
+                                </tr>
+                                <tr>
+                                    <td>ch.8</td>
+                                    <td>Target Lower</td>
+                                    <td>Target zoneの下限</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>DeepLabCut Tracking Points</h3>
+                    <p>ビデオ解析にはDeepLabCutを使用し、以下のポイントをトラッキングしています：</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 16px;">
+                        <div>
+                            <strong>Body Camera:</strong>
+                            <ul style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 8px;">
+                                <li>Spout/Lever tips</li>
+                                <li>Armrest tip</li>
+                                <li>右手/左手の指先（親指〜小指）</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>Face Camera:</strong>
+                            <ul style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 8px;">
+                                <li>Spout side</li>
+                                <li>Tip of nose</li>
+                                <li>Philtrum (人中) / Lower lip</li>
+                                <li>Jaw / Tongue tip</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Task Details -->
+                <section id="task">
+                    <h2>Task Paradigm</h2>
+                    <p>
+                        本課題は、自発的なレバー引き動作をターゲットゾーン(Target zone)内に一定時間(T_target = 200ms)保持することをマウスに学習させます。
+                    </p>
+                    <h3>Task States</h3>
+                    <ul style="color: var(--color-text-muted);">
+                        <li><strong>ITI (Inter-Trial Interval):</strong> トライアル間の休止期間。</li>
+                        <li><strong>Ready:</strong> レバーを基底閾値(0.5mm)以下で1秒以上保持すると遷移。</li>
+                        <li><strong>Go:</strong> レバーが基底閾値を越えるとトライアル開始。1000msの制限時間が与えられる。</li>
+                        <li><strong>Success:</strong> 制限時間内に保持条件を満たすと達成。水報酬が与えられる。</li>
+                        <li><strong>Failure:</strong> 制限時間内に達成できなかった場合。</li>
+                    </ul>
+                    <p style="margin-top: 16px;">
+                        Target zoneは中心を4mmとし、マウスの習熟度（成功数）に応じて±2.5mmから適応的に狭まっていきます。感覚フィードバックとして、レバーがTarget
+                        zone内に入っている間は10kHzの純音が提示されます。
+                    </p>
+                </section>
+
+                <!-- Methodology -->
+                <section id="method">
+                    <h2>Methodology</h2>
+                    <h3>Imaging Setup</h3>
+                    <p>
+                        トランスジェニックマウス(Thy1-jRGECO1a)を用い、1光子では広域マクロ顕微鏡、2光子では高感度多焦点顕微鏡による計測を実施しました。
+                    </p>
+                    <h3>Image Processing</h3>
+                    <p>
+                        MATLAB上でNoRMCorreによる動き補正、およびCNMF（2光子）によるROI抽出を行いました。輝度変化($\Delta
+                        F/F$)の算出には、局所的なバックグラウンド減算とパーセンタイルベースの$F_0$推定を適用しています。
+                    </p>
+                </section>
+            </main>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3>License</h3>
+                    <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 12px;">
+                        Licensed under Creative Commons Attribution 4.0 International License.
+                    </p>
+                    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">
+                        <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by.png" alt="CC BY"
+                            width="88">
+                    </a>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Citation</h3>
+                    <div class="cite-box">
+                        S. Terada, K. Nakae, M. Matsuzaki. (2022). Motor learning of lever pull task in BraiDyn-BC
+                        Database.
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Official Tools</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 12px;">
+                            <a href="https://github.com/YR-T/oir2stdData/" target="_blank"
+                                style="font-size: 0.9rem; color: var(--color-accent);">
+                                → oir2stdData (GitHub)
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="../index.html" class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                            <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z" />
+                            <path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                        </svg>
+                    </div>
+                    <span>BraiDyn-BC Database</span>
+                </a>
+
+                <ul class="footer-links">
+                    <li><a href="../index.html#license">Data License</a></li>
+                    <li><a href="../index.html#ethics">Ethics Statement</a></li>
+                    <li><a href="../index.html#privacy">Privacy Policy</a></li>
+                    <li><a href="https://braidyn-bc.jp/" target="_blank">Project Site</a></li>
+                </ul>
+
+                <p class="copyright">
+                    © Copyright 学術変革領域A「行動変容を創発する脳ダイナミクスの解読と操作が開く多元生物学」総括班 分担者 中江 健
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

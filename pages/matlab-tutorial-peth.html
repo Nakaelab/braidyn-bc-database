@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATLAB Tutorial: NWBからPETH作成 | BraiDyn-BC Database</title>
+    <meta name="description" content="MATLABとMatNWBを使用してNWBファイルからPeri-Event Time Histogram (PETH)を作成するチュートリアル">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        :root {
+            --color-card-dark: rgba(255, 255, 255, 0.03);
+            --color-card-border: rgba(255, 255, 255, 0.08);
+            --color-code-bg: #0d1117;
+        }
+
+        .tutorial-hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(to bottom, var(--color-bg), var(--color-bg-light));
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .breadcrumb {
+            display: flex;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            margin-bottom: 24px;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--color-accent);
+        }
+
+        .tutorial-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .tutorial-badge {
+            display: inline-block;
+            background: rgba(168, 85, 247, 0.15);
+            color: #a855f7;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .content-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 60px;
+            padding: 60px 0;
+        }
+
+        .sticky-sidebar {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .toc {
+            list-style: none;
+            padding: 0;
+            border-left: 1px solid var(--color-border);
+        }
+
+        .toc li a {
+            display: block;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            transition: all 0.2s;
+        }
+
+        .toc li a:hover {
+            color: var(--color-accent);
+            border-left: 2px solid var(--color-accent);
+            margin-left: -1px;
+        }
+
+        .tutorial-main h2 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            margin-top: 60px;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .tutorial-main h2:first-child {
+            margin-top: 0;
+        }
+
+        .tutorial-main h3 {
+            font-size: 1.25rem;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        .tutorial-main p {
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+        }
+
+        .instruction-card {
+            background: var(--color-card-dark);
+            border: 1px solid var(--color-card-border);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 40px;
+        }
+
+        .step-number {
+            display: inline-flex;
+            width: 28px;
+            height: 28px;
+            background: var(--color-accent);
+            color: white;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-right: 12px;
+        }
+
+        .pre-requisite {
+            background: rgba(255, 140, 0, 0.1);
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 32px;
+        }
+
+        .pre-requisite h4 {
+            color: #ff8c00;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .code-block {
+            background: var(--color-code-bg);
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.9rem;
+            color: #c9d1d9;
+            margin-bottom: 24px;
+            overflow-x: auto;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #238636;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: filter 0.2s;
+        }
+
+        .btn-download:hover {
+            filter: brightness(1.1);
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid var(--color-card-border);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) {
+            .content-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sticky-sidebar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                        <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z" />
+                        <path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                    </svg>
+                </div>
+                <span>BraiDyn-BC</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#database">Database</a></li>
+                <li><a href="../index.html#tutorials">Tutorials</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+                <li><a href="https://braidyn-bc.jp/" class="nav-cta" target="_blank">Project Site</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Tutorial Hero -->
+    <header class="tutorial-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span>/</span>
+                <a href="../index.html#tutorials">Tutorials</a>
+                <span>/</span>
+                <span>MATLAB Tutorial</span>
+            </div>
+
+            <div class="tutorial-header">
+                <span class="tutorial-badge">MATLAB Tutorial</span>
+                <h1>NWBからPeri-Event Time Histogram (PETH)を作成する</h1>
+                <p style="color: var(--color-text-muted); font-size: 1.1rem; max-width: 800px;">
+                    MatNWBライブラリを使用して、Neurodata Without Borders (NWB)形式のデータから特定のイベントに基づいた神経活動の可視化を行います。
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-layout">
+            <aside class="sticky-sidebar">
+                <ul class="toc">
+                    <li><a href="#prep">準備</a></li>
+                    <li><a href="#setup">セットアップ手順</a></li>
+                    <li><a href="#script">デモコードの実行</a></li>
+                    <li><a href="#features">プログラムの機能</a></li>
+                    <li><a href="#resources">公式ドキュメント</a></li>
+                </ul>
+            </aside>
+
+            <main class="tutorial-main">
+                <section id="prep">
+                    <h2>準備</h2>
+                    <div class="pre-requisite">
+                        <h4>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4M12 17h.01" />
+                            </svg>
+                            事前確認
+                        </h4>
+                        <p style="margin-bottom: 0;">
+                            本チュートリアルを実行するには、<a href="operant-conditioning-process.html"
+                                style="color: #ff8c00; text-decoration: underline;">オペラント条件づけの学習過程</a>のサンプルデータをあらかじめローカル環境にダウンロードしておく必要があります。
+                        </p>
+                    </div>
+                </section>
+
+                <section id="setup">
+                    <h2>セットアップ手順</h2>
+                    <div class="instruction-card">
+                        <div style="margin-bottom: 24px;">
+                            <span class="step-number">1</span>
+                            <strong>MatNWBのセットアップ</strong>
+                            <p style="margin-top: 12px;">
+                                NWBファイルをMATLABから取り扱うための関数群である<strong>MatNWB</strong>を、公式のセットアップ手順に従ってインストールします。
+                            </p>
+                            <a href="https://neurodatawithoutborders.github.io/matnwb/" class="btn btn-secondary"
+                                target="_blank">MatNWB 公式サイト</a>
+                        </div>
+
+                        <div style="margin-bottom: 24px;">
+                            <span class="step-number">2</span>
+                            <strong>デモスクリプトのダウンロード</strong>
+                            <p style="margin-top: 12px;">
+                                以下のリンクから、本チュートリアルで使用するデモコード (<code>BraiDynDB_handlingSampleData.m</code>) をダウンロードしてください。
+                            </p>
+                            <a href="https://www.dropbox.com/scl/fi/fzws8va5y6xq8kzyvyj3c/BraiDynDB_handlingSampleData.m?rlkey=aofn0pyeziccivwwxgaonjywr&dl=1"
+                                class="btn-download">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                </svg>
+                                デモコードをダウンロード
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="script">
+                    <h2>デモコードの実行</h2>
+                    <p>
+                        MATLAB上でダウンロードした <code>BraiDynDB_handlingSampleData.m</code> を開き、以下の変数 <code>nwbpath</code>
+                        を、お手元のNWBファイルが保存されているパスに変更して実行してください。
+                    </p>
+                    <div class="code-block">
+                        % 読み込みたいNWBファイルへのパスを指定<br>
+                        nwbpath = 'C:\Path\To\Your\sample_data.nwb';<br><br>
+                        % デモコードの実行<br>
+                        BraiDynDB_handlingSampleData
+                    </div>
+                </section>
+
+                <section id="features">
+                    <h2>プログラムの機能</h2>
+                    <p>このスクリプトでは、以下の解析と可視化を自動で行います：</p>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <strong>セッションメタデータの表示</strong>
+                            <p style="font-size: 0.8rem; margin-top: 4px; color: var(--color-text-muted);">
+                                実験日や個体情報などの基本情報を確認します。</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>トライアル情報の取り込み</strong>
+                            <p style="font-size: 0.8rem; margin-top: 4px; color: var(--color-text-muted);">
+                                音刺激のタイミングや報酬の有無などを抽出します。</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>神経活動データの表示</strong>
+                            <p style="font-size: 0.8rem; margin-top: 4px; color: var(--color-text-muted);">
+                                Ca2+イメージング等の時系列データをプロットします。</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>PETHの作成</strong>
+                            <p style="font-size: 0.8rem; margin-top: 4px; color: var(--color-text-muted);">
+                                音刺激開始タイミングにアラインした神経活動のヒストグラムを表示します。</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>生データ(5kHz)の解析</strong>
+                            <p style="font-size: 0.8rem; margin-top: 4px; color: var(--color-text-muted);">
+                                高サンプリングの生データの取り出しとPETH作成を行います。</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>行動解析(DLC)の読み込み</strong>
+                            <p style="font-size: 0.8rem; margin-top: 4px; color: var(--color-text-muted);">
+                                DeepLabCutで推定されたキーポイントや瞳孔径の変化を表示します。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="resources">
+                    <h2>公式ドキュメント</h2>
+                    <p>MatNWBのより詳細な仕様については、以下の公式チュートリアルも併せて参照してください。</p>
+                    <ul style="padding-left: 20px;">
+                        <li style="margin-bottom: 12px;">
+                            <a href="https://neurodatawithoutborders.github.io/matnwb/tutorials/html/read_demo.html#H_01DD834C"
+                                target="_blank" style="color: var(--color-accent);">Reading NWB Data in MATLAB</a>
+                        </li>
+                        <li>
+                            <a href="https://neurodatawithoutborders.github.io/matnwb/tutorials/html/intro.html"
+                                target="_blank" style="color: var(--color-accent);">Introduction to MatNWB</a>
+                        </li>
+                    </ul>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="../index.html" class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                            <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z" />
+                            <path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                        </svg>
+                    </div>
+                    <span>BraiDyn-BC Database</span>
+                </a>
+
+                <ul class="footer-links">
+                    <li><a href="index.html#license">Data License</a></li>
+                    <li><a href="index.html#ethics">Ethics Statement</a></li>
+                    <li><a href="index.html#privacy">Privacy Policy</a></li>
+                    <li><a href="https://braidyn-bc.jp/" target="_blank">Project Site</a></li>
+                </ul>
+
+                <p class="copyright">
+                    © Copyright 学術変革領域A「行動変容を創発する脳ダイナミクスの解読と操作が開く多元生物学」総括班 分担者 中江 健
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
