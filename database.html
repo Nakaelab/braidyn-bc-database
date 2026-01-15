@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Explorer | BraiDyn-BC Database</title>
+    <meta name="description" content="BraiDyn-BCが提供する脳活動と行動の縦断的データセット。被験者、セッション、計測データから検索・フィルタリングが可能です。">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --color-bg-page: #040813;
+            --color-surface: #0a1124;
+            --color-surface-hover: #111a33;
+            --color-border-subtle: rgba(255, 255, 255, 0.08);
+            --color-td-text: #e2e8f0;
+            --color-label: #94a3b8;
+        }
+
+        body {
+            background: var(--color-bg-page);
+            color: #ffffff;
+        }
+
+        .db-hero {
+            padding: 140px 0 60px;
+            background: radial-gradient(circle at top right, #1e3a8a 0%, #040813 100%);
+            border-bottom: 1px solid var(--color-border-subtle);
+        }
+
+        .db-header-area {
+            max-width: 800px;
+        }
+
+        .db-header-area h1 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .db-header-area p {
+            font-size: 1.1rem;
+            color: var(--color-label);
+            line-height: 1.6;
+        }
+
+        /* Explorer Layout */
+        .explorer-container {
+            padding: 40px 0 100px;
+        }
+
+        .explorer-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+        }
+
+        /* Sidebar Filters */
+        .filter-sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .filter-group {
+            margin-bottom: 32px;
+        }
+
+        .filter-title {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: var(--color-td-text);
+            transition: color 0.2s;
+        }
+
+        .filter-option:hover {
+            color: var(--color-accent);
+        }
+
+        .filter-option input[type="checkbox"] {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--color-border-subtle);
+            border-radius: 4px;
+            background: transparent;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s;
+        }
+
+        .filter-option input[type="checkbox"]:checked {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+        }
+
+        .filter-option input[type="checkbox"]:checked::after {
+            content: '✓';
+            position: absolute;
+            color: white;
+            font-size: 12px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Table Area */
+        .table-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .search-box input {
+            width: 100%;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border-subtle);
+            padding: 12px 16px 12px 44px;
+            border-radius: 8px;
+            color: white;
+            font-size: 0.9rem;
+            transition: border-color 0.2s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+
+        .search-box svg {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-label);
+        }
+
+        .table-wrapper {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.02);
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.75rem;
+            color: var(--color-label);
+            border-bottom: 1px solid var(--color-border-subtle);
+        }
+
+        td {
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--color-border-subtle);
+            color: var(--color-td-text);
+        }
+
+        tr:hover td {
+            background: var(--color-surface-hover);
+        }
+
+        .subject-id {
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .session-type {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .type-task {
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .type-resting {
+            background: rgba(139, 92, 246, 0.1);
+            color: #a78bfa;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .type-sensory {
+            background: rgba(16, 185, 129, 0.1);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .data-flags {
+            display: flex;
+            gap: 8px;
+        }
+
+        .flag {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--color-border-subtle);
+            position: relative;
+        }
+
+        .flag.active {
+            background: var(--color-accent);
+            box-shadow: 0 0 8px var(--color-accent);
+        }
+
+        .flag:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e293b;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            margin-bottom: 8px;
+            z-index: 10;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--color-accent);
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .download-btn:hover {
+            color: #3b82f6;
+        }
+
+        @media (max-width: 1024px) {
+            .explorer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-sidebar {
+                position: relative;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                        <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z" />
+                        <path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                    </svg>
+                </div>
+                <span>BraiDyn-BC</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="database.html" class="active">Database</a></li>
+                <li><a href="index.html#tutorials">Tutorials</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="https://braidyn-bc.jp/" class="nav-cta" target="_blank">Project Site</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="db-hero">
+        <div class="container">
+            <div class="db-header-area">
+                <h1>Database Explorer</h1>
+                <p>
+                    実験個体（Subject）、記録タイプ、セッションごとのデータを詳細に探索できます。各セッションで使用可能なモダリティ（顔、体、眼球ビデオ等）のメタデータを確認し、ダイレクトにアクセス可能です。
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Explorer Section -->
+    <section class="explorer-container">
+        <div class="container">
+            <div class="explorer-grid">
+                <!-- Sidebar -->
+                <aside class="filter-sidebar">
+                    <div class="filter-group">
+                        <h3 class="filter-title">Subject ID</h3>
+                        <div class="filter-options">
+                            <label class="filter-option"><input type="checkbox" checked> VG1GC-105</label>
+                            <label class="filter-option"><input type="checkbox" checked> VG1GC-53</label>
+                            <label class="filter-option"><input type="checkbox" checked> VG1GC-48</label>
+                            <label class="filter-option"><input type="checkbox" checked> VG1GC-122</label>
+                            <label class="filter-option"><input type="checkbox" checked> VG1GC-130</label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h3 class="filter-title">Session Type</h3>
+                        <div class="filter-options">
+                            <label class="filter-option"><input type="checkbox" checked> Task</label>
+                            <label class="filter-option"><input type="checkbox" checked> Resting-state</label>
+                            <label class="filter-option"><input type="checkbox" checked> Sensory-stim</label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h3 class="filter-title">Modality</h3>
+                        <div class="filter-options">
+                            <label class="filter-option"><input type="checkbox"> Face Camera</label>
+                            <label class="filter-option"><input type="checkbox"> Body Camera</label>
+                            <label class="filter-option"><input type="checkbox"> Eye Camera</label>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Data Table -->
+                <main class="table-area">
+                    <div class="table-controls">
+                        <div class="search-box">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="11" cy="11" r="8" />
+                                <path d="M21 21l-4.35-4.35" />
+                            </svg>
+                            <input type="text" placeholder="Search sessions (e.g. VG1GC-105)...">
+                        </div>
+                        <div class="results-count" style="font-size: 0.9rem; color: var(--color-label);">
+                            Displaying 12 sessions
+                        </div>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Subject</th>
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Day</th>
+                                    <th>Flags</th>
+                                    <th>Files</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Sample Rows based on Drive data -->
+                                <tr>
+                                    <td class="subject-id">VG1GC-105</td>
+                                    <td>2024-01-24</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>Day 1</td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="https://drive.google.com/drive/folders/1yiu-4C3_54SENCy-OLp-E9VgGUgeh8Hd"
+                                            class="download-btn" target="_blank">
+                                            <span>NWB</span>
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path
+                                                    d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                                            </svg>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-105</td>
+                                    <td>2024-01-25</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>Day 2</td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="https://drive.google.com/drive/folders/1yiu-4C3_54SENCy-OLp-E9VgGUgeh8Hd"
+                                            class="download-btn" target="_blank">
+                                            <span>NWB</span>
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path
+                                                    d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                                            </svg>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-53</td>
+                                    <td>2024-01-27</td>
+                                    <td><span class="session-type type-resting">Resting</span></td>
+                                    <td>Day 1</td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag" data-tooltip="Face Cam"></div>
+                                            <div class="flag" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="https://drive.google.com/drive/folders/1yiu-4C3_54SENCy-OLp-E9VgGUgeh8Hd"
+                                            class="download-btn" target="_blank">
+                                            <span>NWB</span>
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path
+                                                    d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                                            </svg>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-48</td>
+                                    <td>2024-02-01</td>
+                                    <td><span class="session-type type-sensory">Sensory</span></td>
+                                    <td>Day 3</td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="https://drive.google.com/drive/folders/1yiu-4C3_54SENCy-OLp-E9VgGUgeh8Hd"
+                                            class="download-btn" target="_blank">
+                                            <span>NWB</span>
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path
+                                                    d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                                            </svg>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <!-- More Rows... -->
+                                <tr>
+                                    <td class="subject-id">VG1GC-122</td>
+                                    <td>2024-02-05</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>Day 5</td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="https://drive.google.com/drive/folders/1yiu-4C3_54SENCy-OLp-E9VgGUgeh8Hd"
+                                            class="download-btn" target="_blank">
+                                            <span>NWB</span>
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path
+                                                    d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                                            </svg>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                                <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z" />
+                                <path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                            </svg>
+                        </div>
+                        <span>BraiDyn-BC</span>
+                    </a>
+                    <p>BraiDyn-BC Database is a collaborative project dedicated to open neural and behavioral data.</p>
+                </div>
+                <!-- ... other footer parts ... -->
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BraiDyn-BC Project. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

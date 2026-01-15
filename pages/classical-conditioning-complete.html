@@ -18,74 +18,107 @@
     <link rel="stylesheet" href="../styles.css">
     <style>
         :root {
-            --color-card-dark: rgba(255, 255, 255, 0.03);
-            --color-card-border: rgba(255, 255, 255, 0.08);
+            /* Light Theme Variables for Content */
+            --color-card-bg: #ffffff;
+            --color-card-border: #e2e8f0;
+            --color-text-main: #1a2332;
+            --color-text-sub: #4b5563;
+        }
+
+        body {
+            background: #f8fafc;
+            color: var(--color-text-main);
+        }
+
+        /* Navbar Text Overrides for Dark Hero */
+        .navbar .logo,
+        .navbar .logo span {
+            color: white !important;
+        }
+
+        .navbar .nav-links a {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .navbar .nav-links a:hover {
+            color: var(--color-accent) !important;
+        }
+
+        .navbar .logo-icon svg {
+            stroke: white !important;
         }
 
         .dataset-hero {
             padding: 120px 0 60px;
-            background: linear-gradient(to bottom, var(--color-bg), var(--color-bg-light));
-            border-bottom: 1px solid var(--color-border);
+            background: #020617;
+            background: radial-gradient(circle at top right, #1e3a8a 0%, #020617 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
         }
 
         .breadcrumb {
             display: flex;
             gap: 8px;
-            font-size: 0.8rem;
-            color: var(--color-text-muted);
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
             margin-bottom: 24px;
         }
 
-        .breadcrumb a:hover {
-            color: var(--color-accent);
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.2s;
         }
 
-        .dataset-title-area {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            gap: 40px;
-            flex-wrap: wrap;
+        .breadcrumb a:hover {
+            color: #ffffff;
+        }
+
+        .breadcrumb span {
+            color: rgba(255, 255, 255, 0.3);
         }
 
         .dataset-title-area h1 {
             font-family: var(--font-display);
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 8px;
+            font-size: clamp(2rem, 5vw, 2.75rem);
+            margin-bottom: 12px;
+            color: #ffffff;
+            font-weight: 700;
         }
 
         .dataset-subtitle {
             font-size: 1.1rem;
-            color: var(--color-text-muted);
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+            max-width: 800px;
         }
 
-        .dataset-stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            margin-top: 40px;
-        }
 
-        .dataset-stat-card {
-            background: var(--color-card-dark);
-            border: 1px solid var(--color-card-border);
-            padding: 20px;
-            border-radius: 12px;
-        }
 
-        .dataset-stat-label {
+        /* Hero Badge Styles */
+        .dataset-hero .complete-badge,
+        .dataset-hero .sample-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 4px;
             font-size: 0.75rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--color-text-muted);
-            margin-bottom: 8px;
+            letter-spacing: 0.08em;
+            margin-bottom: 20px;
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.3);
         }
 
-        .dataset-stat-value {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--color-accent);
+        .dataset-hero .complete-badge {
+            border-color: rgba(52, 211, 153, 0.4);
+            color: #6ee7b7;
+        }
+
+        .dataset-hero .sample-badge {
+            border-color: rgba(251, 191, 36, 0.4);
+            color: #fcd34d;
         }
 
         .content-grid {
@@ -104,44 +137,46 @@
             font-size: 1.75rem;
             margin-bottom: 24px;
             padding-bottom: 12px;
-            border-bottom: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-card-border);
+            color: var(--color-text-main);
         }
 
         .main-content h3 {
             font-size: 1.25rem;
             margin: 32px 0 16px;
-            color: white;
+            color: var(--color-text-main);
         }
 
         .main-content p {
             margin-bottom: 20px;
-            color: var(--color-text-muted);
+            color: var(--color-text-sub);
             line-height: 1.8;
         }
 
         .info-alert {
-            background: rgba(74, 158, 255, 0.1);
-            border: 1px solid rgba(74, 158, 255, 0.3);
+            background: rgba(74, 158, 255, 0.05);
+            border: 1px solid rgba(74, 158, 255, 0.2);
             border-radius: 8px;
-            padding: 20px;
+            padding: 24px;
             margin: 24px 0;
         }
 
         .info-alert h4 {
             color: var(--color-accent);
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 8px;
+            font-size: 1.1rem;
         }
 
         .dir-tree {
-            background: rgba(0, 0, 0, 0.2);
+            background: #1e293b;
             padding: 20px;
             border-radius: 8px;
             font-family: 'Consolas', monospace;
             font-size: 0.85rem;
-            color: #c9d1d9;
+            color: #e2e8f0;
             margin: 16px 0;
             line-height: 1.5;
             border: 1px solid var(--color-card-border);
@@ -150,6 +185,9 @@
         .table-container {
             overflow-x: auto;
             margin: 24px 0;
+            background: white;
+            border: 1px solid var(--color-card-border);
+            border-radius: 8px;
         }
 
         table {
@@ -162,13 +200,17 @@
         td {
             padding: 12px 16px;
             text-align: left;
-            border-bottom: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-card-border);
         }
 
         th {
-            background: rgba(255, 255, 255, 0.05);
+            background: #f8fafc;
             font-weight: 600;
-            color: white;
+            color: var(--color-text-main);
+        }
+
+        td {
+            color: var(--color-text-sub);
         }
 
         .sidebar-section {
@@ -179,18 +221,19 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--color-text-muted);
+            color: var(--color-text-sub);
             margin-bottom: 16px;
+            font-weight: 700;
         }
 
         .cite-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--color-border);
+            background: white;
+            border: 1px solid var(--color-card-border);
             padding: 20px;
             border-radius: 8px;
             font-size: 0.85rem;
             line-height: 1.6;
-            color: var(--color-text-muted);
+            color: var(--color-text-sub);
             word-break: break-all;
         }
 
@@ -199,9 +242,7 @@
                 grid-template-columns: 1fr;
             }
 
-            .dataset-stats {
-                grid-template-columns: 1fr 1fr;
-            }
+
         }
     </style>
 </head>
@@ -223,7 +264,7 @@
 
             <ul class="nav-links">
                 <li><a href="../index.html#about">About</a></li>
-                <li><a href="../index.html#database">Database</a></li>
+                <li><a href="../database.html">Database</a></li>
                 <li><a href="../index.html#tutorials">Tutorials</a></li>
                 <li><a href="../index.html#contact">Contact</a></li>
                 <li><a href="https://braidyn-bc.jp/" class="nav-cta" target="_blank">Project Site</a></li>
@@ -237,7 +278,7 @@
             <div class="breadcrumb">
                 <a href="../index.html">Home</a>
                 <span>/</span>
-                <a href="../index.html#database">Database</a>
+                <a href="../database.html">Database</a>
                 <span>/</span>
                 <span>Classical Conditioning Complete</span>
             </div>
@@ -250,24 +291,7 @@
                 </div>
             </div>
 
-            <div class="dataset-stats">
-                <div class="dataset-stat-card">
-                    <div class="dataset-stat-label">Data Size</div>
-                    <div class="dataset-stat-value">612 GB</div>
-                </div>
-                <div class="dataset-stat-card">
-                    <div class="dataset-stat-label">Individuals</div>
-                    <div class="dataset-stat-value">2</div>
-                </div>
-                <div class="dataset-stat-card">
-                    <div class="dataset-stat-label">Sessions</div>
-                    <div class="dataset-stat-value">34</div>
-                </div>
-                <div class="dataset-stat-card">
-                    <div class="dataset-stat-label">Animal</div>
-                    <div class="dataset-stat-value">Mouse</div>
-                </div>
-            </div>
+
         </div>
     </header>
 
@@ -446,17 +470,6 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <a href="../index.html" class="logo">
-                    <div class="logo-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
-                            <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z" />
-                            <path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
-                        </svg>
-                    </div>
-                    <span>BraiDyn-BC Database</span>
-                </a>
-
                 <ul class="footer-links">
                     <li><a href="../index.html#license">Data License</a></li>
                     <li><a href="../index.html#ethics">Ethics Statement</a></li>
