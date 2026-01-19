@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Database Explorer | BraiDyn-BC Database</title>
-    <meta name="description" content="BraiDyn-BCが提供する脳活動と行動の縦断的データセット。被験者、セッション、計測データから検索・フィルタリングが可能です。">
+    <meta name="description"
+        content="Explore brain-wide neural activity and behavioral datasets from the BraiDyn-BC project. Search and filter by subject, session type, and data modality.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,6 +132,86 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+        }
+
+        /* Improved Filter UI */
+        .filter-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .btn-filter-toggle {
+            background: none;
+            border: 1px solid var(--color-border-subtle);
+            color: var(--color-accent);
+            font-size: 0.7rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-filter-toggle:hover {
+            background: rgba(74, 158, 255, 0.1);
+            border-color: var(--color-accent);
+        }
+
+        .filter-search {
+            margin-bottom: 16px;
+        }
+
+        .filter-search input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--color-border-subtle);
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: white;
+            font-size: 0.85rem;
+        }
+
+        .filter-search input:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+
+        .sidebar-search-wrapper {
+            position: relative;
+        }
+
+        .sidebar-search-wrapper .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-label);
+            pointer-events: none;
+        }
+
+        .sidebar-search-wrapper input {
+            padding-left: 32px;
+        }
+
+        .scrollable-filters {
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+
+        .scrollable-filters::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .scrollable-filters::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .scrollable-filters::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
         }
 
         /* Table Area */
@@ -272,17 +353,54 @@
             z-index: 10;
         }
 
-        .download-btn {
-            display: inline-flex;
+        .file-actions {
+            display: flex;
+            gap: 8px;
             align-items: center;
-            gap: 6px;
-            color: var(--color-accent);
-            font-weight: 600;
-            transition: color 0.2s;
         }
 
-        .download-btn:hover {
-            color: #3b82f6;
+        .btn-file {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn-nwb {
+            background: var(--color-accent);
+            color: white;
+            border: 1px solid var(--color-accent);
+        }
+
+        .btn-nwb:hover {
+            background: #3b82f6;
+            border-color: #3b82f6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(74, 158, 255, 0.3);
+        }
+
+        .btn-raw {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--color-td-text);
+            border: 1px solid var(--color-border-subtle);
+        }
+
+        .btn-raw:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .btn-file svg {
+            flex-shrink: 0;
         }
 
         @media (max-width: 1024px) {
@@ -342,31 +460,95 @@
                 <!-- Sidebar -->
                 <aside class="filter-sidebar">
                     <div class="filter-group">
-                        <h3 class="filter-title">Subject ID</h3>
-                        <div class="filter-options">
-                            <label class="filter-option"><input type="checkbox" checked> VG1GC-105</label>
-                            <label class="filter-option"><input type="checkbox" checked> VG1GC-53</label>
-                            <label class="filter-option"><input type="checkbox" checked> VG1GC-48</label>
-                            <label class="filter-option"><input type="checkbox" checked> VG1GC-122</label>
-                            <label class="filter-option"><input type="checkbox" checked> VG1GC-130</label>
+                        <div class="filter-header-row">
+                            <h3 class="filter-title">Subject ID</h3>
+                            <button class="btn-filter-toggle" id="toggle-all-subjects">Deselect All</button>
+                        </div>
+                        <div class="filter-search">
+                            <div class="sidebar-search-wrapper">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="search-icon">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="M21 21l-4.35-4.35" />
+                                </svg>
+                                <input type="text" id="subject-filter-search" placeholder="Filter IDs (e.g. 105)...">
+                            </div>
+                        </div>
+                        <div class="filter-options scrollable-filters" id="subject-checkbox-list">
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-48" checked> VG1GC-48</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-51" checked> VG1GC-51</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-52" checked> VG1GC-52</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-53" checked> VG1GC-53</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-54" checked> VG1GC-54</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-60" checked> VG1GC-60</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-61" checked> VG1GC-61</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-63" checked> VG1GC-63</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-66" checked> VG1GC-66</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-73" checked> VG1GC-73</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-78" checked> VG1GC-78</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-85" checked> VG1GC-85</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-87" checked> VG1GC-87</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-99" checked> VG1GC-99</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-105" checked> VG1GC-105</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-109" checked> VG1GC-109</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-116" checked> VG1GC-116</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-117" checked> VG1GC-117</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-119" checked> VG1GC-119</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-122" checked> VG1GC-122</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-124" checked> VG1GC-124</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-125" checked> VG1GC-125</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-127" checked> VG1GC-127</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-129" checked> VG1GC-129</label>
+                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
+                                    value="VG1GC-130" checked> VG1GC-130</label>
                         </div>
                     </div>
 
                     <div class="filter-group">
                         <h3 class="filter-title">Session Type</h3>
                         <div class="filter-options">
-                            <label class="filter-option"><input type="checkbox" checked> Task</label>
-                            <label class="filter-option"><input type="checkbox" checked> Resting-state</label>
-                            <label class="filter-option"><input type="checkbox" checked> Sensory-stim</label>
+                            <label class="filter-option"><input type="checkbox" class="type-checkbox" value="Task"
+                                    checked> Task</label>
+                            <label class="filter-option"><input type="checkbox" class="type-checkbox" value="Resting"
+                                    checked> Resting-state</label>
+                            <label class="filter-option"><input type="checkbox" class="type-checkbox" value="Sensory"
+                                    checked> Sensory-stim</label>
                         </div>
                     </div>
 
                     <div class="filter-group">
                         <h3 class="filter-title">Modality</h3>
                         <div class="filter-options">
-                            <label class="filter-option"><input type="checkbox"> Face Camera</label>
-                            <label class="filter-option"><input type="checkbox"> Body Camera</label>
-                            <label class="filter-option"><input type="checkbox"> Eye Camera</label>
+                            <label class="filter-option"><input type="checkbox" class="modality-checkbox"
+                                    value="Face Cam" checked> Face Camera</label>
+                            <label class="filter-option"><input type="checkbox" class="modality-checkbox"
+                                    value="Body Cam" checked> Body Camera</label>
+                            <label class="filter-option"><input type="checkbox" class="modality-checkbox"
+                                    value="Eye Cam" checked> Eye Camera</label>
                         </div>
                     </div>
                 </aside>
@@ -380,10 +562,10 @@
                                 <circle cx="11" cy="11" r="8" />
                                 <path d="M21 21l-4.35-4.35" />
                             </svg>
-                            <input type="text" placeholder="Search sessions (e.g. VG1GC-105)...">
+                            <input type="text" id="main-search-input" placeholder="Search sessions (e.g. VG1GC-105)...">
                         </div>
                         <div class="results-count" style="font-size: 0.9rem; color: var(--color-label);">
-                            Displaying 12 sessions
+                            Displaying 25 subjects
                         </div>
                     </div>
 
@@ -394,18 +576,16 @@
                                     <th>Subject</th>
                                     <th>Date</th>
                                     <th>Type</th>
-                                    <th>Day</th>
                                     <th>Flags</th>
                                     <th>Files</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Sample Rows based on Drive data -->
+                                <!-- Complete Subjects List -->
                                 <tr>
-                                    <td class="subject-id">VG1GC-105</td>
-                                    <td>2024-01-24</td>
+                                    <td class="subject-id">VG1GC-48</td>
+                                    <td>2023-08-21</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>Day 1</td>
                                     <td>
                                         <div class="data-flags">
                                             <div class="flag active" data-tooltip="Body Cam"></div>
@@ -414,70 +594,79 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <a href="https://drive.google.com/drive/folders/1yiu-4C3_54SENCy-OLp-E9VgGUgeh8Hd"
-                                            class="download-btn" target="_blank">
-                                            <span>NWB</span>
-                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="2">
-                                                <path
-                                                    d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                                            </svg>
-                                        </a>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/1lq_fdMpCEL4pbyt-a_LA6Yur6CEEiEsm"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#48/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="subject-id">VG1GC-105</td>
-                                    <td>2024-01-25</td>
+                                    <td class="subject-id">VG1GC-51</td>
+                                    <td>2023-09-05</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>Day 2</td>
                                     <td>
                                         <div class="data-flags">
                                             <div class="flag active" data-tooltip="Body Cam"></div>
                                             <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag" data-tooltip="Eye Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
                                         </div>
                                     </td>
                                     <td>
-                                        <a href="https://drive.google.com/drive/folders/1yiu-4C3_54SENCy-OLp-E9VgGUgeh8Hd"
-                                            class="download-btn" target="_blank">
-                                            <span>NWB</span>
-                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="2">
-                                                <path
-                                                    d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                                            </svg>
-                                        </a>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/1qsS3Gewcv4QsgxDO8_J_57QTbKCkDGep"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#51/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-52</td>
+                                    <td>2023-09-12</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/12qwq7U4EbSaA_zPxiuwRzTNX6kBH39AP"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#52/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="subject-id">VG1GC-53</td>
-                                    <td>2024-01-27</td>
+                                    <td>2023-09-20</td>
                                     <td><span class="session-type type-resting">Resting</span></td>
-                                    <td>Day 1</td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag" data-tooltip="Face Cam"></div>
-                                            <div class="flag" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="https://drive.google.com/drive/folders/1yiu-4C3_54SENCy-OLp-E9VgGUgeh8Hd"
-                                            class="download-btn" target="_blank">
-                                            <span>NWB</span>
-                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="2">
-                                                <path
-                                                    d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                                            </svg>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="subject-id">VG1GC-48</td>
-                                    <td>2024-02-01</td>
-                                    <td><span class="session-type type-sensory">Sensory</span></td>
-                                    <td>Day 3</td>
                                     <td>
                                         <div class="data-flags">
                                             <div class="flag active" data-tooltip="Body Cam"></div>
@@ -486,40 +675,586 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <a href="https://drive.google.com/drive/folders/1yiu-4C3_54SENCy-OLp-E9VgGUgeh8Hd"
-                                            class="download-btn" target="_blank">
-                                            <span>NWB</span>
-                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="2">
-                                                <path
-                                                    d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                                            </svg>
-                                        </a>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/1VNbPcMES3AOc_HQepqD01fsL_NyHBGNb"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#53/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
                                     </td>
                                 </tr>
-                                <!-- More Rows... -->
                                 <tr>
-                                    <td class="subject-id">VG1GC-122</td>
-                                    <td>2024-02-05</td>
+                                    <td class="subject-id">VG1GC-54</td>
+                                    <td>2023-09-28</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>Day 5</td>
                                     <td>
                                         <div class="data-flags">
                                             <div class="flag active" data-tooltip="Body Cam"></div>
                                             <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag" data-tooltip="Eye Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
                                         </div>
                                     </td>
                                     <td>
-                                        <a href="https://drive.google.com/drive/folders/1yiu-4C3_54SENCy-OLp-E9VgGUgeh8Hd"
-                                            class="download-btn" target="_blank">
-                                            <span>NWB</span>
-                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="2">
-                                                <path
-                                                    d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                                            </svg>
-                                        </a>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/1R7HRvw7HQ0iP6vw2mrRFZt78TP9KNUhD"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#54/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-60</td>
+                                    <td>2023-10-10</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/127gAd6dKNYjl1rWGFrVxtUk-MQcszjpV"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#60/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-61</td>
+                                    <td>2023-10-18</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/123txQNvaNjoOXhMu9za3qI--oqMBRGry"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#61/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-63</td>
+                                    <td>2023-10-25</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/1iM1wTk-gUKIGlnmQt3q6E2L89CklmvIO"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#63/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-66</td>
+                                    <td>2023-11-02</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/1TLiHy23aT6RLVjoe64H2FBV2cN27vaRn"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#66/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-73</td>
+                                    <td>2023-11-15</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/1eR4sQVmZMTc-s9WFx4s4Vi1BdOic4mbx"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#73/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-78</td>
+                                    <td>2023-11-28</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/1C49g8w32h05tPlIIBo98Q4VGZu95Ka-Z"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#78/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-85</td>
+                                    <td>2023-12-12</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/1wX7FOA26k-K2hAXOIxqceo4BX6p259mc"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#85/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-87</td>
+                                    <td>2023-12-25</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/1f56U3vmMx_xIKQ0P9Xi_PlIXE80jkXt_"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#87/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-99</td>
+                                    <td>2024-01-10</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/1CKajvj_qqcczboKJl-ktUKNo5VZlkBgl"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#99/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-105</td>
+                                    <td>2024-01-24</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/1yn8G9AO_VzRHev-20KXDJNg4Qwifu6Eg"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#105/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-109</td>
+                                    <td>2024-02-05</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/1uxF4AD6lG5qbpcUgjy463HCdWCTohxiy"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#109/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-116</td>
+                                    <td>2024-02-18</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/1LmiFsMTr1kNG452WC-jLsONwmRIIE7rO"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#116/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-117</td>
+                                    <td>2024-03-02</td>
+                                    <td><span class="session-type type-sensory">Sensory</span></td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/1gKX3kMnWn2c4aMRTJM3WpwgRW0e8xatX"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#117/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-119</td>
+                                    <td>2024-03-15</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/1jeL0bM_U8rV1A669w_i_D2MShQ3pbvxz"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#119/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-122</td>
+                                    <td>2024-03-28</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/18r_jTWIiephYb_XPQSC1WDwCsRoL9ARM"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#122/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-124</td>
+                                    <td>2024-04-10</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/1iJGx7gOt2tNYDg11RCzRqm-7tMu5ZRA4"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#124/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-125</td>
+                                    <td>2024-04-22</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/19e5ysijJyIj6PcYfDuqEqjrt6Lqqjd0Q"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#125/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-127</td>
+                                    <td>2024-05-05</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/11G0skDyaZ9MarY9esoRO8p9uIfl8-O4i"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#127/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-129</td>
+                                    <td>2024-05-18</td>
+                                    <td><span class="session-type type-task">Task</span></td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/1TzsQGCn-DEPlrmC3QdcrbKqQjvRN643L"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#129/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="subject-id">VG1GC-130</td>
+                                    <td>2024-06-01</td>
+                                    <td><span class="session-type type-resting">Resting</span></td>
+                                    <td>
+                                        <div class="data-flags">
+                                            <div class="flag active" data-tooltip="Body Cam"></div>
+                                            <div class="flag active" data-tooltip="Face Cam"></div>
+                                            <div class="flag active" data-tooltip="Eye Cam"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="file-actions">
+                                            <a href="https://drive.google.com/drive/folders/1mmLzvOFBGLbXfRX8IsI5L7Lv-VTzgzO5"
+                                                class="btn-file btn-nwb" target="_blank">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                                </svg>
+                                                NWB
+                                            </a>
+                                            <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html#sub-VG1-GC#130/"
+                                                class="btn-file btn-raw" target="_blank">Raw</a>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>
@@ -554,6 +1289,103 @@
             </div>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mainSearchInput = document.getElementById('main-search-input');
+            const subjectFilterSearch = document.getElementById('subject-filter-search');
+            const toggleAllSubjects = document.getElementById('toggle-all-subjects');
+            const subjectCheckboxes = document.querySelectorAll('.subject-checkbox');
+            const typeCheckboxes = document.querySelectorAll('.type-checkbox');
+            const modalityCheckboxes = document.querySelectorAll('.modality-checkbox');
+            const tableRows = document.querySelectorAll('tbody tr');
+            const resultsCount = document.querySelector('.results-count');
+
+            function filterTable() {
+                const searchTerm = mainSearchInput.value.toLowerCase();
+                const selectedSubjects = Array.from(subjectCheckboxes)
+                    .filter(cb => cb.checked)
+                    .map(cb => cb.value);
+
+                const selectedTypes = Array.from(typeCheckboxes)
+                    .filter(cb => cb.checked)
+                    .map(cb => cb.value);
+
+                const selectedModalities = Array.from(modalityCheckboxes)
+                    .filter(cb => cb.checked)
+                    .map(cb => cb.value);
+
+                let visibleCount = 0;
+                tableRows.forEach(row => {
+                    const subjectId = row.querySelector('.subject-id').textContent.trim();
+                    const sessionTypeSpan = row.querySelector('.session-type');
+                    const sessionType = sessionTypeSpan.textContent.trim();
+                    const textContent = row.textContent.toLowerCase();
+
+                    // For modalites, check data-tooltips in flags
+                    const activeFlags = Array.from(row.querySelectorAll('.flag.active'))
+                        .map(f => f.getAttribute('data-tooltip'));
+
+                    const matchesSearch = textContent.includes(searchTerm);
+                    const matchesSubject = selectedSubjects.includes(subjectId);
+
+                    // Simple logic for type match
+                    let matchesType = false;
+                    if (selectedTypes.includes("Task") && sessionType === "Task") matchesType = true;
+                    if (selectedTypes.includes("Resting") && sessionType === "Resting") matchesType = true;
+                    if (selectedTypes.includes("Sensory") && sessionType === "Sensory") matchesType = true;
+
+                    // Match modalities: Only show if ALL selected modalities are active for this subject
+                    // Or change to: show if ANY of the selected modalities are active?
+                    // Let's go with: Every selected modality must be present.
+                    let matchesModality = true;
+                    selectedModalities.forEach(mod => {
+                        if (!activeFlags.includes(mod)) matchesModality = false;
+                    });
+
+                    if (matchesSearch && matchesSubject && matchesType && matchesModality) {
+                        row.style.display = '';
+                        visibleCount++;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+
+                resultsCount.textContent = `Displaying ${visibleCount} subjects`;
+            }
+
+            // Main search input
+            mainSearchInput.addEventListener('input', filterTable);
+
+            // Sidebar Subject Filter Search
+            subjectFilterSearch.addEventListener('input', function () {
+                const term = this.value.toLowerCase();
+                document.querySelectorAll('#subject-checkbox-list .filter-option').forEach(option => {
+                    const text = option.textContent.toLowerCase();
+                    if (text.includes(term)) {
+                        option.style.display = '';
+                    } else {
+                        option.style.display = 'none';
+                    }
+                });
+            });
+
+            // Toggle All Subjects
+            toggleAllSubjects.addEventListener('click', function () {
+                const allChecked = Array.from(subjectCheckboxes).every(cb => cb.checked);
+                subjectCheckboxes.forEach(cb => cb.checked = !allChecked);
+                this.textContent = allChecked ? 'Select All' : 'Deselect All';
+                filterTable();
+            });
+
+            // Checkbox changes for everything
+            document.querySelectorAll('.filter-option input').forEach(cb => {
+                cb.addEventListener('change', filterTable);
+            });
+
+            // Initial run to set count
+            filterTable();
+        });
+    </script>
 </body>
 
 </html>
