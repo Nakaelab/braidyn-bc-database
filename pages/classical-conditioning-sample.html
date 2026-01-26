@@ -183,6 +183,27 @@
             color: var(--color-accent);
         }
 
+        .resource-preview {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #1a2332;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--color-card-border);
+            margin-bottom: 4px;
+        }
+
+        .resource-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .resource-card:hover .resource-preview img {
+            transform: scale(1.05);
+        }
+
         .resource-info h3 {
             font-size: 1rem;
             margin-bottom: 8px;
@@ -359,10 +380,56 @@
             </div>
 
             <div class="dataset-title-area">
-                <div>
-                    <span class="sample-badge">Sample</span>
-                    <h1>古典条件づけの学習過程</h1>
-                    <p class="dataset-subtitle">Classical Conditioning Learning Process</p>
+                <div style="display: flex; flex-direction: column; gap: 24px;">
+                    <div>
+                        <span class="sample-badge">Sample</span>
+                        <h1>古典条件づけの学習過程</h1>
+                        <p class="dataset-subtitle">Classical Conditioning Learning Process</p>
+                    </div>
+
+                    <p style="max-width: 700px; color: rgba(255,255,255,0.8); line-height: 1.7; font-size: 1.05rem;">
+                        2個体のマウスに対して17日間にわたり、音刺激に対する報酬予測行動（古典的条件づけ）の学習過程を追跡したマルチモーダルデータセット。サンプルとして学習完了後の1セッション分を提供。
+                    </p>
+
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 24px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.15); border-bottom: 1px solid rgba(255,255,255,0.15); max-width: 800px;">
+                        <div>
+                            <div
+                                style="font-size: 0.75rem; color: var(--color-accent); letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
+                                DATA TYPE</div>
+                            <div style="font-size: 1.25rem; font-weight: 700;">Sample <span
+                                    style="font-size:0.8em; font-weight:400; opacity:0.7;">(1 Session)</span></div>
+                        </div>
+                        <div>
+                            <div
+                                style="font-size: 0.75rem; color: var(--color-accent); letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
+                                INDIVIDUALS</div>
+                            <div style="font-size: 1.25rem; font-weight: 700;">2</div>
+                        </div>
+                        <div>
+                            <div
+                                style="font-size: 0.75rem; color: var(--color-accent); letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
+                                SESSIONS</div>
+                            <div style="font-size: 1.25rem; font-weight: 700;">17 Days</div>
+                        </div>
+                        <div>
+                            <div
+                                style="font-size: 0.75rem; color: var(--color-accent); letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
+                                ANIMAL</div>
+                            <div style="font-size: 1.25rem; font-weight: 700;">Mouse</div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <span
+                            style="background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1);">Wide-field
+                            1p</span>
+                        <span
+                            style="background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1);">Whole
+                            Cortex</span>
+                        <span
+                            style="background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1);">Multimodal</span>
+                    </div>
                 </div>
             </div>
 
@@ -377,214 +444,353 @@
                 <section id="abstract">
                     <h2>Abstract</h2>
                     <p>
-                        頭部固定マウスに対して古典的条件づけ実験を行いました。条件刺激(CS)として6kHzと10kHzの2種類の異なる音を提示し、無条件刺激(US)として6kHzの場合70%の確率で水を報酬として供給、10kHzの場合30%の確率で水を報酬として供給しました。この実験を2個体のマウスに対して30分間程度、合計17日間行うことで、古典条件づけの学習過程を記録しました。
-                    </p>
-                    <p>
-                        この記録実験において、脳活動をCa<sup>2+</sup>プローブを使い広視野1光子顕微鏡（Wide-field
-                        1p）により皮質全体の計測を行いました。さらにマウスの顔および上半身のビデオデータ(Face Camera, Body
-                        Camera)を計測しました。またマウスの行動データとしてリックや報酬のタイミングを計測しています(Behavior data)。
+                        頭部固定マウスに対して古典的条件づけ実験を行った。条件刺激(CS)として6kHzと10kHzの2種類の異なる音を提示し、無条件刺激(US)として6kHzの場合70%の確率で水を報酬として供給、10kHzの場合30%の確率で水を報酬として供給した。この実験を2個体のマウスに対して30分間程度、合計17日間行うことで、古典条件づけの学習過程を記録した。この記録実験において、脳活動をCa<sup>2+</sup>プローブを使い広視野1光子顕微鏡（Wide-field
+                        1p）により皮質全体の計測を行った。さらにマウスの顔および上半身のビデオデータ(Face Camera, Body
+                        Camera)の計測を行った。またマウスの行動データとしてリックや報酬のタイミングの計測した(Behavior
+                        data)。サンプルデータでは計測系において古典条件づけの学習が完了した10日目の1個体1SessionのデータをCreative Commonsライセンスで提供する。
                     </p>
                     <p>
                         Kondo et. al.
-                        2021では、同様のパラダイムでは古典条件づけの学習後のみの1光子イメージと2光子イメージの神経活動の解析を行った結果、背側前頭皮質内側部（dmFrC）が報酬期待行動における起始点であることが分かりました。本データセットでは、その学習にいたるまでにどのように脳内の活動が変化していくかを新しく計測したもののうち、学習後の1個体のサンプルデータを提供します。
+                        2021では、同様のパラダイムでは古典条件づけの<strong>学習後のみ</strong>の1光子イメージと2光子イメージの神経活動の解析を行った結果、背側前頭皮質内側部（dmFrC）が報酬期待行動における起始点であることが分かった。今回、共有予定のComplete
+                        datasetでは計測方法などはKondo et. al. 2021と共通した上で、その学習にいたるまでにどのように脳内の活動が変化していくかを新しく計測した。Sample
+                        datasetではKondo et. al. 2021と同じく学習後の1個体のデータを提供する。
                     </p>
+
+                    <!-- Inline Schematic Diagram -->
+                    <figure style="margin: 32px 0; text-align: center;">
+                        <img src="../images/Samplemause01.webp" alt="Experimental Setup Schematic"
+                            style="max-width: 700px; width: 100%; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                    </figure>
                 </section>
 
                 <!-- Data Resources -->
                 <section id="resources">
-                    <h2>Download Resources</h2>
+                    <h2>Sample Dataset</h2>
 
-                    <h3>Raw Data</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <div class="resource-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path d="M23 7l-7 5 7 5V7z" />
-                                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
-                                </svg>
-                            </div>
-                            <div class="resource-info">
-                                <span class="badge badge-raw">Raw</span>
-                                <h3>Body Camera Movie</h3>
-                                <p>マウスの腹側を30Hzで計測した動画データ (.avi)</p>
-                                <a href="https://drive.google.com/file/d/1WOjPcGWGOYsEa7bEKzeHOUoZRiG8Ta0z/view?usp=share_link"
-                                    class="resource-link" target="_blank">
-                                    View on Google Drive
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <path
-                                            d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                                    </svg>
-                                </a>
+                    <h3>Download</h3>
+                    <h4 style="font-size: 1rem; font-weight: 600; margin-top: 24px; margin-bottom: 16px;">Raw data</h4>
+
+                    <!-- Download Callout -->
+                    <div
+                        style="background: #f8fafc; border-left: 4px solid var(--color-accent); padding: 20px 24px; margin-bottom: 32px; border-radius: 4px;">
+                        <div style="display: flex; gap: 8px; align-items: flex-start;">
+                            <span style="font-size: 1.3em;">💡</span>
+                            <div style="flex: 1;">
+                                <div style="margin-bottom: 12px;">
+                                    <strong>Body Camera Movie</strong>:<br>
+                                    <strong>Face Camera Movie</strong>:<br>
+                                    <strong>Wide Field 1p</strong>(1-4は結合すると連続する1 Sessionのフレーム):
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem;">
+                                    <div>2: 🔗 <a
+                                            href="https://drive.google.com/file/d/1bT7by3ap05JRWv-thS1se5g1YO43JbsJ/view?usp=share_link"
+                                            target="_blank"
+                                            style="color: var(--color-accent);">1bT7by3ap05JRWv-thS1se5g1YO43JbsJ</a>
+                                    </div>
+                                    <div>3: 🔗 <a
+                                            href="https://drive.google.com/file/d/1bU4iMLvNkT9TSG0SSUCg-JH1d9GgllC2/view?usp=share_link"
+                                            target="_blank"
+                                            style="color: var(--color-accent);">1bU4iMLvNkT9TSG0SSUCg-JH1d9GgllC2</a>
+                                    </div>
+                                    <div>4: 🔗 <a
+                                            href="https://drive.google.com/file/d/1bU4iMLvNkT9TSG0SSUCg-JH1d9GgllC2/view"
+                                            target="_blank"
+                                            style="color: var(--color-accent);">1bU4iMLvNkT9TSG0SSUCg-JH1d9GgllC2</a>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 12px;">
+                                    <strong>Behavior data</strong>: 🔗 <a
+                                        href="https://drive.google.com/file/d/1ARVYDrgC6CfJprMDPTxl7uLJCiHOEd-v/view"
+                                        target="_blank"
+                                        style="color: var(--color-accent);">1ARVYDrgC6CfJprMDPTxl7uLJCiHOEd-v</a>
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="resource-card">
-                            <div class="resource-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path d="M23 7l-7 5 7 5V7z" />
-                                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
-                                </svg>
-                            </div>
-                            <div class="resource-info">
-                                <span class="badge badge-raw">Raw</span>
-                                <h3>Face Camera Movie</h3>
-                                <p>マウスの左側面顔を30Hzで計測した動画データ (.avi)</p>
-                                <a href="https://drive.google.com/file/d/1WOjPcGWGOYsEa7bEKzeHOUoZRiG8Ta0z/view?usp=share_link"
-                                    class="resource-link" target="_blank">
-                                    View on Google Drive
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <path
-                                            d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
+                    <!-- Data Overview Cards (Text-Only, Modern Design) -->
+                    <style>
+                        .data-overview-grid {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                            gap: 20px;
+                            margin: 40px 0;
+                        }
 
-                        <div class="resource-card">
-                            <div class="resource-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                                    <line x1="3" y1="9" x2="21" y2="9" />
-                                    <line x1="9" y1="21" x2="9" y2="9" />
-                                </svg>
-                            </div>
-                            <div class="resource-info">
-                                <span class="badge badge-raw">Raw</span>
-                                <h3>Wide Field 1p Imaging</h3>
-                                <p>両側大脳皮質のCa2+イメージングデータ (TIFF形式、4分割)</p>
-                                <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
-                                    <a href="https://drive.google.com/file/d/1WOjPcGWGOYsEa7bEKzeHOUoZRiG8Ta0z/view?usp=share_link"
-                                        class="resource-link" target="_blank">Part 1</a>
-                                    <a href="https://drive.google.com/file/d/1bT7by3ap05JRWv-thS1se5g1YO43JbsJ/view?usp=share_link"
-                                        class="resource-link" target="_blank">Part 2</a>
-                                    <a href="https://drive.google.com/file/d/1bU4iMLvNkT9TSG0SSUCg-JH1d9GgllC2/view?usp=share_link"
-                                        class="resource-link" target="_blank">Part 3</a>
-                                    <a href="https://drive.google.com/file/d/1bU4iMLvNkT9TSG0SSUCg-JH1d9GgllC2/view"
-                                        class="resource-link" target="_blank">Part 4</a>
+                        .data-card {
+                            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                            border-radius: 16px;
+                            padding: 1px;
+                            transition: transform 0.3s ease, box-shadow 0.3s ease;
+                        }
+
+                        .data-card:hover {
+                            transform: translateY(-4px);
+                            box-shadow: 0 20px 40px -15px rgba(102, 126, 234, 0.4);
+                        }
+
+                        .data-card-inner {
+                            background: white;
+                            border-radius: 15px;
+                            padding: 28px;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 12px;
+                        }
+
+                        .card-number {
+                            width: 44px;
+                            height: 44px;
+                            border-radius: 12px;
+                            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                            color: white;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.2rem;
+                            font-weight: 700;
+                            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+                        }
+
+                        .card-title {
+                            font-size: 1.15rem;
+                            font-weight: 700;
+                            color: #1a202c;
+                            margin: 0;
+                        }
+
+                        .card-description {
+                            font-size: 0.95rem;
+                            color: #4a5568;
+                            line-height: 1.6;
+                            margin: 0;
+                        }
+
+                        .card-meta {
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+                            margin-top: auto;
+                            padding-top: 12px;
+                            border-top: 1px solid #e2e8f0;
+                        }
+
+                        .card-badge {
+                            background: #f7fafc;
+                            border: 1px solid #e2e8f0;
+                            border-radius: 6px;
+                            padding: 4px 10px;
+                            font-size: 0.75rem;
+                            font-weight: 600;
+                            color: #4a5568;
+                            text-transform: uppercase;
+                            letter-spacing: 0.5px;
+                        }
+                    </style>
+
+                    <div class="data-overview-grid">
+                        <div class="data-card">
+                            <div class="data-card-inner">
+                                <div class="card-number">01</div>
+                                <h4 class="card-title">Body Camera Movie</h4>
+                                <p class="card-description">
+                                    マウスの腹側を30Hzで計測した動画データ。行動の詳細な時系列変化を記録。
+                                </p>
+                                <div class="card-meta">
+                                    <span class="card-badge">AVI Format</span>
+                                    <span class="card-badge">30Hz</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="resource-card">
-                            <div class="resource-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path d="M12 2v10M18 6l-6 6-6-6M4 20h16" />
-                                </svg>
+                        <div class="data-card">
+                            <div class="data-card-inner">
+                                <div class="card-number">02</div>
+                                <h4 class="card-title">Face Camera Movie</h4>
+                                <p class="card-description">
+                                    マウスの左側面顔を30Hzで計測した動画データ。表情や口の動きを詳細に捉える。
+                                </p>
+                                <div class="card-meta">
+                                    <span class="card-badge">AVI Format</span>
+                                    <span class="card-badge">30Hz</span>
+                                </div>
                             </div>
-                            <div class="resource-info">
-                                <span class="badge badge-raw">Raw</span>
-                                <h3>Behavior Data</h3>
-                                <p>リック、報酬、音のタイミング（5000Hz、.lvm形式）</p>
-                                <a href="https://drive.google.com/file/d/1ARVYDrgC6CfJprMDPTxl7uLJCiHOEd-v/view"
-                                    class="resource-link" target="_blank">
-                                    View on Google Drive
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <path
-                                            d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                                    </svg>
-                                </a>
+                        </div>
+
+                        <div class="data-card">
+                            <div class="data-card-inner">
+                                <div class="card-number">03</div>
+                                <h4 class="card-title">Wide Field 1p Imaging</h4>
+                                <p class="card-description">
+                                    両側大脳皮質のCa²⁺イメージングデータ。1セッション分を4ファイルに分割。
+                                </p>
+                                <div class="card-meta">
+                                    <span class="card-badge">TIFF</span>
+                                    <span class="card-badge">4 Parts</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="data-card">
+                            <div class="data-card-inner">
+                                <div class="card-number">04</div>
+                                <h4 class="card-title">Behavior Data</h4>
+                                <p class="card-description">
+                                    リック、報酬、音のタイミングを5000Hzで記録。学習過程の定量的評価に使用。
+                                </p>
+                                <div class="card-meta">
+                                    <span class="card-badge">LVM</span>
+                                    <span class="card-badge">5kHz</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <h3 style="margin-top: 48px;">Analyzed Data</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <div class="resource-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
-                                    <path d="M22 12A10 10 0 0 0 12 2v10z" />
-                                </svg>
-                            </div>
-                            <div class="resource-info">
-                                <span class="badge badge-analyzed">Analyzed</span>
-                                <h3>Processed Data</h3>
-                                <p>前処理済みの神経活動・行動データ（.mat形式）</p>
-                                <a href="https://drive.google.com/file/d/1YXSyKTomkIhSXvuRGAUTcL4q3y3D_ugi/view"
-                                    class="resource-link" target="_blank">
-                                    View on Google Drive
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <path
-                                            d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
+                    <h4 style="font-size: 1rem; font-weight: 600; margin-top: 48px; margin-bottom: 16px;">Analyzed data
+                    </h4>
 
-                        <div class="resource-card">
-                            <div class="resource-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                                    <circle cx="8.5" cy="8.5" r="1.5" />
-                                    <polyline points="21 15 16 10 5 21" />
-                                </svg>
-                            </div>
-                            <div class="resource-info">
-                                <span class="badge badge-analyzed">Analyzed</span>
-                                <h3>ROI region image</h3>
-                                <p>ROI設定領域の確認用画像</p>
-                                <a href="https://drive.google.com/file/d/1LumQZRiMN-Fc9ytKwf6RB7ho-gJs3F55/view"
-                                    class="resource-link" target="_blank">
-                                    View on Google Drive
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <path
-                                            d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="resource-card">
-                            <div class="resource-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <polygon points="5 3 19 12 5 21 5 3" />
-                                </svg>
-                            </div>
-                            <div class="resource-info">
-                                <span class="badge badge-analyzed">Analyzed</span>
-                                <h3>Activity movie</h3>
-                                <p>神経活動のダイナミクスを可視化した動画形式データ</p>
-                                <a href="https://drive.google.com/file/d/130enOL8zS7mvrcTcVF0nJgbXmB36u0xQ/view"
-                                    class="resource-link" target="_blank">
-                                    View on Google Drive
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <path
-                                            d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                                    </svg>
-                                </a>
+                    <div
+                        style="background: #f8fafc; border-left: 4px solid var(--color-accent); padding: 20px 24px; margin-bottom: 32px; border-radius: 4px;">
+                        <div style="display: flex; gap: 8px; align-items: flex-start;">
+                            <span style="font-size: 1.3em;">💡</span>
+                            <div style="flex: 1;">
+                                <div style="margin-bottom: 8px;">
+                                    <strong>Processed data</strong>: 🔗 <a
+                                        href="https://drive.google.com/file/d/1YXSyKTomkIhSXvuRGAUTcL4q3y3D_ugi/view"
+                                        target="_blank"
+                                        style="color: var(--color-accent);">1YXSyKTomkIhSXvuRGAUTcL4q3y3D_ugi</a>
+                                </div>
+                                <div style="margin-bottom: 8px;">
+                                    <strong>ROI region image</strong>: 🔗 <a
+                                        href="https://drive.google.com/file/d/1LumQZRiMN-Fc9ytKwf6RB7ho-gJs3F55/view"
+                                        target="_blank"
+                                        style="color: var(--color-accent);">1LumQZRiMN-Fc9ytKwf6RB7ho-gJs3F55</a>
+                                </div>
+                                <div>
+                                    <strong>Activity movie</strong>: 🔗 <a
+                                        href="https://drive.google.com/file/d/130enOL8zS7mvrcTcVF0nJgbXmB36u0xQ/view"
+                                        target="_blank"
+                                        style="color: var(--color-accent);">130enOL8zS7mvrcTcVF0nJgbXmB36u0xQ</a>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <p style="color: var(--color-text-sub); font-size: 0.95rem; margin-top: 24px;">データの詳細はData
+                        Descriptionを参照のこと。</p>
+
+                </section>
+
+                <!-- Data Description -->
+
+                <h3 style="margin-top: 48px;">Analyzed Data</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
+                                <path d="M22 12A10 10 0 0 0 12 2v10z" />
+                            </svg>
+                        </div>
+                        <div class="resource-info">
+                            <span class="badge badge-analyzed">Analyzed</span>
+                            <h3>Processed Data</h3>
+                            <p>前処理済みの神経活動・行動データ（.mat形式）</p>
+                            <a href="https://drive.google.com/file/d/1YXSyKTomkIhSXvuRGAUTcL4q3y3D_ugi/view"
+                                class="resource-link" target="_blank">
+                                View on Google Drive
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                <circle cx="8.5" cy="8.5" r="1.5" />
+                                <polyline points="21 15 16 10 5 21" />
+                            </svg>
+                        </div>
+                        <div class="resource-info">
+                            <span class="badge badge-analyzed">Analyzed</span>
+                            <h3>ROI region image</h3>
+                            <p>ROI設定領域の確認用画像</p>
+                            <a href="https://drive.google.com/file/d/1LumQZRiMN-Fc9ytKwf6RB7ho-gJs3F55/view"
+                                class="resource-link" target="_blank">
+                                View on Google Drive
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polygon points="5 3 19 12 5 21 5 3" />
+                            </svg>
+                        </div>
+                        <div class="resource-info">
+                            <span class="badge badge-analyzed">Analyzed</span>
+                            <h3>Activity movie</h3>
+                            <p>神経活動のダイナミクスを可視化した動画形式データ</p>
+                            <a href="https://drive.google.com/file/d/130enOL8zS7mvrcTcVF0nJgbXmB36u0xQ/view"
+                                class="resource-link" target="_blank">
+                                View on Google Drive
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 </section>
 
                 <!-- Data Description -->
                 <section id="description">
                     <h2>Data Description</h2>
                     <div class="method-item">
-                        <h4>Raw Data Details</h4>
-                        <p>マウス個体番号RCtg_Pv12、RCtg_Pv13の2個体をそれぞれ合計17日間計測しました。1日に4セッションの計測を行っています。</p>
-                        <ul>
-                            <li><strong>Body Camera Movie:</strong> 腹側を30Hzで計測したAVI動画。</li>
-                            <li><strong>Face Camera Movie:</strong> 左側面顔を30Hzで計測したAVI動画。</li>
-                            <li><strong>Wide Field 1p:</strong> 大脳皮質のCa2+プローブ励起光を30Hzで計測したTIFF画像。2GBごとの分割ファイル。</li>
-                            <li><strong>Behavior data:</strong> 5000Hzで計測されたLVM形式データ。</li>
+                        <h4>File description of sample data</h4>
+                        <p>マウスの個体番号RCtg_Pv12、RCtg_Pv13の2個体をそれぞれ合計17日間計測した。1日に4セッションの計測を行った。</p>
+
+                        <h5 style="margin-top:24px; margin-bottom:12px;">Raw data</h5>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 12px;">
+                                <strong>Body Camera Movie: Cam1-180623(日付)_RCtg_Pv12(個体番号).avi</strong><br>
+                                1Session中の実験中のマウスの腹側をカメラにより30Hzで計測した動画データ。
+                            </li>
+                            <li style="margin-bottom: 12px;">
+                                <strong>Face Camera Movie: Cam2-180623(日付)_RCtg_Pv12(個体番号).avi</strong><br>
+                                1Session中の実験中のマウスの左側面顔をカメラにより30Hzで計測した動画データ。
+                            </li>
+                            <li style="margin-bottom: 12px;">
+                                <strong>Wide Field 1p: 180623_RCtg_Pv12*.tif</strong><br>
+                                1Session中の実験中のマウスの上側からの両側大脳皮質のCa2+プローブの励起光を1光子顕微鏡により30Hzで計測したTIFF画像データ。最大2GBの4つのTIFファイルに分かれており、ファイル名後部にX2,X3,X4されたものは、それぞれが時間的に連続した画像ファイルになっている。
+                            </li>
+                            <li style="margin-bottom: 12px;">
+                                <strong>Behavior data: 180623(日付)_RCtg_Pv12(個体番号)_kondo_5000Hz.lvm</strong><br>
+                                リックや報酬のタイミングを5000Hzで計測した行動データ（ADコンバータを介してアナログ電圧を記録したもの）。MATLABで読み込むためには、<a
+                                    href="https://jp.mathworks.com/matlabcentral/fileexchange/19913-lvm-file-import"
+                                    target="_blank" style="color: var(--color-accent);">lvm-file-import</a>を利用のこと。
+                            </li>
                         </ul>
 
                         <div class="table-container">
-                            <h5>Behavior Data Channels (Segment1.data)</h5>
+                            <h5>Segment1.data Channels (HIGH=5V, LOW=0V)</h5>
                             <table>
                                 <thead>
                                     <tr>
@@ -596,33 +802,38 @@
                                 <tbody>
                                     <tr>
                                         <td>ch.1</td>
-                                        <td>lick sensor (Raw)</td>
-                                        <td>スパウト接触時HIGH</td>
+                                        <td>lick sensor(生)</td>
+                                        <td>マウスの舌がスパウトに接触しているときHIGH，していないときLOW．</td>
                                     </tr>
                                     <tr>
                                         <td>ch.2</td>
-                                        <td>Reward</td>
-                                        <td>HIGHになった瞬間にポンプ駆動</td>
+                                        <td>報酬</td>
+                                        <td>HIGHになった瞬間にポンプ駆動．</td>
                                     </tr>
                                     <tr>
                                         <td>ch.3</td>
-                                        <td>Tone</td>
-                                        <td>HIGHの間、ch.7の音が吹鳴</td>
+                                        <td>音</td>
+                                        <td>HIGHになっている間，ch7の音が鳴っている．</td>
                                     </tr>
                                     <tr>
                                         <td>ch.4</td>
-                                        <td>Imaging Frame</td>
-                                        <td>フレーム取得タイミング (HIGH=約3V)</td>
+                                        <td>イメージングフレーム</td>
+                                        <td>HIGHのとき取得．このchのみHIGH＝約3V.</td>
                                     </tr>
                                     <tr>
                                         <td>ch.5</td>
-                                        <td>lick sensor (Binary)</td>
-                                        <td>接触時1、非接触時0</td>
+                                        <td>lick sensor(バイナリ)</td>
+                                        <td>マウスの舌がスパウトに接触しているとき1，していないとき0．</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ch.6</td>
+                                        <td>音提示＋遅延期間フラグ</td>
+                                        <td>2のとき音提示＋遅延期間を示し，1のときそれ以外の期間（実際はこのchは解析に使用していない）</td>
                                     </tr>
                                     <tr>
                                         <td>ch.7</td>
-                                        <td>Tone Frequency</td>
-                                        <td>提示中の音の周波数 (kHz)</td>
+                                        <td>音周波数</td>
+                                        <td>ch.3がHIGHのとき，このchの音が鳴っている．単位kHz</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -630,15 +841,27 @@
                     </div>
 
                     <div class="method-item">
-                        <h4>Analyzed Data Structure (stdData)</h4>
+                        <h4>Analyzed data: stdData_(計測日)_(個体番号).mat</h4>
                         <p>MATLAB構造体 <code>stdData</code> には以下の主要なフィールドが含まれます：</p>
-                        <ul>
-                            <li><strong>fct3:</strong> 各ROIの神経活動（Zスコア化dF/F）。トライアル種別ごとに音オンセットでアライン (-6〜8s)。</li>
-                            <li><strong>flt3:</strong> fct3と同様の形式のリックレートデータ。</li>
-                            <li><strong>SVDresult:</strong> 画像スタックのSVD結果（トップ1000成分）。</li>
-                            <li><strong>videoSVD:</strong> ビデオMotion EnergyのSVD結果（トップ10成分）。</li>
-                            <li><strong>ROIs:</strong> ROIマスク配列。</li>
-                            <li><strong>Ds:</strong> 行動データをイメージングフレーム(30Hz)に合わせてダウンサンプリングしたもの。</li>
+                        <ul style="display: flex; flex-direction: column; gap: 12px;">
+                            <li><strong>fct3（セル配列）：</strong>各ROIの神経活動（ROI内ピクセル平均dF/F，全時系列でZスコア化）を，トライアルごとに音の鳴り始めに揃えて取り出したもの．セル配列の要素は『抜き出したトライアル種別』に対応しており，【A+，A-，B+，B-，実際のトライアル系列】（+/-はそれぞれ報酬有無に対応）となっている．各セル内は3次元配列．フレームxROIxトライアルの構造．音オンセットでアラインされており，-6〜8s．よってフレーム数は301．
+                            </li>
+                            <li><strong>flt3（セル配列）：</strong>fct3と同様だが，神経活動のかわりにリッキング（lick-rateとして連続値化後，Zスコア化）が入っている．
+                            </li>
+                            <li><strong>SVDresult（構造体）：</strong>元画像スタック（処理内容3）に対してSVDを行った結果．各成分ともにデータ量削減のため特異値トップ1000個まで保存．特異値行列Sは対角要素のみ．
+                            </li>
+                            <li><strong>videoSVD（構造体）：</strong>ビデオMotion EnergyをSVDしたもの．FaceMapによって生成．トップ10特異値．</li>
+                            <li><strong>Smode（セル配列）：</strong>空間モード．上半身，鼻，ヒゲ，口部分ごと．</li>
+                            <li><strong>Tmode（セル配列）：</strong>時間モード．トライアル種別ごと．セル内配列はフレームx特異時間モードxトライアルx体部位．</li>
+                            <li><strong>ROIs（配列）：</strong>ROIマスク　ROI数xY（取得画像の縦次元）xX（取得画像の横次元）</li>
+                            <li><strong>Bhv（構造体）：</strong>行動データから抽出した各イベント生起状態，リッキングなど．</li>
+                            <li><strong>Ds（構造体）：</strong>実際の行動データ（センサーなどからのアナログ電圧）は5kHzサンプリングされており，イメージングデータのサンプリングレートと異なっている．そのためイメージングの各フレーム取得タイミングを参照して，行動データを30Hzにダウンサンプルしたもの．中身はリッキング（生データ，センサーからのアナログ電圧），リック頻度（リッキングから計算），報酬，音A，音B．
+                            </li>
+                            <li><strong>Idx（構造体）：</strong>全トライアルにおける報酬，音A，音Bの提示状態．</li>
+                            <li><strong>TrigF（構造体）：</strong>フィールド名のイベントオンセット（イメージングフレーム内の位置に対応）．US条件ごとに分けた場合のCSオンセット（A+，B-など）もあり．
+                            </li>
+                            <li><strong>t_type（配列）：</strong>トライアル種別．1〜4の値がそれぞれ【A+，A-，B+，B-】（+-は報酬有無）に対応．</li>
+                            <li><strong>params（構造体）：</strong>イメージングに関係したパラメータ類．</li>
                         </ul>
                     </div>
                 </section>
@@ -648,22 +871,21 @@
                     <h2>Results</h2>
                     <div class="method-item">
                         <h4>Task Paradigm</h4>
-                        <p>異なる報酬確率をもつ古典的条件づけのタスク模式図。6kHzの音提示後に報酬を得る確率が高く(70%)、10kHzでは低く(30%)設定されています。</p>
-                        <div
-                            style="background: rgba(255,255,255,0.05); border-radius: 12px; height: 300px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
-                            <span style="color: var(--color-text-muted);">[ Figure: Schematic of Classical Conditioning
-                                Task ]</span>
-                        </div>
+                        <p>異なる報酬確率をもつ古典的条件つけのタスクの模式図。6kHの音の提示の後に報酬をを得る確率が高い。</p>
+                        <figure style="margin-bottom: 32px;">
+                            <img src="../images/Samplemause03.webp" alt="Classical Conditioning Task Paradigm"
+                                style="width: 100%; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); max-width: 700px; display: block; margin: 0 auto;">
+                        </figure>
                     </div>
                     <div class="method-item">
                         <h4>Learning Curve (Lick Changes)</h4>
-                        <p>セッションの経過による6kHz（報酬高）と10kHz（報酬低）でのリックの変化。学習が進むにつれて、6kHzの音に対して有意にリック数が増加し、報酬の期待が形成されていることがわかります。
+                        <p>Session（日数）の経過による6kHz（赤）と10kHz（青）でのLickの変化。Lickの学習初期ではそれぞれの音でLick数が変わらないが、日にちが経つことで学習し6Khzの音の方が有意にLick数が多く学習していることがわかる。今回公開するデータはSession
+                            7の1個体のデータ。
                         </p>
-                        <div
-                            style="background: rgba(255,255,255,0.05); border-radius: 12px; height: 300px; display: flex; align-items: center; justify-content: center;">
-                            <span style="color: var(--color-text-muted);">[ Figure: Lick Rate changes over Sessions
-                                ]</span>
-                        </div>
+                        <figure style="margin-bottom: 24px;">
+                            <img src="../images/Samplemause04.webp" alt="Learning Curve Analysis"
+                                style="width: 100%; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); max-width: 700px; display: block; margin: 0 auto;">
+                        </figure>
                     </div>
                 </section>
 
@@ -671,20 +893,39 @@
                 <section id="method">
                     <h2>Methodology</h2>
                     <div class="method-item">
-                        <h4>Wide-field 1 photon image processing</h4>
+                        <h4>Processing of Wide-field 1 photon image</h4>
                         <p>
-                            各画像スタックは、10個の特徴点（嗅球、前頭血管、ラムダ縫合糸など）を使用してAllen Common Coordinate Framework v3 (Allen CCF)
-                            に位置合わせされました。左半球のピクセル活動のみを抽出し、SVDを用いて上位24成分から画像を再構成することでノイズを削減しました。
+                            各画像スタックは、10 個の特徴点を使用して、Allen Common Coordinate Framework バージョン 3 (Allen CCF)
+                            の上面図に位置合わせした。特徴点は、(FrC)嗅球の両側前神経節、前頭血管の中央および側端、ラムダ縫合糸、背側皮質の両側後端、および背側皮質の両側側端に設定した。皮質に対するマスクはアレン
+                            CCF から作成され、大脳皮質の外側のピクセルの蛍光変化を除外した。左半球のピクセルのみの活動を利用した。ノイズ削減のために画像スタックの特異値分解 (SVD)
+                            を計算し上位24個の特異値から画像を再構成した。SVD
+                            の結果からは空間成分U(サイズのピクセル×成分)、特異値S(サイズの空間成分×時間成分)、および転置された時間成分VT（サイズコンポーネント×フレーム）が得られている。
                         </p>
                         <p>
-                            定位座標に基づき以下の12個のROIを設定しました：dmFrC, dlFrC, M1, S1FL, S1HL, S1m, S1n, S1b, Aud, Vis, PPC,
-                            RSC。各ROIの蛍光強度はピクセル平均で算出され、dF/F化の後にZスコア変換を行っています。
+                            再構成されたデータを使用すると、蛍光強度の変化 (Δ F / F) は、各フレームの前後の ± 15 秒間隔で 10
+                            パーセンタイル値を使用して各ピクセルに対して計算した。ROIを使用した分析では、以下に説明する脳領域に12個のROI（10×10ピクセル、長方形）が設定され、定位座標はアレンCCFの上面図と以前に報告された領域に従って定義され、これらは解剖学的および機能的に識別:
+                            dmFrC (AP +2.8 mm、ML 0.8 mm)。dlFrC (AP +2.5 mm、ML 2.0 mm); M1 (AP +1.2 mm、ML 1.0 mm);
+                            一次体性感覚前肢領域 (S1FL、AP +0.4 mm、ML 2.2 mm)。一次体性感覚皮質後肢 面積（S1HL、AP -0.5 mm、ML 1.5
+                            mm）。一次体性感覚皮質口面積
+                            (S1m、AP +1.4 mm、ML 3.0 mm)。一次体性感覚皮質鼻領域 (S1n、AP 0 mm、ML 3.4 mm); 一次体性感覚皮質バレル領域（S1b、AP
+                            -1.2
+                            mm、ML 3.0 mm）。一次聴覚皮質（Aud、AP -2.5 mm、ML 4.0 mm）。一次視覚野（Vis、AP -4.0 mm、ML 2.2
+                            mm）。後頭頂皮質（PPC、AP
+                            -2.0 mm、ML 2.0 mm）。後大脳皮質(RSC、AP -2.4 mm、ML 0.5 mm)。ここでの定位座標はROI の中心位置を意味している。
+                            <br><br>
+                            セッションとマウスごとに、ROI の位置を手動で微調整している。各ROIの蛍光強度は、含まれるピクセルを平均することによって決定した。ROI から抽出された神経活動は、Z
+                            スコアに変換され、各キュートーンの開始に合わせて調整した。各ピクセルごと，各時点−15〜＋15sの時間窓の10パーセンタイルをFとしてdF/F化している。
                         </p>
                     </div>
                     <div class="method-item">
-                        <h4>Face and Body camera image processing</h4>
+                        <h4>Processing of Face and Body camera image</h4>
                         <p>
-                            FaceMapパッケージを使用して口、鼻、ひげ、上半身の部分を識別しました。各ROIの運動エネルギー（フレーム間の絶対差）のSVDを計算し、モーションマスクを生成しています。
+                            高速度カメラから得られたビデオは、FaceMap パッケージ ( <a href="https://github.com/MouseLand/FaceMap"
+                                target="_blank" style="color: var(--color-accent);">Stringer et al., 2019</a> )
+                            で処理され、口、鼻、ひげ、および上半身の部分を識別している。ROI は、前肢と胸部、鼻、口、ひげパッドに設定され、各 ROI の運動エネルギー (フレーム間の絶対差) の
+                            SVD
+                            が計算されました。ソフトウェアは、空間成分Uと特異値Sから計算された「モーション
+                            マスク」を生成した。SVDによって発見され、特異値空間での分離可能な動きの時系列は、モーションマスクに元の時系列データを掛けることによって計算している。
                         </p>
                     </div>
                 </section>
@@ -719,8 +960,8 @@
                     <h3>Citation</h3>
                     <div class="cite-box">
                         Kondo, M., & Matsuzaki, M. (2021). Neuronal representations of reward-predicting cues and
-                        outcome history with movement in the frontal cortex. Cell Reports, 34(5), 108704. doi:
-                        10.1016/j.celrep.2021.108704
+                        outcome history with movement in the frontal cortex. <em>Cell Reports</em>, <em>34</em>(5),
+                        108704. doi: 10.1016/j.celrep.2021.108704
                     </div>
                 </div>
 
