@@ -23,41 +23,81 @@
             --color-code-bg: #0d1117;
         }
 
-        .tutorial-hero {
+        /* Navbar Text Overrides for Dark Hero */
+        .navbar .logo,
+        .navbar .logo span {
+            color: white !important;
+        }
+
+        .navbar .nav-links a {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .navbar .nav-links a:hover {
+            color: var(--color-accent) !important;
+        }
+
+        .navbar .logo-icon svg {
+            stroke: white !important;
+        }
+
+        .dataset-hero {
             padding: 120px 0 60px;
-            background: linear-gradient(to bottom, var(--color-bg), var(--color-bg-light));
-            border-bottom: 1px solid var(--color-border);
+            background: #020617;
+            background: radial-gradient(circle at top right, #1e3a8a 0%, #020617 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
         }
 
         .breadcrumb {
             display: flex;
             gap: 8px;
-            font-size: 0.8rem;
-            color: var(--color-text-muted);
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
             margin-bottom: 24px;
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.2s;
         }
 
         .breadcrumb a:hover {
-            color: var(--color-accent);
+            color: #ffffff;
         }
 
-        .tutorial-header h1 {
+        .breadcrumb span {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .dataset-title-area h1 {
             font-family: var(--font-display);
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-            margin-bottom: 16px;
-            line-height: 1.2;
+            font-size: clamp(2rem, 5vw, 2.75rem);
+            margin-bottom: 12px;
+            color: #ffffff;
+            font-weight: 700;
         }
 
-        .tutorial-badge {
+        .dataset-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+            max-width: 800px;
+        }
+
+        .dataset-hero .tutorial-badge {
             display: inline-block;
-            background: rgba(168, 85, 247, 0.15);
-            color: #a855f7;
-            border: 1px solid rgba(168, 85, 247, 0.3);
-            padding: 4px 12px;
+            padding: 6px 14px;
             border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 24px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 20px;
+            background: rgba(168, 85, 247, 0.15);
+            color: #d8b4fe;
+            border: 1px solid rgba(168, 85, 247, 0.4);
         }
 
         .content-layout {
@@ -209,6 +249,128 @@
                 display: none;
             }
         }
+
+        /* ===== Enhanced Styles ===== */
+
+        /* Section Divider */
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-accent), #8b5cf6, #ec4899);
+            border-radius: 2px;
+            margin: 48px 0 32px;
+        }
+
+        /* Step Cards */
+        .step-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--color-card-border);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .step-card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(30, 58, 95, 0.5) 0%, rgba(30, 64, 175, 0.5) 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .step-card-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .step-card-header h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+        }
+
+        .step-card-body {
+            padding: 24px;
+        }
+
+        .step-card-body p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .step-card-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Feature Cards Enhanced */
+        .feature-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid var(--color-card-border);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.2);
+        }
+
+        .feature-card h5 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            margin: 0 0 8px;
+        }
+
+        .feature-card p {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Resource Link Card */
+        .resource-link-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--color-card-border);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            margin-bottom: 12px;
+        }
+
+        .resource-link-card:hover {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateX(4px);
+        }
+
+        .resource-link-card a {
+            color: var(--color-accent);
+            font-weight: 600;
+        }
     </style>
 </head>
 
@@ -290,22 +452,32 @@
                 </section>
 
                 <section id="setup">
+                    <div class="section-divider"></div>
                     <h2>セットアップ手順</h2>
-                    <div class="instruction-card">
-                        <div style="margin-bottom: 24px;">
-                            <span class="step-number">1</span>
-                            <strong>MatNWBのセットアップ</strong>
-                            <p style="margin-top: 12px;">
+
+                    <!-- Step 1 Card -->
+                    <div class="step-card">
+                        <div class="step-card-header">
+                            <div class="step-card-number">1</div>
+                            <h4>MatNWBのセットアップ</h4>
+                        </div>
+                        <div class="step-card-body">
+                            <p>
                                 NWBファイルをMATLABから取り扱うための関数群である<strong>MatNWB</strong>を、公式のセットアップ手順に従ってインストールします。
                             </p>
                             <a href="https://neurodatawithoutborders.github.io/matnwb/" class="btn btn-secondary"
                                 target="_blank">MatNWB 公式サイト</a>
                         </div>
+                    </div>
 
-                        <div style="margin-bottom: 24px;">
-                            <span class="step-number">2</span>
-                            <strong>デモスクリプトのダウンロード</strong>
-                            <p style="margin-top: 12px;">
+                    <!-- Step 2 Card -->
+                    <div class="step-card">
+                        <div class="step-card-header">
+                            <div class="step-card-number">2</div>
+                            <h4>デモスクリプトのダウンロード</h4>
+                        </div>
+                        <div class="step-card-body">
+                            <p>
                                 以下のリンクから、本チュートリアルで使用するデモコード (<code>BraiDynDB_handlingSampleData.m</code>) をダウンロードしてください。
                             </p>
                             <a href="https://www.dropbox.com/scl/fi/fzws8va5y6xq8kzyvyj3c/BraiDynDB_handlingSampleData.m?rlkey=aofn0pyeziccivwwxgaonjywr&dl=1"
@@ -321,6 +493,7 @@
                 </section>
 
                 <section id="script">
+                    <div class="section-divider"></div>
                     <h2>デモコードの実行</h2>
                     <p>
                         MATLAB上でダウンロードした <code>BraiDynDB_handlingSampleData.m</code> を開き、以下の変数 <code>nwbpath</code>
@@ -335,55 +508,49 @@
                 </section>
 
                 <section id="features">
+                    <div class="section-divider"></div>
                     <h2>プログラムの機能</h2>
                     <p>このスクリプトでは、以下の解析と可視化を自動で行います：</p>
                     <div class="feature-list">
-                        <div class="feature-item">
-                            <strong>セッションメタデータの表示</strong>
-                            <p style="font-size: 0.8rem; margin-top: 4px; color: var(--color-text-muted);">
-                                実験日や個体情報などの基本情報を確認します。</p>
+                        <div class="feature-card">
+                            <h5>📋 セッションメタデータの表示</h5>
+                            <p>実験日や個体情報などの基本情報を確認します。</p>
                         </div>
-                        <div class="feature-item">
-                            <strong>トライアル情報の取り込み</strong>
-                            <p style="font-size: 0.8rem; margin-top: 4px; color: var(--color-text-muted);">
-                                音刺激のタイミングや報酬の有無などを抽出します。</p>
+                        <div class="feature-card">
+                            <h5>🎯 トライアル情報の取り込み</h5>
+                            <p>音刺激のタイミングや報酬の有無などを抽出します。</p>
                         </div>
-                        <div class="feature-item">
-                            <strong>神経活動データの表示</strong>
-                            <p style="font-size: 0.8rem; margin-top: 4px; color: var(--color-text-muted);">
-                                Ca2+イメージング等の時系列データをプロットします。</p>
+                        <div class="feature-card">
+                            <h5>🧠 神経活動データの表示</h5>
+                            <p>Ca²⁺イメージング等の時系列データをプロットします。</p>
                         </div>
-                        <div class="feature-item">
-                            <strong>PETHの作成</strong>
-                            <p style="font-size: 0.8rem; margin-top: 4px; color: var(--color-text-muted);">
-                                音刺激開始タイミングにアラインした神経活動のヒストグラムを表示します。</p>
+                        <div class="feature-card">
+                            <h5>📊 PETHの作成</h5>
+                            <p>音刺激開始タイミングにアラインした神経活動のヒストグラムを表示します。</p>
                         </div>
-                        <div class="feature-item">
-                            <strong>生データ(5kHz)の解析</strong>
-                            <p style="font-size: 0.8rem; margin-top: 4px; color: var(--color-text-muted);">
-                                高サンプリングの生データの取り出しとPETH作成を行います。</p>
+                        <div class="feature-card">
+                            <h5>⚡ 生データ(5kHz)の解析</h5>
+                            <p>高サンプリングの生データの取り出しとPETH作成を行います。</p>
                         </div>
-                        <div class="feature-item">
-                            <strong>行動解析(DLC)の読み込み</strong>
-                            <p style="font-size: 0.8rem; margin-top: 4px; color: var(--color-text-muted);">
-                                DeepLabCutで推定されたキーポイントや瞳孔径の変化を表示します。</p>
+                        <div class="feature-card">
+                            <h5>🔍 行動解析(DLC)の読み込み</h5>
+                            <p>DeepLabCutで推定されたキーポイントや瞳孔径の変化を表示します。</p>
                         </div>
                     </div>
                 </section>
 
                 <section id="resources">
+                    <div class="section-divider"></div>
                     <h2>公式ドキュメント</h2>
                     <p>MatNWBのより詳細な仕様については、以下の公式チュートリアルも併せて参照してください。</p>
-                    <ul style="padding-left: 20px;">
-                        <li style="margin-bottom: 12px;">
-                            <a href="https://neurodatawithoutborders.github.io/matnwb/tutorials/html/read_demo.html#H_01DD834C"
-                                target="_blank" style="color: var(--color-accent);">Reading NWB Data in MATLAB</a>
-                        </li>
-                        <li>
-                            <a href="https://neurodatawithoutborders.github.io/matnwb/tutorials/html/intro.html"
-                                target="_blank" style="color: var(--color-accent);">Introduction to MatNWB</a>
-                        </li>
-                    </ul>
+                    <div class="resource-link-card">
+                        <a href="https://neurodatawithoutborders.github.io/matnwb/tutorials/html/read_demo.html#H_01DD834C"
+                            target="_blank">📖 Reading NWB Data in MATLAB</a>
+                    </div>
+                    <div class="resource-link-card">
+                        <a href="https://neurodatawithoutborders.github.io/matnwb/tutorials/html/intro.html"
+                            target="_blank">📚 Introduction to MatNWB</a>
+                    </div>
                 </section>
             </main>
         </div>

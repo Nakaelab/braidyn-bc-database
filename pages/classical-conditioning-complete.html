@@ -241,8 +241,223 @@
             .content-grid {
                 grid-template-columns: 1fr;
             }
+        }
 
+        /* ===== Enhanced Styles ===== */
 
+        /* Section Divider */
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-accent), #8b5cf6, #ec4899);
+            border-radius: 2px;
+            margin: 48px 0 32px;
+        }
+
+        /* Enhanced Table Styles */
+        .enhanced-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .enhanced-table thead {
+            background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%);
+        }
+
+        .enhanced-table th {
+            padding: 16px 20px;
+            text-align: left;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .enhanced-table tbody tr {
+            background: white;
+            transition: all 0.2s ease;
+        }
+
+        .enhanced-table tbody tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .enhanced-table tbody tr:hover {
+            background: #eff6ff;
+            transform: scale(1.01);
+        }
+
+        .enhanced-table td {
+            padding: 16px 20px;
+            font-size: 0.9rem;
+            color: var(--color-text-sub);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .enhanced-table td:first-child {
+            font-weight: 600;
+            color: var(--color-accent);
+        }
+
+        .channel-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 48px;
+            height: 32px;
+            padding: 0 12px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        /* Results Section Cards */
+        .result-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 32px;
+        }
+
+        .result-card-header {
+            padding: 24px;
+            background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%);
+            color: white;
+        }
+
+        .result-card-header h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+        }
+
+        .result-card-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .result-card-body {
+            padding: 24px;
+        }
+
+        /* Data Section Card */
+        .data-section-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .data-section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-bottom: 1px solid #bae6fd;
+        }
+
+        .data-section-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .data-section-icon.raw {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+        }
+
+        .data-section-icon.processed {
+            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+        }
+
+        .data-section-header h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0c4a6e;
+            margin: 0;
+        }
+
+        .data-section-body {
+            padding: 24px;
+        }
+
+        .data-section-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .data-section-body li {
+            display: flex;
+            gap: 12px;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .data-section-body li:hover {
+            background: #eff6ff;
+            transform: translateX(4px);
+        }
+
+        .data-section-body li:last-child {
+            margin-bottom: 0;
+        }
+
+        .data-section-body li strong {
+            color: var(--color-text-main);
+            min-width: 140px;
+            flex-shrink: 0;
+        }
+
+        /* Step list */
+        .step-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            counter-reset: step;
+        }
+
+        .step-list li {
+            display: flex;
+            gap: 16px;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            counter-increment: step;
+        }
+
+        .step-list li::before {
+            content: counter(step);
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
         }
     </style>
 </head>
@@ -284,10 +499,55 @@
             </div>
 
             <div class="dataset-title-area">
-                <div>
-                    <span class="complete-badge">Complete Dataset</span>
-                    <h1>古典条件づけの学習過程</h1>
-                    <p class="dataset-subtitle">Classical Conditioning Learning Process (Full Longitudinal Data)</p>
+                <div style="display: flex; flex-direction: column; gap: 24px;">
+                    <div>
+                        <span class="complete-badge">Complete Dataset Available</span>
+                        <h1>古典条件づけの学習過程</h1>
+                        <p class="dataset-subtitle">Classical Conditioning Learning Process (Full Longitudinal Data)</p>
+                    </div>
+
+                    <p style="max-width: 700px; color: rgba(255,255,255,0.8); line-height: 1.7; font-size: 1.05rem;">
+                        2個体のマウスに対して17日間にわたり、音刺激に対する報酬予測行動（古典的条件づけ）の学習過程を追跡したマルチモーダルデータセット。学習に伴う全脳活動の遷移を捉えた縦断的な完全データセットです。
+                    </p>
+
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 24px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.15); border-bottom: 1px solid rgba(255,255,255,0.15); max-width: 800px;">
+                        <div>
+                            <div
+                                style="font-size: 0.75rem; color: #3b82f6; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
+                                DATA TYPE</div>
+                            <div style="font-size: 1.25rem; font-weight: 700;">Complete</div>
+                        </div>
+                        <div>
+                            <div
+                                style="font-size: 0.75rem; color: #3b82f6; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
+                                INDIVIDUALS</div>
+                            <div style="font-size: 1.25rem; font-weight: 700;">2</div>
+                        </div>
+                        <div>
+                            <div
+                                style="font-size: 0.75rem; color: #3b82f6; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
+                                SESSIONS</div>
+                            <div style="font-size: 1.25rem; font-weight: 700;">17 Days</div>
+                        </div>
+                        <div>
+                            <div
+                                style="font-size: 0.75rem; color: #3b82f6; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
+                                ANIMAL</div>
+                            <div style="font-size: 1.25rem; font-weight: 700;">Mouse</div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <span
+                            style="background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1);">Wide-field
+                            1p</span>
+                        <span
+                            style="background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1);">Whole
+                            Cortex</span>
+                        <span
+                            style="background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1);">Longitudinal</span>
+                    </div>
                 </div>
             </div>
 
@@ -336,9 +596,10 @@
 
                 <!-- Data Description -->
                 <section id="description">
+                    <div class="section-divider"></div>
                     <h2>Data Description</h2>
 
-                    <h3>Directory Structure</h3>
+                    <h3>📁 Directory Structure</h3>
                     <p>データセットは以下の3つの主要ディレクトリで構成されています：</p>
 
                     <div class="dir-tree">
@@ -351,80 +612,92 @@
                         └── 3_ROIsegmentation/ # 処理済み・ROI抽出済みデータ (.mat)
                     </div>
 
-                    <h3>Detailed Contents</h3>
-                    <div style="margin-bottom: 32px;">
-                        <h4>1_Raw Data</h4>
-                        <p>個体番号 (RCTg_Pv12, RCTg_Pv13) および計測日ごとに整理されています。</p>
-                        <ul>
-                            <li><strong>Body Camera:</strong> 腹側を30Hzで計測した動画データ。</li>
-                            <li><strong>Face Camera:</strong> 左側面顔を30Hzで計測した動画データ。</li>
-                            <li><strong>Wide Field 1p:</strong> 30Hzで計測されたCa2+イメージングTIFF画像（2GB毎の分割ファイル）。</li>
-                            <li><strong>Behavior Data:</strong> リック、報酬、音周波数等を5000Hzで記録したアナログ信号データ。</li>
-                        </ul>
+                    <!-- Raw Data Card -->
+                    <div class="data-section-card">
+                        <div class="data-section-header">
+                            <div class="data-section-icon raw">📦</div>
+                            <h4>1_Raw Data</h4>
+                        </div>
+                        <div class="data-section-body">
+                            <p style="margin-bottom: 16px;">個体番号 (RCTg_Pv12, RCTg_Pv13) および計測日ごとに整理されています。</p>
+                            <ul>
+                                <li><strong>📹 Body Camera</strong> 腹側を30Hzで計測した動画データ</li>
+                                <li><strong>👤 Face Camera</strong> 左側面顔を30Hzで計測した動画データ</li>
+                                <li><strong>🧠 Wide Field 1p</strong> 30Hzで計測されたCa²⁺イメージングTIFF画像（2GB毎の分割ファイル）</li>
+                                <li><strong>📊 Behavior Data</strong> リック、報酬、音周波数等を5000Hzで記録したアナログ信号データ</li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div style="margin-bottom: 32px;">
-                        <h4>3_ROIsegmentation Data</h4>
-                        <p>以下の前処理が適用された <code>stdData</code> 構造体（MATLAB形式）が格納されています：</p>
-                        <ol>
-                            <li>揺れ補正およびAllen CCF v3への位置合わせ</li>
-                            <li>左半球のみのクリッピング</li>
-                            <li>SVDを用いたデノイズ（上位24成分での再構成）</li>
-                            <li>dF/F化（±15秒の時間窓での10パーセンタイルをFとして算出）</li>
-                            <li>ROIベースの神経活動抽出（dmFrC, M1, S1等12箇所、Zスコア化）</li>
-                        </ol>
+                    <!-- Processed Data Card -->
+                    <div class="data-section-card">
+                        <div class="data-section-header">
+                            <div class="data-section-icon processed">⚙️</div>
+                            <h4>3_ROIsegmentation Data</h4>
+                        </div>
+                        <div class="data-section-body">
+                            <p style="margin-bottom: 16px;">以下の前処理が適用された <code>stdData</code> 構造体（MATLAB形式）が格納されています：
+                            </p>
+                            <ol class="step-list">
+                                <li>揺れ補正およびAllen CCF v3への位置合わせ</li>
+                                <li>左半球のみのクリッピング</li>
+                                <li>SVDを用いたデノイズ（上位24成分での再構成）</li>
+                                <li>dF/F化（±15秒の時間窓での10パーセンタイルをFとして算出）</li>
+                                <li>ROIベースの神経活動抽出（dmFrC, M1, S1等12箇所、Zスコア化）</li>
+                            </ol>
+                        </div>
                     </div>
 
-                    <div class="table-container">
-                        <h4>Behavior Data Channels</h4>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Channel</th>
-                                    <th>Signal</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>ch.1</td>
-                                    <td>Lick (Raw)</td>
-                                    <td>舌のスパウト接触時にHIGH (5V)</td>
-                                </tr>
-                                <tr>
-                                    <td>ch.2</td>
-                                    <td>Reward</td>
-                                    <td>報酬供給タイミングでHIGH</td>
-                                </tr>
-                                <tr>
-                                    <td>ch.3</td>
-                                    <td>Tone Flag</td>
-                                    <td>音吹鳴中にHIGH</td>
-                                </tr>
-                                <tr>
-                                    <td>ch.4</td>
-                                    <td>Imaging Sync</td>
-                                    <td>カメラのシャッター露光タイミング</td>
-                                </tr>
-                                <tr>
-                                    <td>ch.7</td>
-                                    <td>Frequency</td>
-                                    <td>提示中の音の周波数 (kHz)</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <h3>📊 Behavior Data Channels</h3>
+                    <table class="enhanced-table">
+                        <thead>
+                            <tr>
+                                <th>Channel</th>
+                                <th>Signal</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="channel-badge">ch.1</span></td>
+                                <td>Lick (Raw)</td>
+                                <td>舌のスパウト接触時にHIGH (5V)</td>
+                            </tr>
+                            <tr>
+                                <td><span class="channel-badge">ch.2</span></td>
+                                <td>Reward</td>
+                                <td>報酬供給タイミングでHIGH</td>
+                            </tr>
+                            <tr>
+                                <td><span class="channel-badge">ch.3</span></td>
+                                <td>Tone Flag</td>
+                                <td>音吹鳴中にHIGH</td>
+                            </tr>
+                            <tr>
+                                <td><span class="channel-badge">ch.4</span></td>
+                                <td>Imaging Sync</td>
+                                <td>カメラのシャッター露光タイミング</td>
+                            </tr>
+                            <tr>
+                                <td><span class="channel-badge">ch.7</span></td>
+                                <td>Frequency</td>
+                                <td>提示中の音の周波数 (kHz)</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </section>
 
                 <!-- Results Paradigm -->
                 <section id="results">
+                    <div class="section-divider"></div>
                     <h2>Results & Paradigm</h2>
-                    <div
-                        style="background: rgba(255,255,255,0.05); border-radius: 12px; padding: 24px; margin-bottom: 32px;">
-                        <h4>Learning of Reward Expectations</h4>
-                        <p>
-                            6kHz（報酬確率70%）と10kHz（報酬確率30%）を提示。学習が進むにつれ、高確率の音に対して有意にリック数（期待行動）が増加していく過程が全皮質の活動とともに記録されています。
-                        </p>
+                    <div class="result-card">
+                        <div class="result-card-header">
+                            <h4>🧪 Learning of Reward Expectations</h4>
+                            <p>
+                                6kHz（報酬確率70%）と10kHz（報酬確率30%）を提示。学習が進むにつれ、高確率の音に対して有意にリック数（期待行動）が増加していく過程が全皮質の活動とともに記録されています。
+                            </p>
+                        </div>
                     </div>
                 </section>
             </main>

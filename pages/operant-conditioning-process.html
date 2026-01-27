@@ -293,8 +293,167 @@
             .content-grid {
                 grid-template-columns: 1fr;
             }
+        }
 
+        /* ===== Enhanced Styles ===== */
 
+        /* Section Divider */
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-accent), #8b5cf6, #ec4899);
+            border-radius: 2px;
+            margin: 48px 0 32px;
+        }
+
+        /* Results Section Cards */
+        .result-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 32px;
+        }
+
+        .result-card-header {
+            padding: 24px;
+            background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%);
+            color: white;
+        }
+
+        .result-card-header h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+        }
+
+        .result-card-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .result-card-body {
+            padding: 24px;
+        }
+
+        .result-card-body figure {
+            margin: 0;
+        }
+
+        .result-card-body img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Methodology Cards */
+        .method-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .method-card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-bottom: 1px solid #bae6fd;
+        }
+
+        .method-number {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .method-card-header h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0c4a6e;
+            margin: 0;
+        }
+
+        .method-card-body {
+            padding: 24px;
+        }
+
+        .method-card-body p {
+            font-size: 0.95rem;
+            color: var(--color-text-sub);
+            line-height: 1.9;
+            margin-bottom: 16px;
+        }
+
+        .method-card-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Enhanced Resource Cards */
+        .resource-section-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .resource-section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-bottom: 1px solid #86efac;
+        }
+
+        .resource-section-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .resource-section-icon.nwb {
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+        }
+
+        .resource-section-icon.raw {
+            background: linear-gradient(135deg, #ef4444, #f87171);
+        }
+
+        .resource-section-icon.tutorial {
+            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+        }
+
+        .resource-section-header h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #166534;
+            margin: 0;
+        }
+
+        .resource-section-header span {
+            font-size: 0.85rem;
+            color: #15803d;
+        }
+
+        .resource-section-body {
+            padding: 24px;
         }
     </style>
 </head>
@@ -325,6 +484,7 @@
     </nav>
 
     <!-- Dataset Hero -->
+    <!-- Dataset Hero -->
     <header class="dataset-hero">
         <div class="container">
             <div class="breadcrumb">
@@ -336,14 +496,60 @@
             </div>
 
             <div class="dataset-title-area">
-                <div>
-                    <span class="complete-badge">Complete Dataset Available</span>
-                    <h1>オペラント条件づけの学習過程</h1>
-                    <p class="dataset-subtitle">Operant Conditioning Learning Process</p>
+                <div style="display: flex; flex-direction: column; gap: 24px;">
+                    <div>
+                        <span class="complete-badge">Complete Dataset Available</span>
+                        <h1>オペラント条件づけの学習過程</h1>
+                        <p class="dataset-subtitle">Operant Conditioning Learning Process</p>
+                    </div>
+
+                    <p style="max-width: 700px; color: rgba(255,255,255,0.8); line-height: 1.7; font-size: 1.05rem;">
+                        25匹のマウスがレバーを引いて水の報酬を得るよう訓練された、2週間にわたる運動技能学習の過程を追跡した大規模マルチモーダルデータセット。NWB形式での提供により、即座に解析が可能です。
+                    </p>
+
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 24px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.15); border-bottom: 1px solid rgba(255,255,255,0.15); max-width: 800px;">
+                        <div>
+                            <div
+                                style="font-size: 0.75rem; color: #3b82f6; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
+                                DATA TYPE</div>
+                            <div style="font-size: 1.25rem; font-weight: 700;">Processed <span
+                                    style="font-size:0.8em; font-weight:400; opacity:0.7;">(NWB)</span></div>
+                        </div>
+                        <div>
+                            <div
+                                style="font-size: 0.75rem; color: #3b82f6; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
+                                INDIVIDUALS</div>
+                            <div style="font-size: 1.25rem; font-weight: 700;">25</div>
+                        </div>
+                        <div>
+                            <div
+                                style="font-size: 0.75rem; color: #3b82f6; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
+                                SESSIONS</div>
+                            <div style="font-size: 1.25rem; font-weight: 700;">15 <span
+                                    style="font-size:0.8em; font-weight:400; opacity:0.7;">(2 Weeks)</span></div>
+                        </div>
+                        <div>
+                            <div
+                                style="font-size: 0.75rem; color: #3b82f6; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
+                                ANIMAL</div>
+                            <div style="font-size: 1.25rem; font-weight: 700;">Mouse</div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <span
+                            style="background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1);">2p
+                            Imaging</span>
+                        <span
+                            style="background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1);">M1
+                            / L2/3 & L5</span>
+                        <span
+                            style="background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1);">Voluntary
+                            Movement</span>
+                    </div>
                 </div>
             </div>
-
-
         </div>
     </header>
 
@@ -382,6 +588,7 @@
 
                 <!-- Dataset Resources -->
                 <section id="resources">
+                    <div class="section-divider"></div>
                     <h2>Dataset Resources</h2>
 
                     <div class="resource-grid">
@@ -446,6 +653,7 @@
 
                 <!-- Tutorials -->
                 <section id="tutorials">
+                    <div class="section-divider"></div>
                     <h2>Analysis Tutorials</h2>
                     <p>本データセットを活用するためのチュートリアルを提供しています。</p>
 

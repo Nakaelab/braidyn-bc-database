@@ -308,8 +308,213 @@
             .content-grid {
                 grid-template-columns: 1fr;
             }
+        }
 
+        /* ===== Enhanced Styles ===== */
 
+        /* Section Divider */
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-accent), #8b5cf6, #ec4899);
+            border-radius: 2px;
+            margin: 48px 0 32px;
+        }
+
+        /* Enhanced Table Styles */
+        .enhanced-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .enhanced-table thead {
+            background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%);
+        }
+
+        .enhanced-table th {
+            padding: 16px 20px;
+            text-align: left;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .enhanced-table tbody tr {
+            background: white;
+            transition: all 0.2s ease;
+        }
+
+        .enhanced-table tbody tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .enhanced-table tbody tr:hover {
+            background: #eff6ff;
+            transform: scale(1.01);
+        }
+
+        .enhanced-table td {
+            padding: 16px 20px;
+            font-size: 0.9rem;
+            color: var(--color-text-sub);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .enhanced-table td:first-child {
+            font-weight: 600;
+            color: var(--color-accent);
+        }
+
+        .channel-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 32px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        /* Methodology Cards */
+        .method-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .method-card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-bottom: 1px solid #bae6fd;
+        }
+
+        .method-number {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .method-card-header h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0c4a6e;
+            margin: 0;
+        }
+
+        .method-card-body {
+            padding: 24px;
+        }
+
+        .method-card-body p {
+            font-size: 0.95rem;
+            color: var(--color-text-sub);
+            line-height: 1.9;
+            margin-bottom: 16px;
+        }
+
+        .method-card-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Task Cards */
+        .task-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .task-card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-bottom: 1px solid #fcd34d;
+        }
+
+        .task-card-header h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #92400e;
+            margin: 0;
+        }
+
+        .task-card-body {
+            padding: 24px;
+        }
+
+        .task-card-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .task-card-body li {
+            display: flex;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .task-card-body li:last-child {
+            border-bottom: none;
+        }
+
+        .task-card-body li strong {
+            color: var(--color-text-main);
+            min-width: 120px;
+        }
+
+        /* Info Card */
+        .info-card {
+            background: linear-gradient(135deg, #f8fafc 0%, white 100%);
+            border-radius: 12px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 16px;
+            border: 1px solid var(--color-card-border);
+        }
+
+        .info-card h5 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--color-text-main);
+            margin: 0 0 12px;
+        }
+
+        .info-card ul {
+            margin: 0;
+            padding-left: 16px;
+        }
+
+        .info-card li {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -351,10 +556,57 @@
             </div>
 
             <div class="dataset-title-area">
-                <div>
-                    <span class="sample-badge">Sample Dataset</span>
-                    <h1>レバー引き運動の学習</h1>
-                    <p class="dataset-subtitle">Motor Learning of Lever Pull Task</p>
+                <div style="display: flex; flex-direction: column; gap: 24px;">
+                    <div>
+                        <span class="sample-badge">Sample Dataset</span>
+                        <h1>レバー引き運動の学習</h1>
+                        <p class="dataset-subtitle">Motor Learning of Lever Pull Task</p>
+                    </div>
+
+                    <p style="max-width: 700px; color: rgba(255,255,255,0.8); line-height: 1.7; font-size: 1.05rem;">
+                        レバー引き運動課題を学習中のマウスの脳活動を捉えたサンプルデータセット。広域1光子イメージングによる皮質全体の活動と、2光子イメージングによるM1領域の細胞レベルの活動を含みます。
+                    </p>
+
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 24px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.15); border-bottom: 1px solid rgba(255,255,255,0.15); max-width: 800px;">
+                        <div>
+                            <div
+                                style="font-size: 0.75rem; color: #f59e0b; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
+                                DATA TYPE</div>
+                            <div style="font-size: 1.25rem; font-weight: 700;">Sample <span
+                                    style="font-size:0.8em; font-weight:400; opacity:0.7;">(1 Session)</span></div>
+                        </div>
+                        <div>
+                            <div
+                                style="font-size: 0.75rem; color: #f59e0b; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
+                                INDIVIDUALS</div>
+                            <div style="font-size: 1.25rem; font-weight: 700;">2</div>
+                        </div>
+                        <div>
+                            <div
+                                style="font-size: 0.75rem; color: #f59e0b; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
+                                SESSIONS</div>
+                            <div style="font-size: 1.25rem; font-weight: 700;">14 Days</div>
+                        </div>
+                        <div>
+                            <div
+                                style="font-size: 0.75rem; color: #f59e0b; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
+                                ANIMAL</div>
+                            <div style="font-size: 1.25rem; font-weight: 700;">Mouse</div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <span
+                            style="background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1);">2p
+                            & 1p Imaging</span>
+                        <span
+                            style="background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1);">M1
+                            / Cortex</span>
+                        <span
+                            style="background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1);">Lever
+                            Pull Task</span>
+                    </div>
                 </div>
             </div>
 
@@ -369,44 +621,43 @@
                 <section id="abstract">
                     <h2>Abstract</h2>
                     <p>
-                        本サンプルデータでは、レバーを適応的に変化する範囲内(Target zone)へと保持することで報酬が得られる運動課題を遂行しているマウスのデータを公開しています。
-                    </p>
-                    <p>
-                        背側大脳皮質の<strong>広域１光子カルシウムイメージング</strong>、および前肢関連背側運動領域(M1)の第2/3層(L2/3)および第5層(L5)の<strong>２光子カルシウムイメージング</strong>のデータを各１セッションずつ含みます。運動学習に伴う皮質全体のダイナミクスから個細胞レベルの活動変化までをマルチスケールに解析することが可能です。
+                        本サンプルデータでは、レバーを適応的に変化する範囲内へと保持することで報酬が得られる運動課題を遂行しているマウスの背側大脳皮質の<strong>広域１光子カルシウムイメージング</strong>、および前肢関連背側運動領域(以下単純にM1)の第2/3層(L2/3)および第5層(L5)の<strong>２光子カルシウムイメージング</strong>のデータを各１セッションずつ公開している。
                     </p>
                 </section>
 
-                <!-- Download Section -->
+                <!-- Sample Dataset Section -->
                 <section id="downloads">
-                    <h2>Downloads</h2>
+                    <div class="section-divider"></div>
+                    <h2>Sample Dataset</h2>
 
-                    <!-- 2p Resources -->
+                    <!-- Raw Data - 2p -->
+                    <h3>📦 Raw Data</h3>
                     <div class="resource-section">
                         <div class="resource-group-title">
                             <span class="badge badge-2p">Two-Photon Imaging (2p)</span>
-                            Resources
+                            Raw Data
                         </div>
                         <div class="resource-grid">
                             <div class="resource-card">
-                                <span class="resource-name">Raw 2p Images</span>
+                                <span class="resource-name">2p Image Data</span>
                                 <span class="resource-meta">30Hz, .oir format</span>
                                 <a href="https://drive.google.com/drive/folders/10A9M7ybWxFTpcy2qbXc1XRIrdGzk0cTe?usp=sharing"
                                     class="resource-link" target="_blank">Folder Access</a>
                             </div>
                             <div class="resource-card">
-                                <span class="resource-name">Face Camera (2p)</span>
+                                <span class="resource-name">Face Camera Movie</span>
                                 <span class="resource-meta">70Hz, .mp4</span>
                                 <a href="https://drive.google.com/file/d/1TVjdUv_HEAbZsRXF5f2LSa8ZbXyZOrhE/view?usp=sharing"
                                     class="resource-link" target="_blank">Download</a>
                             </div>
                             <div class="resource-card">
-                                <span class="resource-name">Body Camera (2p)</span>
+                                <span class="resource-name">Body Camera Movie</span>
                                 <span class="resource-meta">70Hz, .mp4</span>
                                 <a href="https://drive.google.com/file/d/13jNFF4K_2KyAqokdoqqKzQcx22nyeZ6U/view?usp=sharing"
                                     class="resource-link" target="_blank">Download</a>
                             </div>
                             <div class="resource-card">
-                                <span class="resource-name">Behavior Data (2p)</span>
+                                <span class="resource-name">Behavior Data</span>
                                 <span class="resource-meta">5kHz, .lvm</span>
                                 <a href="https://drive.google.com/file/d/1Y_RocHZKpDvr6-lD-reKM6BtJTX90Laa/view?usp=sharing"
                                     class="resource-link" target="_blank">Download</a>
@@ -414,35 +665,134 @@
                         </div>
                     </div>
 
-                    <!-- 1p Resources -->
+                    <!-- Raw Data - 1p -->
                     <div class="resource-section">
                         <div class="resource-group-title">
                             <span class="badge badge-1p">Wide-Field Imaging (1p)</span>
-                            Resources
+                            Raw Data
                         </div>
                         <div class="resource-grid">
                             <div class="resource-card">
-                                <span class="resource-name">Raw 1p Images</span>
+                                <span class="resource-name">Wide Field 1p Image Data</span>
                                 <span class="resource-meta">30Hz, .sifx format</span>
                                 <a href="https://drive.google.com/drive/folders/1Cm9xSXFSjCiTdy8EPsWv26kyu-igJSlF?usp=sharing"
                                     class="resource-link" target="_blank">Folder Access</a>
                             </div>
                             <div class="resource-card">
-                                <span class="resource-name">Face Camera (1p)</span>
-                                <span class="resource-meta">70Hz, .mp4</span>
+                                <span class="resource-name">Face Camera Data</span>
+                                <span class="resource-meta">70Hz</span>
                                 <a href="https://drive.google.com/file/d/1HJsX2dRqZix-tY66S4SRmPBuwiyTbOki/view?usp=sharing"
                                     class="resource-link" target="_blank">Download</a>
                             </div>
                             <div class="resource-card">
-                                <span class="resource-name">Body Camera (1p)</span>
+                                <span class="resource-name">Body Camera Data</span>
                                 <span class="resource-meta">5kHz Synchronized</span>
                                 <a href="https://drive.google.com/file/d/1YSOj7o7yXGLFi3H8Snx9e0Um9eA2L6G4/view?usp=sharing"
                                     class="resource-link" target="_blank">Download</a>
                             </div>
                             <div class="resource-card">
-                                <span class="resource-name">Behavior Data (1p)</span>
+                                <span class="resource-name">Behavior Data</span>
                                 <span class="resource-meta">5kHz, .lvm</span>
                                 <a href="https://drive.google.com/file/d/1zHu86snLE1W7DfJVUpwPBHTcfRV4GrEB/view?usp=sharing"
+                                    class="resource-link" target="_blank">Download</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Processed Data -->
+                    <h3>⚙️ Processed Data</h3>
+                    <div class="resource-section">
+                        <div class="resource-group-title">
+                            <span class="badge badge-2p">Two-Photon (2p)</span>
+                            Processed
+                        </div>
+                        <div class="resource-grid">
+                            <div class="resource-card">
+                                <span class="resource-name">2p Image Data</span>
+                                <span class="resource-meta">Motion corrected</span>
+                                <a href="https://drive.google.com/file/d/1LYKhpiHKRkf4ctbX-E6KkJzrqoCW7HIF/view?usp=sharing"
+                                    class="resource-link" target="_blank">Download</a>
+                            </div>
+                            <div class="resource-card">
+                                <span class="resource-name">ΔF/F Image Data</span>
+                                <span class="resource-meta">.mat format</span>
+                                <a href="https://drive.google.com/file/d/1qcvmk5QZzR8OFlfTbZklD0_uSX4Rxzmn/view?usp=sharing"
+                                    class="resource-link" target="_blank">Download</a>
+                            </div>
+                            <div class="resource-card">
+                                <span class="resource-name">Task Data</span>
+                                <span class="resource-meta">.mat format</span>
+                                <a href="https://drive.google.com/file/d/1iOfElA36bNnpvsDXoStG9gI66M8VgBdH/view?usp=sharing"
+                                    class="resource-link" target="_blank">Download</a>
+                            </div>
+                            <div class="resource-card">
+                                <span class="resource-name">Face Camera Data</span>
+                                <span class="resource-meta">DeepLabCut processed</span>
+                                <a href="https://drive.google.com/file/d/1tI6EHkVIlg76r0fuP--jdYw81V_m3YhI/view?usp=sharing"
+                                    class="resource-link" target="_blank">Download</a>
+                            </div>
+                            <div class="resource-card">
+                                <span class="resource-name">Body Camera Data</span>
+                                <span class="resource-meta">DeepLabCut processed</span>
+                                <a href="https://drive.google.com/file/d/1bzwbtTvBNvLCFViu9c5Zjc8Tc6QjjJBp/view?usp=sharing"
+                                    class="resource-link" target="_blank">Download</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-section">
+                        <div class="resource-group-title">
+                            <span class="badge badge-1p">Wide-Field (1p)</span>
+                            Processed
+                        </div>
+                        <div class="resource-grid">
+                            <div class="resource-card">
+                                <span class="resource-name">Wide Field 1p Data</span>
+                                <span class="resource-meta">Resized 128x128</span>
+                                <a href="https://drive.google.com/file/d/1-EpWoVFmI_BoasCdHjzZbW5yPD27r9AD/view?usp=sharing"
+                                    class="resource-link" target="_blank">Download</a>
+                            </div>
+                            <div class="resource-card">
+                                <span class="resource-name">ΔF/F Image Data</span>
+                                <span class="resource-meta">.mat format</span>
+                                <a href="https://drive.google.com/file/d/1LYl8ymyAyMENt6GXPtXUP6TxdGPVrvgm/view?usp=sharing"
+                                    class="resource-link" target="_blank">Download</a>
+                            </div>
+                            <div class="resource-card">
+                                <span class="resource-name">Task Data</span>
+                                <span class="resource-meta">.mat format</span>
+                                <a href="https://drive.google.com/file/d/1tKni4HwUdTTwgFJ0NPuiDLH0cjPRgKAL/view?usp=sharing"
+                                    class="resource-link" target="_blank">Download</a>
+                            </div>
+                            <div class="resource-card">
+                                <span class="resource-name">Face Camera Data</span>
+                                <span class="resource-meta">DeepLabCut processed</span>
+                                <a href="https://drive.google.com/file/d/1NiBDScizLNlBGhECHDaBcsyAcaAMEiOz/view?usp=sharing"
+                                    class="resource-link" target="_blank">Download</a>
+                            </div>
+                            <div class="resource-card">
+                                <span class="resource-name">Body Camera Data</span>
+                                <span class="resource-meta">DeepLabCut processed</span>
+                                <a href="https://drive.google.com/file/d/187IwggB6xJFRoeenZzrNtEf6VCsp20et/view?usp=sharing"
+                                    class="resource-link" target="_blank">Download</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analyzed Data -->
+                    <h3>📊 Analyzed Data</h3>
+                    <div class="resource-section">
+                        <div class="resource-grid">
+                            <div class="resource-card">
+                                <span class="resource-name">2p Image Dataset (stdData)</span>
+                                <span class="resource-meta">30Hz, synchronized</span>
+                                <a href="https://drive.google.com/file/d/1xF7RruKCwyzSe53_oKBMLn74fMD4TVvE/view?usp=sharing"
+                                    class="resource-link" target="_blank">Download</a>
+                            </div>
+                            <div class="resource-card">
+                                <span class="resource-name">Wide Field 1p Dataset (stdData)</span>
+                                <span class="resource-meta">30Hz, synchronized</span>
+                                <a href="https://drive.google.com/file/d/1rsTi9U3BGOroGJcP1tGCnHFJfC3r07UR/view?usp=sharing"
                                     class="resource-link" target="_blank">Download</a>
                             </div>
                         </div>
@@ -451,77 +801,165 @@
 
                 <!-- Data Description -->
                 <section id="description">
+                    <div class="section-divider"></div>
                     <h2>Data Description</h2>
+                    <p>各データファイルの詳細な説明は以下の通りです。</p>
 
-                    <h3>Behavior Data Channels (.lvm)</h3>
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>CH</th>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>ch.1</td>
-                                    <td>Lever Trajectory</td>
-                                    <td>レバー位置 (unit: mm)</td>
-                                </tr>
-                                <tr>
-                                    <td>ch.3</td>
-                                    <td>Imaging Sync</td>
-                                    <td>2p: LOW to HIGH / 1p: HIGH to LOW</td>
-                                </tr>
-                                <tr>
-                                    <td>ch.4</td>
-                                    <td>Video Sync</td>
-                                    <td>Body/Face Camera取得タイミング (LOW to HIGH)</td>
-                                </tr>
-                                <tr>
-                                    <td>ch.5</td>
-                                    <td>Lever State</td>
-                                    <td>1: &lt; Base threshold, 2: &gt; Base &amp; outside Target, 3: In Target zone
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>ch.6</td>
-                                    <td>Task State</td>
-                                    <td>0/1: ITI, 2: Ready, 3: Go, 4: Success, 5: Failure</td>
-                                </tr>
-                                <tr>
-                                    <td>ch.7</td>
-                                    <td>Target Upper</td>
-                                    <td>Target zoneの上限</td>
-                                </tr>
-                                <tr>
-                                    <td>ch.8</td>
-                                    <td>Target Lower</td>
-                                    <td>Target zoneの下限</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <!-- Raw Data Description -->
+                    <div class="data-section-card">
+                        <div class="data-section-header">
+                            <div class="data-section-icon raw">📦</div>
+                            <h4>Raw Data</h4>
+                        </div>
+                        <div class="data-section-body">
+                            <ul>
+                                <li><strong>📹 Body Camera Movie:</strong> RS_Front_210707(日付) jRG10(個体番号).mp4<br>
+                                    マウスの腹側をカメラにより70Hzで計測した動画データ。撮影の開始タイミングはイメージングとは異なる点に注意。</li>
+                                <li><strong>👤 Face Camera Movie:</strong> RS_Side_210707(日付) jRG10(個体番号).mp4<br>
+                                    マウスの右側面顔をカメラにより70Hzで計測した動画データ。撮影の開始タイミングはイメージングとは異なる点に注意。</li>
+                                <li><strong>🧠 2p/1p Image Data:</strong> .oir (Olympus) / .sifx (Andor) format<br>
+                                    2光子および1光子イメージングの加工前画像データ。512 x 512 pixel、30Hz。<br>
+                                    <span style="font-size: 0.85rem; color: var(--color-text-muted);">MATLAB読み込み: 2pは<a
+                                            href="https://github.com/YR-T/oir2stdData/" target="_blank"
+                                            style="color: var(--color-accent);">oir2stdData</a>、1pは<a
+                                            href="https://jp.mathworks.com/matlabcentral/fileexchange/19913-lvm-file-import"
+                                            target="_blank"
+                                            style="color: var(--color-accent);">lvm-file-import</a>を使用</span>
+                                </li>
+                                <li><strong>📊 Behavior Data:</strong> 210707(日付) jRG10(個体番号) nanataki 5000Hz.lvm<br>
+                                    レバー軌道や課題の状況を5000Hzで計測した行動データおよび同期用のフレーム信号。</li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <h3>DeepLabCut Tracking Points</h3>
+                    <!-- Behavior Data Channels Table -->
+                    <h3>📊 Behavior Data Channels (.lvm)</h3>
+                    <p>Segment1.dataは行がフレーム数、列が記録チャンネルの行列になっており、以下の値が格納されています（HIGH=5V, LOW=0V）：</p>
+                    <table class="enhanced-table">
+                        <thead>
+                            <tr>
+                                <th>Channel</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="channel-badge">ch.1</span></td>
+                                <td>Lever Trajectory</td>
+                                <td>レバー軌道（unit: mm）</td>
+                            </tr>
+                            <tr>
+                                <td><span class="channel-badge">ch.2</span></td>
+                                <td>未使用</td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td><span class="channel-badge">ch.3</span></td>
+                                <td>Imaging Sync</td>
+                                <td>2p: LOW to HIGH、1p: HIGH to LOW でフレーム取得開始</td>
+                            </tr>
+                            <tr>
+                                <td><span class="channel-badge">ch.4</span></td>
+                                <td>Video Sync</td>
+                                <td>Body/Face Camera: LOW to HIGHでフレーム取得開始。両カメラは同期</td>
+                            </tr>
+                            <tr>
+                                <td><span class="channel-badge">ch.5</span></td>
+                                <td>Lever State</td>
+                                <td>1: Base threshold以下, 2: Base以上&Target外, 3: Target zone内</td>
+                            </tr>
+                            <tr>
+                                <td><span class="channel-badge">ch.6</span></td>
+                                <td>Task State</td>
+                                <td>0/1: ITI, 2: Ready, 3: Go, 4: Success, 5: Failure</td>
+                            </tr>
+                            <tr>
+                                <td><span class="channel-badge">ch.7</span></td>
+                                <td>Target Upper</td>
+                                <td>Target zoneの上限</td>
+                            </tr>
+                            <tr>
+                                <td><span class="channel-badge">ch.8</span></td>
+                                <td>Target Lower</td>
+                                <td>Target zoneの下限</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Preprocessed Data Description -->
+                    <div class="data-section-card">
+                        <div class="data-section-header">
+                            <div class="data-section-icon processed">⚙️</div>
+                            <h4>Preprocessed Data</h4>
+                        </div>
+                        <div class="data-section-body">
+                            <ul>
+                                <li><strong>🧠 Motion Corrected Image (2p):</strong> *_normcorre.mat<br>
+                                    NoRMCorreを用いてnon-rigid motion correctionを行ったimaging data。stdData.image以下に X x Y x Z
+                                    x Tの4d-matrixとして格納。</li>
+                                <li><strong>🧠 Resized Image (1p):</strong> *_image.mat<br>
+                                    rawデータ読み込み後、128 x 128 pixelにリサイズを行ったもの。stdData.I以下に X x Y x Tの3d-matrixとして格納。</li>
+                                <li><strong>📊 CNMF Result (2p):</strong> *_CNMF.mat<br>
+                                    CNMFを用いてROI検出を実行した結果。A,C,S,P,b,f: CNMFの出力結果。F_dff, F_dcv, F_denoiseを含む。</li>
+                                <li><strong>🖼️ ΔF/F Image (1p):</strong> *_dFF.mat<br>
+                                    各ピクセルに対し、各時間±30secにおける8パーセンタイルの値をF0としΔF/F=(F-F0)/F0を計算した画像ファイル。</li>
+                                <li><strong>📊 Behavior Data:</strong> *_task.mat<br>
+                                    task構造体: Fs, lever, lever_state, task_state, bottom, top, frame_trig, video_trig
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- DeepLabCut Tracking Points -->
+                    <h3>🎯 DeepLabCut Tracking Points</h3>
                     <p>ビデオ解析にはDeepLabCutを使用し、以下のポイントをトラッキングしています：</p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 16px;">
+                    <div class="info-card">
                         <div>
-                            <strong>Body Camera:</strong>
-                            <ul style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 8px;">
-                                <li>Spout/Lever tips</li>
-                                <li>Armrest tip</li>
-                                <li>右手/左手の指先（親指〜小指）</li>
+                            <h5>📹 Body Camera</h5>
+                            <ul>
+                                <li><strong>spout:</strong> スパウトの先端</li>
+                                <li><strong>lever_tip:</strong> レバーの先端</li>
+                                <li><strong>armrest_tip:</strong> 左手を置くアームレストの先端</li>
+                                <li><strong>thumb_r/l:</strong> 右/左手親指</li>
+                                <li><strong>index_r/l:</strong> 右/左手人差し指</li>
+                                <li><strong>middle_r/l:</strong> 右/左手中指</li>
+                                <li><strong>ring_r/l:</strong> 右/左手薬指</li>
+                                <li><strong>pinky_r/l:</strong> 右/左手小指</li>
                             </ul>
                         </div>
                         <div>
-                            <strong>Face Camera:</strong>
-                            <ul style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 8px;">
-                                <li>Spout side</li>
-                                <li>Tip of nose</li>
-                                <li>Philtrum (人中) / Lower lip</li>
-                                <li>Jaw / Tongue tip</li>
+                            <h5>👤 Face Camera</h5>
+                            <ul>
+                                <li><strong>spout_side:</strong> スパウトの先端</li>
+                                <li><strong>tip_of_nose:</strong> 鼻の先端</li>
+                                <li><strong>philtrum:</strong> 上唇（人中）</li>
+                                <li><strong>lower_lip:</strong> 下唇</li>
+                                <li><strong>jaw:</strong> あご</li>
+                                <li><strong>tongue:</strong> 舌先端</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Analyzed Data Description -->
+                    <div class="data-section-card">
+                        <div class="data-section-header">
+                            <div class="data-section-icon"
+                                style="background: linear-gradient(135deg, #06b6d4, #0891b2);">📊</div>
+                            <h4>Analyzed Data (stdData構造体)</h4>
+                        </div>
+                        <div class="data-section-body">
+                            <p style="margin-bottom: 16px;">解析用に同期処理を行った後のデータ。以下のフィールドを含みます：</p>
+                            <ul>
+                                <li><strong>I:</strong> 全時間平均をとったimaging data</li>
+                                <li><strong>I_dff [1p]:</strong> ΔF/F処理後画像</li>
+                                <li><strong>rs_task (構造体):</strong> イメージングのフレームレート(30Hz)と同期させたBehavior data
+                                    <ul style="margin-left: 24px; margin-top: 8px;">
+                                        <li>lever, lever_state, task_state, bottom, top</li>
+                                    </ul>
+                                </li>
+                                <li><strong>rs_motions (構造体):</strong> イメージングのフレームレート(30Hz)と同期させたDeepLabCutの出力データ</li>
+                                <li><strong>cNMF (構造体) [2p]:</strong> CNMFを用いてROI検出を実行した結果</li>
                             </ul>
                         </div>
                     </div>
@@ -529,19 +967,28 @@
 
                 <!-- Task Details -->
                 <section id="task">
+                    <div class="section-divider"></div>
                     <h2>Task Paradigm</h2>
                     <p>
                         本課題は、自発的なレバー引き動作をターゲットゾーン(Target zone)内に一定時間(T_target = 200ms)保持することをマウスに学習させます。
                     </p>
-                    <h3>Task States</h3>
-                    <ul style="color: var(--color-text-muted);">
-                        <li><strong>ITI (Inter-Trial Interval):</strong> トライアル間の休止期間。</li>
-                        <li><strong>Ready:</strong> レバーを基底閾値(0.5mm)以下で1秒以上保持すると遷移。</li>
-                        <li><strong>Go:</strong> レバーが基底閾値を越えるとトライアル開始。1000msの制限時間が与えられる。</li>
-                        <li><strong>Success:</strong> 制限時間内に保持条件を満たすと達成。水報酬が与えられる。</li>
-                        <li><strong>Failure:</strong> 制限時間内に達成できなかった場合。</li>
-                    </ul>
-                    <p style="margin-top: 16px;">
+
+                    <div class="task-card">
+                        <div class="task-card-header">
+                            <h4>🎮 Task States</h4>
+                        </div>
+                        <div class="task-card-body">
+                            <ul>
+                                <li><strong>ITI</strong> トライアル間の休止期間（Inter-Trial Interval）</li>
+                                <li><strong>Ready</strong> レバーを基底閾値(0.5mm)以下で1秒以上保持すると遷移</li>
+                                <li><strong>Go</strong> レバーが基底閾値を越えるとトライアル開始。1000msの制限時間</li>
+                                <li><strong>Success ✓</strong> 制限時間内に保持条件を満たすと達成。水報酬が与えられる</li>
+                                <li><strong>Failure ✗</strong> 制限時間内に達成できなかった場合</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p>
                         Target zoneは中心を4mmとし、マウスの習熟度（成功数）に応じて±2.5mmから適応的に狭まっていきます。感覚フィードバックとして、レバーがTarget
                         zone内に入っている間は10kHzの純音が提示されます。
                     </p>
@@ -549,16 +996,32 @@
 
                 <!-- Methodology -->
                 <section id="method">
+                    <div class="section-divider"></div>
                     <h2>Methodology</h2>
-                    <h3>Imaging Setup</h3>
-                    <p>
-                        トランスジェニックマウス(Thy1-jRGECO1a)を用い、1光子では広域マクロ顕微鏡、2光子では高感度多焦点顕微鏡による計測を実施しました。
-                    </p>
-                    <h3>Image Processing</h3>
-                    <p>
-                        MATLAB上でNoRMCorreによる動き補正、およびCNMF（2光子）によるROI抽出を行いました。輝度変化($\Delta
-                        F/F$)の算出には、局所的なバックグラウンド減算とパーセンタイルベースの$F_0$推定を適用しています。
-                    </p>
+
+                    <div class="method-card">
+                        <div class="method-card-header">
+                            <div class="method-number">1</div>
+                            <h4>Imaging Setup</h4>
+                        </div>
+                        <div class="method-card-body">
+                            <p>
+                                トランスジェニックマウス(Thy1-jRGECO1a)を用い、1光子では広域マクロ顕微鏡、2光子では高感度多焦点顕微鏡による計測を実施しました。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="method-card-header">
+                            <div class="method-number">2</div>
+                            <h4>Image Processing</h4>
+                        </div>
+                        <div class="method-card-body">
+                            <p>
+                                MATLAB上でNoRMCorreによる動き補正、およびCNMF（2光子）によるROI抽出を行いました。輝度変化(ΔF/F)の算出には、局所的なバックグラウンド減算とパーセンタイルベースのF₀推定を適用しています。
+                            </p>
+                        </div>
+                    </div>
                 </section>
             </main>
 
