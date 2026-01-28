@@ -150,7 +150,7 @@ a {
   padding-top: 80px;
   background-image:
     linear-gradient(rgba(5, 12, 25, 0.3), rgba(5, 12, 25, 0.7)),
-    url('./images/hero-new-concept.png');
+    url('./images/hero_illustration.png');
   background-size: cover;
   background-position: center;
   background-attachment: scroll;
