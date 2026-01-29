@@ -51,11 +51,35 @@
         }
 
         .dataset-hero {
-            padding: 120px 0 60px;
-            background: #020617;
-            background: radial-gradient(circle at top right, #1e3a8a 0%, #020617 100%);
+            padding: 120px 0 80px;
+            background-color: #020617;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dataset-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background-image: url('../images/neuron_hero.jpg');
+            background-size: auto 100%;
+            background-position: right center;
+            background-repeat: no-repeat;
+            -webkit-mask-image: linear-gradient(to left, black 10%, transparent 90%);
+            mask-image: linear-gradient(to left, black 10%, transparent 90%);
+            opacity: 0.35;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .dataset-hero .container {
+            position: relative;
+            z-index: 10;
         }
 
         .breadcrumb {
