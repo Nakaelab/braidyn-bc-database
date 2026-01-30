@@ -119,12 +119,16 @@ a {
 .logo {
   display: flex;
   align-items: center;
-  gap: 16px;
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 1.5rem;
-  letter-spacing: -0.03em;
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
   color: #ffffff;
+  transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+  opacity: 0.8;
 }
 
 .logo-text {
@@ -148,25 +152,7 @@ a {
   margin-top: 2px;
 }
 
-.logo-icon {
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-}
 
-.logo:hover .logo-icon {
-  transform: scale(1.1);
-}
-
-.logo-icon svg {
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow(0 4px 8px rgba(37, 99, 235, 0.4));
-}
 
 .nav-links {
   display: flex;

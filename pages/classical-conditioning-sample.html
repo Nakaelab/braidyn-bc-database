@@ -923,39 +923,89 @@
                     <h3>Download</h3>
                     <h4 style="font-size: 1rem; font-weight: 600; margin-top: 24px; margin-bottom: 16px;">Raw data</h4>
 
-                    <!-- Download Callout -->
-                    <div
-                        style="background: #f8fafc; border-left: 4px solid var(--color-accent); padding: 20px 24px; margin-bottom: 32px; border-radius: 4px;">
-                        <div style="display: flex; gap: 8px; align-items: flex-start;">
-                            <span style="font-size: 1.3em;">💡</span>
-                            <div style="flex: 1;">
-                                <div style="margin-bottom: 12px;">
-                                    <strong>Body Camera Movie</strong>:<br>
-                                    <strong>Face Camera Movie</strong>:<br>
-                                    <strong>Wide Field 1p</strong>(1-4は結合すると連続する1 Sessionのフレーム):
+                    <div class="resource-section">
+                        <div class="resource-grid">
+                            <!-- Body Camera -->
+                            <div class="resource-card">
+                                <div class="resource-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M23 7l-7 5 7 5V7z" />
+                                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                                    </svg>
                                 </div>
-                                <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem;">
-                                    <div>2: 🔗 <a
-                                            href="https://drive.google.com/file/d/1bT7by3ap05JRWv-thS1se5g1YO43JbsJ/view?usp=share_link"
-                                            target="_blank"
-                                            style="color: var(--color-accent);">1bT7by3ap05JRWv-thS1se5g1YO43JbsJ</a>
+                                <div class="resource-info">
+                                    <h3>01. Body Camera Movie</h3>
+                                    <p>マウスの腹側を30Hzで計測した動画データ。行動の詳細な時系列変化を記録します。</p>
+                                    <div style="display: flex; gap: 8px; margin: 8px 0;">
+                                        <span class="card-badge">AVI</span>
+                                        <span class="card-badge">30Hz</span>
                                     </div>
-                                    <div>3: 🔗 <a
-                                            href="https://drive.google.com/file/d/1bU4iMLvNkT9TSG0SSUCg-JH1d9GgllC2/view?usp=share_link"
-                                            target="_blank"
-                                            style="color: var(--color-accent);">1bU4iMLvNkT9TSG0SSUCg-JH1d9GgllC2</a>
+                                    <span style="color: #94a3b8; font-size: 0.8rem; font-weight: 600;">※現在提供準備中</span>
+                                </div>
+                            </div>
+
+                            <!-- Face Camera -->
+                            <div class="resource-card">
+                                <div class="resource-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                        <circle cx="12" cy="7" r="4" />
+                                    </svg>
+                                </div>
+                                <div class="resource-info">
+                                    <h3>02. Face Camera Movie</h3>
+                                    <p>マウスの左側面顔を30Hzで計測した動画データ。表情や口（リック）の動きを詳細に捉えます。</p>
+                                    <div style="display: flex; gap: 8px; margin: 8px 0;">
+                                        <span class="card-badge">AVI</span>
+                                        <span class="card-badge">30Hz</span>
                                     </div>
-                                    <div>4: 🔗 <a
-                                            href="https://drive.google.com/file/d/1bU4iMLvNkT9TSG0SSUCg-JH1d9GgllC2/view"
-                                            target="_blank"
-                                            style="color: var(--color-accent);">1bU4iMLvNkT9TSG0SSUCg-JH1d9GgllC2</a>
+                                    <span style="color: #94a3b8; font-size: 0.8rem; font-weight: 600;">※現在提供準備中</span>
+                                </div>
+                            </div>
+
+                            <!-- Wide Field 1p -->
+                            <div class="resource-card">
+                                <div class="resource-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                        <path d="M12 8l4 4-4 4M8 12h7" />
+                                    </svg>
+                                </div>
+                                <div class="resource-info">
+                                    <h3>03. Wide Field 1p Imaging</h3>
+                                    <p>両側大脳皮質のCa²⁺イメージングデータ。1セッション分を4ファイルに分割して提供しています。</p>
+                                    <div style="display: flex; gap: 8px; margin: 8px 0;">
+                                        <span class="card-badge">TIFF</span>
+                                        <span class="card-badge">4 Parts</span>
+                                    </div>
+                                    <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
+                                        <a href="https://drive.google.com/file/d/1bT7by3ap05JRWv-thS1se5g1YO43JbsJ/view?usp=share_link"
+                                            target="_blank" class="resource-link">Part 2 Download</a>
+                                        <a href="https://drive.google.com/file/d/1bU4iMLvNkT9TSG0SSUCg-JH1d9GgllC2/view?usp=share_link"
+                                            target="_blank" class="resource-link">Part 3 Download</a>
+                                        <a href="https://drive.google.com/file/d/1bU4iMLvNkT9TSG0SSUCg-JH1d9GgllC2/view"
+                                            target="_blank" class="resource-link">Part 4 Download</a>
                                     </div>
                                 </div>
-                                <div style="margin-top: 12px;">
-                                    <strong>Behavior data</strong>: 🔗 <a
-                                        href="https://drive.google.com/file/d/1ARVYDrgC6CfJprMDPTxl7uLJCiHOEd-v/view"
-                                        target="_blank"
-                                        style="color: var(--color-accent);">1ARVYDrgC6CfJprMDPTxl7uLJCiHOEd-v</a>
+                            </div>
+
+                            <!-- Behavior Data -->
+                            <div class="resource-card">
+                                <div class="resource-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M3 3v18h18" />
+                                        <path d="M18 9l-5 5-2-2-4 4" />
+                                    </svg>
+                                </div>
+                                <div class="resource-info">
+                                    <h3>04. Behavior Data</h3>
+                                    <p>リック、報酬、音（CS）のタイミングを5000Hzで記録。学習過程の定量的評価に使用可能です。</p>
+                                    <div style="display: flex; gap: 8px; margin: 8px 0;">
+                                        <span class="card-badge">LVM</span>
+                                        <span class="card-badge">5kHz</span>
+                                    </div>
+                                    <a href="https://drive.google.com/file/d/1ARVYDrgC6CfJprMDPTxl7uLJCiHOEd-v/view"
+                                        target="_blank" class="resource-link">Download .lvm</a>
                                 </div>
                             </div>
                         </div>
@@ -1042,63 +1092,7 @@
                         }
                     </style>
 
-                    <div class="data-overview-grid">
-                        <div class="data-card">
-                            <div class="data-card-inner">
-                                <div class="card-number">01</div>
-                                <h4 class="card-title">Body Camera Movie</h4>
-                                <p class="card-description">
-                                    マウスの腹側を30Hzで計測した動画データ。行動の詳細な時系列変化を記録。
-                                </p>
-                                <div class="card-meta">
-                                    <span class="card-badge">AVI Format</span>
-                                    <span class="card-badge">30Hz</span>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="data-card">
-                            <div class="data-card-inner">
-                                <div class="card-number">02</div>
-                                <h4 class="card-title">Face Camera Movie</h4>
-                                <p class="card-description">
-                                    マウスの左側面顔を30Hzで計測した動画データ。表情や口の動きを詳細に捉える。
-                                </p>
-                                <div class="card-meta">
-                                    <span class="card-badge">AVI Format</span>
-                                    <span class="card-badge">30Hz</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="data-card">
-                            <div class="data-card-inner">
-                                <div class="card-number">03</div>
-                                <h4 class="card-title">Wide Field 1p Imaging</h4>
-                                <p class="card-description">
-                                    両側大脳皮質のCa²⁺イメージングデータ。1セッション分を4ファイルに分割。
-                                </p>
-                                <div class="card-meta">
-                                    <span class="card-badge">TIFF</span>
-                                    <span class="card-badge">4 Parts</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="data-card">
-                            <div class="data-card-inner">
-                                <div class="card-number">04</div>
-                                <h4 class="card-title">Behavior Data</h4>
-                                <p class="card-description">
-                                    リック、報酬、音のタイミングを5000Hzで記録。学習過程の定量的評価に使用。
-                                </p>
-                                <div class="card-meta">
-                                    <span class="card-badge">LVM</span>
-                                    <span class="card-badge">5kHz</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                     <h4 style="font-size: 1rem; font-weight: 600; margin-top: 48px; margin-bottom: 16px;">Analyzed data
                     </h4>
