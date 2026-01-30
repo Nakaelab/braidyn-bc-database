@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
 
     <!-- Styles -->
@@ -25,13 +25,18 @@
         <div class="container">
             <a href="#" class="logo">
                 <div class="logo-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
-                        <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z" />
-                        <path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                    <!-- Ultra-Minimalist Neural-Flow Mark -->
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 26C10 26 10 10 22 10C28 10 32 14 32 20C32 26 26 30 20 30" stroke="#2563eb"
+                            stroke-width="3" stroke-linecap="round" />
+                        <circle cx="20" cy="20" r="3" fill="white" />
+                        <path d="M30 30L34 34" stroke="#2563eb" stroke-width="2" stroke-linecap="round" />
                     </svg>
                 </div>
-                <span>BraiDyn-BC</span>
+                <div class="logo-text">
+                    <span class="logo-main">BraiDyn-BC</span>
+                    <span class="logo-sub">Database</span>
+                </div>
             </a>
 
             <ul class="nav-links">
@@ -52,34 +57,32 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>
-                BraiDyn-BC Database
-            </h1>
+        <div class="hero-bg-overlay"></div>
+        <div class="hero-mesh"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge-fancy">Global Open Data Initiative</div>
+                <h1>
+                    <span class="title-main">BraiDyn-BC</span>
+                    <span class="title-sub">Database</span>
+                </h1>
 
-            <p class="hero-subtitle">
-                マウスの学習過程における脳全域活動・行動・映像の記録。<br>
-                学習に伴う脳ダイナミクスを解明するための、大規模マルチモーダルデータセット。
-            </p>
+                <p class="hero-subtitle">
+                    マウスの学習過程における脳全域活動・行動・映像の記録。<br>
+                    学習に伴う脳ダイナミクスを解明するための、<br>大規模マルチモーダルデータセット。
+                </p>
 
-            <div class="hero-actions">
-                <a href="#database" class="btn btn-primary btn-glow">
-                    <span>View Database</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 21l-4.35-4.35" />
-                        <circle cx="11" cy="11" r="8" />
-                    </svg>
-                </a>
-                <a href="#about" class="btn btn-secondary">
-                    <span>About Project</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 5l7 7-7 7" />
-                        <path d="M5 12h14" />
-                    </svg>
-                </a>
+                <div class="hero-actions">
+                    <a href="#database" class="btn btn-pill-premium">
+                        <span class="btn-top-label">Access the</span>
+                        <span class="btn-main-label">Data Explorer</span>
+                    </a>
+                </div>
             </div>
-
-
+        </div>
+        <div class="hero-scroll-indicator">
+            <span class="scroll-text">DISCOVER OUR STORY</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
@@ -699,6 +702,23 @@
                 navLinks.classList.toggle('active');
             });
         }
+
+        // Scroll Reveal Animation Observer
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                }
+            });
+        };
+
+        const revealObserver = new IntersectionObserver(revealCallback, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.section, .updates').forEach(section => {
+            revealObserver.observe(section);
+        });
     </script>
 </body>
 
