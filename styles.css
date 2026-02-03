@@ -194,19 +194,50 @@ a {
 /* ---------- Hero ---------- */
 .hero {
   height: 90vh;
-  /* Increased from 80vh for better presence */
   min-height: 650px;
-  /* Increased back for better vertical rhythm */
   display: flex;
   align-items: center;
   position: relative;
   background-color: #0a1628;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.hero-bg-visual {
+  position: absolute;
+  inset: -50px;
+  /* Oversize for safe panning */
   background-image: url('./images/hero_mouse_neural_v2.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: #ffffff;
-  overflow: hidden;
+  z-index: 0;
+  animation: hero-pan-zoom 30s ease-in-out infinite;
+  opacity: 0.8;
+  /* Slightly dimmed for overlay blend */
+  will-change: transform;
+}
+
+@keyframes hero-pan-zoom {
+  0% {
+    transform: scale(1.05) translate(0, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: scale(1.15) translate(-1%, 2%) rotate(1deg);
+  }
+
+  50% {
+    transform: scale(1.1) translate(1%, -1%) rotate(-1deg);
+  }
+
+  75% {
+    transform: scale(1.2) translate(-2%, -2%) rotate(0.5deg);
+  }
+
+  100% {
+    transform: scale(1.05) translate(0, 0) rotate(0deg);
+  }
 }
 
 
@@ -216,9 +247,22 @@ a {
   inset: 0;
   /* Elegant overlay that shows the image while maintaining text readability */
   background:
-    radial-gradient(circle at center, rgba(10, 22, 40, 0.3) 0%, rgba(10, 22, 40, 0.6) 100%),
-    linear-gradient(180deg, rgba(10, 22, 40, 0.2) 0%, transparent 30%, transparent 70%, rgba(10, 22, 40, 0.7) 100%);
+    radial-gradient(circle at center, rgba(10, 22, 40, 0.45) 0%, rgba(10, 22, 40, 0.7) 100%),
+    linear-gradient(180deg, rgba(10, 22, 40, 0.2) 0%, transparent 40%, transparent 60%, rgba(10, 22, 40, 0.7) 100%);
   z-index: 1;
+  animation: overlay-pulse 10s ease-in-out infinite;
+}
+
+@keyframes overlay-pulse {
+
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 
