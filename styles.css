@@ -250,8 +250,8 @@ a {
   align-items: center;
   position: relative;
   z-index: 10;
-  padding: 80px 24px 0 24px;
-  /* Added top padding to separate from nav */
+  padding: 80px 24px 120px 24px;
+  /* Added bottom padding to lift content up */
 }
 
 
@@ -344,7 +344,8 @@ a {
   font-size: 1.15rem;
   color: rgba(255, 255, 255, 0.9);
   max-width: 650px;
-  margin: 0 auto 56px auto;
+  margin: 0 auto 24px auto;
+  /* Reduced margin to pull button up */
   line-height: 1.8;
   letter-spacing: 0.02em;
   font-weight: 400;
@@ -529,58 +530,57 @@ a {
 }
 
 /* Pill Premium Button */
+/* Pill Premium Button - Transparent & Elegant */
 .btn-pill-premium {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 18px 36px;
-  background: #ffffff;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50px;
-  color: #111827;
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  gap: 4px;
+  padding: 24px 80px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 100px;
+  color: #ffffff;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   text-transform: none;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   cursor: pointer;
   position: relative;
   z-index: 50;
-  /* Ensure it's above everything */
   text-decoration: none;
+  min-width: 320px;
 }
 
 .btn-pill-premium:hover {
-  background: rgba(255, 255, 255, 0.95);
-  transform: translateY(-1px);
-  /* Reduced movement to make clicking easier */
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25), 0 0 0 2px rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
 .btn-pill-premium::after {
-  content: '→';
-  font-size: 1.2rem;
-  transition: transform 0.3s ease;
-  display: inline-block;
-}
-
-.btn-pill-premium:hover::after {
-  transform: translateX(4px);
+  content: none;
+  /* Remove arrow */
 }
 
 .btn-top-label {
-  display: none;
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
 }
 
 .btn-main-label {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1;
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
 }
 
 .btn-secondary:hover svg {
