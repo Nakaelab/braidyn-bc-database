@@ -194,16 +194,14 @@ a {
 /* ---------- Hero ---------- */
 .hero {
   height: 100vh;
-  min-height: 800px;
+  min-height: 700px;
   display: flex;
   align-items: center;
   position: relative;
-  background-color: #050d1a;
-  background-image:
-    radial-gradient(circle at 80% 50%, rgba(74, 158, 255, 0.1) 0%, transparent 60%),
-    url('./images/premium_mouse_hero.png');
+  background-color: #0a1628;
+  background-image: url('./images/hero_neural_right.jpg');
   background-size: cover;
-  background-position: center right;
+  background-position: center;
   background-repeat: no-repeat;
   color: #ffffff;
   overflow: hidden;
@@ -214,7 +212,10 @@ a {
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, #050d1a 30%, rgba(5, 13, 26, 0.6) 60%, transparent 90%);
+  /* Elegant overlay that shows the image while maintaining text readability */
+  background:
+    radial-gradient(circle at center, rgba(10, 22, 40, 0.3) 0%, rgba(10, 22, 40, 0.6) 100%),
+    linear-gradient(180deg, rgba(10, 22, 40, 0.2) 0%, transparent 30%, transparent 70%, rgba(10, 22, 40, 0.7) 100%);
   z-index: 1;
 }
 
@@ -238,60 +239,92 @@ a {
 }
 
 .hero-content {
-  max-width: 800px;
-  text-align: left;
-  padding: 0;
+  max-width: 900px;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  padding: 0 24px;
 }
 
 
 
 .hero-badge-fancy {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
   text-transform: uppercase;
-  letter-spacing: 0.3em;
-  margin-bottom: 24px;
-  position: relative;
-  padding-left: 50px;
+  letter-spacing: 0.2em;
+  margin-bottom: 32px;
+  padding: 10px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.hero-badge-fancy:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .hero-badge-fancy::before {
   content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 40px;
-  height: 1px;
+  width: 6px;
+  height: 6px;
   background: var(--color-accent);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
 }
 
 .hero h1 {
   display: flex;
   flex-direction: column;
-  line-height: 1;
-  margin-bottom: 32px;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  align-items: center;
 }
 
 .title-main {
   font-family: var(--font-serif);
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 700;
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  font-weight: 300;
   color: #ffffff;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.5),
+    0 4px 30px rgba(0, 0, 0, 0.4);
+  margin-bottom: 16px;
 }
 
 .title-sub {
   font-family: var(--font-display);
-  font-size: clamp(1.2rem, 3vw, 2.2rem);
-  font-weight: 400;
+  font-size: clamp(1rem, 2.5vw, 1.8rem);
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.4em;
-  color: var(--color-accent);
-  margin-top: 10px;
-  opacity: 0.9;
+  letter-spacing: 0.5em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 0;
 }
 
 
@@ -299,13 +332,14 @@ a {
 
 
 .hero-subtitle {
-  font-size: 1.15rem;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 700px;
-  margin: 0 0 48px 0;
-  line-height: 2;
-  letter-spacing: 0.05em;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 650px;
+  margin: 0 auto 56px auto;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
   font-weight: 400;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .hero-scroll-indicator {
@@ -372,13 +406,14 @@ a {
     text-align: center;
     justify-content: center;
     background-image:
-      radial-gradient(circle at center, rgba(74, 158, 255, 0.2) 0%, transparent 70%),
-      url('./images/premium_neuron_hero.png');
+      radial-gradient(circle at center, rgba(5, 13, 26, 0.85) 0%, rgba(5, 13, 26, 0.95) 100%),
+      url('./images/hero_neural_right.jpg');
     background-position: center;
+    background-size: cover;
   }
 
   .hero-bg-overlay {
-    background: radial-gradient(circle at center, rgba(5, 13, 26, 0.8) 0%, #050d1a 90%);
+    background: linear-gradient(180deg, rgba(5, 13, 26, 0.8) 0%, #050d1a 100%);
   }
 
   .hero-content {
@@ -418,7 +453,7 @@ a {
 
 .hero-actions {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 20px;
   margin-top: 32px;
 }
@@ -486,40 +521,49 @@ a {
 
 /* Pill Premium Button */
 .btn-pill-premium {
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 48px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 100px;
-  color: #ffffff;
-  backdrop-filter: blur(15px);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  gap: 12px;
+  padding: 18px 40px;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 50px;
+  color: #0a1628;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   text-transform: none;
-  width: fit-content;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
 }
 
 .btn-pill-premium:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.8);
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.btn-pill-premium::after {
+  content: '→';
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.btn-pill-premium:hover::after {
+  transform: translateX(4px);
 }
 
 .btn-top-label {
-  font-size: 0.75rem;
-  font-weight: 600;
-  opacity: 0.8;
-  letter-spacing: 0.1em;
-  margin-bottom: 4px;
+  display: none;
 }
 
 .btn-main-label {
-  font-family: var(--font-serif);
-  font-size: 1.8rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
   line-height: 1;
 }
 
