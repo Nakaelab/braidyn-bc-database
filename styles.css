@@ -193,8 +193,10 @@ a {
 
 /* ---------- Hero ---------- */
 .hero {
-  height: 100vh;
-  min-height: 700px;
+  height: 90vh;
+  /* Increased from 80vh for better presence */
+  min-height: 650px;
+  /* Increased back for better vertical rhythm */
   display: flex;
   align-items: center;
   position: relative;
@@ -248,7 +250,8 @@ a {
   align-items: center;
   position: relative;
   z-index: 10;
-  padding: 0 24px;
+  padding: 80px 24px 0 24px;
+  /* Added top padding to separate from nav */
 }
 
 
@@ -868,12 +871,15 @@ a {
 }
 
 .about-simple-text p {
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-size: 1.05rem;
+  line-height: 2;
+  /* Increased line-height for elegance */
   color: #1f2937;
   margin-bottom: 32px;
   max-width: 100%;
 }
+
+/* Stylish First Paragraph Lead-in Removed */
 
 .about-simple-text p:last-child {
   margin-bottom: 0;
@@ -895,7 +901,8 @@ a {
   .about-simple-wrapper {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
-    gap: 64px;
+    gap: 80px;
+    /* Increased gap for better breathing room */
     align-items: start;
     max-width: 1200px;
   }
@@ -904,6 +911,38 @@ a {
     border-top: none;
     padding-top: 0;
     margin-bottom: 0;
+    position: relative;
+  }
+
+  /* Decorative Line */
+  .about-simple-header::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent), transparent);
+  }
+
+  /* Decorative Background Circle */
+  .about-simple-header::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.03) 0%, transparent 70%);
+    z-index: -1;
+    border-radius: 50%;
+  }
+
+  .about-simple-text {
+    position: relative;
+    padding-left: 40px;
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+    /* Magazine-style separator */
   }
 }
 
