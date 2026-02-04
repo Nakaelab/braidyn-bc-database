@@ -52,8 +52,9 @@
 
         .dataset-hero {
             padding: 120px 0 80px;
-            background-color: #020617;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: #000000;
+            /* Pure black background */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             color: white;
             position: relative;
             overflow: hidden;
@@ -64,6 +65,59 @@
         .dataset-hero .container {
             position: relative;
             z-index: 10;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 60px;
+            align-items: flex-end;
+        }
+
+        .hero-info-area {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-visual-area {
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .hero-visual-area img {
+            width: 100%;
+            max-width: 480px;
+            height: auto;
+            border-radius: 24px;
+            /* Gradually fade edges into pure black background */
+            mask-image: radial-gradient(circle at center, black 30%, transparent 92%);
+            -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 92%);
+            mix-blend-mode: lighten;
+            filter: contrast(1.15) brightness(1.15);
+            box-shadow: 0 0 120px rgba(59, 130, 246, 0.15);
+            /* Soft, wider ambient glow */
+            transform: perspective(1000px) rotateY(-8deg);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero-visual-area:hover img {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        @media (max-width: 1100px) {
+            .dataset-hero .container {
+                grid-template-columns: 1fr;
+                text-align: left;
+                gap: 40px;
+            }
+
+            .hero-visual-area {
+                justify-content: center;
+            }
+
+            .hero-visual-area img {
+                max-width: 380px;
+                transform: none;
+            }
         }
 
         .breadcrumb {
@@ -497,68 +551,75 @@
     <!-- Dataset Hero -->
     <header class="dataset-hero">
         <div class="container">
-            <div class="breadcrumb">
-                <a href="../index.html">Home</a>
-                <span>/</span>
-                <a href="../index.html#database">Database</a>
-                <span>/</span>
-                <span>Operant Conditioning Process</span>
-            </div>
+            <div class="hero-info-area">
+                <div class="breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span>/</span>
+                    <a href="../index.html#database">Database</a>
+                    <span>/</span>
+                    <span>Operant Conditioning Process</span>
+                </div>
 
-            <div class="dataset-title-area">
-                <div style="display: flex; flex-direction: column; gap: 24px;">
-                    <div>
-                        <span class="complete-badge">Complete Dataset Available</span>
-                        <h1>オペラント条件づけの学習過程</h1>
-                        <p class="dataset-subtitle">Operant Conditioning Learning Process</p>
-                    </div>
+                <div class="dataset-title-area">
+                    <div style="display: flex; flex-direction: column; gap: 24px;">
+                        <div>
+                            <span class="complete-badge">Complete Dataset Available</span>
+                            <h1>オペラント条件づけの学習過程</h1>
+                            <p class="dataset-subtitle">Operant Conditioning Learning Process</p>
+                        </div>
 
-                    <p style="max-width: 700px; color: rgba(255,255,255,0.8); line-height: 1.7; font-size: 1.05rem;">
-                        25匹のマウスがレバーを引いて水の報酬を得るよう訓練された、2週間にわたる運動技能学習の過程を追跡した大規模マルチモーダルデータセット。NWB形式での提供により、即座に解析が可能です。
-                    </p>
+                        <p
+                            style="max-width: 700px; color: rgba(255,255,255,0.8); line-height: 1.7; font-size: 1.05rem;">
+                            マウスがレバーを引いて水の報酬を得る学習過程を、広範な計測により追跡したデータセット。皮質動態と緻密な行動ビデオ記録がセットになっています。 FAIRS原則に基づきNWB形式で提供。
+                        </p>
 
-                    <div
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 24px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.15); border-bottom: 1px solid rgba(255,255,255,0.15); max-width: 800px;">
-                        <div>
-                            <div
-                                style="font-size: 0.75rem; color: #3b82f6; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
-                                DATA TYPE</div>
-                            <div style="font-size: 1.25rem; font-weight: 700;">Processed <span
-                                    style="font-size:0.8em; font-weight:400; opacity:0.7;">(NWB)</span></div>
+                        <div
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 24px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.15); border-bottom: 1px solid rgba(255,255,255,0.15); max-width: 800px;">
+                            <div>
+                                <div
+                                    style="font-size: 0.75rem; color: #3b82f6; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
+                                    DATA TYPE</div>
+                                <div style="font-size: 1.25rem; font-weight: 700;">Processed <span
+                                        style="font-size:0.8em; font-weight:400; opacity:0.7;">(NWB)</span></div>
+                            </div>
+                            <div>
+                                <div
+                                    style="font-size: 0.75rem; color: #3b82f6; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
+                                    INDIVIDUALS</div>
+                                <div style="font-size: 1.25rem; font-weight: 700;">25</div>
+                            </div>
+                            <div>
+                                <div
+                                    style="font-size: 0.75rem; color: #3b82f6; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
+                                    SESSIONS</div>
+                                <div style="font-size: 1.25rem; font-weight: 700;">15 <span
+                                        style="font-size:0.8em; font-weight:400; opacity:0.7;">(2 Weeks)</span></div>
+                            </div>
+                            <div>
+                                <div
+                                    style="font-size: 0.75rem; color: #3b82f6; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
+                                    ANIMAL</div>
+                                <div style="font-size: 1.25rem; font-weight: 700;">Mouse</div>
+                            </div>
                         </div>
-                        <div>
-                            <div
-                                style="font-size: 0.75rem; color: #3b82f6; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
-                                INDIVIDUALS</div>
-                            <div style="font-size: 1.25rem; font-weight: 700;">25</div>
-                        </div>
-                        <div>
-                            <div
-                                style="font-size: 0.75rem; color: #3b82f6; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
-                                SESSIONS</div>
-                            <div style="font-size: 1.25rem; font-weight: 700;">15 <span
-                                    style="font-size:0.8em; font-weight:400; opacity:0.7;">(2 Weeks)</span></div>
-                        </div>
-                        <div>
-                            <div
-                                style="font-size: 0.75rem; color: #3b82f6; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600;">
-                                ANIMAL</div>
-                            <div style="font-size: 1.25rem; font-weight: 700;">Mouse</div>
-                        </div>
-                    </div>
 
-                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                        <span
-                            style="background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1);">2p
-                            Imaging</span>
-                        <span
-                            style="background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1);">M1
-                            / L2/3 & L5</span>
-                        <span
-                            style="background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1);">Voluntary
-                            Movement</span>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span
+                                style="background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1);">2p
+                                Imaging</span>
+                            <span
+                                style="background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1);">M1
+                                / L2/3 & L5</span>
+                            <span
+                                style="background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1);">Voluntary
+                                Movement</span>
+                        </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="hero-visual-area">
+                <img src="../images/hero_mouse_neural_v2.png" alt="Neural Mouse Visualization">
             </div>
         </div>
     </header>
