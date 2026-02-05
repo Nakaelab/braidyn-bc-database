@@ -66,75 +66,23 @@
             gap: 40px;
         }
 
-        /* Sidebar Filters */
+        /* Sidebar Styling Redesign */
         .filter-sidebar {
             position: sticky;
             top: 100px;
             height: fit-content;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border-subtle);
+            border-radius: 12px;
+            padding: 24px;
         }
 
-        .filter-group {
+        .filter-group:not(:last-child) {
             margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--color-border-subtle);
         }
 
-        .filter-title {
-            font-family: var(--font-display);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--color-accent);
-            margin-bottom: 16px;
-            font-weight: 700;
-        }
-
-        .filter-options {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .filter-option {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            color: var(--color-td-text);
-            transition: color 0.2s;
-        }
-
-        .filter-option:hover {
-            color: var(--color-accent);
-        }
-
-        .filter-option input[type="checkbox"] {
-            appearance: none;
-            width: 18px;
-            height: 18px;
-            border: 2px solid var(--color-border-subtle);
-            border-radius: 4px;
-            background: transparent;
-            cursor: pointer;
-            position: relative;
-            transition: all 0.2s;
-        }
-
-        .filter-option input[type="checkbox"]:checked {
-            background: var(--color-accent);
-            border-color: var(--color-accent);
-        }
-
-        .filter-option input[type="checkbox"]:checked::after {
-            content: '✓';
-            position: absolute;
-            color: white;
-            font-size: 12px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        /* Improved Filter UI */
         .filter-header-row {
             display: flex;
             justify-content: space-between;
@@ -142,47 +90,57 @@
             margin-bottom: 16px;
         }
 
-        .btn-filter-toggle {
+        .filter-title {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-label);
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .btn-clear {
             background: none;
-            border: 1px solid var(--color-border-subtle);
+            border: none;
             color: var(--color-accent);
-            font-size: 0.7rem;
-            padding: 4px 8px;
-            border-radius: 4px;
+            font-size: 0.75rem;
             cursor: pointer;
-            font-weight: 600;
-            transition: all 0.2s;
+            padding: 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
         }
 
-        .btn-filter-toggle:hover {
-            background: rgba(74, 158, 255, 0.1);
-            border-color: var(--color-accent);
+        .btn-clear.visible {
+            opacity: 1;
+            pointer-events: auto;
         }
 
-        .filter-search {
+        /* Subject Search & List */
+        .sidebar-search-container {
+            position: relative;
             margin-bottom: 16px;
         }
 
-        .filter-search input {
+        .sidebar-search-container input {
             width: 100%;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--color-border-subtle);
-            padding: 8px 12px;
-            border-radius: 6px;
+            padding: 10px 10px 10px 36px;
+            border-radius: 8px;
             color: white;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            transition: all 0.2s;
         }
 
-        .filter-search input:focus {
+        .sidebar-search-container input:focus {
             outline: none;
+            background: rgba(255, 255, 255, 0.1);
             border-color: var(--color-accent);
         }
 
-        .sidebar-search-wrapper {
-            position: relative;
-        }
-
-        .sidebar-search-wrapper .search-icon {
+        .sidebar-search-container svg {
             position: absolute;
             left: 10px;
             top: 50%;
@@ -191,27 +149,112 @@
             pointer-events: none;
         }
 
-        .sidebar-search-wrapper input {
-            padding-left: 32px;
-        }
-
-        .scrollable-filters {
-            max-height: 300px;
+        .subject-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            max-height: 250px;
             overflow-y: auto;
-            padding-right: 8px;
+            padding-right: 4px;
         }
 
-        .scrollable-filters::-webkit-scrollbar {
+        .subject-grid::-webkit-scrollbar {
             width: 4px;
         }
 
-        .scrollable-filters::-webkit-scrollbar-track {
+        .subject-grid::-webkit-scrollbar-track {
             background: rgba(255, 255, 255, 0.02);
         }
 
-        .scrollable-filters::-webkit-scrollbar-thumb {
+        .subject-grid::-webkit-scrollbar-thumb {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
+        }
+
+        .subject-chip {
+            font-size: 0.8rem;
+            padding: 6px 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--color-border-subtle);
+            border-radius: 6px;
+            color: var(--color-td-text);
+            cursor: pointer;
+            transition: all 0.2s;
+            user-select: none;
+        }
+
+        .subject-chip:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .subject-chip.selected {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            border-color: #3b82f6;
+        }
+
+        .subject-chip.hidden {
+            display: none;
+        }
+
+        /* Type Filter Styled as Toggle Buttons */
+        .type-toggle-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .type-toggle {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--color-border-subtle);
+            transition: all 0.2s;
+        }
+
+        .type-toggle:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .type-toggle.active {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--color-accent);
+        }
+
+        .checkbox-fake {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            border: 2px solid var(--color-label);
+            position: relative;
+            transition: all 0.2s;
+        }
+
+        .type-toggle.active .checkbox-fake {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+        }
+
+        .type-toggle.active .checkbox-fake::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .type-label {
+            font-size: 0.9rem;
+            color: var(--color-td-text);
         }
 
         /* Table Area */
@@ -319,39 +362,7 @@
             border: 1px solid rgba(16, 185, 129, 0.2);
         }
 
-        .data-flags {
-            display: flex;
-            gap: 8px;
-        }
 
-        .flag {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--color-border-subtle);
-            position: relative;
-        }
-
-        .flag.active {
-            background: var(--color-accent);
-            box-shadow: 0 0 8px var(--color-accent);
-        }
-
-        .flag:hover::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #1e293b;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            white-space: nowrap;
-            margin-bottom: 8px;
-            z-index: 10;
-        }
 
         .file-actions {
             display: flex;
@@ -462,93 +473,61 @@
                     <div class="filter-group">
                         <div class="filter-header-row">
                             <h3 class="filter-title">Subject ID</h3>
-                            <button class="btn-filter-toggle" id="toggle-all-subjects">Deselect All</button>
+                            <button class="btn-clear" id="btn-clear-subjects">Clear Selection</button>
                         </div>
-                        <div class="filter-search">
-                            <div class="sidebar-search-wrapper">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" class="search-icon">
-                                    <circle cx="11" cy="11" r="8" />
-                                    <path d="M21 21l-4.35-4.35" />
-                                </svg>
-                                <input type="text" id="subject-filter-search" placeholder="Filter IDs (e.g. 105)...">
-                            </div>
+                        <div class="sidebar-search-container">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="11" cy="11" r="8" />
+                                <path d="M21 21l-4.35-4.35" />
+                            </svg>
+                            <input type="text" id="subject-filter-search" placeholder="Find Subject...">
                         </div>
-                        <div class="filter-options scrollable-filters" id="subject-checkbox-list">
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-48" checked> VG1GC-48</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-51" checked> VG1GC-51</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-52" checked> VG1GC-52</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-53" checked> VG1GC-53</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-54" checked> VG1GC-54</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-60" checked> VG1GC-60</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-61" checked> VG1GC-61</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-63" checked> VG1GC-63</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-66" checked> VG1GC-66</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-73" checked> VG1GC-73</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-78" checked> VG1GC-78</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-85" checked> VG1GC-85</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-87" checked> VG1GC-87</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-99" checked> VG1GC-99</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-105" checked> VG1GC-105</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-109" checked> VG1GC-109</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-116" checked> VG1GC-116</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-117" checked> VG1GC-117</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-119" checked> VG1GC-119</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-122" checked> VG1GC-122</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-124" checked> VG1GC-124</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-125" checked> VG1GC-125</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-127" checked> VG1GC-127</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-129" checked> VG1GC-129</label>
-                            <label class="filter-option"><input type="checkbox" class="subject-checkbox"
-                                    value="VG1GC-130" checked> VG1GC-130</label>
+                        <div class="subject-grid" id="subject-grid">
+                            <!-- Generated by JS -->
+                            <div class="subject-chip" data-value="VG1GC-48">VG1GC-48</div>
+                            <div class="subject-chip" data-value="VG1GC-51">VG1GC-51</div>
+                            <div class="subject-chip" data-value="VG1GC-52">VG1GC-52</div>
+                            <div class="subject-chip" data-value="VG1GC-53">VG1GC-53</div>
+                            <div class="subject-chip" data-value="VG1GC-54">VG1GC-54</div>
+                            <div class="subject-chip" data-value="VG1GC-60">VG1GC-60</div>
+                            <div class="subject-chip" data-value="VG1GC-61">VG1GC-61</div>
+                            <div class="subject-chip" data-value="VG1GC-63">VG1GC-63</div>
+                            <div class="subject-chip" data-value="VG1GC-66">VG1GC-66</div>
+                            <div class="subject-chip" data-value="VG1GC-73">VG1GC-73</div>
+                            <div class="subject-chip" data-value="VG1GC-78">VG1GC-78</div>
+                            <div class="subject-chip" data-value="VG1GC-85">VG1GC-85</div>
+                            <div class="subject-chip" data-value="VG1GC-87">VG1GC-87</div>
+                            <div class="subject-chip" data-value="VG1GC-99">VG1GC-99</div>
+                            <div class="subject-chip" data-value="VG1GC-105">VG1GC-105</div>
+                            <div class="subject-chip" data-value="VG1GC-109">VG1GC-109</div>
+                            <div class="subject-chip" data-value="VG1GC-116">VG1GC-116</div>
+                            <div class="subject-chip" data-value="VG1GC-117">VG1GC-117</div>
+                            <div class="subject-chip" data-value="VG1GC-119">VG1GC-119</div>
+                            <div class="subject-chip" data-value="VG1GC-122">VG1GC-122</div>
+                            <div class="subject-chip" data-value="VG1GC-124">VG1GC-124</div>
+                            <div class="subject-chip" data-value="VG1GC-125">VG1GC-125</div>
+                            <div class="subject-chip" data-value="VG1GC-127">VG1GC-127</div>
+                            <div class="subject-chip" data-value="VG1GC-129">VG1GC-129</div>
+                            <div class="subject-chip" data-value="VG1GC-130">VG1GC-130</div>
                         </div>
                     </div>
 
                     <div class="filter-group">
                         <h3 class="filter-title">Session Type</h3>
-                        <div class="filter-options">
-                            <label class="filter-option"><input type="checkbox" class="type-checkbox" value="Task"
-                                    checked> Task</label>
-                            <label class="filter-option"><input type="checkbox" class="type-checkbox" value="Resting"
-                                    checked> Resting-state</label>
-                            <label class="filter-option"><input type="checkbox" class="type-checkbox" value="Sensory"
-                                    checked> Sensory-stim</label>
-                        </div>
-                    </div>
-
-                    <div class="filter-group">
-                        <h3 class="filter-title">Modality</h3>
-                        <div class="filter-options">
-                            <label class="filter-option"><input type="checkbox" class="modality-checkbox"
-                                    value="Face Cam" checked> Face Camera</label>
-                            <label class="filter-option"><input type="checkbox" class="modality-checkbox"
-                                    value="Body Cam" checked> Body Camera</label>
-                            <label class="filter-option"><input type="checkbox" class="modality-checkbox"
-                                    value="Eye Cam" checked> Eye Camera</label>
+                        <div class="type-toggle-group">
+                            <div class="type-toggle active" data-value="Task">
+                                <div class="checkbox-fake"></div>
+                                <span class="type-label">Task</span>
+                            </div>
+                            <div class="type-toggle active" data-value="Resting">
+                                <div class="checkbox-fake"></div>
+                                <span class="type-label">Resting-state</span>
+                            </div>
+                            <div class="type-toggle active" data-value="Sensory">
+                                <div class="checkbox-fake"></div>
+                                <span class="type-label">Sensory-stim</span>
+                            </div>
                         </div>
                     </div>
                 </aside>
@@ -576,7 +555,7 @@
                                     <th>Subject</th>
                                     <th>Date</th>
                                     <th>Type</th>
-                                    <th>Flags</th>
+
                                     <th>Files</th>
                                 </tr>
                             </thead>
@@ -586,13 +565,7 @@
                                     <td class="subject-id">VG1GC-48</td>
                                     <td>2023-08-21</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/1lq_fdMpCEL4pbyt-a_LA6Yur6CEEiEsm"
@@ -613,13 +586,7 @@
                                     <td class="subject-id">VG1GC-51</td>
                                     <td>2023-09-05</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/1qsS3Gewcv4QsgxDO8_J_57QTbKCkDGep"
@@ -640,13 +607,7 @@
                                     <td class="subject-id">VG1GC-52</td>
                                     <td>2023-09-12</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/12qwq7U4EbSaA_zPxiuwRzTNX6kBH39AP"
@@ -667,13 +628,7 @@
                                     <td class="subject-id">VG1GC-53</td>
                                     <td>2023-09-20</td>
                                     <td><span class="session-type type-resting">Resting</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/1VNbPcMES3AOc_HQepqD01fsL_NyHBGNb"
@@ -694,13 +649,7 @@
                                     <td class="subject-id">VG1GC-54</td>
                                     <td>2023-09-28</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/1R7HRvw7HQ0iP6vw2mrRFZt78TP9KNUhD"
@@ -721,13 +670,7 @@
                                     <td class="subject-id">VG1GC-60</td>
                                     <td>2023-10-10</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/127gAd6dKNYjl1rWGFrVxtUk-MQcszjpV"
@@ -748,13 +691,7 @@
                                     <td class="subject-id">VG1GC-61</td>
                                     <td>2023-10-18</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/123txQNvaNjoOXhMu9za3qI--oqMBRGry"
@@ -775,13 +712,7 @@
                                     <td class="subject-id">VG1GC-63</td>
                                     <td>2023-10-25</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/1iM1wTk-gUKIGlnmQt3q6E2L89CklmvIO"
@@ -802,13 +733,7 @@
                                     <td class="subject-id">VG1GC-66</td>
                                     <td>2023-11-02</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/1TLiHy23aT6RLVjoe64H2FBV2cN27vaRn"
@@ -829,13 +754,7 @@
                                     <td class="subject-id">VG1GC-73</td>
                                     <td>2023-11-15</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/1eR4sQVmZMTc-s9WFx4s4Vi1BdOic4mbx"
@@ -856,13 +775,7 @@
                                     <td class="subject-id">VG1GC-78</td>
                                     <td>2023-11-28</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/1C49g8w32h05tPlIIBo98Q4VGZu95Ka-Z"
@@ -883,13 +796,7 @@
                                     <td class="subject-id">VG1GC-85</td>
                                     <td>2023-12-12</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/1wX7FOA26k-K2hAXOIxqceo4BX6p259mc"
@@ -910,13 +817,7 @@
                                     <td class="subject-id">VG1GC-87</td>
                                     <td>2023-12-25</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/1f56U3vmMx_xIKQ0P9Xi_PlIXE80jkXt_"
@@ -937,13 +838,7 @@
                                     <td class="subject-id">VG1GC-99</td>
                                     <td>2024-01-10</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/1CKajvj_qqcczboKJl-ktUKNo5VZlkBgl"
@@ -964,13 +859,7 @@
                                     <td class="subject-id">VG1GC-105</td>
                                     <td>2024-01-24</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/1yn8G9AO_VzRHev-20KXDJNg4Qwifu6Eg"
@@ -991,13 +880,7 @@
                                     <td class="subject-id">VG1GC-109</td>
                                     <td>2024-02-05</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/1uxF4AD6lG5qbpcUgjy463HCdWCTohxiy"
@@ -1018,13 +901,7 @@
                                     <td class="subject-id">VG1GC-116</td>
                                     <td>2024-02-18</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/1LmiFsMTr1kNG452WC-jLsONwmRIIE7rO"
@@ -1045,13 +922,7 @@
                                     <td class="subject-id">VG1GC-117</td>
                                     <td>2024-03-02</td>
                                     <td><span class="session-type type-sensory">Sensory</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/1gKX3kMnWn2c4aMRTJM3WpwgRW0e8xatX"
@@ -1072,13 +943,7 @@
                                     <td class="subject-id">VG1GC-119</td>
                                     <td>2024-03-15</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/1jeL0bM_U8rV1A669w_i_D2MShQ3pbvxz"
@@ -1099,13 +964,7 @@
                                     <td class="subject-id">VG1GC-122</td>
                                     <td>2024-03-28</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/18r_jTWIiephYb_XPQSC1WDwCsRoL9ARM"
@@ -1126,13 +985,7 @@
                                     <td class="subject-id">VG1GC-124</td>
                                     <td>2024-04-10</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/1iJGx7gOt2tNYDg11RCzRqm-7tMu5ZRA4"
@@ -1153,13 +1006,7 @@
                                     <td class="subject-id">VG1GC-125</td>
                                     <td>2024-04-22</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/19e5ysijJyIj6PcYfDuqEqjrt6Lqqjd0Q"
@@ -1180,13 +1027,7 @@
                                     <td class="subject-id">VG1GC-127</td>
                                     <td>2024-05-05</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/11G0skDyaZ9MarY9esoRO8p9uIfl8-O4i"
@@ -1207,13 +1048,7 @@
                                     <td class="subject-id">VG1GC-129</td>
                                     <td>2024-05-18</td>
                                     <td><span class="session-type type-task">Task</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/1TzsQGCn-DEPlrmC3QdcrbKqQjvRN643L"
@@ -1234,13 +1069,7 @@
                                     <td class="subject-id">VG1GC-130</td>
                                     <td>2024-06-01</td>
                                     <td><span class="session-type type-resting">Resting</span></td>
-                                    <td>
-                                        <div class="data-flags">
-                                            <div class="flag active" data-tooltip="Body Cam"></div>
-                                            <div class="flag active" data-tooltip="Face Cam"></div>
-                                            <div class="flag active" data-tooltip="Eye Cam"></div>
-                                        </div>
-                                    </td>
+
                                     <td>
                                         <div class="file-actions">
                                             <a href="https://drive.google.com/drive/folders/1mmLzvOFBGLbXfRX8IsI5L7Lv-VTzgzO5"
@@ -1293,56 +1122,101 @@
         document.addEventListener('DOMContentLoaded', function () {
             const mainSearchInput = document.getElementById('main-search-input');
             const subjectFilterSearch = document.getElementById('subject-filter-search');
-            const toggleAllSubjects = document.getElementById('toggle-all-subjects');
-            const subjectCheckboxes = document.querySelectorAll('.subject-checkbox');
-            const typeCheckboxes = document.querySelectorAll('.type-checkbox');
-            const modalityCheckboxes = document.querySelectorAll('.modality-checkbox');
+            const clearSubjectsBtn = document.getElementById('btn-clear-subjects');
+
+            const subjectChips = document.querySelectorAll('.subject-chip');
+            const typeToggles = document.querySelectorAll('.type-toggle');
+
             const tableRows = document.querySelectorAll('tbody tr');
             const resultsCount = document.querySelector('.results-count');
 
+            // --- State Management ---
+            // If empty, means ALL subjects are valid (unless searching)
+            let selectedSubjects = new Set();
+            let selectedTypes = new Set(['Task', 'Resting', 'Sensory']);
+            let subjectSearchTerm = "";
+
+            function updateUI() {
+                // 1. Update Chip UI
+                subjectChips.forEach(chip => {
+                    const val = chip.getAttribute('data-value');
+
+                    // Visibility logic (Search)
+                    if (subjectSearchTerm && !val.toLowerCase().includes(subjectSearchTerm)) {
+                        chip.classList.add('hidden');
+                    } else {
+                        chip.classList.remove('hidden');
+                    }
+
+                    // Selection logic
+                    if (selectedSubjects.has(val)) {
+                        chip.classList.add('selected');
+                    } else {
+                        chip.classList.remove('selected');
+                    }
+                });
+
+                // 2. Update Clear Button Visibility
+                if (selectedSubjects.size > 0) {
+                    clearSubjectsBtn.classList.add('visible');
+                } else {
+                    clearSubjectsBtn.classList.remove('visible');
+                }
+
+                // 3. Update Type Toggles
+                typeToggles.forEach(toggle => {
+                    const val = toggle.getAttribute('data-value');
+                    if (selectedTypes.has(val)) {
+                        toggle.classList.add('active');
+                    } else {
+                        toggle.classList.remove('active');
+                    }
+                });
+
+                filterTable();
+            }
+
             function filterTable() {
-                const searchTerm = mainSearchInput.value.toLowerCase();
-                const selectedSubjects = Array.from(subjectCheckboxes)
-                    .filter(cb => cb.checked)
-                    .map(cb => cb.value);
-
-                const selectedTypes = Array.from(typeCheckboxes)
-                    .filter(cb => cb.checked)
-                    .map(cb => cb.value);
-
-                const selectedModalities = Array.from(modalityCheckboxes)
-                    .filter(cb => cb.checked)
-                    .map(cb => cb.value);
+                const globalSearch = mainSearchInput.value.toLowerCase();
 
                 let visibleCount = 0;
                 tableRows.forEach(row => {
                     const subjectId = row.querySelector('.subject-id').textContent.trim();
                     const sessionTypeSpan = row.querySelector('.session-type');
-                    const sessionType = sessionTypeSpan.textContent.trim();
-                    const textContent = row.textContent.toLowerCase();
+                    const sessionTypeText = sessionTypeSpan.textContent.trim();
 
-                    // For modalites, check data-tooltips in flags
-                    const activeFlags = Array.from(row.querySelectorAll('.flag.active'))
-                        .map(f => f.getAttribute('data-tooltip'));
+                    // Normalize session type key
+                    let sessionTypeKey = "Task";
+                    if (sessionTypeText.includes("Resting")) sessionTypeKey = "Resting";
+                    if (sessionTypeText.includes("Sensory")) sessionTypeKey = "Sensory";
 
-                    const matchesSearch = textContent.includes(searchTerm);
-                    const matchesSubject = selectedSubjects.includes(subjectId);
+                    const rowText = row.textContent.toLowerCase();
 
-                    // Simple logic for type match
-                    let matchesType = false;
-                    if (selectedTypes.includes("Task") && sessionType === "Task") matchesType = true;
-                    if (selectedTypes.includes("Resting") && sessionType === "Resting") matchesType = true;
-                    if (selectedTypes.includes("Sensory") && sessionType === "Sensory") matchesType = true;
+                    // Logic:
+                    // 1. Global Search
+                    const matchesGlobalSearch = rowText.includes(globalSearch);
 
-                    // Match modalities: Only show if ALL selected modalities are active for this subject
-                    // Or change to: show if ANY of the selected modalities are active?
-                    // Let's go with: Every selected modality must be present.
-                    let matchesModality = true;
-                    selectedModalities.forEach(mod => {
-                        if (!activeFlags.includes(mod)) matchesModality = false;
-                    });
+                    // 2. Subject Filter
+                    let matchesSubject = true;
 
-                    if (matchesSearch && matchesSubject && matchesType && matchesModality) {
+                    if (subjectSearchTerm) {
+                        // Instant search mode matches partial ID
+                        if (!subjectId.toLowerCase().includes(subjectSearchTerm)) {
+                            matchesSubject = false;
+                        }
+                    }
+
+                    // Selection restriction
+                    if (selectedSubjects.size > 0) {
+                        if (!selectedSubjects.has(subjectId)) {
+                            matchesSubject = false;
+                        }
+                    }
+
+                    // 3. Type Filter
+                    let matchesType = selectedTypes.has(sessionTypeKey);
+
+                    if (matchesGlobalSearch && matchesSubject && matchesType) {
                         row.style.display = '';
                         visibleCount++;
                     } else {
@@ -1350,40 +1224,54 @@
                     }
                 });
 
-                resultsCount.textContent = `Displaying ${visibleCount} subjects`;
+                resultsCount.textContent = `Displaying ${visibleCount} sessions`;
             }
 
-            // Main search input
-            mainSearchInput.addEventListener('input', filterTable);
+            // --- Event Listeners ---
 
-            // Sidebar Subject Filter Search
-            subjectFilterSearch.addEventListener('input', function () {
-                const term = this.value.toLowerCase();
-                document.querySelectorAll('#subject-checkbox-list .filter-option').forEach(option => {
-                    const text = option.textContent.toLowerCase();
-                    if (text.includes(term)) {
-                        option.style.display = '';
+            // 1. Subject Chips
+            subjectChips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    const val = chip.getAttribute('data-value');
+                    if (selectedSubjects.has(val)) {
+                        selectedSubjects.delete(val);
                     } else {
-                        option.style.display = 'none';
+                        selectedSubjects.add(val);
                     }
+                    updateUI();
                 });
             });
 
-            // Toggle All Subjects
-            toggleAllSubjects.addEventListener('click', function () {
-                const allChecked = Array.from(subjectCheckboxes).every(cb => cb.checked);
-                subjectCheckboxes.forEach(cb => cb.checked = !allChecked);
-                this.textContent = allChecked ? 'Select All' : 'Deselect All';
-                filterTable();
+            // 2. Search Box for Subjects
+            subjectFilterSearch.addEventListener('input', (e) => {
+                subjectSearchTerm = e.target.value.toLowerCase().trim();
+                updateUI();
             });
 
-            // Checkbox changes for everything
-            document.querySelectorAll('.filter-option input').forEach(cb => {
-                cb.addEventListener('change', filterTable);
+            // 3. Clear Button
+            clearSubjectsBtn.addEventListener('click', () => {
+                selectedSubjects.clear();
+                updateUI();
             });
 
-            // Initial run to set count
-            filterTable();
+            // 4. Type Toggles
+            typeToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const val = toggle.getAttribute('data-value');
+                    if (selectedTypes.has(val)) {
+                        selectedTypes.delete(val);
+                    } else {
+                        selectedTypes.add(val);
+                    }
+                    updateUI();
+                });
+            });
+
+            // 5. Main Search
+            mainSearchInput.addEventListener('input', updateUI);
+
+            // Initial Run
+            updateUI();
         });
     </script>
 </body>
