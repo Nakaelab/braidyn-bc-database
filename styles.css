@@ -596,7 +596,9 @@ a {
   }
 
   .hero-actions {
+    display: flex;
     justify-content: center;
+    width: 100%;
   }
 
   .hero-image-v2 img {
