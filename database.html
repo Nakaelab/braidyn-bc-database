@@ -12,75 +12,193 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
         rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* --- Designer Aesthetics Overhaul --- */
+
         :root {
-            --color-bg-page: #040813;
-            --color-surface: #0a1124;
-            --color-surface-hover: #111a33;
-            --color-border-subtle: rgba(255, 255, 255, 0.08);
-            --color-td-text: #e2e8f0;
-            --color-label: #94a3b8;
+            /* Palette Update for Deep/Premium feel */
+            --glass-bg: rgba(10, 17, 36, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --neon-accent: #3b82f6;
+            --neon-glow: rgba(59, 130, 246, 0.4);
+            --font-serif: 'Playfair Display', serif;
+            /* New Serif Font */
         }
 
         body {
-            background: var(--color-bg-page);
+            background: #020617;
+            /* Deeper black/blue */
             color: #ffffff;
         }
 
         .db-hero {
-            padding: 140px 0 60px;
-            background: radial-gradient(circle at top right, #1e3a8a 0%, #040813 100%);
-            border-bottom: 1px solid var(--color-border-subtle);
+            position: relative;
+            padding: 180px 0 120px;
+            background: radial-gradient(circle at 80% 20%, #172554 0%, #020617 60%);
+            overflow: hidden;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        /* Subtle animated background mesh or glow */
+        .db-hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.6;
+            animation: pulse-glow 10s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: scale(1.1);
+                opacity: 0.7;
+            }
         }
 
         .db-header-area {
+            position: relative;
+            z-index: 1;
+            text-align: center;
             max-width: 800px;
+            margin: 0 auto;
         }
 
         .db-header-area h1 {
-            font-family: var(--font-display);
-            font-size: 3rem;
-            margin-bottom: 16px;
+            font-family: var(--font-serif);
+            /* Updated to Serif */
+            font-size: 4rem;
+            /* Slightly larger for serif impact */
+            margin-bottom: 24px;
             letter-spacing: -0.01em;
+            color: #ffffff;
+            /* Solid white for better readability */
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+            /* Stronger shadow */
         }
 
         .db-header-area p {
-            font-size: 1.1rem;
-            color: var(--color-label);
-            line-height: 1.6;
+            font-size: 1.15rem;
+            /* Slightly larger */
+            color: #f1f5f9;
+            /* Much brighter text (Slate 100) */
+            line-height: 1.75;
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Central Search Hero */
+        .hero-search-wrapper {
+            position: relative;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .hero-search-wrapper input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.15);
+            /* Significantly brighter bg */
+            /* Glass feel */
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            /* More visible border */
+            padding: 22px 28px 22px 64px;
+            border-radius: 50px;
+            /* Pill shape */
+            color: white;
+            font-size: 1.15rem;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-search-wrapper input::placeholder {
+            color: #cbd5e1;
+            /* Brighter placeholder */
+            opacity: 1;
+        }
+
+        .hero-search-wrapper input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.25);
+            border-color: var(--neon-accent);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4), 0 10px 40px rgba(0, 0, 0, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .hero-search-wrapper svg {
+            position: absolute;
+            left: 28px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #e2e8f0;
+            /* Brighter icon */
+            width: 24px;
+            height: 24px;
+            pointer-events: none;
+            transition: color 0.3s;
+        }
+
+        .hero-search-wrapper input:focus+svg {
+            color: #ffffff;
         }
 
         /* Explorer Layout */
         .explorer-container {
-            padding: 40px 0 100px;
+            padding: 80px 0 120px;
+            background: linear-gradient(to bottom, #020617 0%, #0f172a 100%);
         }
 
         .explorer-grid {
             display: grid;
             grid-template-columns: 280px 1fr;
-            gap: 40px;
+            gap: 48px;
+            align-items: start;
         }
 
-        /* Sidebar Styling Redesign */
+        /* Sidebar Styling: Floating Glass Panel */
         .filter-sidebar {
             position: sticky;
-            top: 100px;
-            height: fit-content;
-            background: var(--color-surface);
-            border: 1px solid var(--color-border-subtle);
-            border-radius: 12px;
+            top: 120px;
+            background: rgba(13, 20, 39, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
             padding: 24px;
+            transition: transform 0.3s;
         }
 
         .filter-group:not(:last-child) {
             margin-bottom: 32px;
             padding-bottom: 24px;
-            border-bottom: 1px solid var(--color-border-subtle);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .filter-title {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #64748b;
+            font-weight: 700;
+            margin: 0;
         }
 
         .filter-header-row {
@@ -90,155 +208,203 @@
             margin-bottom: 16px;
         }
 
-        .filter-title {
-            font-family: var(--font-display);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--color-label);
-            font-weight: 700;
-            margin: 0;
+        .filter-actions {
+            display: flex;
+            gap: 12px;
         }
 
-        .btn-clear {
+        .btn-text {
             background: none;
             border: none;
-            color: var(--color-accent);
-            font-size: 0.75rem;
+            color: var(--neon-accent);
+            font-size: 0.7rem;
             cursor: pointer;
-            padding: 0;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.2s;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.2s;
+            opacity: 0.9;
+            background: rgba(59, 130, 246, 0.1);
         }
 
-        .btn-clear.visible {
+        .btn-text:hover {
             opacity: 1;
-            pointer-events: auto;
+            background: rgba(59, 130, 246, 0.2);
+            text-decoration: none;
         }
 
-        /* Subject Search & List */
-        .sidebar-search-container {
-            position: relative;
-            margin-bottom: 16px;
-        }
-
+        /* Sidebar Subject Search */
         .sidebar-search-container input {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--color-border-subtle);
-            padding: 10px 10px 10px 36px;
+            background: rgba(255, 255, 255, 0.08);
+            /* Brighter initial bg */
+            border: 1px solid var(--glass-border);
             border-radius: 8px;
-            color: white;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            color: #ffffff;
+            /* Pure white text */
+            padding: 10px 12px 10px 36px;
             transition: all 0.2s;
         }
 
         .sidebar-search-container input:focus {
             outline: none;
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--color-accent);
+            border-color: var(--neon-accent);
+            background: rgba(255, 255, 255, 0.15);
+            /* Even brighter on focus */
+            box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.3);
         }
 
         .sidebar-search-container svg {
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--color-label);
-            pointer-events: none;
+            color: #e2e8f0;
+            /* Brighter icon color */
+            left: 12px;
+            width: 14px;
+            height: 14px;
+        }
+
+
+
+        /* Chips: Modern Pill Look */
+        /* Subject List Redesign: Vertical List with Checkboxes */
+        .sidebar-search-container {
+            margin-bottom: 12px;
         }
 
         .subject-grid {
             display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            max-height: 250px;
+            flex-direction: column;
+            /* Vertical List */
+            gap: 2px;
+            /* Tight vertical spacing */
+            max-height: 320px;
+            /* Taller scroll area */
             overflow-y: auto;
-            padding-right: 4px;
+            padding: 4px;
+            background: rgba(0, 0, 0, 0.2);
+            /* Deepen background for list area */
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            margin-top: 12px;
         }
 
+        /* Custom Scrollbar for list */
         .subject-grid::-webkit-scrollbar {
-            width: 4px;
-        }
-
-        .subject-grid::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.02);
+            width: 6px;
         }
 
         .subject-grid::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+        }
+
+        .subject-grid::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
 
         .subject-chip {
-            font-size: 0.8rem;
-            padding: 6px 10px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--color-border-subtle);
-            border-radius: 6px;
-            color: var(--color-td-text);
+            display: flex;
+            /* Flex layout for internal Checkbox + Text */
+            align-items: center;
+            width: 100%;
+            font-size: 0.9rem;
+            /* Slightly larger text for readability */
+            padding: 10px 12px;
+            background: transparent;
+            border-radius: 8px;
+            color: #94a3b8;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.15s ease;
             user-select: none;
+            text-align: left;
+            border: 1px solid transparent;
+            font-weight: 500;
         }
 
         .subject-chip:hover {
-            background: rgba(255, 255, 255, 0.08);
-            color: white;
-            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.04);
+            color: #e2e8f0;
         }
 
+        /* Checkbox Simulation Pseudo-element */
+        .subject-chip::before {
+            content: '';
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            margin-right: 12px;
+            border: 2px solid #475569;
+            border-radius: 5px;
+            transition: all 0.2s;
+            flex-shrink: 0;
+            position: relative;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .subject-chip:hover::before {
+            border-color: #94a3b8;
+        }
+
+        /* Selected State */
         .subject-chip.selected {
-            background: rgba(59, 130, 246, 0.2);
-            color: #60a5fa;
-            border-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+            color: white;
         }
 
-        .subject-chip.hidden {
-            display: none;
+        .subject-chip.selected::before {
+            background: var(--neon-accent);
+            border-color: var(--neon-accent);
+            /* Checkmark Icon */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            background-size: 14px;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
-        /* Type Filter Styled as Toggle Buttons */
-        .type-toggle-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
 
+
+
+        /* Type Toggles */
         .type-toggle {
             display: flex;
             align-items: center;
             gap: 12px;
-            padding: 8px 12px;
-            border-radius: 8px;
+            padding: 12px 16px;
+            border-radius: 12px;
             cursor: pointer;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--color-border-subtle);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid transparent;
             transition: all 0.2s;
+            margin-bottom: 8px;
         }
 
         .type-toggle:hover {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(2px);
         }
 
         .type-toggle.active {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--color-accent);
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.3);
         }
 
+        /* Checkbox Fake */
         .checkbox-fake {
-            width: 18px;
-            height: 18px;
-            border-radius: 4px;
-            border: 2px solid var(--color-label);
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            border: 2px solid #475569;
             position: relative;
             transition: all 0.2s;
         }
 
+        .type-toggle:hover .checkbox-fake {
+            border-color: #64748b;
+        }
+
         .type-toggle.active .checkbox-fake {
-            background: var(--color-accent);
-            border-color: var(--color-accent);
+            background: var(--neon-accent);
+            border-color: var(--neon-accent);
         }
 
         .type-toggle.active .checkbox-fake::after {
@@ -249,169 +415,161 @@
             transform: translate(-50%, -50%);
             font-size: 12px;
             color: white;
-            font-weight: bold;
+            font-weight: 900;
         }
 
         .type-label {
-            font-size: 0.9rem;
-            color: var(--color-td-text);
+            font-size: 0.95rem;
+            color: #e2e8f0;
         }
 
-        /* Table Area */
+        /* Table Area Styling */
+        .table-area {
+            position: relative;
+        }
+
+        .table-wrapper {
+            background: rgba(13, 20, 39, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
         .table-controls {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 24px;
+            padding: 0 8px;
         }
 
         .search-box {
-            position: relative;
-            flex: 1;
-            max-width: 400px;
+            display: none;
+            /* Hiding secondary search */
         }
 
-        .search-box input {
-            width: 100%;
-            background: var(--color-surface);
-            border: 1px solid var(--color-border-subtle);
-            padding: 12px 16px 12px 44px;
-            border-radius: 8px;
-            color: white;
-            font-size: 0.9rem;
-            transition: border-color 0.2s;
-        }
-
-        .search-box input:focus {
-            outline: none;
-            border-color: var(--color-accent);
-        }
-
-        .search-box svg {
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--color-label);
-        }
-
-        .table-wrapper {
-            background: var(--color-surface);
-            border: 1px solid var(--color-border-subtle);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        .results-count {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            color: #94a3b8;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            letter-spacing: 0.05em;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.9rem;
+        }
+
+        thead {
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid var(--glass-border);
         }
 
         th {
             text-align: left;
-            padding: 16px 20px;
-            background: rgba(255, 255, 255, 0.02);
+            padding: 24px;
             font-family: var(--font-display);
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            font-size: 0.75rem;
-            color: var(--color-label);
-            border-bottom: 1px solid var(--color-border-subtle);
+            font-size: 0.7rem;
+            color: #64748b;
+            font-weight: 700;
         }
 
         td {
-            padding: 18px 20px;
-            border-bottom: 1px solid var(--color-border-subtle);
-            color: var(--color-td-text);
+            padding: 28px 24px;
+            border-bottom: 1px solid var(--glass-border);
+            color: #e2e8f0;
+            font-size: 1rem;
+            vertical-align: middle;
         }
 
-        tr:hover td {
-            background: var(--color-surface-hover);
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr {
+            transition: background 0.2s;
+        }
+
+        tbody tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+            cursor: default;
         }
 
         .subject-id {
+            font-family: 'Outfit', sans-serif;
             font-weight: 600;
-            color: #ffffff;
+            color: #fff;
+            letter-spacing: 0.02em;
+            font-size: 1.05rem;
         }
 
+        /* Badge Styling for Type */
         .session-type {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .type-task {
-            background: rgba(59, 130, 246, 0.1);
-            color: #60a5fa;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-        }
-
-        .type-resting {
-            background: rgba(139, 92, 246, 0.1);
-            color: #a78bfa;
-            border: 1px solid rgba(139, 92, 246, 0.2);
-        }
-
-        .type-sensory {
-            background: rgba(16, 185, 129, 0.1);
-            color: #34d399;
-            border: 1px solid rgba(16, 185, 129, 0.2);
-        }
-
-
-
-        .file-actions {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-
-        .btn-file {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            padding: 6px 12px;
-            border-radius: 6px;
+            padding: 8px 16px;
+            min-width: 80px;
+            border-radius: 30px;
             font-size: 0.8rem;
             font-weight: 600;
-            transition: all 0.2s;
+            letter-spacing: 0.03em;
+            text-transform: capitalize;
+        }
+
+        /* Action Buttons */
+        .file-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            /* Align rights */
+        }
+
+        .btn-file {
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
             text-decoration: none;
-            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .btn-nwb {
-            background: var(--color-accent);
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
             color: white;
-            border: 1px solid var(--color-accent);
+            border: none;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
         }
 
         .btn-nwb:hover {
-            background: #3b82f6;
-            border-color: #3b82f6;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(74, 158, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+            filter: brightness(110%);
         }
 
         .btn-raw {
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--color-td-text);
-            border: 1px solid var(--color-border-subtle);
+            background: transparent;
+            color: #94a3b8;
+            border: 1px solid var(--glass-border);
         }
 
         .btn-raw:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
             border-color: rgba(255, 255, 255, 0.2);
-            color: #ffffff;
-            transform: translateY(-1px);
-        }
-
-        .btn-file svg {
-            flex-shrink: 0;
+            transform: translateY(-2px);
         }
 
         @media (max-width: 1024px) {
@@ -422,6 +580,22 @@
             .filter-sidebar {
                 position: relative;
                 top: 0;
+                margin-bottom: 40px;
+                border: 1px solid var(--glass-border);
+                background: rgba(255, 255, 255, 0.02);
+            }
+
+            .db-header-area h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-search-wrapper input {
+                padding: 18px 24px 18px 56px;
+                font-size: 1rem;
+            }
+
+            .hero-search-wrapper svg {
+                left: 20px;
             }
         }
     </style>
@@ -460,6 +634,16 @@
                 <p>
                     実験個体（Subject）、記録タイプ、セッションごとのデータを詳細に探索できます。各セッションで使用可能なモダリティ（顔、体、眼球ビデオ等）のメタデータを確認し、ダイレクトにアクセス可能です。
                 </p>
+
+                <!-- New Central Search Hero -->
+                <div class="hero-search-wrapper">
+                    <input type="text" id="main-search-input"
+                        placeholder="Search Database (e.g. Subject ID, Session Type)...">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="M21 21l-4.35-4.35" />
+                    </svg>
+                </div>
             </div>
         </div>
     </header>
@@ -473,16 +657,12 @@
                     <div class="filter-group">
                         <div class="filter-header-row">
                             <h3 class="filter-title">Subject ID</h3>
-                            <button class="btn-clear" id="btn-clear-subjects">Clear Selection</button>
+                            <div class="filter-actions">
+                                <button class="btn-text" id="btn-select-all-subjects">Select All</button>
+                                <button class="btn-text" id="btn-clear-subjects">Clear</button>
+                            </div>
                         </div>
-                        <div class="sidebar-search-container">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <circle cx="11" cy="11" r="8" />
-                                <path d="M21 21l-4.35-4.35" />
-                            </svg>
-                            <input type="text" id="subject-filter-search" placeholder="Find Subject...">
-                        </div>
+
                         <div class="subject-grid" id="subject-grid">
                             <!-- Generated by JS -->
                             <div class="subject-chip" data-value="VG1GC-48">VG1GC-48</div>
@@ -513,7 +693,7 @@
                         </div>
                     </div>
 
-                    <div class="filter-group">
+                    <div class="filter-group" style="display: none;">
                         <h3 class="filter-title">Session Type</h3>
                         <div class="type-toggle-group">
                             <div class="type-toggle active" data-value="Task">
@@ -535,15 +715,7 @@
                 <!-- Data Table -->
                 <main class="table-area">
                     <div class="table-controls">
-                        <div class="search-box">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <circle cx="11" cy="11" r="8" />
-                                <path d="M21 21l-4.35-4.35" />
-                            </svg>
-                            <input type="text" id="main-search-input" placeholder="Search sessions (e.g. VG1GC-105)...">
-                        </div>
-                        <div class="results-count" style="font-size: 0.9rem; color: var(--color-label);">
+                        <div class="results-count">
                             Displaying 25 subjects
                         </div>
                     </div>
@@ -1121,8 +1293,9 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const mainSearchInput = document.getElementById('main-search-input');
-            const subjectFilterSearch = document.getElementById('subject-filter-search');
+
             const clearSubjectsBtn = document.getElementById('btn-clear-subjects');
+            const selectAllSubjectsBtn = document.getElementById('btn-select-all-subjects');
 
             const subjectChips = document.querySelectorAll('.subject-chip');
             const typeToggles = document.querySelectorAll('.type-toggle');
@@ -1134,19 +1307,14 @@
             // If empty, means ALL subjects are valid (unless searching)
             let selectedSubjects = new Set();
             let selectedTypes = new Set(['Task', 'Resting', 'Sensory']);
-            let subjectSearchTerm = "";
+
 
             function updateUI() {
                 // 1. Update Chip UI
                 subjectChips.forEach(chip => {
                     const val = chip.getAttribute('data-value');
 
-                    // Visibility logic (Search)
-                    if (subjectSearchTerm && !val.toLowerCase().includes(subjectSearchTerm)) {
-                        chip.classList.add('hidden');
-                    } else {
-                        chip.classList.remove('hidden');
-                    }
+
 
                     // Selection logic
                     if (selectedSubjects.has(val)) {
@@ -1156,11 +1324,26 @@
                     }
                 });
 
-                // 2. Update Clear Button Visibility
+                // 2. Update Header Buttons Visibility
+                // Logic:
+                // - If selection is EMPTY -> 'Clear' is hidden.
+                // - If selection is FULL (matches chip count) -> 'Select All' hidden? Or just keep it.
+                // - Ideally: Always show Select All so user can quickly fill. Always show Clear so user can quickly empty.
+                // But previously Clear was hidden. Let's keep Clear management but add Select All visibility.
+
                 if (selectedSubjects.size > 0) {
                     clearSubjectsBtn.classList.add('visible');
                 } else {
                     clearSubjectsBtn.classList.remove('visible');
+                }
+
+                // For Select All, if all are selected, maybe we hide it?
+                // Or if we search, Select All should only select VISIBLE ones? 
+                // Let's keep it simple: Select All selects ALL chips.
+                if (selectedSubjects.size === subjectChips.length) {
+                    selectAllSubjectsBtn.style.display = 'none';
+                } else {
+                    selectAllSubjectsBtn.style.display = 'block';
                 }
 
                 // 3. Update Type Toggles
@@ -1198,13 +1381,8 @@
 
                     // 2. Subject Filter
                     let matchesSubject = true;
-
-                    if (subjectSearchTerm) {
-                        // Instant search mode matches partial ID
-                        if (!subjectId.toLowerCase().includes(subjectSearchTerm)) {
-                            matchesSubject = false;
-                        }
-                    }
+                    // Note: subjectSearchTerm is purely for finding chips in the sidebar, not filtering the table directly.
+                    // The table is filtered by the SELECTED chips.
 
                     // Selection restriction
                     if (selectedSubjects.size > 0) {
@@ -1242,11 +1420,7 @@
                 });
             });
 
-            // 2. Search Box for Subjects
-            subjectFilterSearch.addEventListener('input', (e) => {
-                subjectSearchTerm = e.target.value.toLowerCase().trim();
-                updateUI();
-            });
+
 
             // 3. Clear Button
             clearSubjectsBtn.addEventListener('click', () => {
@@ -1254,7 +1428,20 @@
                 updateUI();
             });
 
-            // 4. Type Toggles
+            // 4. Select All Button
+            selectAllSubjectsBtn.addEventListener('click', () => {
+                // Should we select ALL or just VISIBLE?
+                // Standard behavior if filtered: Select Visible.
+                // If not filtered: Select All.
+                subjectChips.forEach(chip => {
+                    if (!chip.classList.contains('hidden')) {
+                        selectedSubjects.add(chip.getAttribute('data-value'));
+                    }
+                });
+                updateUI();
+            });
+
+            // 5. Type Toggles
             typeToggles.forEach(toggle => {
                 toggle.addEventListener('click', () => {
                     const val = toggle.getAttribute('data-value');
