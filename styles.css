@@ -655,8 +655,18 @@ a {
   .hero-actions {
     flex-direction: column;
     align-items: center;
-    padding: 0 20px;
+    justify-content: center;
+    padding: 0;
     gap: 16px;
+    width: 100%;
+  }
+
+  .btn-pill-premium {
+    min-width: auto;
+    width: calc(100% - 40px);
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 20px 40px;
   }
 }
 
