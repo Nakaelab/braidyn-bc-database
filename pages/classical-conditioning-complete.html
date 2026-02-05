@@ -523,6 +523,115 @@
             font-size: 0.85rem;
             flex-shrink: 0;
         }
+
+        /* ===== Mobile Responsive Fixes ===== */
+
+        /* Navigation - Hide nav-links on mobile */
+        @media (max-width: 768px) {
+            .navbar .nav-links {
+                display: none;
+            }
+
+            .navbar .container {
+                justify-content: center;
+            }
+        }
+
+        /* Hero section mobile adjustments */
+        @media (max-width: 768px) {
+            .dataset-hero {
+                padding: 100px 0 60px;
+            }
+
+            .dataset-hero .container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .hero-info-area {
+                text-align: center;
+            }
+
+            .breadcrumb {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .dataset-title-area h1 {
+                font-size: 1.75rem;
+            }
+
+            .dataset-subtitle {
+                font-size: 1rem;
+            }
+
+            /* Metadata grid - 2 columns on mobile */
+            .hero-meta-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 16px !important;
+                padding: 16px 0 !important;
+                max-width: 100% !important;
+            }
+
+            /* Tags container - center on mobile */
+            .hero-tags {
+                justify-content: center !important;
+            }
+
+            /* Hero image area */
+            .hero-visual-area {
+                justify-content: center;
+                order: -1;
+            }
+
+            .hero-visual-area img {
+                max-width: 280px;
+            }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            .dataset-hero {
+                padding: 90px 0 40px;
+            }
+
+            .dataset-title-area h1 {
+                font-size: 1.5rem;
+            }
+
+            .dataset-subtitle {
+                font-size: 0.9rem;
+            }
+
+            /* Metadata grid - keep 2 columns but smaller */
+            .hero-meta-grid {
+                gap: 12px !important;
+            }
+
+            .hero-meta-grid>div>div:first-child {
+                font-size: 0.65rem !important;
+            }
+
+            .hero-meta-grid>div>div:last-child {
+                font-size: 1rem !important;
+            }
+
+            /* Description paragraph */
+            .hero-info-area p {
+                font-size: 0.9rem !important;
+                line-height: 1.6 !important;
+            }
+
+            /* Tags - smaller on mobile */
+            .hero-tags span {
+                padding: 4px 10px !important;
+                font-size: 0.75rem !important;
+            }
+
+            .hero-visual-area img {
+                max-width: 220px;
+            }
+        }
     </style>
 </head>
 
@@ -577,7 +686,7 @@
                             2個体のマウスに対して17日間にわたり、音刺激に対する報酬予測行動（古典的条件づけ）の学習過程を追跡したマルチモーダルデータセット。学習に伴う全脳活動の遷移を捉えた縦断的な完全データセットです。
                         </p>
 
-                        <div
+                        <div class="hero-meta-grid"
                             style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 24px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.15); border-bottom: 1px solid rgba(255,255,255,0.15); max-width: 800px;">
                             <div>
                                 <div
@@ -605,7 +714,7 @@
                             </div>
                         </div>
 
-                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <div class="hero-tags" style="display: flex; gap: 10px; flex-wrap: wrap;">
                             <span
                                 style="background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1);">Wide-field
                                 1p</span>

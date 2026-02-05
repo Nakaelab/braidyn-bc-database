@@ -1971,8 +1971,63 @@ a.data-card:hover {
     display: flex;
   }
 
+  /* Hero adjustments for tablet/mobile */
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    padding: 120px 0 60px;
+  }
+
+  .hero-content {
+    padding: 40px 0;
+    text-align: center;
+    align-items: center;
+  }
+
   .hero h1 {
-    font-size: 1.75rem;
+    align-items: center;
+  }
+
+  .title-main {
+    font-size: 2.5rem;
+    white-space: normal;
+    line-height: 1.2;
+  }
+
+  .title-sub {
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    text-align: center;
+    margin: 0 auto 32px auto;
+  }
+
+  .hero-subtitle br {
+    display: none;
+  }
+
+  .hero-actions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Pill button - smaller on mobile */
+  .btn-pill-premium {
+    padding: 16px 40px;
+    min-width: auto;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .btn-top-label {
+    font-size: 0.75rem;
+  }
+
+  .btn-main-label {
+    font-size: 1.5rem;
   }
 
   .hero-stats {
@@ -1996,6 +2051,15 @@ a.data-card:hover {
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  /* Hero image */
+  .hero-image-v2 {
+    order: -1;
+  }
+
+  .hero-image-v2 img {
+    max-width: 300px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -2007,8 +2071,64 @@ a.data-card:hover {
     padding: 60px 0;
   }
 
+  /* Hero - extra small screens */
+  .hero {
+    padding: 100px 0 40px;
+  }
+
+  .hero-content {
+    padding: 20px 0;
+  }
+
+  .title-main {
+    font-size: 2rem;
+  }
+
+  .title-sub {
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .btn-pill-premium {
+    padding: 14px 32px;
+    max-width: 260px;
+  }
+
+  .btn-top-label {
+    font-size: 0.7rem;
+  }
+
+  .btn-main-label {
+    font-size: 1.3rem;
+  }
+
+  .hero-badge-fancy {
+    font-size: 0.6rem;
+    padding: 8px 16px;
+    margin-bottom: 20px;
+  }
+
   .hero-stats {
     flex-direction: column;
     gap: 24px;
+  }
+
+  .hero-image-v2 img {
+    max-width: 240px;
+  }
+
+  /* Navbar logo smaller */
+  .logo-main {
+    font-size: 1rem;
+  }
+
+  .logo-sub {
+    font-size: 0.6rem;
   }
 }
