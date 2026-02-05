@@ -657,6 +657,18 @@
                 <li><a href="../index.html#contact">Contact</a></li>
                 <li><a href="https://braidyn-bc.jp/" class="nav-cta" target="_blank">Project Site</a></li>
             </ul>
+
+            <!-- Language Toggle -->
+            <div class="lang-toggle" id="lang-toggle">
+                <button class="lang-btn active" data-lang="ja">JP</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
@@ -676,13 +688,13 @@
                     <div style="display: flex; flex-direction: column; gap: 24px;">
                         <div>
                             <span class="complete-badge">Complete Dataset Available</span>
-                            <h1>古典条件づけの学習過程</h1>
+                            <h1 data-i18n="card2.title">古典条件づけの学習過程</h1>
                             <p class="dataset-subtitle">Classical Conditioning Learning Process (Full Longitudinal Data)
                             </p>
                         </div>
 
-                        <p
-                            style="max-width: 700px; color: rgba(255,255,255,0.8); line-height: 1.7; font-size: 1.05rem;">
+                        <p style="max-width: 700px; color: rgba(255,255,255,0.8); line-height: 1.7; font-size: 1.05rem;"
+                            data-i18n="card2.hero_desc">
                             2個体のマウスに対して17日間にわたり、音刺激に対する報酬予測行動（古典的条件づけ）の学習過程を追跡したマルチモーダルデータセット。学習に伴う全脳活動の遷移を捉えた縦断的な完全データセットです。
                         </p>
 
@@ -742,15 +754,15 @@
                 <!-- Abstract -->
                 <section id="abstract">
                     <h2>Abstract</h2>
-                    <p>
+                    <p data-i18n="card2.abstract_p1">
                         頭部固定マウスに対して古典的条件づけ実験を行いました。条件刺激(CS)として6kHzと10kHzの2種類の異なる音を提示し、無条件刺激(US)として6kHzの場合70%の確率で水を報酬として供給、10kHzの場合30%の確率で水を報酬として供給しました。この実験を2個体のマウスに対して30分間程度、合計17日間行うことで、古典条件づけの学習過程を記録しました。
                     </p>
-                    <p>
+                    <p data-i18n="card2.abstract_p2">
                         この記録実験において、脳活動をCa<sup>2+</sup>プローブを使い広視野1光子顕微鏡（Wide-field
                         1p）により皮質全体の計測を行いました。さらにマウスの顔および上半身のビデオデータ(Face Camera, Body
                         Camera)を計測しました。またマウスの行動データとしてリックや報酬のタイミングを計測しています(Behavior data)。
                     </p>
-                    <p>
+                    <p data-i18n="card2.abstract_p3">
                         Kondo et. al.
                         2021では、同様のパラダイムでは古典条件づけの学習後のみの神経活動の解析を行いましたが、本コンプリートデータセットでは、その学習にいたるまでにどのように脳内の活動が変化していくかを縦断的に計測しています。
                     </p>
@@ -767,7 +779,7 @@
                             </svg>
                             配布・共有について
                         </h4>
-                        <p style="margin-bottom: 0;">
+                        <p style="margin-bottom: 0;" data-i18n="card2.access_desc">
                             現在は東京大学松崎研究室との共同研究、もしくは学術変革領域A「行動変容生物学」内での内部共有を想定した配布を行っています。
                             共有者にはData Descriptionのディレクトリ構造とファイルにアクセスするためのリンクを送付します。
                             学術変革領域Aの後期公募班の募集タイミングを目処に、Creative Commonsライセンスでの一般公開を予定しています。
@@ -781,16 +793,16 @@
                     <h2>Data Description</h2>
 
                     <h3>📁 Directory Structure</h3>
-                    <p>データセットは以下の3つの主要ディレクトリで構成されています：</p>
+                    <p data-i18n="card2.structure_desc">データセットは以下の3つの主要ディレクトリで構成されています：</p>
 
                     <div class="dir-tree">
                         CompleteDataset/<br>
-                        ├── 1_Raw/ # オリジナル計測データ<br>
-                        │ ├── Behavior/ # リック等の行動データ (.lvm)<br>
-                        │ ├── CaData/ # イメージングデータ (.tif)<br>
-                        │ └── Video/ # Face/Bodyカメラ動画 (.avi)<br>
-                        ├── 2_Preprocessed/ # (Coming Soon) 中間処理データ<br>
-                        └── 3_ROIsegmentation/ # 処理済み・ROI抽出済みデータ (.mat)
+                        ├── 1_Raw/ # <span data-i18n="complete_cl.dir_raw">オリジナル計測データ</span><br>
+                        │ ├── Behavior/ # <span data-i18n="complete_cl.dir_beh">リック等の行動データ</span> (.lvm)<br>
+                        │ ├── CaData/ # <span data-i18n="complete_cl.dir_ca">イメージングデータ</span> (.tif)<br>
+                        │ └── Video/ # <span data-i18n="complete_cl.dir_vid">Face/Bodyカメラ動画</span> (.avi)<br>
+                        ├── 2_Preprocessed/ # (Coming Soon) <span data-i18n="complete_cl.dir_pre">中間処理データ</span><br>
+                        └── 3_ROIsegmentation/ # <span data-i18n="complete_cl.dir_roi">処理済み・ROI抽出済みデータ</span> (.mat)
                     </div>
 
                     <!-- Raw Data Card -->
@@ -800,12 +812,17 @@
                             <h4>1_Raw Data</h4>
                         </div>
                         <div class="data-section-body">
-                            <p style="margin-bottom: 16px;">個体番号 (RCTg_Pv12, RCTg_Pv13) および計測日ごとに整理されています。</p>
-                            <ul>
-                                <li><strong>📹 Body Camera</strong> 腹側を30Hzで計測した動画データ</li>
-                                <li><strong>👤 Face Camera</strong> 左側面顔を30Hzで計測した動画データ</li>
-                                <li><strong>🧠 Wide Field 1p</strong> 30Hzで計測されたCa²⁺イメージングTIFF画像（2GB毎の分割ファイル）</li>
-                                <li><strong>📊 Behavior Data</strong> リック、報酬、音周波数等を5000Hzで記録したアナログ信号データ</li>
+                            <p style="margin-bottom: 16px;" data-i18n="complete_cl.raw_desc_intro">個体番号 (RCTg_Pv12,
+                                RCTg_Pv13) および計測日ごとに整理されています。</p>
+                            <li><strong>📹 Body Camera</strong> <span
+                                    data-i18n="complete_cl.raw_list_body">腹側を30Hzで計測した動画データ</span></li>
+                            <li><strong>👤 Face Camera</strong> <span
+                                    data-i18n="complete_cl.raw_list_face">左側面顔を30Hzで計測した動画データ</span></li>
+                            <li><strong>🧠 Wide Field 1p</strong> <span
+                                    data-i18n="complete_cl.raw_list_wide">30Hzで計測されたCa²⁺イメージングTIFF画像（2GB毎の分割ファイル）</span>
+                            </li>
+                            <li><strong>📊 Behavior Data</strong> <span
+                                    data-i18n="complete_cl.raw_list_beh">リック、報酬、音周波数等を5000Hzで記録したアナログ信号データ</span></li>
                             </ul>
                         </div>
                     </div>
@@ -817,14 +834,16 @@
                             <h4>3_ROIsegmentation Data</h4>
                         </div>
                         <div class="data-section-body">
-                            <p style="margin-bottom: 16px;">以下の前処理が適用された <code>stdData</code> 構造体（MATLAB形式）が格納されています：
+                            <p style="margin-bottom: 16px;">
+                                <span data-i18n="complete_cl.proc_desc_intro">以下の前処理が適用された <code>stdData</code>
+                                    構造体（MATLAB形式）が格納されています：</span>
                             </p>
                             <ol class="step-list">
-                                <li>揺れ補正およびAllen CCF v3への位置合わせ</li>
-                                <li>左半球のみのクリッピング</li>
-                                <li>SVDを用いたデノイズ（上位24成分での再構成）</li>
-                                <li>dF/F化（±15秒の時間窓での10パーセンタイルをFとして算出）</li>
-                                <li>ROIベースの神経活動抽出（dmFrC, M1, S1等12箇所、Zスコア化）</li>
+                                <li data-i18n="complete_cl.proc_step1">揺れ補正およびAllen CCF v3への位置合わせ</li>
+                                <li data-i18n="complete_cl.proc_step2">左半球のみのクリッピング</li>
+                                <li data-i18n="complete_cl.proc_step3">SVDを用いたデノイズ（上位24成分での再構成）</li>
+                                <li data-i18n="complete_cl.proc_step4">dF/F化（±15秒の時間窓での10パーセンタイルをFとして算出）</li>
+                                <li data-i18n="complete_cl.proc_step5">ROIベースの神経活動抽出（dmFrC, M1, S1等12箇所、Zスコア化）</li>
                             </ol>
                         </div>
                     </div>
@@ -842,27 +861,27 @@
                             <tr>
                                 <td><span class="channel-badge">ch.1</span></td>
                                 <td>Lick (Raw)</td>
-                                <td>舌のスパウト接触時にHIGH (5V)</td>
+                                <td data-i18n="complete_cl.table_desc_ch1">舌のスパウト接触時にHIGH (5V)</td>
                             </tr>
                             <tr>
                                 <td><span class="channel-badge">ch.2</span></td>
                                 <td>Reward</td>
-                                <td>報酬供給タイミングでHIGH</td>
+                                <td data-i18n="complete_cl.table_desc_ch2">報酬供給タイミングでHIGH</td>
                             </tr>
                             <tr>
                                 <td><span class="channel-badge">ch.3</span></td>
                                 <td>Tone Flag</td>
-                                <td>音吹鳴中にHIGH</td>
+                                <td data-i18n="complete_cl.table_desc_ch3">音吹鳴中にHIGH</td>
                             </tr>
                             <tr>
                                 <td><span class="channel-badge">ch.4</span></td>
                                 <td>Imaging Sync</td>
-                                <td>カメラのシャッター露光タイミング</td>
+                                <td data-i18n="complete_cl.table_desc_ch4">カメラのシャッター露光タイミング</td>
                             </tr>
                             <tr>
                                 <td><span class="channel-badge">ch.7</span></td>
                                 <td>Frequency</td>
-                                <td>提示中の音の周波数 (kHz)</td>
+                                <td data-i18n="complete_cl.table_desc_ch7">提示中の音の周波数 (kHz)</td>
                             </tr>
                         </tbody>
                     </table>
@@ -875,7 +894,7 @@
                     <div class="result-card">
                         <div class="result-card-header">
                             <h4>🧪 Learning of Reward Expectations</h4>
-                            <p>
+                            <p data-i18n="complete_cl.results_p">
                                 6kHz（報酬確率70%）と10kHz（報酬確率30%）を提示。学習が進むにつれ、高確率の音に対して有意にリック数（期待行動）が増加していく過程が全皮質の活動とともに記録されています。
                             </p>
                         </div>
@@ -887,7 +906,8 @@
             <aside class="sidebar">
                 <div class="sidebar-section">
                     <h3>Contact for Access</h3>
-                    <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 16px;">
+                    <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 16px;"
+                        data-i18n="complete_cl.contact_desc">
                         本データセットの利用については、事務局データベース担当までお問い合わせください。
                     </p>
                     <a href="mailto:braidynbcd@m.u-tokyo.ac.jp" class="btn btn-primary"
@@ -931,12 +951,15 @@
                     <li><a href="https://braidyn-bc.jp/" target="_blank">Project Site</a></li>
                 </ul>
 
-                <p class="copyright">
+                <p class="copyright" data-i18n="footer.copyright">
                     © Copyright 学術変革領域A「行動変容を創発する脳ダイナミクスの解読と操作が開く多元生物学」総括班 分担者 中江 健
                 </p>
             </div>
         </div>
     </footer>
+
+    <!-- i18n Script -->
+    <script src="../i18n.js"></script>
 </body>
 
 </html>

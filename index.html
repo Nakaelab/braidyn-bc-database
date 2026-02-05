@@ -39,6 +39,12 @@
                 <li><a href="https://braidyn-bc.jp/" class="nav-cta" target="_blank">Project Site</a></li>
             </ul>
 
+            <!-- Language Toggle -->
+            <div class="lang-toggle" id="lang-toggle">
+                <button class="lang-btn active" data-lang="ja">JP</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+
             <div class="nav-toggle" id="nav-toggle">
                 <span></span>
                 <span></span>
@@ -60,14 +66,14 @@
                         <span class="title-sub">Database</span>
                     </h1>
 
-                    <p class="hero-subtitle">
+                    <p class="hero-subtitle" data-i18n="hero.subtitle">
                         マウスの学習過程における脳全域活動・行動・映像の記録。<br>
                         学習に伴う脳ダイナミクスを解明するための、<br>大規模マルチモーダルデータセット。
                     </p>
 
                     <div class="hero-actions">
                         <a href="#database" class="btn btn-pill-premium">
-                            <span class="btn-top-label">Access the</span>
+                            <span class="btn-top-label" data-i18n="hero.btn_top">Access the</span>
                             <span class="btn-main-label">Data Explorer</span>
                         </a>
                     </div>
@@ -87,21 +93,21 @@
             <div class="about-simple-wrapper">
                 <div class="about-simple-header">
                     <span class="section-label-simple">Introduction</span>
-                    <h2>BraiDyn-BC Databaseについて</h2>
+                    <h2 data-i18n="about.title">BraiDyn-BC Databaseについて</h2>
                 </div>
                 <div class="about-simple-text">
-                    <p>
+                    <p data-i18n="about.text1">
                         学術変革領域A「<a href="https://braidyn-bc.jp/"
                             target="_blank">行動変容を創発する脳ダイナミクスの解読と操作が開く多元生物学</a>」では、生体が新しい行動を自発的に行うようになる行動変容を解明する「行動変容生物学（BraiDyn-BC）」の創成を行います。BraiDyn-BC
                         Databaseでは、行動変容生物学に参画する研究者を増やすため、主に総括班により取得された高品質な脳活動と行動データの利活用の促進とデータ公開を行います。
                     </p>
-                    <p>
+                    <p data-i18n="about.text2">
                         論文化されていないデータの場合、1個体1セッションの<strong>Sample
                             dataset</strong>については一般公開を行います。同様の手順で計測された複数個体のデータを<strong>Complete
                             dataset</strong>と呼び、この利用に関してはデータ出典元の研究室との共同研究をベースとしたデータ共有を行います。Sample
                         datasetを利用することでCreative Commonsなどのライセンスに基づき、研究者は自由に解析を試すことができます。
                     </p>
-                    <p>
+                    <p data-i18n="about.text3">
                         現在のデータや解析法の標準化はなされていませんが、今後のアップデートで対応する予定です。
                     </p>
                 </div>
@@ -116,8 +122,8 @@
                 <div class="section-label">
                     <span>Database</span>
                 </div>
-                <h2>利用可能なデータセット</h2>
-                <p>
+                <h2 data-i18n="database.title">利用可能なデータセット</h2>
+                <p data-i18n="database.desc">
                     オペラント条件づけと古典条件づけの学習過程を記録した、高品質なデータセットにアクセスできます。
                 </p>
 
@@ -127,11 +133,11 @@
                 <!-- Data Card 1 -->
                 <a href="pages/operant-conditioning-process.html" class="data-card">
                     <div class="data-card-header">
-                        <h3>オペラント条件づけの学習過程</h3>
+                        <h3 data-i18n="card1.title">オペラント条件づけの学習過程</h3>
                         <p>Operant Conditioning Learning Process</p>
                     </div>
                     <div class="data-card-body">
-                        <p style="margin-bottom: var(--space-md); font-size: 0.9rem;">
+                        <p style="margin-bottom: var(--space-md); font-size: 0.9rem;" data-i18n="card1.desc">
                             2週間にわたり、水報酬のためにレバーを引くことを学習するマウスの学習過程を追跡したデータセット。
                         </p>
                         <div class="data-meta">
@@ -171,11 +177,11 @@
                 <a href="pages/classical-conditioning-complete.html" class="data-card">
                     <div class="data-card-header">
                         <span class="complete-badge">Complete</span>
-                        <h3>古典条件づけの学習過程</h3>
+                        <h3 data-i18n="card2.title">古典条件づけの学習過程</h3>
                         <p>Classical Conditioning Learning Process</p>
                     </div>
                     <div class="data-card-body">
-                        <p style="margin-bottom: var(--space-md); font-size: 0.9rem;">
+                        <p style="margin-bottom: var(--space-md); font-size: 0.9rem;" data-i18n="card2.desc">
                             音弁別（6kHz vs 10kHz）と水報酬を用いた古典条件づけの完全な縦断的データセット。
                         </p>
                         <div class="data-meta">
@@ -215,11 +221,11 @@
                 <a href="pages/classical-conditioning-sample.html" class="data-card">
                     <div class="data-card-header">
                         <span class="sample-badge">Sample</span>
-                        <h3>古典条件づけの学習過程</h3>
+                        <h3 data-i18n="card3.title">古典条件づけの学習過程</h3>
                         <p>Classical Conditioning Sample</p>
                     </div>
                     <div class="data-card-body">
-                        <p style="margin-bottom: var(--space-md); font-size: 0.9rem;">
+                        <p style="margin-bottom: var(--space-md); font-size: 0.9rem;" data-i18n="card3.desc">
                             古典条件づけ実験のサンプルデータセット。データ構造の確認やパイプライン開発に最適です。
                         </p>
                         <div class="data-meta">
@@ -259,11 +265,11 @@
                 <a href="pages/motor-learning-sample.html" class="data-card">
                     <div class="data-card-header">
                         <span class="sample-badge">Sample</span>
-                        <h3>レバー引き運動の学習</h3>
+                        <h3 data-i18n="card4.title">レバー引き運動の学習</h3>
                         <p>Motor Learning Sample</p>
                     </div>
                     <div class="data-card-body">
-                        <p style="margin-bottom: var(--space-md); font-size: 0.9rem;">
+                        <p style="margin-bottom: var(--space-md); font-size: 0.9rem;" data-i18n="card4.desc">
                             運動課題（レバー引き）における広域1光子およびM1の2光子イメージングのサンプルデータ。
                         </p>
                         <div class="data-meta">
@@ -309,8 +315,8 @@
                 <div class="section-label">
                     <span>Tutorials</span>
                 </div>
-                <h2>データ解析チュートリアル</h2>
-                <p>
+                <h2 data-i18n="tutorials.title">データ解析チュートリアル</h2>
+                <p data-i18n="tutorials.desc">
                     NWB形式のデータを活用するためのチュートリアルとドキュメントを提供しています。
                 </p>
             </div>
@@ -323,7 +329,7 @@
                             <span class="code-dot yellow"></span>
                             <span class="code-dot green"></span>
                         </div>
-                        <div class="code-body">
+                        <div class="code-body" data-i18n="index.code_window_content">
                             <span class="comment">% NWBファイルからPETHを作成</span><br>
                             <span class="keyword">nwb</span> = nwbRead(<span
                                 class="string">'sample_data.nwb'</span>);<br><br>
@@ -346,8 +352,8 @@
                             </svg>
                         </div>
                         <div class="tutorial-info">
-                            <h4>MATLAB Tutorial: NWBからPeri-Event Time Histogram作成</h4>
-                            <p>MATLABを使用してNWBファイルからPETHを生成する方法をステップバイステップで解説します。</p>
+                            <h4 data-i18n="tutorial1.title">MATLAB Tutorial: NWBからPeri-Event Time Histogram作成</h4>
+                            <p data-i18n="tutorial1.desc">MATLABを使用してNWBファイルからPETHを生成する方法をステップバイステップで解説します。</p>
                         </div>
                     </a>
 
@@ -359,8 +365,8 @@
                             </svg>
                         </div>
                         <div class="tutorial-info">
-                            <h4>Python Tutorial: オペラント条件づけ学習過程の解析</h4>
-                            <p>Google Driveからオペラント条件づけの学習過程に関するPythonチュートリアル一覧にアクセスできます。</p>
+                            <h4 data-i18n="tutorial2.title">Python Tutorial: オペラント条件づけ学習過程の解析</h4>
+                            <p data-i18n="tutorial2.desc">Google Driveからオペラント条件づけの学習過程に関するPythonチュートリアル一覧にアクセスできます。</p>
                         </div>
                     </a>
                 </div>
@@ -375,8 +381,8 @@
                 <div class="section-label">
                     <span>Resources</span>
                 </div>
-                <h2>関連リソース</h2>
-                <p>
+                <h2 data-i18n="resources.title">関連リソース</h2>
+                <p data-i18n="resources.desc">
                     論文、コード、データブラウザなど、プロジェクトに関連する外部リソースへのリンク集。
                 </p>
             </div>
@@ -394,7 +400,7 @@
                     <div class="featured-pub-info">
                         <span class="featured-pub-journal">Nature Scientific Data · 2025</span>
                         <h3>Multimodal dataset linking wide-field calcium imaging to behavior</h3>
-                        <p>マウス学習過程における脳全域活動・行動・映像のマルチモーダルデータセット</p>
+                        <p data-i18n="resource.paper_desc">マウス学習過程における脳全域活動・行動・映像のマルチモーダルデータセット</p>
                     </div>
                     <div class="featured-pub-actions">
                         <a href="https://www.nature.com/articles/s41597-025-05482-y" target="_blank"
@@ -402,14 +408,14 @@
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
                             </svg>
-                            論文を読む
+                            <span data-i18n="resource.paper_btn">論文を読む</span>
                         </a>
                         <a href="https://www.dropbox.com/scl/fi/pupnq61g16bq5wdza3cwp/s41597-025-05482-y-1-ja.pdf?rlkey=hv69auydi9mu0ig1dhd3ionia&dl=0"
-                            target="_blank" class="featured-pub-btn">
+                            target="_blank" class="featured-pub-btn" data-i18n="resource.paper_ja">
                             日本語訳
                         </a>
                         <a href="https://notebooklm.google.com/notebook/2edaf703-dc92-4f2b-a945-4e3a115719f8?pli=1"
-                            target="_blank" class="featured-pub-btn">
+                            target="_blank" class="featured-pub-btn" data-i18n="resource.paper_audio">
                             🎧 音声解説
                         </a>
                     </div>
@@ -430,8 +436,8 @@
                     </div>
                     <div class="resource-details">
                         <span class="resource-category">Dataset (NWB)</span>
-                        <h4>Google ドライブ</h4>
-                        <p>解析済みデータ（同期・整理済み）</p>
+                        <h4 data-i18n="resource.gdrive">Google ドライブ</h4>
+                        <p data-i18n="resource.gdrive_desc">解析済みデータ（同期・整理済み）</p>
                     </div>
                 </a>
 
@@ -446,7 +452,7 @@
                     <div class="resource-details">
                         <span class="resource-category">Code</span>
                         <h4>GitHub Repository</h4>
-                        <p>解析コードとスクリプト一式</p>
+                        <p data-i18n="resource.github_desc">解析コードとスクリプト一式</p>
                     </div>
                 </a>
 
@@ -461,8 +467,8 @@
                     </div>
                     <div class="resource-details">
                         <span class="resource-category">Raw Data</span>
-                        <h4>AWS S3 ブラウザ</h4>
-                        <p>生の動画・画像データ一式</p>
+                        <h4 data-i18n="resource.aws">AWS S3 ブラウザ</h4>
+                        <p data-i18n="resource.aws_desc">生の動画・画像データ一式</p>
                     </div>
                 </a>
 
@@ -479,8 +485,8 @@
                     </div>
                     <div class="resource-details">
                         <span class="resource-category">Event</span>
-                        <h4>行動変容生物学ハッカソン</h4>
-                        <p>ハッカソンイベントの資料集</p>
+                        <h4 data-i18n="resource.hackathon">行動変容生物学ハッカソン</h4>
+                        <p data-i18n="resource.hackathon_desc">ハッカソンイベントの資料集</p>
                     </div>
                 </a>
             </div>
@@ -492,7 +498,7 @@
                 <div class="section-label">
                     <span>Updates</span>
                 </div>
-                <h2>更新履歴</h2>
+                <h2 data-i18n="updates.title">更新履歴</h2>
             </div>
 
             <div class="updates-container">
@@ -501,21 +507,21 @@
                         <div class="update-date">2025.03.09</div>
                         <div class="update-content">
                             <span class="category-tag tutorial">Tutorial</span>
-                            <div class="update-text">Tutorialのアップデート</div>
+                            <div class="update-text" data-i18n="update1">Tutorialのアップデート</div>
                         </div>
                     </li>
                     <li>
                         <div class="update-date">2025.02.19</div>
                         <div class="update-content">
                             <span class="category-tag data">Data</span>
-                            <div class="update-text">オペラント条件付けデータを更新</div>
+                            <div class="update-text" data-i18n="update2">オペラント条件付けデータを更新</div>
                         </div>
                     </li>
                     <li>
                         <div class="update-date">2024.08.09</div>
                         <div class="update-content">
                             <span class="category-tag data">Data</span>
-                            <div class="update-text">Sample: オペラント学習過程を公開</div>
+                            <div class="update-text" data-i18n="update3">Sample: オペラント学習過程を公開</div>
                         </div>
                     </li>
                 </ul>
@@ -530,7 +536,7 @@
                 <div class="section-label">
                     <span>Information</span>
                 </div>
-                <h2>各種情報</h2>
+                <h2 data-i18n="info.title">各種情報</h2>
             </div>
 
             <div class="info-grid">
@@ -547,7 +553,7 @@
                         </div>
                         <h3>Data License</h3>
                     </div>
-                    <p>データのライセンスと利用条件については各々のページに記載しております。</p>
+                    <p data-i18n="license.desc">データのライセンスと利用条件については各々のページに記載しております。</p>
                 </div>
 
                 <!-- Ethics Statement -->
@@ -561,7 +567,8 @@
                         </div>
                         <h3>Ethics Statement</h3>
                     </div>
-                    <p>特別の記載のない限り、動物実験は東京大学大学院医学系研究科動物実験委員会による承認を受けて行われています。AAV、GCaMP等のウイルスや遺伝子を用いる研究では、東京大学大学院医学系研究科遺伝子組換え生物等委員会の承認を得て行われています。各種Cre系統の遺伝子組換えマウスを用いる研究では、東京大学大学院医学系研究科遺伝子組換え生物等委員会の承認を得て行われています。
+                    <p data-i18n="ethics.desc">
+                        特別の記載のない限り、動物実験は東京大学大学院医学系研究科動物実験委員会による承認を受けて行われています。AAV、GCaMP等のウイルスや遺伝子を用いる研究では、東京大学大学院医学系研究科遺伝子組換え生物等委員会の承認を得て行われています。各種Cre系統の遺伝子組換えマウスを用いる研究では、東京大学大学院医学系研究科遺伝子組換え生物等委員会の承認を得て行われています。
                     </p>
                 </div>
 
@@ -576,9 +583,11 @@
                         </div>
                         <h3>Privacy Policy</h3>
                     </div>
-                    <p>このウェブサイトは、サイト訪問、セッション、IPアドレスに関する個人的または非個人的なデータを収集することもあります。これらの情報は、ウェブサイトのパフォーマンスを最適化するための診断やデバッグの目的にのみ使用され、外部で共有されることはありません。
+                    <p data-i18n="privacy.desc1">
+                        このウェブサイトは、サイト訪問、セッション、IPアドレスに関する個人的または非個人的なデータを収集することもあります。これらの情報は、ウェブサイトのパフォーマンスを最適化するための診断やデバッグの目的にのみ使用され、外部で共有されることはありません。
                     </p>
-                    <p>このデータベースを利用することにより、ご利用者は上記のプライバシーポリシーに同意したものとみなされます。なお、本ポリシーは予告なく改訂されることがあります。</p>
+                    <p data-i18n="privacy.desc2">
+                        このデータベースを利用することにより、ご利用者は上記のプライバシーポリシーに同意したものとみなされます。なお、本ポリシーは予告なく改訂されることがあります。</p>
                 </div>
 
                 <!-- Others -->
@@ -592,7 +601,8 @@
                         </div>
                         <h3>Others</h3>
                     </div>
-                    <p>このウェブサイトには、私たちが関連性があると考える他のウェブサイトへのリンクが含まれています。これらの他のサイトのコンテンツを維持または更新する責任を負うものではありません。これらのサイトの中に、無関係な情報や不快な情報が含まれていることが判明した場合はご連絡ください。
+                    <p data-i18n="others.desc">
+                        このウェブサイトには、私たちが関連性があると考える他のウェブサイトへのリンクが含まれています。これらの他のサイトのコンテンツを維持または更新する責任を負うものではありません。これらのサイトの中に、無関係な情報や不快な情報が含まれていることが判明した場合はご連絡ください。
                     </p>
                 </div>
             </div>
@@ -619,7 +629,7 @@
                     <li><a href="#privacy">Privacy Policy</a></li>
                     <li><a href="https://braidyn-bc.jp/" target="_blank">Project Site</a></li>
                 </ul>
-                <p class="copyright">
+                <p class="copyright" data-i18n="footer.copyright">
                     © Copyright 学術変革領域A「行動変容を創発する脳ダイナミクスの解読と操作が開く多元生物学」総括班 分担者 中江 健
                 </p>
             </div>
@@ -627,6 +637,7 @@
     </footer>
 
     <!-- JavaScript -->
+    <script src="i18n.js"></script>
     <script>
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
@@ -678,6 +689,7 @@
             revealObserver.observe(section);
         });
     </script>
+    <script src="i18n.js"></script>
 </body>
 
 </html>

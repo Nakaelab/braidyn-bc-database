@@ -544,6 +544,18 @@
                 <li><a href="../index.html#contact">Contact</a></li>
                 <li><a href="https://braidyn-bc.jp/" class="nav-cta" target="_blank">Project Site</a></li>
             </ul>
+
+            <!-- Language Toggle -->
+            <div class="lang-toggle" id="lang-toggle">
+                <button class="lang-btn active" data-lang="ja">JP</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
@@ -562,13 +574,13 @@
                 <div class="dataset-title-area">
                     <div style="display: flex; flex-direction: column; gap: 24px;">
                         <div>
-                            <span class="complete-badge">Complete Dataset Available</span>
-                            <h1>オペラント条件づけの学習過程</h1>
+                            <span class="complete-badge">Complete</span>
+                            <h1 data-i18n="card1.title">オペラント条件づけの学習過程</h1>
                             <p class="dataset-subtitle">Operant Conditioning Learning Process</p>
                         </div>
 
-                        <p
-                            style="max-width: 700px; color: rgba(255,255,255,0.8); line-height: 1.7; font-size: 1.05rem;">
+                        <p style="max-width: 700px; color: rgba(255,255,255,0.8); line-height: 1.7; font-size: 1.05rem;"
+                            data-i18n="card1.hero_desc">
                             マウスがレバーを引いて水の報酬を得る学習過程を、広範な計測により追跡したデータセット。皮質動態と緻密な行動ビデオ記録がセットになっています。 FAIRS原則に基づきNWB形式で提供。
                         </p>
 
@@ -629,13 +641,13 @@
                 <!-- Abstract -->
                 <section id="abstract">
                     <h2>Abstract</h2>
-                    <p>
+                    <p data-i18n="card1.abstract_p1">
                         25匹のマウスがレバーを引いて水の報酬を得るよう訓練された、2週間にわたる運動技能学習15セッションを含むデータセットを提供します。同時に高速ビデオ撮影を行い、体、顔、目の動きをとらえ、環境パラメータをモニターしました。
                     </p>
-                    <p>
+                    <p data-i18n="card1.abstract_p2">
                         このデータセットには、静止状態の皮質活動と感覚誘発反応も含まれており、学習に関連した神経ダイナミクス研究と感覚駆動型神経ダイナミクス研究の両方に有用です。
                     </p>
-                    <p>
+                    <p data-i18n="card1.abstract_p3">
                         データはNeurodata Without Borders
                         (NWB)標準に従ってフォーマットされており、既存の解析ツールとの互換性を確保し、FAIRの原則を遵守しています。詳細なデータ記述と手法については、以下のプレプリント論文を参照してください。
                     </p>
@@ -677,7 +689,7 @@
                             <div class="resource-info">
                                 <span class="badge badge-nwb">NWB Format</span>
                                 <h3>Processed NWB Files</h3>
-                                <p>一般公開中のNWB形式データセット。即座に解析に利用可能です。</p>
+                                <p data-i18n="card1.resource_nwb_desc">一般公開中のNWB形式データセット。即座に解析に利用可能です。</p>
                                 <a href="../database.html" class="resource-link">
                                     Open Database Explorer
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -701,10 +713,11 @@
                             </div>
                             <div class="resource-info">
                                 <span class="badge badge-raw">Raw</span>
-                                <h3>Complete Raw Dataset</h3>
-                                <p>全ての計測データを含む完全なデータセットリポジトリ。</p>
+                                <h3 data-i18n="card1.resource_raw_title">Complete Raw Dataset</h3>
+                                <p data-i18n="card1.resource_raw_desc">全ての計測データを含む完全なデータセットリポジトリ。</p>
                                 <div class="info-alert"
-                                    style="margin-top: 12px; margin-bottom: 12px; font-size: 0.8rem;">
+                                    style="margin-top: 12px; margin-bottom: 12px; font-size: 0.8rem;"
+                                    data-i18n="card1.resource_raw_alert">
                                     論文受理後、DOIとともに公開予定。
                                 </div>
                                 <a href="https://mmlab-repo.m.u-tokyo.ac.jp/r/Matsuzaki/BraiDyn-BC_CuedLeverPull/"
@@ -724,8 +737,8 @@
                 <!-- Tutorials -->
                 <section id="tutorials">
                     <div class="section-divider"></div>
-                    <h2>Analysis Tutorials</h2>
-                    <p>本データセットを活用するためのチュートリアルを提供しています。</p>
+                    <h2 data-i18n="card1.tutorials_title">Analysis Tutorials</h2>
+                    <p data-i18n="card1.tutorials_desc">本データセットを活用するためのチュートリアルを提供しています。</p>
 
                     <div class="resource-grid">
                         <!-- Python -->
@@ -738,8 +751,8 @@
                             </div>
                             <div class="resource-info">
                                 <span class="badge badge-tutorial">Tutorial</span>
-                                <h3>Python Tutorial List</h3>
-                                <p>オペラント条件づけ学習過程の解析に関するPythonコード一覧。</p>
+                                <h3 data-i18n="tutorial2.title">Python Tutorial List</h3>
+                                <p data-i18n="card1.tutorial_python_desc">オペラント条件づけ学習過程の解析に関するPythonコード一覧。</p>
                                 <a href="https://drive.google.com/drive/folders/1nf2_1snzNbYD71VT1sMRoWhpkwzBbI7z?usp=drive_link"
                                     class="resource-link" target="_blank">
                                     Open Google Drive
@@ -763,8 +776,9 @@
                             </div>
                             <div class="resource-info">
                                 <span class="badge badge-tutorial">Tutorial</span>
-                                <h3>MATLAB Tutorial</h3>
-                                <p>NWBファイルからPeri-Event Time Histogram (PETH)を作成する手順。</p>
+                                <h3 data-i18n="tutorial1.title">MATLAB Tutorial</h3>
+                                <p data-i18n="card1.tutorial_matlab_desc">NWBファイルからPeri-Event Time Histogram
+                                    (PETH)を作成する手順。</p>
                                 <a href="matlab-tutorial-peth.html" class="resource-link">
                                     View Tutorial
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -829,12 +843,15 @@
                     <li><a href="https://braidyn-bc.jp/" target="_blank">Project Site</a></li>
                 </ul>
 
-                <p class="copyright">
+                <p class="copyright" data-i18n="footer.copyright">
                     © Copyright 学術変革領域A「行動変容を創発する脳ダイナミクスの解読と操作が開く多元生物学」総括班 分担者 中江 健
                 </p>
             </div>
         </div>
     </footer>
+
+    <!-- i18n Script -->
+    <script src="../i18n.js"></script>
 </body>
 
 </html>

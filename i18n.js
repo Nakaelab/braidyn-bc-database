@@ -1,0 +1,576 @@
+// ========== BraiDyn-BC i18n (Internationalization) ==========
+
+const translations = {
+    ja: {
+        // Hero (Index)
+        'hero.subtitle': 'マウスの学習過程における脳全域活動・行動・映像の記録。<br>学習に伴う脳ダイナミクスを解明するための、<br>大規模マルチモーダルデータセット。',
+        'hero.btn_top': 'Access the',
+
+        // About (Index)
+        'about.title': 'BraiDyn-BC Databaseについて',
+        'about.text1': '学術変革領域A「<a href="https://braidyn-bc.jp/" target="_blank">行動変容を創発する脳ダイナミクスの解読と操作が開く多元生物学</a>」では、生体が新しい行動を自発的に行うようになる行動変容を解明する「行動変容生物学（BraiDyn-BC）」の創成を行います。BraiDyn-BC Databaseでは、行動変容生物学に参画する研究者を増やすため、主に総括班により取得された高品質な脳活動と行動データの利活用の促進とデータ公開を行います。',
+        'about.text2': '論文化されていないデータの場合、1個体1セッションの<strong>Sample dataset</strong>については一般公開を行います。同様の手順で計測された複数個体のデータを<strong>Complete dataset</strong>と呼び、この利用に関してはデータ出典元の研究室との共同研究をベースとしたデータ共有を行います。Sample datasetを利用することでCreative Commonsなどのライセンスに基づき、研究者は自由に解析を試すことができます。',
+        'about.text3': '現在のデータや解析法の標準化はなされていませんが、今後のアップデートで対応する予定です。',
+
+        // Database (Index)
+        'database.title': '利用可能なデータセット',
+        'database.desc': 'オペラント条件づけと古典条件づけの学習過程を記録した、高品質なデータセットにアクセスできます。',
+
+        // Data Cards Title/Desc (Index & Page Titles)
+        'card1.title': 'オペラント条件づけの学習過程',
+        'card1.desc': '2週間にわたり、水報酬のためにレバーを引くことを学習するマウスの学習過程を追跡したデータセット。',
+        'card2.title': '古典条件づけの学習過程',
+        'card2.desc': '音弁別（6kHz vs 10kHz）と水報酬を用いた古典条件づけの完全な縦断的データセット。',
+        'card3.title': '古典条件づけの学習過程',
+        'card3.desc': '古典条件づけ実験のサンプルデータセット。データ構造の確認やパイプライン開発に最適です。',
+        'card4.title': 'レバー引き運動の学習',
+        'card4.desc': '運動課題（レバー引き）における広域1光子およびM1の2光子イメージングのサンプルデータ。',
+
+        // Page: Operant Conditioning Process (card1)
+        'card1.hero_desc': 'マウスがレバーを引いて水の報酬を得る学習過程を、広範な計測により追跡したデータセット。皮質動態と緻密な行動ビデオ記録がセットになっています。 FAIRS原則に基づきNWB形式で提供。',
+        'card1.abstract_title': 'Abstract',
+        'card1.abstract_p1': '25匹のマウスがレバーを引いて水の報酬を得るよう訓練された、2週間にわたる運動技能学習15セッションを含むデータセットを提供します。同時に高速ビデオ撮影を行い、体、顔、目の動きをとらえ、環境パラメータをモニターしました。',
+        'card1.abstract_p2': 'このデータセットには、静止状態の皮質活動と感覚誘発反応も含まれており、学習に関連した神経ダイナミクス研究と感覚駆動型神経ダイナミクス研究の両方に有用です。',
+        'card1.abstract_p3': 'データはNeurodata Without Borders (NWB)標準に従ってフォーマットされており、既存の解析ツールとの互換性を確保し、FAIRの原則を遵守しています。詳細なデータ記述と手法については、以下のプレプリント論文を参照してください。',
+        'card1.biorxiv_btn': 'Read on bioRxiv',
+        'card1.resources_title': 'Dataset Resources',
+        'card1.resource_nwb_desc': '一般公開中のNWB形式データセット。即座に解析に利用可能です。',
+        'card1.resource_raw_title': 'Complete Raw Dataset',
+        'card1.resource_raw_desc': '全ての計測データを含む完全なデータセットリポジトリ。',
+        'card1.resource_raw_alert': '論文受理後、DOIとともに公開予定。',
+        'card1.tutorials_title': 'Analysis Tutorials',
+        'card1.tutorials_desc': '本データセットを活用するためのチュートリアルを提供しています。',
+        'card1.tutorial_python_desc': 'オペラント条件づけ学習過程の解析に関するPythonコード一覧。',
+        'card1.tutorial_matlab_desc': 'NWBファイルからPeri-Event Time Histogram (PETH)を作成する手順。',
+
+        // Page: Classical Conditioning Complete (card2)
+        'card2.hero_desc': '2個体のマウスに対して17日間にわたり、音刺激に対する報酬予測行動（古典的条件づけ）の学習過程を追跡したマルチモーダルデータセット。学習に伴う全脳活動の遷移を捉えた縦断的な完全データセットです。',
+        'card2.abstract_p1': '頭部固定マウスに対して古典的条件づけ実験を行いました。条件刺激(CS)として6kHzと10kHzの2種類の異なる音を提示し、無条件刺激(US)として6kHzの場合70%の確率で水を報酬として供給、10kHzの場合30%の確率で水を報酬として供給しました。この実験を2個体のマウスに対して30分間程度、合計17日間行うことで、古典条件づけの学習過程を記録しました。',
+        'card2.abstract_p2': 'この記録実験において、脳活動をCa<sup>2+</sup>プローブを使い広視野1光子顕微鏡（Wide-field 1p）により皮質全体の計測を行いました。さらにマウスの顔および上半身のビデオデータ(Face Camera, Body Camera)を計測しました。またマウスの行動データとしてリックや報酬のタイミングを計測しています(Behavior data)。',
+        'card2.abstract_p3': 'Kondo et. al. 2021では、同様のパラダイムでは古典条件づけの学習後のみの神経活動の解析を行いましたが、本コンプリートデータセットでは、その学習にいたるまでにどのように脳内の活動が変化していくかを縦断的に計測しています。',
+        'card2.access_title': 'Dataset Access',
+        'card2.access_distribution': '配布・共有について',
+        'card2.access_desc': '現在は東京大学松崎研究室との共同研究、もしくは学術変革領域A「行動変容生物学」内での内部共有を想定した配布を行っています。共有者にはData Descriptionのディレクトリ構造とファイルにアクセスするためのリンクを送付します。学術変革領域Aの後期公募班の募集タイミングを目処に、Creative Commonsライセンスでの一般公開を予定しています。',
+        'card2.desc_title': 'Data Description',
+        'card2.structure_title': '📁 Directory Structure',
+        'card2.structure_desc': 'データセットは以下の3つの主要ディレクトリで構成されています：',
+
+        // Page: Classical Conditioning Sample (card3)
+        'card3.hero_desc': '古典条件づけ学習実験のサンプルデータセット。大規模なコンプリートデータセットの前段階として、データフォーマットや解析パイプラインの確認に適しています。',
+        'card3.abstract_p1': '本サンプルデータは、頭部固定マウスに対して古典的条件づけ実験を行った際の1セッション分の記録です。音刺激（6kHz/10kHz）に対する報酬予測行動と、広視野カルシウムイメージングによる皮質活動が含まれています。',
+        'card3.tutorials_title': 'Tutorials & Code',
+
+        // Page: Motor Learning Sample (card4)
+        'card4.hero_desc': 'レバー引き運動課題を学習中のマウスの脳活動を捉えたサンプルデータセット。広域1光子イメージングによる皮質全体の活動と、2光子イメージングによるM1領域の細胞レベルの活動を含みます。',
+        'card4.abstract_p1': '本サンプルデータでは、レバーを適応的に変化する範囲内へと保持することで報酬が得られる運動課題を遂行しているマウスの背側大脳皮質の<strong>広域１光子カルシウムイメージング</strong>、および前肢関連背側運動領域(以下単純にM1)の第2/3層(L2/3)および第5層(L5)の<strong>２光子カルシウムイメージング</strong>のデータを各１セッションずつ公開している。',
+
+        // Tutorials (Index & Content)
+        'tutorials.title': 'データ解析チュートリアル',
+        'tutorials.desc': 'NWB形式のデータを活用するためのチュートリアルとドキュメントを提供しています。',
+        'tutorial1.title': 'MATLAB Tutorial: NWBからPeri-Event Time Histogram作成',
+        'tutorial1.title_h1': 'NWBからPETHを作成する',
+        'tutorial1.subtitle': 'MatNWBライブラリを使用して、Neurodata Without Borders (NWB)形式のデータから特定のイベントに基づいた神経活動の可視化を行います。',
+        'tutorial1.desc': 'MATLABを使用してNWBファイルからPETHを生成する方法をステップバイステップで解説します。',
+        'tutorial1.prep': '準備',
+        'tutorial1.prereq': '事前確認',
+        'tutorial1.prereq_desc': '本チュートリアルを実行するには、<a href="operant-conditioning-process.html" style="color: #ff8c00; text-decoration: underline;">オペラント条件づけの学習過程</a>のサンプルデータをあらかじめローカル環境にダウンロードしておく必要があります。',
+        'tutorial1.setup': 'セットアップ手順',
+        'tutorial1.step1_title': 'MatNWBのセットアップ',
+        'tutorial1.step1_desc': 'NWBファイルをMATLABから取り扱うための関数群である<strong>MatNWB</strong>を、公式のセットアップ手順に従ってインストールします。',
+        'tutorial1.step2_title': 'デモスクリプトのダウンロード',
+        'tutorial1.step2_desc': '以下のリンクから、本チュートリアルで使用するデモコード (<code>BraiDynDB_handlingSampleData.m</code>) を開き、以下の変数 <code>nwbpath</code> を、お手元のNWBファイルが保存されているパスに変更して実行してください。',
+        'tutorial1.script_title': 'デモコードの実行',
+        'tutorial1.script_desc': 'MATLAB上でダウンロードした <code>BraiDynDB_handlingSampleData.m</code> を開き、以下の変数 <code>nwbpath</code> を、お手元のNWBファイルが保存されているパスに変更して実行してください。',
+        'tutorial1.features_title': 'プログラムの機能',
+        'tutorial1.features_desc': 'このスクリプトでは、以下の解析と可視化を自動で行います：',
+        'tutorial1.feat1_title': '📋 セッションメタデータの表示',
+        'tutorial1.feat1_desc': '実験日や個体情報などの基本情報を確認します。',
+        'tutorial1.feat2_title': '🎯 トライアル情報の取り込み',
+        'tutorial1.feat2_desc': '音刺激のタイミングや報酬の有無などを抽出します。',
+        'tutorial1.feat3_title': '🧠 神経活動データの表示',
+        'tutorial1.feat3_desc': 'Ca²⁺イメージング等の時系列データをプロットします。',
+        'tutorial1.feat4_title': '📊 PETHの作成',
+        'tutorial1.feat4_desc': '音刺激開始タイミングにアラインした神経活動のヒストグラムを表示します。',
+        'tutorial1.feat5_title': '⚡ 生データ(5kHz)の解析',
+        'tutorial1.feat5_desc': '高サンプリングの生データの取り出しとPETH作成を行います。',
+        'tutorial1.feat6_title': '🔍 行動解析(DLC)の読み込み',
+        'tutorial1.feat6_desc': 'DeepLabCutで推定されたキーポイントや瞳孔径の変化を表示します。',
+        'tutorial1.resources_title': '公式ドキュメント',
+        'tutorial1.resources_desc': 'MatNWBのより詳細な仕様については、以下の公式チュートリアルも併せて参照してください。',
+        'tutorial1.code_block': '% 読み込みたいNWBファイルへのパスを指定<br>nwbpath = \'C:/Path/To/Your/sample_data.nwb\';<br><br>% デモコードの実行<br>BraiDynDB_handlingSampleData',
+        'tutorial1.btn_official_site': 'MatNWB 公式サイト',
+        'tutorial1.btn_download_demo': 'デモコードをダウンロード',
+
+        'tutorial2.title': 'Python Tutorial: オペラント条件づけ学習過程の解析',
+        'tutorial2.desc': 'Google Driveからオペラント条件づけの学習過程に関するPythonチュートリアル一覧にアクセスできます。',
+
+        // Resources (Index)
+        'resources.title': '関連リソース',
+        'resources.desc': '論文、コード、データブラウザなど、プロジェクトに関連する外部リソースへのリンク集。',
+        'resource.gdrive': 'Google ドライブ',
+        'resource.gdrive_desc': '解析済みデータ（同期・整理済み）',
+        'resource.github_desc': '解析コードとスクリプト一式',
+        'resource.aws': 'AWS S3 ブラウザ',
+        'resource.aws_desc': '生の動画・画像データ一式',
+        'resource.hackathon': '行動変容生物学ハッカソン',
+        'resource.hackathon_desc': 'ハッカソンイベントの資料集',
+        'resource.paper_btn': '論文を読む',
+        'resource.paper_ja': '日本語訳',
+        'resource.paper_audio': '🎧 音声解説',
+        'resource.paper_desc': 'マウス学習過程における脳全域活動・行動・映像のマルチモーダルデータセット',
+
+        // Updates (Index)
+        'updates.title': '更新履歴',
+        'update1': 'Tutorialのアップデート',
+        'update2': 'オペラント条件付けデータを更新',
+        'update3': 'Sample: オペラント学習過程を公開',
+
+        // Information (Index & Common Footer/Sidebar)
+        'info.title': '各種情報',
+        'license.desc': 'データのライセンスと利用条件については各々のページに記載しております。',
+        'ethics.desc': '特別の記載のない限り、動物実験は東京大学大学院医学系研究科動物実験委員会による承認を受けて行われています。AAV、GCaMP等のウイルスや遺伝子を用いる研究では、東京大学大学院医学系研究科遺伝子組換え生物等委員会の承認を得て行われています。各種Cre系統の遺伝子組換えマウスを用いる研究では、東京大学大学院医学系研究科遺伝子組換え生物等委員会の承認を得て行われています。',
+        'privacy.desc1': 'このウェブサイトは、サイト訪問、セッション、IPアドレスに関する個人的または非個人的なデータを収集することもあります。これらの情報は、ウェブサイトのパフォーマンスを最適化するための診断やデバッグの目的にのみ使用され、外部で共有されることはありません。',
+        'privacy.desc2': 'このデータベースを利用することにより、ご利用者は上記のプライバシーポリシーに同意したものとみなされます。なお、本ポリシーは予告なく改訂されることがあります。',
+        'others.desc': 'このウェブサイトには、私たちが関連性があると考える他のウェブサイトへのリンクが含まれています。これらの他のサイトのコンテンツを維持または更新する責任を負うものではありません。これらのサイトの中に、無関係な情報や不快な情報が含まれていることが判明した場合はご連絡ください。',
+
+        // Footer (Common)
+        'footer.copyright': '© Copyright 学術変革領域A「行動変容を創発する脳ダイナミクスの解読と操作が開く多元生物学」総括班 分担者 中江 健',
+        'footer.links.license': 'Data License',
+        'footer.links.ethics': 'Ethics Statement',
+        'footer.links.privacy': 'Privacy Policy',
+        'footer.links.project': 'Project Site',
+
+        // Sample Classical Conditioning Resources
+        'sample_cl.raw_body_desc': 'マウスの腹側を30Hzで計測した動画データ。行動の詳細な時系列変化を記録します。',
+        'sample_cl.raw_face_desc': 'マウスの左側面顔を30Hzで計測した動画データ。表情や口（リック）の動きを詳細に捉えます。',
+        'sample_cl.raw_wide_desc': '両側大脳皮質のCa²⁺イメージングデータ。1セッション分を4ファイルに分割して提供しています。',
+        'sample_cl.raw_beh_desc': 'リック、報酬、音（CS）のタイミングを5000Hzで記録。学習過程の定量的評価に使用可能です。',
+        'sample_cl.raw_accordion_title': '生データファイル形式と詳細',
+        'sample_cl.raw_accordion_body_desc': '1Session中の実験中のマウスの腹側をカメラにより30Hzで計測した動画データ。',
+        'sample_cl.raw_accordion_face_desc': '1Session中の実験中のマウスの左側面顔をカメラにより30Hzで計測した動画データ。',
+        'sample_cl.raw_accordion_wide_desc': '1Session中の実験中のマウスの上側からの両側大脳皮質のCa2+プローブの励起光を1光子顕微鏡により30Hzで計測したTIFF画像データ。最大2GBの4つのTIFファイルに分かれており、ファイル名後部にX2,X3,X4されたものは、それぞれが時間的に連続した画像ファイルになっている。',
+        'sample_cl.raw_beh_data_desc': 'リックや報酬のタイミングを5000Hzで計測した行動データ（ADコンバータを介してアナログ電圧を記録したもの）。MATLABで読み込むためには、<a href="https://jp.mathworks.com/matlabcentral/fileexchange/19913-lvm-file-import" target="_blank" style="color: var(--color-accent); font-weight: 600;">lvm-file-import</a>を利用のこと。',
+        'sample_cl.channel_table_title': '📊 Segment1.data Channels <span style="font-weight: 400; color: var(--color-text-sub);">(HIGH=5V, LOW=0V)</span>',
+        'sample_cl.channel_ch1_content': 'lick sensor(生)',
+        'sample_cl.channel_ch1_desc': 'マウスの舌がスパウトに接触しているときHIGH，していないときLOW．',
+        'sample_cl.channel_ch2_content': '報酬',
+        'sample_cl.channel_ch2_desc': 'HIGHになった瞬間にポンプ駆動．',
+        'sample_cl.channel_ch3_content': '音',
+        'sample_cl.channel_ch3_desc': 'HIGHになっている間，ch7の音が鳴っている．',
+        'sample_cl.channel_ch4_content': 'イメージングフレーム',
+        'sample_cl.channel_ch4_desc': 'HIGHのとき取得．このchのみHIGH＝約3V.',
+        'sample_cl.channel_ch5_content': 'lick sensor(バイナリ)',
+        'sample_cl.channel_ch5_desc': 'マウスの舌がスパウトに接触しているとき1，していないとき0．',
+        'sample_cl.channel_ch6_content': '音提示＋遅延期間フラグ',
+        'sample_cl.channel_ch6_desc': '2のとき音提示＋遅延期間を示し，1のときそれ以外の期間（実際はこのchは解析に使用していない）',
+        'sample_cl.channel_ch7_content': '音周波数',
+        'sample_cl.channel_ch7_desc': 'ch.3がHIGHのとき，このchの音が鳴っている．単位kHz',
+
+        'sample_cl.analyzed_proc_desc': '前処理済みの神経活動・行動データ（.mat形式）',
+        'sample_cl.analyzed_roi_desc': 'ROI設定領域の確認用画像',
+        'sample_cl.analyzed_act_desc': '神経活動のダイナミクスを可視化した動画形式データ',
+        'sample_cl.field_fct3_title': '<code>fct3</code> セル配列',
+        'sample_cl.field_fct3_desc': '各ROIの神経活動（ROI内ピクセル平均dF/F，全時系列でZスコア化）を，トライアルごとに音の鳴り始めに揃えて取り出したもの．セル配列の要素は『抜き出したトライアル種別』に対応しており，【A+，A-，B+，B-，実際のトライアル系列】（+/-はそれぞれ報酬有無に対応）となっている．各セル内は3次元配列．フレームxROIxトライアルの構造．音オンセットでアラインされており，-6〜8s．よってフレーム数は301．',
+        'sample_cl.field_flt3_title': '<code>flt3</code> セル配列',
+        'sample_cl.field_flt3_desc': 'fct3と同様だが，神経活動のかわりにリッキング（lick-rateとして連続値化後，Zスコア化）が入っている．',
+        'sample_cl.field_svd_title': '<code>SVDresult</code> 構造体',
+        'sample_cl.field_svd_desc': '元画像スタック（処理内容3）に対してSVDを行った結果．各成分ともにデータ量削減のため特異値トップ1000個まで保存．特異値行列Sは対角要素のみ．',
+        'sample_cl.field_videosvd_title': '<code>videoSVD</code> 構造体',
+        'sample_cl.field_videosvd_desc': 'ビデオMotion EnergyをSVDしたもの．FaceMapによって生成．トップ10特異値．',
+        'sample_cl.field_smode_title': '<code>Smode</code> セル配列',
+        'sample_cl.field_smode_desc': '空間モード．上半身，鼻，ヒゲ，口部分ごと．',
+        'sample_cl.field_tmode_title': '<code>Tmode</code> セル配列',
+        'sample_cl.field_tmode_desc': '時間モード．トライアル種別ごと．セル内配列はフレームx特異時間モードxトライアルx体部位．',
+        'sample_cl.field_rois_title': '<code>ROIs</code> 配列',
+        'sample_cl.field_rois_desc': 'ROIマスク　ROI数xY（取得画像の縦次元）xX（取得画像の横次元）',
+        'sample_cl.field_bhv_title': '<code>Bhv</code> 構造体',
+        'sample_cl.field_bhv_desc': '行動データから抽出した各イベント生起状態，リッキングなど．',
+        'sample_cl.field_ds_title': '<code>Ds</code> 構造体',
+        'sample_cl.field_ds_desc': '実際の行動データ（センサーなどからのアナログ電圧）は5kHzサンプリングされており，イメージングデータのサンプリングレートと異なっている．そのためイメージングの各フレーム取得タイミングを参照して，行動データを30Hzにダウンサンプルしたもの．中身はリッキング（生データ，センサーからのアナログ電圧），リック頻度（リッキングから計算），報酬，音A，音B．',
+        'sample_cl.field_idx_title': '<code>Idx</code> 構造体',
+        'sample_cl.field_idx_desc': '全トライアルにおける報酬，音A，音Bの提示状態．',
+        'sample_cl.field_trigf_title': '<code>TrigF</code> 構造体',
+        'sample_cl.field_trigf_desc': 'フィールド名のイベントオンセット（イメージングフレーム内の位置に対応）．US条件ごとに分けた場合のCSオンセット（A+，B-など）もあり．',
+        'sample_cl.field_ttype_title': '<code>t_type</code> 配列',
+        'sample_cl.field_ttype_desc': 'トライアル種別．1〜4の値がそれぞれ【A+，A-，B+，B-】（+-は報酬有無）に対応．',
+        'sample_cl.field_params_title': '<code>params</code> 構造体',
+        'sample_cl.field_params_desc': 'イメージングに関係したパラメータ類．',
+        'sample_cl.result_task_text': '異なる報酬確率をもつ古典的条件つけのタスクの模式図。6kHの音の提示の後に報酬をを得る確率が高い。',
+        'sample_cl.result_learning_text': 'Session（日数）の経過による6kHz（赤）と10kHz（青）でのLickの変化。Lickの学習初期ではそれぞれの音でLick数が変わらないが、日にちが経つことで学習し6Khzの音の方が有意にLick数が多く学習していることがわかる。今回公開するデータはSession 7の1個体のデータ。',
+        'sample_cl.method1_p1': '各画像スタックは、10 個の特徴点を使用して、Allen Common Coordinate Framework バージョン 3 (Allen CCF) の上面図に位置合わせした。特徴点は、(FrC)嗅球の両側前神経節、前頭血管の中央および側端、ラムダ縫合糸、背側皮質の両側後端、および背側皮質の両側側端に設定した。皮質に対するマスクはアレンCCF から作成され、大脳皮質の外側のピクセルの蛍光変化を除外した。左半球のピクセルのみの活動を利用した。ノイズ削減のために画像スタックの特異値分解 (SVD) を計算し上位24個の特異値から画像を再構成した。SVDの結果からは空間成分U(サイズのピクセル×成分)、特異値S(サイズの空間成分×時間成分)、および転置された時間成分VT（サイズコンポーネント×フレーム）が得られている。',
+        'sample_cl.method1_p2': '再構成されたデータを使用すると、蛍光強度の変化 (Δ F / F) は、各フレームの前後の ± 15 秒間隔で 10 パーセンタイル値を使用して各ピクセルに対して計算した。ROIを使用した分析では、以下に説明する脳領域に12個のROI（10×10ピクセル、長方形）が設定され、定位座標はアレンCCFの上面図と以前に報告された領域に従って定義され、これらは解剖学的および機能的に識別: dmFrC (AP +2.8 mm、ML 0.8 mm)。dlFrC (AP +2.5 mm、ML 2.0 mm); M1 (AP +1.2 mm、ML 1.0 mm); 一次体性感覚前肢領域 (S1FL、AP +0.4 mm、ML 2.2 mm)。一次体性感覚皮質後肢 面積（S1HL、AP -0.5 mm、ML 1.5 mm）。一次体性感覚皮質口面積 (S1m、AP +1.4 mm、ML 3.0 mm)。一次体性感覚皮質鼻領域 (S1n、AP 0 mm、ML 3.4 mm); 一次体性感覚皮質バレル領域（S1b、AP -1.2 mm、ML 3.0 mm）。一次聴覚皮質（Aud、AP -2.5 mm、ML 4.0 mm）。一次視覚野（Vis、AP -4.0 mm、ML 2.2 mm）。後頭頂皮質（PPC、AP -2.0 mm、ML 2.0 mm）。後大脳皮質(RSC、AP -2.4 mm、ML 0.5 mm)。ここでの定位座標はROI の中心位置を意味している。',
+        'sample_cl.method1_p3': 'セッションとマウスごとに、ROI の位置を手動で微調整している。各ROIの蛍光強度は、含まれるピクセルを平均することによって決定した。ROI から抽出された神経活動は、Zスコアに変換され、各キュートーンの開始に合わせて調整した。各ピクセルごと，各時点−15〜＋15sの時間窓の10パーセンタイルをFとしてdF/F化している。',
+        'sample_cl.method2_desc': '高速度カメラから得られたビデオは、FaceMap パッケージ ( <a href="https://github.com/MouseLand/FaceMap" target="_blank" style="color: var(--color-accent); font-weight: 600;">Stringer et al., 2019</a> ) で処理され、口、鼻、ひげ、および上半身の部分を識別している。ROI は、前肢と胸部、鼻、口、ひげパッドに設定され、各 ROI の運動エネルギー (フレーム間の絶対差) の SVD が計算されました。ソフトウェアは、空間成分Uと特異値Sから計算された「モーションマスク」を生成した。SVDによって発見され、特異値空間での分離可能な動きの時系列は、モーションマスクに元の時系列データを掛けることによって計算している。',
+        'sample_cl.desc_note': 'データの詳細はData Descriptionを参照のこと。',
+        'msg.coming_soon': '※現在提供準備中',
+        'sample_cl.desc_intro': 'マウスの個体番号RCtg_Pv12、RCtg_Pv13の2個体をそれぞれ合計17日間計測した。1日に4セッションの計測を行った。',
+        'sample_cl.raw_accordion_title': '生データファイル形式と詳細',
+
+        // Classical Conditioning Complete Details
+        'complete_cl.dir_raw': 'オリジナル計測データ',
+        'complete_cl.dir_beh': 'リック等の行動データ',
+        'complete_cl.dir_ca': 'イメージングデータ',
+        'complete_cl.dir_vid': 'Face/Bodyカメラ動画',
+        'complete_cl.dir_pre': '中間処理データ',
+        'complete_cl.dir_roi': '処理済み・ROI抽出済みデータ',
+        'complete_cl.raw_desc_intro': '個体番号 (RCTg_Pv12, RCTg_Pv13) および計測日ごとに整理されています。',
+        'complete_cl.raw_list_body': '腹側を30Hzで計測した動画データ',
+        'complete_cl.raw_list_face': '左側面顔を30Hzで計測した動画データ',
+        'complete_cl.raw_list_wide': '30Hzで計測されたCa²⁺イメージングTIFF画像（2GB毎の分割ファイル）',
+        'complete_cl.raw_list_beh': 'リック、報酬、音周波数等を5000Hzで記録したアナログ信号データ',
+        'complete_cl.proc_desc_intro': '以下の前処理が適用された <code>stdData</code> 構造体（MATLAB形式）が格納されています：',
+        'complete_cl.proc_step1': '揺れ補正およびAllen CCF v3への位置合わせ',
+        'complete_cl.proc_step2': '左半球のみのクリッピング',
+        'complete_cl.proc_step3': 'SVDを用いたデノイズ（上位24成分での再構成）',
+        'complete_cl.proc_step4': 'dF/F化（±15秒の時間窓での10パーセンタイルをFとして算出）',
+        'complete_cl.proc_step5': 'ROIベースの神経活動抽出（dmFrC, M1, S1等12箇所、Zスコア化）',
+        'complete_cl.table_desc_ch1': '舌のスパウト接触時にHIGH (5V)',
+        'complete_cl.table_desc_ch2': '報酬供給タイミングでHIGH',
+        'complete_cl.table_desc_ch3': '音吹鳴中にHIGH',
+        'complete_cl.table_desc_ch4': 'カメラのシャッター露光タイミング',
+        'complete_cl.table_desc_ch7': '提示中の音の周波数 (kHz)',
+        'complete_cl.results_p': '6kHz（報酬確率70%）と10kHz（報酬確率30%）を提示。学習が進むにつれ、高確率の音に対して有意にリック数（期待行動）が増加していく過程が全皮質の活動とともに記録されています。',
+        'complete_cl.contact_desc': '本データセットの利用については、事務局データベース担当までお問い合わせください。',
+
+        // Motor Learning Sample Resources & Specs
+        'sample_ml.res_2p_desc': 'Olympus製顕微鏡による第2/3層および第5層の脳活動データ。512x512ピクセル。',
+        'sample_ml.res_face_desc': 'マウスの右側面顔の動画データ。咀嚼や瞬きなどの行動を記録。',
+        'sample_ml.res_body_desc': 'マウスの腹側の動画データ。レバー操作や手足の動きを記録。',
+        'sample_ml.res_beh_desc': 'レバー軌道、タスク状態、同期信号を含むアナログ記録データ。',
+        'sample_ml.res_wide_desc': 'Andor製カメラによる皮質全体の広域イメージング。背側全体をカバー。',
+        'sample_ml.res_face_sync_desc': '1pイメージングと同期した顔動画データ。顔面細部の動きを記録。',
+        'sample_ml.res_body_sync_desc': '1pイメージングと同期した腹側動画データ。四肢の運動を記録。',
+        'sample_ml.res_beh_sync_desc': '1pセッションの行動軌道とトリガー信号を記録したLVMファイル。',
+        'sample_ml.proc_mc_desc': '剛体・非剛体補正済みの画像。4次元行列（X, Y, Z, T）としてMATLAB形式で提供。',
+        'sample_ml.proc_cnmf_desc': 'CNMFを用いて抽出された神経活動。F_dff, F_dcvなどの信号を含む。',
+        'sample_ml.proc_task_desc': '行動データのMATLAB形式変換済みファイル。Fs, lever軌道などを構造化。',
+        'sample_ml.proc_dlc_face_desc': '顔動画から鼻、口元、舌などの特徴点をトラッキングしたデータ。',
+        'sample_ml.proc_dlc_body_desc': '腹側動画から手指、レバー先端などの動きを抽出したデータ。',
+        'sample_ml.proc_resize_desc': '128x128にリサイズ済みの皮質画像データ。解析パッケージ入力用に最適化。',
+        'sample_ml.proc_dff_desc': '全ピクセルに対してΔF/F計算を適用した時系列画像データ。',
+        'sample_ml.proc_task_sync_desc': '1pイメージングのフレームに同期させた行動事象の構造体ファイル。',
+        'sample_ml.proc_dlc_both_desc': '1p用セッションの動画解析結果。各特徴点の座標データ。',
+        'sample_ml.spec_ch1': 'レバーの変位（mm）',
+        'sample_ml.spec_ch3': '2p: ↑Edge / 1p: ↓Edge で記録開始',
+        'sample_ml.spec_ch4': 'カメラ(70Hz)との同期トリガー信号',
+        'sample_ml.spec_ch5': '1: Base, 2: Outside, 3: Target Zone',
+        'sample_ml.spec_ch78': 'Target zoneの上限・下限の電圧記録',
+        'sample_ml.dlc_desc': '動画から自動抽出された14個の特徴点：',
+        'sample_ml.task_paradigm': '本課題は、自発的なレバー引き動作をターゲットゾーン(Target zone)内に一定時間(T_target = 200ms)保持することをマウスに学習させます。',
+        'sample_ml.task_iti': 'トライアル間の休止期間（Inter-Trial Interval）',
+        'sample_ml.task_ready': 'レバーを基底閾値(0.5mm)以下で1秒以上保持すると遷移',
+        'sample_ml.task_go': 'レバーが基底閾値を越えるとトライアル開始。1000msの制限時間',
+        'sample_ml.task_success': '制限時間内に保持条件を満たすと達成。水報酬が与えられる',
+        'sample_ml.task_failure': '制限時間内に達成できなかった場合',
+        'sample_ml.task_target_desc': 'Target zoneは中心を4mmとし、マウスの習熟度（成功数）に応じて±2.5mmから適応的に狭まっていきます。感覚フィードバックとして、レバーがTarget zone内に入っている間は10kHzの純音が提示されます。',
+        'sample_ml.method_setup': 'トランスジェニックマウス(Thy1-jRGECO1a)を用い、1光子では広域マクロ顕微鏡、2光子では高感度多焦点顕微鏡による計測を実施しました。',
+        'sample_ml.method_proc': 'MATLAB上でNoRMCorreによる動き補正、およびCNMF（2光子）によるROI抽出を行いました。輝度変化(ΔF/F)の算出には、局所的なバックグラウンド減算とパーセンタイルベースのF₀推定を適用しています。',
+    },
+    en: {
+        // Hero
+        'index.code_window_content': '<span class="comment">% Create PETH from NWB file</span><br><span class="keyword">nwb</span> = nwbRead(<span class="string">\'sample_data.nwb\'</span>);<br><br><span class="comment">% Get neural activity data</span><br><span class="keyword">fluorescence</span> = nwb.processing...<br>&nbsp;&nbsp;.get(<span class="string">\'ophys\'</span>).nwbdatainterface...<br>&nbsp;&nbsp;.get(<span class="string">\'DfOverF\'</span>);<br><br><span class="comment">% Peri-Event Time Histogram</span><br><span class="function">plotPETH</span>(fluorescence, events);',
+        'hero.title_line1': 'Brain Dynamics',
+        'hero.subtitle': 'Brain-wide neural activity, behavior, and video recordings during mouse learning.<br>A large-scale multimodal dataset for understanding learning-related brain dynamics.',
+        'hero.btn_top': 'Access the',
+
+        // About
+        'about.title': 'About BraiDyn-BC Database',
+        'about.text1': 'The Transformative Research Area A "<a href="https://braidyn-bc.jp/" target="_blank">Multi-dimensional Biology Directed by Brain Dynamics Underlying Behavioral Transformation</a>" aims to establish "Behavioral Transformation Biology (BraiDyn-BC)" to elucidate how organisms spontaneously acquire new behaviors. The BraiDyn-BC Database promotes the utilization and publication of high-quality brain activity and behavioral data, primarily acquired by the core research group, to expand the community of researchers in behavioral transformation biology.',
+        'about.text2': 'For unpublished data, <strong>Sample datasets</strong> (single individual, single session) are publicly available. Data from multiple individuals measured using the same procedures are called <strong>Complete datasets</strong>, which are shared through collaborative research with the originating laboratory. Researchers can freely experiment with Sample datasets under Creative Commons or similar licenses.',
+        'about.text3': 'Data and analysis methods are not yet standardized, but we plan to address this in future updates.',
+
+        // Database
+        'database.title': 'Available Datasets',
+        'database.desc': 'Access high-quality datasets recording the learning processes of operant and classical conditioning.',
+
+        // Data Cards Title/Desc
+        'card1.title': 'Operant Conditioning Learning Process',
+        'card1.desc': 'Dataset tracking mouse learning to pull a lever for water reward over a 2-week period.',
+        'card2.title': 'Classical Conditioning Learning Process',
+        'card2.desc': 'Complete longitudinal dataset of classical conditioning using tone discrimination (6kHz vs 10kHz) and water reward.',
+        'card3.title': 'Classical Conditioning Learning Process',
+        'card3.desc': 'Sample dataset for classical conditioning experiments. Ideal for understanding data structure and pipeline development.',
+        'card4.title': 'Lever Pull Motor Learning',
+        'card4.desc': 'Sample data of wide-field 1-photon and M1 2-photon imaging during motor task (lever pulling).',
+
+        // Page: Operant Conditioning Process (card1)
+        'card1.hero_desc': 'A dataset tracking the learning process of mice pulling a lever to obtain water rewards, recorded with extensive measurements. Includes cortical dynamics and detailed behavioral video recordings. Provided in NWB format based on FAIR principles.',
+        'card1.abstract_title': 'Abstract',
+        'card1.abstract_p1': 'We provide a dataset containing 15 sessions of motor skill learning over 2 weeks, where 25 mice were trained to pull a lever to obtain a water reward. High-speed video recording was performed simultaneously to capture body, face, and eye movements, and environmental parameters were monitored.',
+        'card1.abstract_p2': 'This dataset also includes resting-state cortical activity and sensory-evoked responses, making it useful for both learning-related neural dynamics research and sensory-driven neural dynamics research.',
+        'card1.abstract_p3': 'Data is formatted according to Neurodata Without Borders (NWB) standards, ensuring compatibility with existing analysis tools and adhering to FAIR principles. For detailed data description and methods, please refer to the preprint paper below.',
+        'card1.biorxiv_btn': 'Read on bioRxiv',
+        'card1.resources_title': 'Dataset Resources',
+        'card1.resource_nwb_desc': 'Publicly available NWB format dataset. Ready for immediate analysis.',
+        'card1.resource_raw_title': 'Complete Raw Dataset',
+        'card1.resource_raw_desc': 'Complete dataset repository containing all measurement data.',
+        'card1.resource_raw_alert': 'To be released with DOI upon paper acceptance.',
+        'card1.tutorials_title': 'Analysis Tutorials',
+        'card1.tutorials_desc': 'We provide tutorials for utilizing this dataset.',
+        'card1.tutorial_python_desc': 'List of Python codes for analyzing operant conditioning learning processes.',
+        'card1.tutorial_matlab_desc': 'Procedure for creating Peri-Event Time Histogram (PETH) from NWB files.',
+
+        // Page: Classical Conditioning Complete (card2)
+        'card2.hero_desc': 'A multimodal dataset tracking the learning process of reward-predictive behavior (classical conditioning) to sound stimuli in 2 mice over 17 days. A complete longitudinal dataset capturing the transition of brain-wide activity accompanying learning.',
+        'card2.abstract_p1': 'Classical conditioning experiments were conducted on head-fixed mice. Two different tones, 6kHz and 10kHz, were presented as conditioned stimuli (CS). Water reward was delivered with 70% probability for 6kHz and 30% for 10kHz as unconditioned stimuli (US). This experiment was conducted on 2 mice for about 30 minutes daily for a total of 17 days to record the learning process of classical conditioning.',
+        'card2.abstract_p2': 'In this recording experiment, brain activity across the entire cortex was measured using a wide-field 1-photon microscope (Wide-field 1p) with Ca<sup>2+</sup> probes. Furthermore, video data of the mouse\'s face and upper body (Face Camera, Body Camera) were recorded. Behavioral data such as licking and reward timing were also measured.',
+        'card2.abstract_p3': 'In Kondo et. al. 2021, neural activity analysis was performed only after classical conditioning learning using a similar paradigm. However, in this complete dataset, we longitudinally measure how brain activity changes leading up to that learning.',
+        'card2.access_title': 'Dataset Access',
+        'card2.access_distribution': 'Distribution & Sharing',
+        'card2.access_desc': 'Currently distributed for collaborative research with the Matsuzaki Laboratory at the University of Tokyo or for internal sharing within Transformative Research Area A "Behavioral Transformation Biology". Access links to the Data Description directory structure and files will be sent to collaborators. Public release under Creative Commons license is planned around the timing of the second call for proposals of the Transformative Research Area A.',
+        'card2.desc_title': 'Data Description',
+        'card2.structure_title': '📁 Directory Structure',
+        'card2.structure_desc': 'The dataset consists of the following three main directories:',
+
+        // Page: Classical Conditioning Sample (card3)
+        'card3.hero_desc': 'Sample dataset of classical conditioning learning experiment. Suitable for checking data format and analysis pipeline as a preliminary step for the large-scale complete dataset.',
+        'card3.abstract_p1': 'This sample data is a record of one session of a classical conditioning experiment performed on a head-fixed mouse. It includes reward-predictive behavior to sound stimuli (6kHz/10kHz) and cortical activity via wide-field calcium imaging.',
+        'card3.tutorials_title': 'Tutorials & Code',
+
+        // Page: Motor Learning Sample (card4)
+        'card4.hero_desc': 'Sample dataset capturing brain activity of a mouse learning a lever pull task. Includes whole-cortex activity via wide-field 1-photon imaging and cellular-level activity in the M1 region via 2-photon imaging.',
+        'card4.abstract_p1': 'In this sample data, we release one session each of <strong>wide-field 1-photon calcium imaging</strong> of the dorsal cerebral cortex and <strong>2-photon calcium imaging</strong> of layer 2/3 (L2/3) and layer 5 (L5) of the forelimb-related dorsal motor area (hereinafter simply M1) of a mouse performing a motor task where a reward is obtained by holding a lever within an adaptively changing range.',
+
+        // Tutorials
+        'tutorials.title': 'Data Analysis Tutorials',
+        'tutorials.desc': 'We provide tutorials and documentation for utilizing NWB format data.',
+        'tutorial1.title': 'MATLAB Tutorial: Creating PETH from NWB',
+        'tutorial1.title_h1': 'Creating PETH from NWB',
+        'tutorial1.subtitle': 'Visualize neural activity based on specific events from Neurodata Without Borders (NWB) format data using the MatNWB library.',
+        'tutorial1.desc': 'Step-by-step guide on generating Peri-Event Time Histograms from NWB files using MATLAB.',
+        'tutorial1.prep': 'Preparation',
+        'tutorial1.prereq': 'Prerequisite',
+        'tutorial1.prereq_desc': 'To run this tutorial, you need to download the sample data of <a href="operant-conditioning-process.html" style="color: #ff8c00; text-decoration: underline;">Operant Conditioning Learning Process</a> to your local environment in advance.',
+        'tutorial1.setup': 'Setup Procedure',
+        'tutorial1.step1_title': 'MatNWB Setup',
+        'tutorial1.step1_desc': 'Install <strong>MatNWB</strong>, a set of functions for handling NWB files from MATLAB, following the official setup instructions.',
+        'tutorial1.step2_title': 'Download Demo Script',
+        'tutorial1.step2_desc': 'Open the demo code (<code>BraiDynDB_handlingSampleData.m</code>) used in this tutorial from the link below, and change the variable <code>nwbpath</code> to the path where your NWB file is saved, then run it.',
+        'tutorial1.script_title': 'Running Demo Code',
+        'tutorial1.script_desc': 'Open the downloaded <code>BraiDynDB_handlingSampleData.m</code> in MATLAB, change the variable <code>nwbpath</code> to the path where your NWB file is saved, and run it.',
+        'tutorial1.features_title': 'Program Features',
+        'tutorial1.features_desc': 'This script automatically performs the following analysis and visualization:',
+        'tutorial1.feat1_title': '📋 Show Session Metadata',
+        'tutorial1.feat1_desc': 'Check basic information such as experiment date and individual info.',
+        'tutorial1.feat2_title': '🎯 Load Trial Info',
+        'tutorial1.feat2_desc': 'Extract sound stimulus timing and reward presence.',
+        'tutorial1.feat3_title': '🧠 Show Neural Activity Data',
+        'tutorial1.feat3_desc': 'Plot time-series data such as Ca²⁺ imaging.',
+        'tutorial1.feat4_title': '📊 Create PETH',
+        'tutorial1.feat4_desc': 'Display histograms of neural activity aligned to sound stimulus start timing.',
+        'tutorial1.feat5_title': '⚡ Raw Data (5kHz) Analysis',
+        'tutorial1.feat5_desc': 'Extract high-sampling raw data and create PETH.',
+        'tutorial1.feat6_title': '🔍 Load Behavioral Analysis (DLC)',
+        'tutorial1.feat6_desc': 'Display keypoints estimated by DeepLabCut and changes in pupil diameter.',
+        'tutorial1.resources_title': 'Official Documentation',
+        'tutorial1.resources_desc': 'For more detailed specifications of MatNWB, please also refer to the following official tutorials.',
+        'tutorial1.code_block': '% Specify path to NWB file<br>nwbpath = \'C:/Path/To/Your/sample_data.nwb\';<br><br>% Run demo code<br>BraiDynDB_handlingSampleData',
+        'tutorial1.btn_official_site': 'MatNWB Official Site',
+        'tutorial1.btn_download_demo': 'Download Demo Script',
+
+        'tutorial2.title': 'Python Tutorial: Operant Conditioning Analysis',
+        'tutorial2.desc': 'Access Python tutorials for analyzing operant conditioning learning processes on Google Drive.',
+
+        // Resources
+        'resources.title': 'Related Resources',
+        'resources.desc': 'Links to papers, code, data browsers, and other project-related external resources.',
+        'resource.gdrive': 'Google Drive',
+        'resource.gdrive_desc': 'Processed data (synchronized & organized)',
+        'resource.github_desc': 'Analysis code and scripts',
+        'resource.aws': 'AWS S3 Browser',
+        'resource.aws_desc': 'Raw video and image data',
+        'resource.hackathon': 'Behavioral Transformation Hackathon',
+        'resource.hackathon_desc': 'Materials from hackathon events',
+        'resource.paper_btn': 'Read Paper',
+        'resource.paper_ja': 'Japanese Translation',
+        'resource.paper_audio': '🎧 Audio Guide',
+        'resource.paper_desc': 'Multimodal dataset of brain-wide activity, behavior, and video during mouse learning',
+
+        // Updates
+        'updates.title': 'Update History',
+        'update1': 'Tutorial updated',
+        'update2': 'Operant conditioning data updated',
+        'update3': 'Sample: Operant learning process released',
+
+        // Information
+        'info.title': 'Information',
+        'license.desc': 'Data licenses and usage conditions are described on each dataset page.',
+        'ethics.desc': 'Unless otherwise noted, animal experiments are conducted with approval from the Animal Experiment Committee of the Graduate School of Medicine, The University of Tokyo. Research using viruses and genes such as AAV and GCaMP is conducted with approval from the Recombinant DNA Research Committee. Research using various Cre-line transgenic mice is also approved by the same committee.',
+        'privacy.desc1': 'This website may collect personal or non-personal data regarding site visits, sessions, and IP addresses. This information is used solely for diagnostic and debugging purposes to optimize website performance and is not shared externally.',
+        'privacy.desc2': 'By using this database, users are deemed to have agreed to the above privacy policy. This policy may be revised without notice.',
+        'others.desc': 'This website contains links to other websites we consider relevant. We are not responsible for maintaining or updating the content of these other sites. Please contact us if you find any irrelevant or offensive information on these sites.',
+
+        // Footer (Common)
+        'footer.copyright': '© Copyright Transformative Research Area A "Multi-dimensional Biology Directed by Brain Dynamics Underlying Behavioral Transformation" - Ken Nakae',
+        'footer.links.license': 'Data License',
+        'footer.links.ethics': 'Ethics Statement',
+        'footer.links.privacy': 'Privacy Policy',
+        'footer.links.project': 'Project Site',
+
+        // Sample Classical Conditioning Resources
+        'sample_cl.raw_body_desc': 'Movie data recording the ventral side of the mouse at 30Hz. Records detailed time-series of behavior.',
+        'sample_cl.raw_face_desc': 'Movie data recording the left profile of the mouse face at 30Hz. Captures facial expressions and mouth (licking) movements in detail.',
+        'sample_cl.raw_wide_desc': 'Ca²⁺ imaging data of bilateral cerebral cortex. One session is provided split into 4 files.',
+        'sample_cl.raw_beh_desc': 'Records timing of licks, rewards, and tones (CS) at 5000Hz. Can be used for quantitative evaluation of the learning process.',
+        'sample_cl.analyzed_proc_desc': 'Preprocessed neural activity and behavioral data (.mat format).',
+        'sample_cl.analyzed_roi_desc': 'Image for checking ROI configuration regions.',
+        'sample_cl.analyzed_act_desc': 'Video data visualizing the dynamics of neural activity',
+        'sample_cl.field_fct3_title': '<code>fct3</code> Cell Array',
+        'sample_cl.field_fct3_desc': 'Neural activity of each ROI (average pixel dF/F in ROI, Z-scored over full time series), aligned to the sound onset for each trial. Cell array elements correspond to "extracted trial types", which are [A+, A-, B+, B-, actual trial sequence] (+/- indicates reward presence). Each cell contains a 3D array: Frame x ROI x Trial. Aligned at sound onset, covering -6 to 8s. Thus, 301 frames.',
+        'sample_cl.field_flt3_title': '<code>flt3</code> Cell Array',
+        'sample_cl.field_flt3_desc': 'Similar to fct3, but contains licking (continuous value as lick-rate, then Z-scored) instead of neural activity.',
+        'sample_cl.field_svd_title': '<code>SVDresult</code> Struct',
+        'sample_cl.field_svd_desc': 'Results of SVD performed on the original image stack (Processing 3). Top 1000 singular values are saved to reduce data size. Singular value matrix S contains only diagonal elements.',
+        'sample_cl.field_videosvd_title': '<code>videoSVD</code> Struct',
+        'sample_cl.field_videosvd_desc': 'SVD of video Motion Energy. Generated by FaceMap. Top 10 singular values.',
+        'sample_cl.field_smode_title': '<code>Smode</code> Cell Array',
+        'sample_cl.field_smode_desc': 'Spatial modes. For upper body, nose, whiskers, and mouth parts.',
+        'sample_cl.field_tmode_title': '<code>Tmode</code> Cell Array',
+        'sample_cl.field_tmode_desc': 'Temporal modes. Per trial type. Inner array is Frame x Singular Temporal Mode x Trial x Body Part.',
+        'sample_cl.field_rois_title': '<code>ROIs</code> Array',
+        'sample_cl.field_rois_desc': 'ROI masks. Number of ROIs x Y (image height) x X (image width).',
+        'sample_cl.field_bhv_title': '<code>Bhv</code> Struct',
+        'sample_cl.field_bhv_desc': 'Event occurrence states extracted from behavioral data, licking, etc.',
+        'sample_cl.field_ds_title': '<code>Ds</code> Struct',
+        'sample_cl.field_ds_desc': 'Actual behavioral data (analog voltage from sensors) is sampled at 5kHz, different from imaging sampling rate. Therefore, behavioral data is downsampled to 30Hz referencing imaging frame timing. Contains licking (raw data, analog voltage), lick frequency (calculated from licking), reward, Sound A, Sound B.',
+        'sample_cl.field_idx_title': '<code>Idx</code> Struct',
+        'sample_cl.field_idx_desc': 'Presentation states of Reward, Sound A, and Sound B across all trials.',
+        'sample_cl.field_trigf_title': '<code>TrigF</code> Struct',
+        'sample_cl.field_trigf_desc': 'Event onsets for field names (corresponding to position in imaging frames). Also includes CS onsets divided by US conditions (A+, B-, etc.).',
+        'sample_cl.field_ttype_title': '<code>t_type</code> Array',
+        'sample_cl.field_ttype_desc': 'Trial types. Values 1-4 correspond to [A+, A-, B+, B-] (+/- indicates reward presence).',
+        'sample_cl.field_params_title': '<code>params</code> Struct',
+        'sample_cl.field_params_desc': 'Parameters related to imaging.',
+        'sample_cl.result_task_text': 'Schematic of the classical conditioning task with different reward probabilities. High probability of obtaining reward after presentation of 6kHz sound.',
+        'sample_cl.result_learning_text': 'Changes in Lick at 6kHz (red) and 10kHz (blue) over Sessions (days). In early learning, lick counts are similar for both sounds, but as days pass, learning occurs and lick counts become significantly higher for the 6kHz sound. Data shown is from one individual in Session 7.',
+        'sample_cl.method1_p1': 'Each image stack was aligned to the top view of the Allen Common Coordinate Framework version 3 (Allen CCF) using 10 feature points. Feature points were set at bilateral anterior ganglia of (FrC) olfactory bulb, center and lateral ends of frontal vessels, lambda suture, bilateral posterior ends of dorsal cortex, and bilateral lateral ends of dorsal cortex. A mask for the cortex was created from the Allen CCF to exclude fluorescence changes in pixels outside the cerebral cortex. Only activity from left hemisphere pixels was used. Singular Value Decomposition (SVD) of the image stack was calculated for noise reduction, and images were reconstructed from the top 24 singular values. SVD results yield spatial components U (pixels x components), singular values S (spatial components x temporal components), and transposed temporal components VT (components x frames).',
+        'sample_cl.method1_p2': 'Using reconstructed data, fluorescence intensity changes (dF/F) were calculated for each pixel using the 10th percentile value in a ±15 second interval around each frame. In ROI analysis, 12 ROIs (10x10 pixels, rectangular) were set in brain regions described below, with stereotactic coordinates defined according to the Allen CCF top view and previously reported regions, identified anatomically and functionally: dmFrC (AP +2.8 mm, ML 0.8 mm); dlFrC (AP +2.5 mm, ML 2.0 mm); M1 (AP +1.2 mm, ML 1.0 mm); Primary Somatosensory Forelimb Area (S1FL, AP +0.4 mm, ML 2.2 mm); Primary Somatosensory Cortex Hindlimb Area (S1HL, AP -0.5 mm, ML 1.5 mm); Primary Somatosensory Cortex Mouth Area (S1m, AP +1.4 mm, ML 3.0 mm); Primary Somatosensory Cortex Nose Area (S1n, AP 0 mm, ML 3.4 mm); Primary Somatosensory Cortex Barrel Area (S1b, AP -1.2 mm, ML 3.0 mm); Primary Auditory Cortex (Aud, AP -2.5 mm, ML 4.0 mm); Primary Visual Cortex (Vis, AP -4.0 mm, ML 2.2 mm); Posterior Parietal Cortex (PPC, AP -2.0 mm, ML 2.0 mm); Retrosplenial Cortex (RSC, AP -2.4 mm, ML 0.5 mm). Coordinates indicate ROI center.',
+        'sample_cl.method1_p3': 'ROI positions were manually fine-tuned for each session and mouse. Fluorescence intensity for each ROI was determined by averaging included pixels. Neural activity extracted from ROIs was Z-scored and aligned to the start of each cue tone. For each pixel, dF/F was calculated using the 10th percentile of a -15 to +15s time window as F.',
+        'sample_cl.method2_desc': 'Videos from high-speed cameras were processed with the FaceMap package (<a href="https://github.com/MouseLand/FaceMap" target="_blank" style="color: var(--color-accent); font-weight: 600;">Stringer et al., 2019</a>) to identify mouth, nose, whiskers, and upper body parts. ROIs were set on forelimbs, chest, nose, mouth, and whisker pads, and SVD of motion energy (absolute difference between frames) for each ROI was calculated. The software generated a "motion mask" calculated from spatial components U and singular values S. Motion time series discoverable by SVD and separable in singular value space were calculated by multiplying the original time series data by the motion mask.',
+        'sample_cl.desc_note': 'Refer to Data Description for details.',
+        'msg.coming_soon': '* Currently being prepared',
+        'sample_cl.desc_intro': 'Measurements were performed on two mice (RCtg_Pv12, RCtg_Pv13) for a total of 17 days each. 4 sessions were recorded per day.',
+        'sample_cl.raw_accordion_title': 'Raw data file formats and details',
+        'sample_cl.raw_accordion_body_desc': 'Movie data of the mouse\'s ventral side recorded at 30Hz during experimentation in one session.',
+        'sample_cl.raw_accordion_face_desc': 'Movie data of the mouse\'s left profile face recorded at 30Hz during experimentation in one session.',
+        'sample_cl.raw_accordion_wide_desc': 'TIFF image data of Ca2+ probe excitation light from bilateral cerebral cortex recorded at 30Hz by 1-photon microscope from above the mouse during experimentation in one session. Split into 4 TIF files of max 2GB; files with suffixes X2, X3, X4 are temporally continuous image files.',
+        'sample_cl.raw_beh_data_desc': 'Behavioral data recording lick and reward timing at 5000Hz (analog voltage recorded via AD converter). Use <a href="https://jp.mathworks.com/matlabcentral/fileexchange/19913-lvm-file-import" target="_blank" style="color: var(--color-accent); font-weight: 600;">lvm-file-import</a> to read in MATLAB.',
+        'sample_cl.channel_table_title': '📊 Segment1.data Channels <span style="font-weight: 400; color: var(--color-text-sub);">(HIGH=5V, LOW=0V)</span>',
+        'sample_cl.channel_ch1_content': 'lick sensor(raw)',
+        'sample_cl.channel_ch1_desc': 'HIGH when mouse tongue touches spout, LOW otherwise.',
+        'sample_cl.channel_ch2_content': 'Reward',
+        'sample_cl.channel_ch2_desc': 'Pump driven at moment of HIGH.',
+        'sample_cl.channel_ch3_content': 'Sound',
+        'sample_cl.channel_ch3_desc': 'Sound in ch7 plays while HIGH.',
+        'sample_cl.channel_ch4_content': 'Imaging Frame',
+        'sample_cl.channel_ch4_desc': 'Acquired when HIGH. Only this ch HIGH = approx 3V.',
+        'sample_cl.channel_ch5_content': 'lick sensor(binary)',
+        'sample_cl.channel_ch5_desc': '1 when mouse tongue touches spout, 0 otherwise.',
+        'sample_cl.channel_ch6_content': 'Sound presentation + delay period flag',
+        'sample_cl.channel_ch6_desc': '2 indicates sound presentation + delay period, 1 indicates other periods (this ch is not actually used in analysis)',
+        'sample_cl.channel_ch7_content': 'Sound Frequency',
+        'sample_cl.channel_ch7_desc': 'Sound of this ch plays when ch.3 is HIGH. Unit kHz',
+
+        // Classical Conditioning Complete Details
+        'complete_cl.dir_raw': 'Original measurement data',
+        'complete_cl.dir_beh': 'Behavioral data such as licks',
+        'complete_cl.dir_ca': 'Imaging data',
+        'complete_cl.dir_vid': 'Face/Body camera videos',
+        'complete_cl.dir_pre': 'Intermediate processed data',
+        'complete_cl.dir_roi': 'Processed/ROI extracted data',
+        'complete_cl.raw_desc_intro': 'Organized by individual ID (RCTg_Pv12, RCTg_Pv13) and measurement date.',
+        'complete_cl.raw_list_body': 'Video data recording ventral side at 30Hz',
+        'complete_cl.raw_list_face': 'Video data recording left profile face at 30Hz',
+        'complete_cl.raw_list_wide': 'Ca²⁺ imaging TIFF images recorded at 30Hz (split into 2GB files)',
+        'complete_cl.raw_list_beh': 'Analog signal data recording licks, rewards, tone frequencies, etc. at 5000Hz',
+        'complete_cl.proc_desc_intro': 'Contains <code>stdData</code> structures (MATLAB format) with the following preprocessing applied:',
+        'complete_cl.proc_step1': 'Motion correction and alignment to Allen CCF v3',
+        'complete_cl.proc_step2': 'Clipping of left hemisphere only',
+        'complete_cl.proc_step3': 'Denoising using SVD (reconstruction with top 24 components)',
+        'complete_cl.proc_step4': 'dF/F calculation (F calculated as 10th percentile in ±15s window)',
+        'complete_cl.proc_step5': 'ROI-based neural activity extraction (12 regions including dmFrC, M1, S1, Z-scored)',
+        'complete_cl.table_desc_ch1': 'HIGH (5V) when tongue touches spout',
+        'complete_cl.table_desc_ch2': 'HIGH at reward delivery timing',
+        'complete_cl.table_desc_ch3': 'HIGH during tone presentation',
+        'complete_cl.table_desc_ch4': 'Camera shutter exposure timing',
+        'complete_cl.table_desc_ch7': 'Frequency of presented tone (kHz)',
+        'complete_cl.results_p': '6kHz (70% reward prob.) and 10kHz (30% reward prob.) were presented. The process of significantly increasing lick counts (anticipatory behavior) for high-probability tones as learning progresses is recorded along with whole-cortical activity.',
+        'complete_cl.contact_desc': 'Please contact the secretariat database charge for use of this dataset.',
+
+        // Motor Learning Sample Resources & Specs
+        'sample_ml.res_2p_desc': 'Brain activity data of L2/3 and L5 by Olympus microscope. 512x512 pixels.',
+        'sample_ml.res_face_desc': 'Video data of mouse right profile face. Records behaviors like chewing and blinking.',
+        'sample_ml.res_body_desc': 'Video data of mouse ventral side. Records lever operation and limb movements.',
+        'sample_ml.res_beh_desc': 'Analog recording data including lever trajectory, task state, and sync signals.',
+        'sample_ml.res_wide_desc': 'Wide-field imaging of entire cortex by Andor camera. Covers entire dorsal side.',
+        'sample_ml.res_face_sync_desc': 'Face video data synchronized with 1p imaging. Records detailed facial movements.',
+        'sample_ml.res_body_sync_desc': 'Ventral video data synchronized with 1p imaging. Records limb movements.',
+        'sample_ml.res_beh_sync_desc': 'LVM file recording behavioral trajectory and trigger signals for 1p session.',
+        'sample_ml.proc_mc_desc': 'Rigid/Non-rigid corrected images. Provided as 4D matrix (X, Y, Z, T) in MATLAB format.',
+        'sample_ml.proc_cnmf_desc': 'Neural activity extracted using CNMF. Includes signals such as F_dff, F_dcv.',
+        'sample_ml.proc_task_desc': 'Behavioral data converted to MATLAB format. Structured Fs, lever trajectory, etc.',
+        'sample_ml.proc_dlc_face_desc': 'Tracking data of features such as nose, mouth, tongue from face video.',
+        'sample_ml.proc_dlc_body_desc': 'Data extracting movements of fingers, lever tip, etc. from ventral video.',
+        'sample_ml.proc_resize_desc': 'Cortical image data resized to 128x128. Optimized for analysis package input.',
+        'sample_ml.proc_dff_desc': 'Time-series image data with ΔF/F calculation applied to all pixels.',
+        'sample_ml.proc_task_sync_desc': 'Structure file of behavioral events synchronized to 1p imaging frames.',
+        'sample_ml.proc_dlc_both_desc': 'Video analysis results for 1p session. Coordinate data of each feature point.',
+        'sample_ml.spec_ch1': 'Lever displacement (mm)',
+        'sample_ml.spec_ch3': 'Start recording at 2p: ↑Edge / 1p: ↓Edge',
+        'sample_ml.spec_ch4': 'Sync trigger signal with camera (70Hz)',
+        'sample_ml.spec_ch5': '1: Base, 2: Outside, 3: Target Zone',
+        'sample_ml.spec_ch78': 'Voltage recording of upper/lower limits of Target zone',
+        'sample_ml.dlc_desc': '14 feature points automatically extracted from video:',
+        'sample_ml.task_paradigm': 'This task trains mice to hold a voluntary lever pull movement within a Target zone for a certain time (T_target = 200ms).',
+        'sample_ml.task_iti': 'Rest period between trials (Inter-Trial Interval)',
+        'sample_ml.task_ready': 'Transition when lever is held below baseline threshold (0.5mm) for 1s+',
+        'sample_ml.task_go': 'Trial starts when lever exceeds baseline threshold. 1000ms time limit',
+        'sample_ml.task_success': 'Achieved if hold condition met within time limit. Water reward given',
+        'sample_ml.task_failure': 'If not achieved within time limit',
+        'sample_ml.task_target_desc': 'Target zone is centered at 4mm and adaptively narrows from ±2.5mm according to mouse proficiency (number of successes). As sensory feedback, a 10kHz pure tone is presented while the lever is within the Target zone.',
+        'sample_ml.method_setup': 'Using transgenic mice (Thy1-jRGECO1a), measurements were performed using a wide-field macroscope for 1-photon and a high-sensitivity multi-focal microscope for 2-photon.',
+        'sample_ml.method_proc': 'Motion correction by NoRMCorre and ROI extraction by CNMF (2-photon) were performed on MATLAB. Local background subtraction and percentile-based F₀ estimation are applied for ΔF/F calculation.',
+    }
+};
+
+let currentLang = localStorage.getItem('lang') || 'ja';
+
+function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+
+    // Update all translatable elements
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+        }
+    });
+
+    // Update active button state
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+
+    // Update html lang attribute
+    document.documentElement.lang = lang === 'ja' ? 'ja' : 'en';
+}
+
+// Initialize language toggle buttons
+function initLanguageToggle() {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            setLanguage(btn.getAttribute('data-lang'));
+        });
+    });
+
+    // Set initial language on page load
+    setLanguage(currentLang);
+}
+
+// Auto-initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLanguageToggle);
+} else {
+    initLanguageToggle();
+}

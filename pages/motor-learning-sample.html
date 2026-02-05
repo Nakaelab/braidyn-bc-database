@@ -696,6 +696,18 @@
                 <li><a href="../index.html#contact">Contact</a></li>
                 <li><a href="https://braidyn-bc.jp/" class="nav-cta" target="_blank">Project Site</a></li>
             </ul>
+
+            <!-- Language Toggle -->
+            <div class="lang-toggle" id="lang-toggle">
+                <button class="lang-btn active" data-lang="ja">JP</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
@@ -715,12 +727,12 @@
                     <div style="display: flex; flex-direction: column; gap: 24px;">
                         <div>
                             <span class="sample-badge">Sample Dataset</span>
-                            <h1>レバー引き運動の学習</h1>
+                            <h1 data-i18n="card4.title">レバー引き運動の学習</h1>
                             <p class="dataset-subtitle">Motor Learning of Lever Pull Task</p>
                         </div>
 
-                        <p
-                            style="max-width: 700px; color: rgba(255,255,255,0.8); line-height: 1.7; font-size: 1.05rem;">
+                        <p style="max-width: 700px; color: rgba(255,255,255,0.8); line-height: 1.7; font-size: 1.05rem;"
+                            data-i18n="card4.hero_desc">
                             レバー引き運動課題を学習中のマウスの脳活動を捉えたサンプルデータセット。広域1光子イメージングによる皮質全体の活動と、2光子イメージングによるM1領域の細胞レベルの活動を含みます。
                         </p>
 
@@ -781,7 +793,7 @@
                 <!-- Abstract -->
                 <section id="abstract">
                     <h2>Abstract</h2>
-                    <p>
+                    <p data-i18n="card4.abstract_p1">
                         本サンプルデータでは、レバーを適応的に変化する範囲内へと保持することで報酬が得られる運動課題を遂行しているマウスの背側大脳皮質の<strong>広域１光子カルシウムイメージング</strong>、および前肢関連背側運動領域(以下単純にM1)の第2/3層(L2/3)および第5層(L5)の<strong>２光子カルシウムイメージング</strong>のデータを各１セッションずつ公開している。
                     </p>
                 </section>
@@ -802,28 +814,32 @@
                             <div class="resource-card">
                                 <span class="resource-name">2p Image Data</span>
                                 <span class="resource-meta">30Hz, .oir format</span>
-                                <p class="resource-desc">Olympus製顕微鏡による第2/3層および第5層の脳活動データ。512x512ピクセル。</p>
+                                <p class="resource-desc" data-i18n="sample_ml.res_2p_desc">
+                                    Olympus製顕微鏡による第2/3層および第5層の脳活動データ。512x512ピクセル。</p>
                                 <a href="https://drive.google.com/drive/folders/10A9M7ybWxFTpcy2qbXc1XRIrdGzk0cTe?usp=sharing"
                                     class="resource-link" target="_blank">Folder Access</a>
                             </div>
                             <div class="resource-card">
                                 <span class="resource-name">Face Camera Movie</span>
                                 <span class="resource-meta">70Hz, .mp4</span>
-                                <p class="resource-desc">マウスの右側面顔の動画データ。咀嚼や瞬きなどの行動を記録。</p>
+                                <p class="resource-desc" data-i18n="sample_ml.res_face_desc">
+                                    マウスの右側面顔の動画データ。咀嚼や瞬きなどの行動を記録。</p>
                                 <a href="https://drive.google.com/file/d/1TVjdUv_HEAbZsRXF5f2LSa8ZbXyZOrhE/view?usp=sharing"
                                     class="resource-link" target="_blank">Download</a>
                             </div>
                             <div class="resource-card">
                                 <span class="resource-name">Body Camera Movie</span>
                                 <span class="resource-meta">70Hz, .mp4</span>
-                                <p class="resource-desc">マウスの腹側の動画データ。レバー操作や手足の動きを記録。</p>
+                                <p class="resource-desc" data-i18n="sample_ml.res_body_desc">
+                                    マウスの腹側の動画データ。レバー操作や手足の動きを記録。</p>
                                 <a href="https://drive.google.com/file/d/13jNFF4K_2KyAqokdoqqKzQcx22nyeZ6U/view?usp=sharing"
                                     class="resource-link" target="_blank">Download</a>
                             </div>
                             <div class="resource-card">
                                 <span class="resource-name">Behavior Data</span>
                                 <span class="resource-meta">5kHz, .lvm</span>
-                                <p class="resource-desc">レバー軌道、タスク状態、同期信号を含むアナログ記録データ。</p>
+                                <p class="resource-desc" data-i18n="sample_ml.res_beh_desc">
+                                    レバー軌道、タスク状態、同期信号を含むアナログ記録データ。</p>
                                 <a href="https://drive.google.com/file/d/1Y_RocHZKpDvr6-lD-reKM6BtJTX90Laa/view?usp=sharing"
                                     class="resource-link" target="_blank">Download</a>
                             </div>
@@ -839,28 +855,32 @@
                             <div class="resource-card">
                                 <span class="resource-name">Wide Field 1p Image Data</span>
                                 <span class="resource-meta">30Hz, .sifx format</span>
-                                <p class="resource-desc">Andor製カメラによる皮質全体の広域イメージング。背側全体をカバー。</p>
+                                <p class="resource-desc" data-i18n="sample_ml.res_wide_desc">
+                                    Andor製カメラによる皮質全体の広域イメージング。背側全体をカバー。</p>
                                 <a href="https://drive.google.com/drive/folders/1Cm9xSXFSjCiTdy8EPsWv26kyu-igJSlF?usp=sharing"
                                     class="resource-link" target="_blank">Folder Access</a>
                             </div>
                             <div class="resource-card">
                                 <span class="resource-name">Face Camera Data</span>
                                 <span class="resource-meta">70Hz</span>
-                                <p class="resource-desc">1pイメージングと同期した顔動画データ。顔面細部の動きを記録。</p>
+                                <p class="resource-desc" data-i18n="sample_ml.res_face_sync_desc">
+                                    1pイメージングと同期した顔動画データ。顔面細部の動きを記録。</p>
                                 <a href="https://drive.google.com/file/d/1HJsX2dRqZix-tY66S4SRmPBuwiyTbOki/view?usp=sharing"
                                     class="resource-link" target="_blank">Download</a>
                             </div>
                             <div class="resource-card">
                                 <span class="resource-name">Body Camera Data</span>
                                 <span class="resource-meta">5kHz Synchronized</span>
-                                <p class="resource-desc">1pイメージングと同期した腹側動画データ。四肢の運動を記録。</p>
+                                <p class="resource-desc" data-i18n="sample_ml.res_body_sync_desc">
+                                    1pイメージングと同期した腹側動画データ。四肢の運動を記録。</p>
                                 <a href="https://drive.google.com/file/d/1YSOj7o7yXGLFi3H8Snx9e0Um9eA2L6G4/view?usp=sharing"
                                     class="resource-link" target="_blank">Download</a>
                             </div>
                             <div class="resource-card">
                                 <span class="resource-name">Behavior Data</span>
                                 <span class="resource-meta">5kHz, .lvm</span>
-                                <p class="resource-desc">1pセッションの行動軌道とトリガー信号を記録したLVMファイル。</p>
+                                <p class="resource-desc" data-i18n="sample_ml.res_beh_sync_desc">
+                                    1pセッションの行動軌道とトリガー信号を記録したLVMファイル。</p>
                                 <a href="https://drive.google.com/file/d/1zHu86snLE1W7DfJVUpwPBHTcfRV4GrEB/view?usp=sharing"
                                     class="resource-link" target="_blank">Download</a>
                             </div>
@@ -878,35 +898,40 @@
                             <div class="resource-card">
                                 <span class="resource-name">Motion Corrected Data</span>
                                 <span class="resource-meta">NoRMCorre applied</span>
-                                <p class="resource-desc">剛体・非剛体補正済みの画像。4次元行列（X, Y, Z, T）としてMATLAB形式で提供。</p>
+                                <p class="resource-desc" data-i18n="sample_ml.proc_mc_desc">剛体・非剛体補正済みの画像。4次元行列（X, Y, Z,
+                                    T）としてMATLAB形式で提供。</p>
                                 <a href="https://drive.google.com/file/d/1LYKhpiHKRkf4ctbX-E6KkJzrqoCW7HIF/view?usp=sharing"
                                     class="resource-link" target="_blank">Download</a>
                             </div>
                             <div class="resource-card">
                                 <span class="resource-name">CNMF Result</span>
                                 <span class="resource-meta">ROI Segmentation</span>
-                                <p class="resource-desc">CNMFを用いて抽出された神経活動。F_dff, F_dcvなどの信号を含む。</p>
+                                <p class="resource-desc" data-i18n="sample_ml.proc_cnmf_desc">CNMFを用いて抽出された神経活動。F_dff,
+                                    F_dcvなどの信号を含む。</p>
                                 <a href="https://drive.google.com/file/d/1qcvmk5QZzR8OFlfTbZklD0_uSX4Rxzmn/view?usp=sharing"
                                     class="resource-link" target="_blank">Download</a>
                             </div>
                             <div class="resource-card">
                                 <span class="resource-name">Task Data</span>
                                 <span class="resource-meta">LVM to .mat</span>
-                                <p class="resource-desc">行動データのMATLAB形式変換済みファイル。Fs, lever軌道などを構造化。</p>
+                                <p class="resource-desc" data-i18n="sample_ml.proc_task_desc">行動データのMATLAB形式変換済みファイル。Fs,
+                                    lever軌道などを構造化。</p>
                                 <a href="https://drive.google.com/file/d/1iOfElA36bNnpvsDXoStG9gI66M8VgBdH/view?usp=sharing"
                                     class="resource-link" target="_blank">Download</a>
                             </div>
                             <div class="resource-card">
                                 <span class="resource-name">DLC Tracking (Face)</span>
                                 <span class="resource-meta">DeepLabCut Result</span>
-                                <p class="resource-desc">顔動画から鼻、口元、舌などの特徴点をトラッキングしたデータ。</p>
+                                <p class="resource-desc" data-i18n="sample_ml.proc_dlc_face_desc">
+                                    顔動画から鼻、口元、舌などの特徴点をトラッキングしたデータ。</p>
                                 <a href="https://drive.google.com/file/d/1tI6EHkVIlg76r0fuP--jdYw81V_m3YhI/view?usp=sharing"
                                     class="resource-link" target="_blank">Download</a>
                             </div>
                             <div class="resource-card">
                                 <span class="resource-name">DLC Tracking (Body)</span>
                                 <span class="resource-meta">DeepLabCut Result</span>
-                                <p class="resource-desc">腹側動画から手指、レバー先端などの動きを抽出したデータ。</p>
+                                <p class="resource-desc" data-i18n="sample_ml.proc_dlc_body_desc">
+                                    腹側動画から手指、レバー先端などの動きを抽出したデータ。</p>
                                 <a href="https://drive.google.com/file/d/1bzwbtTvBNvLCFViu9c5Zjc8Tc6QjjJBp/view?usp=sharing"
                                     class="resource-link" target="_blank">Download</a>
                             </div>
@@ -922,28 +947,32 @@
                             <div class="resource-card">
                                 <span class="resource-name">Resized Image</span>
                                 <span class="resource-meta">128x128 Pixel</span>
-                                <p class="resource-desc">128x128にリサイズ済みの皮質画像データ。解析パッケージ入力用に最適化。</p>
+                                <p class="resource-desc" data-i18n="sample_ml.proc_resize_desc">
+                                    128x128にリサイズ済みの皮質画像データ。解析パッケージ入力用に最適化。</p>
                                 <a href="https://drive.google.com/file/d/1-EpWoVFmI_BoasCdHjzZbW5yPD27r9AD/view?usp=sharing"
                                     class="resource-link" target="_blank">Download</a>
                             </div>
                             <div class="resource-card">
                                 <span class="resource-name">ΔF/F Image Data</span>
                                 <span class="resource-meta">Baseline corrected</span>
-                                <p class="resource-desc">全ピクセルに対してΔF/F計算を適用した時系列画像データ。</p>
+                                <p class="resource-desc" data-i18n="sample_ml.proc_dff_desc">
+                                    全ピクセルに対してΔF/F計算を適用した時系列画像データ。</p>
                                 <a href="https://drive.google.com/file/d/1LYl8ymyAyMENt6GXPtXUP6TxdGPVrvgm/view?usp=sharing"
                                     class="resource-link" target="_blank">Download</a>
                             </div>
                             <div class="resource-card">
                                 <span class="resource-name">Task Data</span>
                                 <span class="resource-meta">Structured mat</span>
-                                <p class="resource-desc">1pイメージングのフレームに同期させた行動事象の構造体ファイル。</p>
+                                <p class="resource-desc" data-i18n="sample_ml.proc_task_sync_desc">
+                                    1pイメージングのフレームに同期させた行動事象の構造体ファイル。</p>
                                 <a href="https://drive.google.com/file/d/1tKni4HwUdTTwgFJ0NPuiDLH0cjPRgKAL/view?usp=sharing"
                                     class="resource-link" target="_blank">Download</a>
                             </div>
                             <div class="resource-card">
                                 <span class="resource-name">DLC Tracking (Both)</span>
                                 <span class="resource-meta">DeepLabCut</span>
-                                <p class="resource-desc">1p用セッションの動画解析結果。各特徴点の座標データ。</p>
+                                <p class="resource-desc" data-i18n="sample_ml.proc_dlc_both_desc">
+                                    1p用セッションの動画解析結果。各特徴点の座標データ。</p>
                                 <a href="https://drive.google.com/file/d/1NiBDScizLNlBGhECHDaBcsyAcaAMEiOz/view?usp=sharing"
                                     class="resource-link" target="_blank">Download</a>
                             </div>
@@ -971,17 +1000,17 @@
                             <tr>
                                 <td><span class="channel-badge">ch.1</span></td>
                                 <td>Lever Trajectory</td>
-                                <td>レバーの変位（mm）</td>
+                                <td data-i18n="sample_ml.spec_ch1">レバーの変位（mm）</td>
                             </tr>
                             <tr>
                                 <td><span class="channel-badge">ch.3</span></td>
                                 <td>Imaging Sync</td>
-                                <td>2p: ↑Edge / 1p: ↓Edge で記録開始</td>
+                                <td data-i18n="sample_ml.spec_ch3">2p: ↑Edge / 1p: ↓Edge で記録開始</td>
                             </tr>
                             <tr>
                                 <td><span class="channel-badge">ch.4</span></td>
                                 <td>Video Sync</td>
-                                <td>カメラ(70Hz)との同期トリガー信号</td>
+                                <td data-i18n="sample_ml.spec_ch4">カメラ(70Hz)との同期トリガー信号</td>
                             </tr>
                             <tr>
                                 <td><span class="channel-badge">ch.5</span></td>
@@ -996,14 +1025,14 @@
                             <tr>
                                 <td><span class="channel-badge">ch.7/8</span></td>
                                 <td>Target Limits</td>
-                                <td>Target zoneの上限・下限の電圧記録</td>
+                                <td data-i18n="sample_ml.spec_ch78">Target zoneの上限・下限の電圧記録</td>
                             </tr>
                         </tbody>
                     </table>
 
                     <!-- DeepLabCut Tracking Points -->
                     <h3 style="margin-top: 48px;">🎯 DeepLabCut Tracking Points</h3>
-                    <p>動画から自動抽出された14個の特徴点：</p>
+                    <p data-i18n="sample_ml.dlc_desc">動画から自動抽出された14個の特徴点：</p>
 
                     <div class="dlc-grid">
                         <!-- Body Camera -->
@@ -1054,7 +1083,7 @@
                 <section id="task">
                     <div class="section-divider"></div>
                     <h2>Task Paradigm</h2>
-                    <p>
+                    <p data-i18n="sample_ml.task_paradigm">
                         本課題は、自発的なレバー引き動作をターゲットゾーン(Target zone)内に一定時間(T_target = 200ms)保持することをマウスに学習させます。
                     </p>
 
@@ -1064,16 +1093,21 @@
                         </div>
                         <div class="task-card-body">
                             <ul>
-                                <li><strong>ITI</strong> トライアル間の休止期間（Inter-Trial Interval）</li>
-                                <li><strong>Ready</strong> レバーを基底閾値(0.5mm)以下で1秒以上保持すると遷移</li>
-                                <li><strong>Go</strong> レバーが基底閾値を越えるとトライアル開始。1000msの制限時間</li>
-                                <li><strong>Success ✓</strong> 制限時間内に保持条件を満たすと達成。水報酬が与えられる</li>
-                                <li><strong>Failure ✗</strong> 制限時間内に達成できなかった場合</li>
+                                <li><strong>ITI</strong> <span data-i18n="sample_ml.task_iti">トライアル間の休止期間（Inter-Trial
+                                        Interval）</span></li>
+                                <li><strong>Ready</strong> <span
+                                        data-i18n="sample_ml.task_ready">レバーを基底閾値(0.5mm)以下で1秒以上保持すると遷移</span></li>
+                                <li><strong>Go</strong> <span
+                                        data-i18n="sample_ml.task_go">レバーが基底閾値を越えるとトライアル開始。1000msの制限時間</span></li>
+                                <li><strong>Success ✓</strong> <span
+                                        data-i18n="sample_ml.task_success">制限時間内に保持条件を満たすと達成。水報酬が与えられる</span></li>
+                                <li><strong>Failure ✗</strong> <span
+                                        data-i18n="sample_ml.task_failure">制限時間内に達成できなかった場合</span></li>
                             </ul>
                         </div>
                     </div>
 
-                    <p>
+                    <p data-i18n="sample_ml.task_target_desc">
                         Target zoneは中心を4mmとし、マウスの習熟度（成功数）に応じて±2.5mmから適応的に狭まっていきます。感覚フィードバックとして、レバーがTarget
                         zone内に入っている間は10kHzの純音が提示されます。
                     </p>
@@ -1090,7 +1124,7 @@
                             <h4>Imaging Setup</h4>
                         </div>
                         <div class="method-card-body">
-                            <p>
+                            <p data-i18n="sample_ml.method_setup">
                                 トランスジェニックマウス(Thy1-jRGECO1a)を用い、1光子では広域マクロ顕微鏡、2光子では高感度多焦点顕微鏡による計測を実施しました。
                             </p>
                         </div>
@@ -1102,7 +1136,7 @@
                             <h4>Image Processing</h4>
                         </div>
                         <div class="method-card-body">
-                            <p>
+                            <p data-i18n="sample_ml.method_proc">
                                 MATLAB上でNoRMCorreによる動き補正、およびCNMF（2光子）によるROI抽出を行いました。輝度変化(ΔF/F)の算出には、局所的なバックグラウンド減算とパーセンタイルベースのF₀推定を適用しています。
                             </p>
                         </div>
@@ -1157,12 +1191,15 @@
                     <li><a href="https://braidyn-bc.jp/" target="_blank">Project Site</a></li>
                 </ul>
 
-                <p class="copyright">
+                <p class="copyright" data-i18n="footer.copyright">
                     © Copyright 学術変革領域A「行動変容を創発する脳ダイナミクスの解読と操作が開く多元生物学」総括班 分担者 中江 健
                 </p>
             </div>
         </div>
     </footer>
+
+    <!-- i18n Script -->
+    <script src="../i18n.js"></script>
 </body>
 
 </html>

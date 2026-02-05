@@ -464,6 +464,17 @@
                 <li><a href="../index.html#contact">Contact</a></li>
                 <li><a href="https://braidyn-bc.jp/" class="nav-cta" target="_blank">Project Site</a></li>
             </ul>
+            <!-- Language Toggle -->
+            <div class="lang-toggle" id="lang-toggle">
+                <button class="lang-btn active" data-lang="ja">JP</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
@@ -483,8 +494,8 @@
                     <div style="display: flex; flex-direction: column; gap: 24px;">
                         <div>
                             <span class="tutorial-badge">MATLAB Tutorial</span>
-                            <h1>NWBからPETHを作成する</h1>
-                            <p class="dataset-subtitle">
+                            <h1 data-i18n="tutorial1.title">NWBからPETHを作成する</h1>
+                            <p class="dataset-subtitle" data-i18n="tutorial1.subtitle">
                                 MatNWBライブラリを使用して、Neurodata Without Borders (NWB)形式のデータから特定のイベントに基づいた神経活動の可視化を行います。
                             </p>
                         </div>
@@ -502,17 +513,17 @@
         <div class="content-layout">
             <aside class="sticky-sidebar">
                 <ul class="toc">
-                    <li><a href="#prep">準備</a></li>
-                    <li><a href="#setup">セットアップ手順</a></li>
-                    <li><a href="#script">デモコードの実行</a></li>
-                    <li><a href="#features">プログラムの機能</a></li>
-                    <li><a href="#resources">公式ドキュメント</a></li>
+                    <li><a href="#prep" data-i18n="tutorial1.prep">準備</a></li>
+                    <li><a href="#setup" data-i18n="tutorial1.setup">セットアップ手順</a></li>
+                    <li><a href="#script" data-i18n="tutorial1.script_title">デモコードの実行</a></li>
+                    <li><a href="#features" data-i18n="tutorial1.features_title">プログラムの機能</a></li>
+                    <li><a href="#resources" data-i18n="tutorial1.resources_title">公式ドキュメント</a></li>
                 </ul>
             </aside>
 
             <main class="tutorial-main">
                 <section id="prep">
-                    <h2>準備</h2>
+                    <h2 data-i18n="tutorial1.prep">準備</h2>
                     <div class="pre-requisite">
                         <h4>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -520,9 +531,9 @@
                                 <path
                                     d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4M12 17h.01" />
                             </svg>
-                            事前確認
+                            <span data-i18n="tutorial1.prereq">事前確認</span>
                         </h4>
-                        <p style="margin-bottom: 0;">
+                        <p style="margin-bottom: 0;" data-i18n="tutorial1.prereq_desc">
                             本チュートリアルを実行するには、<a href="operant-conditioning-process.html"
                                 style="color: #ff8c00; text-decoration: underline;">オペラント条件づけの学習過程</a>のサンプルデータをあらかじめローカル環境にダウンロードしておく必要があります。
                         </p>
@@ -531,20 +542,20 @@
 
                 <section id="setup">
                     <div class="section-divider"></div>
-                    <h2>セットアップ手順</h2>
+                    <h2 data-i18n="tutorial1.setup">セットアップ手順</h2>
 
                     <!-- Step 1 Card -->
                     <div class="step-card">
                         <div class="step-card-header">
                             <div class="step-card-number">1</div>
-                            <h4>MatNWBのセットアップ</h4>
+                            <h4 data-i18n="tutorial1.step1_title">MatNWBのセットアップ</h4>
                         </div>
                         <div class="step-card-body">
-                            <p>
+                            <p data-i18n="tutorial1.step1_desc">
                                 NWBファイルをMATLABから取り扱うための関数群である<strong>MatNWB</strong>を、公式のセットアップ手順に従ってインストールします。
                             </p>
                             <a href="https://neurodatawithoutborders.github.io/matnwb/" class="btn btn-secondary"
-                                target="_blank">MatNWB 公式サイト</a>
+                                target="_blank" data-i18n="tutorial1.btn_official_site">MatNWB 公式サイト</a>
                         </div>
                     </div>
 
@@ -552,11 +563,13 @@
                     <div class="step-card">
                         <div class="step-card-header">
                             <div class="step-card-number">2</div>
-                            <h4>デモスクリプトのダウンロード</h4>
+                            <h4 data-i18n="tutorial1.step2_title">デモスクリプトのダウンロード</h4>
                         </div>
                         <div class="step-card-body">
-                            <p>
-                                以下のリンクから、本チュートリアルで使用するデモコード (<code>BraiDynDB_handlingSampleData.m</code>) をダウンロードしてください。
+                            <p data-i18n="tutorial1.step2_desc">
+                                以下のリンクから、本チュートリアルで使用するデモコード (<code>BraiDynDB_handlingSampleData.m</code>) を開き、以下の変数
+                                <code>nwbpath</code>
+                                を、お手元のNWBファイルが保存されているパスに変更して実行してください。
                             </p>
                             <a href="https://www.dropbox.com/scl/fi/fzws8va5y6xq8kzyvyj3c/BraiDynDB_handlingSampleData.m?rlkey=aofn0pyeziccivwwxgaonjywr&dl=1"
                                 class="btn-download">
@@ -564,7 +577,7 @@
                                     stroke-width="2">
                                     <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
                                 </svg>
-                                デモコードをダウンロード
+                                <span data-i18n="tutorial1.btn_download_demo">デモコードをダウンロード</span>
                             </a>
                         </div>
                     </div>
@@ -572,14 +585,14 @@
 
                 <section id="script">
                     <div class="section-divider"></div>
-                    <h2>デモコードの実行</h2>
-                    <p>
+                    <h2 data-i18n="tutorial1.script_title">デモコードの実行</h2>
+                    <p data-i18n="tutorial1.script_desc">
                         MATLAB上でダウンロードした <code>BraiDynDB_handlingSampleData.m</code> を開き、以下の変数 <code>nwbpath</code>
                         を、お手元のNWBファイルが保存されているパスに変更して実行してください。
                     </p>
-                    <div class="code-block">
+                    <div class="code-block" data-i18n="tutorial1.code_block">
                         % 読み込みたいNWBファイルへのパスを指定<br>
-                        nwbpath = 'C:\Path\To\Your\sample_data.nwb';<br><br>
+                        nwbpath = 'C:/Path/To/Your/sample_data.nwb';<br><br>
                         % デモコードの実行<br>
                         BraiDynDB_handlingSampleData
                     </div>
@@ -587,40 +600,40 @@
 
                 <section id="features">
                     <div class="section-divider"></div>
-                    <h2>プログラムの機能</h2>
-                    <p>このスクリプトでは、以下の解析と可視化を自動で行います：</p>
+                    <h2 data-i18n="tutorial1.features_title">プログラムの機能</h2>
+                    <p data-i18n="tutorial1.features_desc">このスクリプトでは、以下の解析と可視化を自動で行います：</p>
                     <div class="feature-list">
                         <div class="feature-card">
-                            <h5>📋 セッションメタデータの表示</h5>
-                            <p>実験日や個体情報などの基本情報を確認します。</p>
+                            <h5 data-i18n="tutorial1.feat1_title">📋 セッションメタデータの表示</h5>
+                            <p data-i18n="tutorial1.feat1_desc">実験日や個体情報などの基本情報を確認します。</p>
                         </div>
                         <div class="feature-card">
-                            <h5>🎯 トライアル情報の取り込み</h5>
-                            <p>音刺激のタイミングや報酬の有無などを抽出します。</p>
+                            <h5 data-i18n="tutorial1.feat2_title">🎯 トライアル情報の取り込み</h5>
+                            <p data-i18n="tutorial1.feat2_desc">音刺激のタイミングや報酬の有無などを抽出します。</p>
                         </div>
                         <div class="feature-card">
-                            <h5>🧠 神経活動データの表示</h5>
-                            <p>Ca²⁺イメージング等の時系列データをプロットします。</p>
+                            <h5 data-i18n="tutorial1.feat3_title">🧠 神経活動データの表示</h5>
+                            <p data-i18n="tutorial1.feat3_desc">Ca²⁺イメージング等の時系列データをプロットします。</p>
                         </div>
                         <div class="feature-card">
-                            <h5>📊 PETHの作成</h5>
-                            <p>音刺激開始タイミングにアラインした神経活動のヒストグラムを表示します。</p>
+                            <h5 data-i18n="tutorial1.feat4_title">📊 PETHの作成</h5>
+                            <p data-i18n="tutorial1.feat4_desc">音刺激開始タイミングにアラインした神経活動のヒストグラムを表示します。</p>
                         </div>
                         <div class="feature-card">
-                            <h5>⚡ 生データ(5kHz)の解析</h5>
-                            <p>高サンプリングの生データの取り出しとPETH作成を行います。</p>
+                            <h5 data-i18n="tutorial1.feat5_title">⚡ 生データ(5kHz)の解析</h5>
+                            <p data-i18n="tutorial1.feat5_desc">高サンプリングの生データの取り出しとPETH作成を行います。</p>
                         </div>
                         <div class="feature-card">
-                            <h5>🔍 行動解析(DLC)の読み込み</h5>
-                            <p>DeepLabCutで推定されたキーポイントや瞳孔径の変化を表示します。</p>
+                            <h5 data-i18n="tutorial1.feat6_title">🔍 行動解析(DLC)の読み込み</h5>
+                            <p data-i18n="tutorial1.feat6_desc">DeepLabCutで推定されたキーポイントや瞳孔径の変化を表示します。</p>
                         </div>
                     </div>
                 </section>
 
                 <section id="resources">
                     <div class="section-divider"></div>
-                    <h2>公式ドキュメント</h2>
-                    <p>MatNWBのより詳細な仕様については、以下の公式チュートリアルも併せて参照してください。</p>
+                    <h2 data-i18n="tutorial1.resources_title">公式ドキュメント</h2>
+                    <p data-i18n="tutorial1.resources_desc">MatNWBのより詳細な仕様については、以下の公式チュートリアルも併せて参照してください。</p>
                     <div class="resource-link-card">
                         <a href="https://neurodatawithoutborders.github.io/matnwb/tutorials/html/read_demo.html#H_01DD834C"
                             target="_blank">📖 Reading NWB Data in MATLAB</a>
@@ -656,12 +669,15 @@
                     <li><a href="https://braidyn-bc.jp/" target="_blank">Project Site</a></li>
                 </ul>
 
-                <p class="copyright">
+                <p class="copyright" data-i18n="footer.copyright">
                     © Copyright 学術変革領域A「行動変容を創発する脳ダイナミクスの解読と操作が開く多元生物学」総括班 分担者 中江 健
                 </p>
             </div>
         </div>
     </footer>
+
+    <!-- i18n Script -->
+    <script src="../i18n.js"></script>
 </body>
 
 </html>

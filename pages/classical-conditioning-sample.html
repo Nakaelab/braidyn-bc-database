@@ -856,6 +856,18 @@
                 <li><a href="../index.html#contact">Contact</a></li>
                 <li><a href="https://braidyn-bc.jp/" class="nav-cta" target="_blank">Project Site</a></li>
             </ul>
+
+            <!-- Language Toggle -->
+            <div class="lang-toggle" id="lang-toggle">
+                <button class="lang-btn active" data-lang="ja">JP</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
@@ -875,13 +887,13 @@
                     <div style="display: flex; flex-direction: column; gap: 24px;">
                         <div>
                             <span class="sample-badge">Sample</span>
-                            <h1>古典条件づけの学習過程</h1>
+                            <h1 data-i18n="card3.title">古典条件づけの学習過程</h1>
                             <p class="dataset-subtitle">Classical Conditioning Learning Process (Sample)</p>
                         </div>
 
-                        <p
-                            style="max-width: 700px; color: rgba(255,255,255,0.8); line-height: 1.7; font-size: 1.05rem;">
-                            2個体のマウスに対して17日間にわたり、音刺激に対する報酬予測行動（古典的条件づけ）の学習過程を追跡したマルチモーダルデータセット。サンプルとして学習完了後の1セッション分を提供。
+                        <p style="max-width: 700px; color: rgba(255,255,255,0.8); line-height: 1.7; font-size: 1.05rem;"
+                            data-i18n="card3.hero_desc">
+                            古典条件づけ学習実験のサンプルデータセット。大規模なコンプリートデータセットの前段階として、データフォーマットや解析パイプラインの確認に適しています。
                         </p>
 
                         <div
@@ -939,17 +951,8 @@
                 <!-- Abstract -->
                 <section id="abstract">
                     <h2>Abstract</h2>
-                    <p>
-                        頭部固定マウスに対して古典的条件づけ実験を行った。条件刺激(CS)として6kHzと10kHzの2種類の異なる音を提示し、無条件刺激(US)として6kHzの場合70%の確率で水を報酬として供給、10kHzの場合30%の確率で水を報酬として供給した。この実験を2個体のマウスに対して30分間程度、合計17日間行うことで、古典条件づけの学習過程を記録した。この記録実験において、脳活動をCa<sup>2+</sup>プローブを使い広視野1光子顕微鏡（Wide-field
-                        1p）により皮質全体の計測を行った。さらにマウスの顔および上半身のビデオデータ(Face Camera, Body
-                        Camera)の計測を行った。またマウスの行動データとしてリックや報酬のタイミングの計測した(Behavior
-                        data)。サンプルデータでは計測系において古典条件づけの学習が完了した10日目の1個体1SessionのデータをCreative Commonsライセンスで提供する。
-                    </p>
-                    <p>
-                        Kondo et. al.
-                        2021では、同様のパラダイムでは古典条件づけの<strong>学習後のみ</strong>の1光子イメージと2光子イメージの神経活動の解析を行った結果、背側前頭皮質内側部（dmFrC）が報酬期待行動における起始点であることが分かった。今回、共有予定のComplete
-                        datasetでは計測方法などはKondo et. al. 2021と共通した上で、その学習にいたるまでにどのように脳内の活動が変化していくかを新しく計測した。Sample
-                        datasetではKondo et. al. 2021と同じく学習後の1個体のデータを提供する。
+                    <p data-i18n="card3.abstract_p1">
+                        本サンプルデータは、頭部固定マウスに対して古典的条件づけ実験を行った際の1セッション分の記録です。音刺激（6kHz/10kHz）に対する報酬予測行動と、広視野カルシウムイメージングによる皮質活動が含まれています。
                     </p>
 
                     <!-- Inline Schematic Diagram -->
@@ -978,12 +981,13 @@
                                 </div>
                                 <div class="resource-info">
                                     <h3>01. Body Camera Movie</h3>
-                                    <p>マウスの腹側を30Hzで計測した動画データ。行動の詳細な時系列変化を記録します。</p>
+                                    <p data-i18n="sample_cl.raw_body_desc">マウスの腹側を30Hzで計測した動画データ。行動の詳細な時系列変化を記録します。</p>
                                     <div style="display: flex; gap: 8px; margin: 8px 0;">
                                         <span class="card-badge">AVI</span>
                                         <span class="card-badge">30Hz</span>
                                     </div>
-                                    <span style="color: #94a3b8; font-size: 0.8rem; font-weight: 600;">※現在提供準備中</span>
+                                    <span style="color: #94a3b8; font-size: 0.8rem; font-weight: 600;"
+                                        data-i18n="msg.coming_soon">※現在提供準備中</span>
                                 </div>
                             </div>
 
@@ -997,12 +1001,14 @@
                                 </div>
                                 <div class="resource-info">
                                     <h3>02. Face Camera Movie</h3>
-                                    <p>マウスの左側面顔を30Hzで計測した動画データ。表情や口（リック）の動きを詳細に捉えます。</p>
+                                    <p data-i18n="sample_cl.raw_face_desc">マウスの左側面顔を30Hzで計測した動画データ。表情や口（リック）の動きを詳細に捉えます。
+                                    </p>
                                     <div style="display: flex; gap: 8px; margin: 8px 0;">
                                         <span class="card-badge">AVI</span>
                                         <span class="card-badge">30Hz</span>
                                     </div>
-                                    <span style="color: #94a3b8; font-size: 0.8rem; font-weight: 600;">※現在提供準備中</span>
+                                    <span style="color: #94a3b8; font-size: 0.8rem; font-weight: 600;"
+                                        data-i18n="msg.coming_soon">※現在提供準備中</span>
                                 </div>
                             </div>
 
@@ -1016,7 +1022,8 @@
                                 </div>
                                 <div class="resource-info">
                                     <h3>03. Wide Field 1p Imaging</h3>
-                                    <p>両側大脳皮質のCa²⁺イメージングデータ。1セッション分を4ファイルに分割して提供しています。</p>
+                                    <p data-i18n="sample_cl.raw_wide_desc">
+                                        両側大脳皮質のCa²⁺イメージングデータ。1セッション分を4ファイルに分割して提供しています。</p>
                                     <div style="display: flex; gap: 8px; margin: 8px 0;">
                                         <span class="card-badge">TIFF</span>
                                         <span class="card-badge">4 Parts</span>
@@ -1042,7 +1049,8 @@
                                 </div>
                                 <div class="resource-info">
                                     <h3>04. Behavior Data</h3>
-                                    <p>リック、報酬、音（CS）のタイミングを5000Hzで記録。学習過程の定量的評価に使用可能です。</p>
+                                    <p data-i18n="sample_cl.raw_beh_desc">
+                                        リック、報酬、音（CS）のタイミングを5000Hzで記録。学習過程の定量的評価に使用可能です。</p>
                                     <div style="display: flex; gap: 8px; margin: 8px 0;">
                                         <span class="card-badge">LVM</span>
                                         <span class="card-badge">5kHz</span>
@@ -1167,7 +1175,8 @@
                         </div>
                     </div>
 
-                    <p style="color: var(--color-text-sub); font-size: 0.95rem; margin-top: 24px;">データの詳細はData
+                    <p style="color: var(--color-text-sub); font-size: 0.95rem; margin-top: 24px;"
+                        data-i18n="sample_cl.desc_note">データの詳細はData
                         Descriptionを参照のこと。</p>
 
                 </section>
@@ -1187,7 +1196,7 @@
                         <div class="resource-info">
                             <span class="badge badge-analyzed">Analyzed</span>
                             <h3>Processed Data</h3>
-                            <p>前処理済みの神経活動・行動データ（.mat形式）</p>
+                            <p data-i18n="sample_cl.analyzed_proc_desc">前処理済みの神経活動・行動データ（.mat形式）</p>
                             <a href="https://drive.google.com/file/d/1YXSyKTomkIhSXvuRGAUTcL4q3y3D_ugi/view"
                                 class="resource-link" target="_blank">
                                 View on Google Drive
@@ -1212,7 +1221,7 @@
                         <div class="resource-info">
                             <span class="badge badge-analyzed">Analyzed</span>
                             <h3>ROI region image</h3>
-                            <p>ROI設定領域の確認用画像</p>
+                            <p data-i18n="sample_cl.analyzed_roi_desc">ROI設定領域の確認用画像</p>
                             <a href="https://drive.google.com/file/d/1LumQZRiMN-Fc9ytKwf6RB7ho-gJs3F55/view"
                                 class="resource-link" target="_blank">
                                 View on Google Drive
@@ -1235,7 +1244,7 @@
                         <div class="resource-info">
                             <span class="badge badge-analyzed">Analyzed</span>
                             <h3>Activity movie</h3>
-                            <p>神経活動のダイナミクスを可視化した動画形式データ</p>
+                            <p data-i18n="sample_cl.analyzed_act_desc">神経活動のダイナミクスを可視化した動画形式データ</p>
                             <a href="https://drive.google.com/file/d/130enOL8zS7mvrcTcVF0nJgbXmB36u0xQ/view"
                                 class="resource-link" target="_blank">
                                 View on Google Drive
@@ -1255,7 +1264,8 @@
                     <div class="section-divider"></div>
                     <h2>Data Description</h2>
 
-                    <p style="margin-bottom: 32px; font-size: 1.05rem; color: var(--color-text-sub);">
+                    <p style="margin-bottom: 32px; font-size: 1.05rem; color: var(--color-text-sub);"
+                        data-i18n="sample_cl.desc_intro">
                         マウスの個体番号RCtg_Pv12、RCtg_Pv13の2個体をそれぞれ合計17日間計測した。1日に4セッションの計測を行った。
                     </p>
 
@@ -1265,7 +1275,7 @@
                             <div class="accordion-icon raw">📁</div>
                             <div class="accordion-title">
                                 <h4>Raw Data</h4>
-                                <span>生データファイル形式と詳細</span>
+                                <span data-i18n="sample_cl.raw_accordion_title">生データファイル形式と詳細</span>
                             </div>
                             <div class="accordion-toggle">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1285,7 +1295,8 @@
                                     </div>
                                     <div class="file-info">
                                         <h5>Body Camera Movie <code>Cam1-180623(日付)_RCtg_Pv12(個体番号).avi</code></h5>
-                                        <p>1Session中の実験中のマウスの腹側をカメラにより30Hzで計測した動画データ。</p>
+                                        <p data-i18n="sample_cl.raw_accordion_body_desc">
+                                            1Session中の実験中のマウスの腹側をカメラにより30Hzで計測した動画データ。</p>
                                     </div>
                                 </div>
 
@@ -1299,7 +1310,8 @@
                                     </div>
                                     <div class="file-info">
                                         <h5>Face Camera Movie <code>Cam2-180623(日付)_RCtg_Pv12(個体番号).avi</code></h5>
-                                        <p>1Session中の実験中のマウスの左側面顔をカメラにより30Hzで計測した動画データ。</p>
+                                        <p data-i18n="sample_cl.raw_accordion_face_desc">
+                                            1Session中の実験中のマウスの左側面顔をカメラにより30Hzで計測した動画データ。</p>
                                     </div>
                                 </div>
 
@@ -1314,7 +1326,8 @@
                                     </div>
                                     <div class="file-info">
                                         <h5>Wide Field 1p <code>180623_RCtg_Pv12*.tif</code></h5>
-                                        <p>1Session中の実験中のマウスの上側からの両側大脳皮質のCa2+プローブの励起光を1光子顕微鏡により30Hzで計測したTIFF画像データ。最大2GBの4つのTIFファイルに分かれており、ファイル名後部にX2,X3,X4されたものは、それぞれが時間的に連続した画像ファイルになっている。
+                                        <p data-i18n="sample_cl.raw_accordion_wide_desc">
+                                            1Session中の実験中のマウスの上側からの両側大脳皮質のCa2+プローブの励起光を1光子顕微鏡により30Hzで計測したTIFF画像データ。最大2GBの4つのTIFファイルに分かれており、ファイル名後部にX2,X3,X4されたものは、それぞれが時間的に連続した画像ファイルになっている。
                                         </p>
                                     </div>
                                 </div>
@@ -1331,7 +1344,8 @@
                                     </div>
                                     <div class="file-info">
                                         <h5>Behavior data <code>180623(日付)_RCtg_Pv12(個体番号)_kondo_5000Hz.lvm</code></h5>
-                                        <p>リックや報酬のタイミングを5000Hzで計測した行動データ（ADコンバータを介してアナログ電圧を記録したもの）。MATLABで読み込むためには、<a
+                                        <p data-i18n="sample_cl.raw_beh_data_desc">
+                                            リックや報酬のタイミングを5000Hzで計測した行動データ（ADコンバータを介してアナログ電圧を記録したもの）。MATLABで読み込むためには、<a
                                                 href="https://jp.mathworks.com/matlabcentral/fileexchange/19913-lvm-file-import"
                                                 target="_blank"
                                                 style="color: var(--color-accent); font-weight: 600;">lvm-file-import</a>を利用のこと。
@@ -1340,8 +1354,8 @@
                                 </div>
 
                                 <!-- Channel Table -->
-                                <h5
-                                    style="margin: 32px 0 16px; font-size: 1rem; font-weight: 700; color: var(--color-text-main);">
+                                <h5 style="margin: 32px 0 16px; font-size: 1rem; font-weight: 700; color: var(--color-text-main);"
+                                    data-i18n="sample_cl.channel_table_title">
                                     📊 Segment1.data Channels <span
                                         style="font-weight: 400; color: var(--color-text-sub);">(HIGH=5V, LOW=0V)</span>
                                 </h5>
@@ -1357,38 +1371,42 @@
                                     <tbody>
                                         <tr>
                                             <td><span class="channel-badge">ch.1</span></td>
-                                            <td>lick sensor(生)</td>
-                                            <td>マウスの舌がスパウトに接触しているときHIGH，していないときLOW．</td>
+                                            <td data-i18n="sample_cl.channel_ch1_content">lick sensor(生)</td>
+                                            <td data-i18n="sample_cl.channel_ch1_desc">
+                                                マウスの舌がスパウトに接触しているときHIGH，していないときLOW．</td>
                                         </tr>
                                         <tr>
                                             <td><span class="channel-badge">ch.2</span></td>
-                                            <td>報酬</td>
-                                            <td>HIGHになった瞬間にポンプ駆動．</td>
+                                            <td data-i18n="sample_cl.channel_ch2_content">報酬</td>
+                                            <td data-i18n="sample_cl.channel_ch2_desc">HIGHになった瞬間にポンプ駆動．</td>
                                         </tr>
                                         <tr>
                                             <td><span class="channel-badge">ch.3</span></td>
-                                            <td>音</td>
-                                            <td>HIGHになっている間，ch7の音が鳴っている．</td>
+                                            <td data-i18n="sample_cl.channel_ch3_content">音</td>
+                                            <td data-i18n="sample_cl.channel_ch3_desc">HIGHになっている間，ch7の音が鳴っている．</td>
                                         </tr>
                                         <tr>
                                             <td><span class="channel-badge">ch.4</span></td>
-                                            <td>イメージングフレーム</td>
-                                            <td>HIGHのとき取得．このchのみHIGH＝約3V.</td>
+                                            <td data-i18n="sample_cl.channel_ch4_content">イメージングフレーム</td>
+                                            <td data-i18n="sample_cl.channel_ch4_desc">HIGHのとき取得．このchのみHIGH＝約3V.</td>
                                         </tr>
                                         <tr>
                                             <td><span class="channel-badge">ch.5</span></td>
-                                            <td>lick sensor(バイナリ)</td>
-                                            <td>マウスの舌がスパウトに接触しているとき1，していないとき0．</td>
+                                            <td data-i18n="sample_cl.channel_ch5_content">lick sensor(バイナリ)</td>
+                                            <td data-i18n="sample_cl.channel_ch5_desc">マウスの舌がスパウトに接触しているとき1，していないとき0．
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td><span class="channel-badge">ch.6</span></td>
-                                            <td>音提示＋遅延期間フラグ</td>
-                                            <td>2のとき音提示＋遅延期間を示し，1のときそれ以外の期間（実際はこのchは解析に使用していない）</td>
+                                            <td data-i18n="sample_cl.channel_ch6_content">音提示＋遅延期間フラグ</td>
+                                            <td data-i18n="sample_cl.channel_ch6_desc">
+                                                2のとき音提示＋遅延期間を示し，1のときそれ以外の期間（実際はこのchは解析に使用していない）</td>
                                         </tr>
                                         <tr>
                                             <td><span class="channel-badge">ch.7</span></td>
-                                            <td>音周波数</td>
-                                            <td>ch.3がHIGHのとき，このchの音が鳴っている．単位kHz</td>
+                                            <td data-i18n="sample_cl.channel_ch7_content">音周波数</td>
+                                            <td data-i18n="sample_cl.channel_ch7_desc">ch.3がHIGHのとき，このchの音が鳴っている．単位kHz
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1423,8 +1441,9 @@
                                     <div class="field-card type-array">
                                         <div class="field-icon array">配列</div>
                                         <div class="field-content">
-                                            <h5><code>fct3</code> セル配列</h5>
-                                            <p>各ROIの神経活動（ROI内ピクセル平均dF/F，全時系列でZスコア化）を，トライアルごとに音の鳴り始めに揃えて取り出したもの．セル配列の要素は『抜き出したトライアル種別』に対応しており，【A+，A-，B+，B-，実際のトライアル系列】（+/-はそれぞれ報酬有無に対応）となっている．各セル内は3次元配列．フレームxROIxトライアルの構造．音オンセットでアラインされており，-6〜8s．よってフレーム数は301．
+                                            <h5 data-i18n="sample_cl.field_fct3_title"><code>fct3</code> セル配列</h5>
+                                            <p data-i18n="sample_cl.field_fct3_desc">
+                                                各ROIの神経活動（ROI内ピクセル平均dF/F，全時系列でZスコア化）を，トライアルごとに音の鳴り始めに揃えて取り出したもの．セル配列の要素は『抜き出したトライアル種別』に対応しており，【A+，A-，B+，B-，実際のトライアル系列】（+/-はそれぞれ報酬有無に対応）となっている．各セル内は3次元配列．フレームxROIxトライアルの構造．音オンセットでアラインされており，-6〜8s．よってフレーム数は301．
                                             </p>
                                         </div>
                                     </div>
@@ -1433,8 +1452,9 @@
                                     <div class="field-card type-array">
                                         <div class="field-icon array">配列</div>
                                         <div class="field-content">
-                                            <h5><code>flt3</code> セル配列</h5>
-                                            <p>fct3と同様だが，神経活動のかわりにリッキング（lick-rateとして連続値化後，Zスコア化）が入っている．</p>
+                                            <h5 data-i18n="sample_cl.field_flt3_title"><code>flt3</code> セル配列</h5>
+                                            <p data-i18n="sample_cl.field_flt3_desc">
+                                                fct3と同様だが，神経活動のかわりにリッキング（lick-rateとして連続値化後，Zスコア化）が入っている．</p>
                                         </div>
                                     </div>
 
@@ -1442,8 +1462,9 @@
                                     <div class="field-card type-struct">
                                         <div class="field-icon struct">構造</div>
                                         <div class="field-content">
-                                            <h5><code>SVDresult</code> 構造体</h5>
-                                            <p>元画像スタック（処理内容3）に対してSVDを行った結果．各成分ともにデータ量削減のため特異値トップ1000個まで保存．特異値行列Sは対角要素のみ．
+                                            <h5 data-i18n="sample_cl.field_svd_title"><code>SVDresult</code> 構造体</h5>
+                                            <p data-i18n="sample_cl.field_svd_desc">
+                                                元画像スタック（処理内容3）に対してSVDを行った結果．各成分ともにデータ量削減のため特異値トップ1000個まで保存．特異値行列Sは対角要素のみ．
                                             </p>
                                         </div>
                                     </div>
@@ -1452,8 +1473,10 @@
                                     <div class="field-card type-struct">
                                         <div class="field-icon struct">構造</div>
                                         <div class="field-content">
-                                            <h5><code>videoSVD</code> 構造体</h5>
-                                            <p>ビデオMotion EnergyをSVDしたもの．FaceMapによって生成．トップ10特異値．</p>
+                                            <h5 data-i18n="sample_cl.field_videosvd_title"><code>videoSVD</code> 構造体
+                                            </h5>
+                                            <p data-i18n="sample_cl.field_videosvd_desc">ビデオMotion
+                                                EnergyをSVDしたもの．FaceMapによって生成．トップ10特異値．</p>
                                         </div>
                                     </div>
 
@@ -1461,8 +1484,8 @@
                                     <div class="field-card type-array">
                                         <div class="field-icon array">配列</div>
                                         <div class="field-content">
-                                            <h5><code>Smode</code> セル配列</h5>
-                                            <p>空間モード．上半身，鼻，ヒゲ，口部分ごと．</p>
+                                            <h5 data-i18n="sample_cl.field_smode_title"><code>Smode</code> セル配列</h5>
+                                            <p data-i18n="sample_cl.field_smode_desc">空間モード．上半身，鼻，ヒゲ，口部分ごと．</p>
                                         </div>
                                     </div>
 
@@ -1470,8 +1493,9 @@
                                     <div class="field-card type-array">
                                         <div class="field-icon array">配列</div>
                                         <div class="field-content">
-                                            <h5><code>Tmode</code> セル配列</h5>
-                                            <p>時間モード．トライアル種別ごと．セル内配列はフレームx特異時間モードxトライアルx体部位．</p>
+                                            <h5 data-i18n="sample_cl.field_tmode_title"><code>Tmode</code> セル配列</h5>
+                                            <p data-i18n="sample_cl.field_tmode_desc">
+                                                時間モード．トライアル種別ごと．セル内配列はフレームx特異時間モードxトライアルx体部位．</p>
                                         </div>
                                     </div>
 
@@ -1479,8 +1503,9 @@
                                     <div class="field-card type-other">
                                         <div class="field-icon other">他</div>
                                         <div class="field-content">
-                                            <h5><code>ROIs</code> 配列</h5>
-                                            <p>ROIマスク　ROI数xY（取得画像の縦次元）xX（取得画像の横次元）</p>
+                                            <h5 data-i18n="sample_cl.field_rois_title"><code>ROIs</code> 配列</h5>
+                                            <p data-i18n="sample_cl.field_rois_desc">ROIマスク　ROI数xY（取得画像の縦次元）xX（取得画像の横次元）
+                                            </p>
                                         </div>
                                     </div>
 
@@ -1488,8 +1513,8 @@
                                     <div class="field-card type-struct">
                                         <div class="field-icon struct">構造</div>
                                         <div class="field-content">
-                                            <h5><code>Bhv</code> 構造体</h5>
-                                            <p>行動データから抽出した各イベント生起状態，リッキングなど．</p>
+                                            <h5 data-i18n="sample_cl.field_bhv_title"><code>Bhv</code> 構造体</h5>
+                                            <p data-i18n="sample_cl.field_bhv_desc">行動データから抽出した各イベント生起状態，リッキングなど．</p>
                                         </div>
                                     </div>
 
@@ -1497,8 +1522,9 @@
                                     <div class="field-card type-struct">
                                         <div class="field-icon struct">構造</div>
                                         <div class="field-content">
-                                            <h5><code>Ds</code> 構造体</h5>
-                                            <p>実際の行動データ（センサーなどからのアナログ電圧）は5kHzサンプリングされており，イメージングデータのサンプリングレートと異なっている．そのためイメージングの各フレーム取得タイミングを参照して，行動データを30Hzにダウンサンプルしたもの．中身はリッキング（生データ，センサーからのアナログ電圧），リック頻度（リッキングから計算），報酬，音A，音B．
+                                            <h5 data-i18n="sample_cl.field_ds_title"><code>Ds</code> 構造体</h5>
+                                            <p data-i18n="sample_cl.field_ds_desc">
+                                                実際の行動データ（センサーなどからのアナログ電圧）は5kHzサンプリングされており，イメージングデータのサンプリングレートと異なっている．そのためイメージングの各フレーム取得タイミングを参照して，行動データを30Hzにダウンサンプルしたもの．中身はリッキング（生データ，センサーからのアナログ電圧），リック頻度（リッキングから計算），報酬，音A，音B．
                                             </p>
                                         </div>
                                     </div>
@@ -1507,8 +1533,8 @@
                                     <div class="field-card type-struct">
                                         <div class="field-icon struct">構造</div>
                                         <div class="field-content">
-                                            <h5><code>Idx</code> 構造体</h5>
-                                            <p>全トライアルにおける報酬，音A，音Bの提示状態．</p>
+                                            <h5 data-i18n="sample_cl.field_idx_title"><code>Idx</code> 構造体</h5>
+                                            <p data-i18n="sample_cl.field_idx_desc">全トライアルにおける報酬，音A，音Bの提示状態．</p>
                                         </div>
                                     </div>
 
@@ -1516,8 +1542,10 @@
                                     <div class="field-card type-struct">
                                         <div class="field-icon struct">構造</div>
                                         <div class="field-content">
-                                            <h5><code>TrigF</code> 構造体</h5>
-                                            <p>フィールド名のイベントオンセット（イメージングフレーム内の位置に対応）．US条件ごとに分けた場合のCSオンセット（A+，B-など）もあり．</p>
+                                            <h5 data-i18n="sample_cl.field_trigf_title"><code>TrigF</code> 構造体</h5>
+                                            <p data-i18n="sample_cl.field_trigf_desc">
+                                                フィールド名のイベントオンセット（イメージングフレーム内の位置に対応）．US条件ごとに分けた場合のCSオンセット（A+，B-など）もあり．
+                                            </p>
                                         </div>
                                     </div>
 
@@ -1525,8 +1553,9 @@
                                     <div class="field-card type-other">
                                         <div class="field-icon other">他</div>
                                         <div class="field-content">
-                                            <h5><code>t_type</code> 配列</h5>
-                                            <p>トライアル種別．1〜4の値がそれぞれ【A+，A-，B+，B-】（+-は報酬有無）に対応．</p>
+                                            <h5 data-i18n="sample_cl.field_ttype_title"><code>t_type</code> 配列</h5>
+                                            <p data-i18n="sample_cl.field_ttype_desc">
+                                                トライアル種別．1〜4の値がそれぞれ【A+，A-，B+，B-】（+-は報酬有無）に対応．</p>
                                         </div>
                                     </div>
 
@@ -1534,8 +1563,8 @@
                                     <div class="field-card type-struct">
                                         <div class="field-icon struct">構造</div>
                                         <div class="field-content">
-                                            <h5><code>params</code> 構造体</h5>
-                                            <p>イメージングに関係したパラメータ類．</p>
+                                            <h5 data-i18n="sample_cl.field_params_title"><code>params</code> 構造体</h5>
+                                            <p data-i18n="sample_cl.field_params_desc">イメージングに関係したパラメータ類．</p>
                                         </div>
                                     </div>
                                 </div>
@@ -1553,7 +1582,8 @@
                     <div class="result-card">
                         <div class="result-card-header">
                             <h4>🧪 Task Paradigm</h4>
-                            <p>異なる報酬確率をもつ古典的条件つけのタスクの模式図。6kHの音の提示の後に報酬をを得る確率が高い。</p>
+                            <p data-i18n="sample_cl.result_task_text">異なる報酬確率をもつ古典的条件つけのタスクの模式図。6kHの音の提示の後に報酬をを得る確率が高い。
+                            </p>
                         </div>
                         <div class="result-card-body">
                             <figure>
@@ -1567,7 +1597,8 @@
                     <div class="result-card">
                         <div class="result-card-header">
                             <h4>📈 Learning Curve (Lick Changes)</h4>
-                            <p>Session（日数）の経過による6kHz（赤）と10kHz（青）でのLickの変化。Lickの学習初期ではそれぞれの音でLick数が変わらないが、日にちが経つことで学習し6Khzの音の方が有意にLick数が多く学習していることがわかる。今回公開するデータはSession
+                            <p data-i18n="sample_cl.result_learning_text">
+                                Session（日数）の経過による6kHz（赤）と10kHz（青）でのLickの変化。Lickの学習初期ではそれぞれの音でLick数が変わらないが、日にちが経つことで学習し6Khzの音の方が有意にLick数が多く学習していることがわかる。今回公開するデータはSession
                                 7の1個体のデータ。</p>
                         </div>
                         <div class="result-card-body">
@@ -1591,14 +1622,14 @@
                             <h4>Processing of Wide-field 1 photon image</h4>
                         </div>
                         <div class="method-card-body">
-                            <p>
+                            <p data-i18n="sample_cl.method1_p1">
                                 各画像スタックは、10 個の特徴点を使用して、Allen Common Coordinate Framework バージョン 3 (Allen CCF)
                                 の上面図に位置合わせした。特徴点は、(FrC)嗅球の両側前神経節、前頭血管の中央および側端、ラムダ縫合糸、背側皮質の両側後端、および背側皮質の両側側端に設定した。皮質に対するマスクはアレン
                                 CCF から作成され、大脳皮質の外側のピクセルの蛍光変化を除外した。左半球のピクセルのみの活動を利用した。ノイズ削減のために画像スタックの特異値分解 (SVD)
                                 を計算し上位24個の特異値から画像を再構成した。SVD
                                 の結果からは空間成分U(サイズのピクセル×成分)、特異値S(サイズの空間成分×時間成分)、および転置された時間成分VT（サイズコンポーネント×フレーム）が得られている。
                             </p>
-                            <p>
+                            <p data-i18n="sample_cl.method1_p2">
                                 再構成されたデータを使用すると、蛍光強度の変化 (Δ F / F) は、各フレームの前後の ± 15 秒間隔で 10
                                 パーセンタイル値を使用して各ピクセルに対して計算した。ROIを使用した分析では、以下に説明する脳領域に12個のROI（10×10ピクセル、長方形）が設定され、定位座標はアレンCCFの上面図と以前に報告された領域に従って定義され、これらは解剖学的および機能的に識別:
                                 dmFrC (AP +2.8 mm、ML 0.8 mm)。dlFrC (AP +2.5 mm、ML 2.0 mm); M1 (AP +1.2 mm、ML 1.0 mm);
@@ -1610,7 +1641,7 @@
                                 mm）。後頭頂皮質（PPC、AP
                                 -2.0 mm、ML 2.0 mm）。後大脳皮質(RSC、AP -2.4 mm、ML 0.5 mm)。ここでの定位座標はROI の中心位置を意味している。
                             </p>
-                            <p>
+                            <p data-i18n="sample_cl.method1_p3">
                                 セッションとマウスごとに、ROI の位置を手動で微調整している。各ROIの蛍光強度は、含まれるピクセルを平均することによって決定した。ROI から抽出された神経活動は、Z
                                 スコアに変換され、各キュートーンの開始に合わせて調整した。各ピクセルごと，各時点−15〜＋15sの時間窓の10パーセンタイルをFとしてdF/F化している。
                             </p>
@@ -1624,7 +1655,7 @@
                             <h4>Processing of Face and Body camera image</h4>
                         </div>
                         <div class="method-card-body">
-                            <p>
+                            <p data-i18n="sample_cl.method2_desc">
                                 高速度カメラから得られたビデオは、FaceMap パッケージ ( <a href="https://github.com/MouseLand/FaceMap"
                                     target="_blank" style="color: var(--color-accent); font-weight: 600;">Stringer et
                                     al., 2019</a> )
@@ -1686,6 +1717,7 @@
         </div>
     </div>
 
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -1697,12 +1729,15 @@
                     <li><a href="https://braidyn-bc.jp/" target="_blank">Project Site</a></li>
                 </ul>
 
-                <p class="copyright">
+                <p class="copyright" data-i18n="footer.copyright">
                     © Copyright 学術変革領域A「行動変容を創発する脳ダイナミクスの解読と操作が開く多元生物学」総括班 分担者 中江 健
                 </p>
             </div>
         </div>
     </footer>
+
+    <!-- i18n Script -->
+    <script src="../i18n.js"></script>
 </body>
 
 </html>
