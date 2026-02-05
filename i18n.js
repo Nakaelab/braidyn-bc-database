@@ -17,7 +17,7 @@ const translations = {
         'database.desc': 'オペラント条件づけと古典条件づけの学習過程を記録した、高品質なデータセットにアクセスできます。',
 
         // Data Cards Title/Desc (Index & Page Titles)
-        'card1.title': 'オペラント条件づけの学習過程',
+        'card1.title': 'レバー引き運動の学習過程',
         'card1.desc': '2週間にわたり、水報酬のためにレバーを引くことを学習するマウスの学習過程を追跡したデータセット。',
         'card2.title': '古典条件づけの学習過程',
         'card2.desc': '音弁別（6kHz vs 10kHz）と水報酬を用いた古典条件づけの完全な縦断的データセット。',
@@ -35,9 +35,9 @@ const translations = {
         'card1.biorxiv_btn': 'Read on bioRxiv',
         'card1.resources_title': 'Dataset Resources',
         'card1.resource_nwb_desc': '一般公開中のNWB形式データセット。即座に解析に利用可能です。',
-        'card1.resource_raw_title': 'Complete Raw Dataset',
-        'card1.resource_raw_desc': '全ての計測データを含む完全なデータセットリポジトリ。',
-        'card1.resource_raw_alert': '論文受理後、DOIとともに公開予定。',
+        'card1.resource_raw_title': 'DANDI Archive',
+        'card1.resource_raw_desc': 'DANDIアーカイブにてデータを公開予定です。',
+        'card1.resource_raw_alert': '論文受理後、DOIとともに公開されます。',
         'card1.tutorials_title': 'Analysis Tutorials',
         'card1.tutorials_desc': '本データセットを活用するためのチュートリアルを提供しています。',
         'card1.tutorial_python_desc': 'オペラント条件づけ学習過程の解析に関するPythonコード一覧。',
@@ -284,7 +284,7 @@ const translations = {
         'database.desc': 'Access high-quality datasets recording the learning processes of operant and classical conditioning.',
 
         // Data Cards Title/Desc
-        'card1.title': 'Operant Conditioning Learning Process',
+        'card1.title': 'Lever Pull Motor Learning Process',
         'card1.desc': 'Dataset tracking mouse learning to pull a lever for water reward over a 2-week period.',
         'card2.title': 'Classical Conditioning Learning Process',
         'card2.desc': 'Complete longitudinal dataset of classical conditioning using tone discrimination (6kHz vs 10kHz) and water reward.',
@@ -302,9 +302,9 @@ const translations = {
         'card1.biorxiv_btn': 'Read on bioRxiv',
         'card1.resources_title': 'Dataset Resources',
         'card1.resource_nwb_desc': 'Publicly available NWB format dataset. Ready for immediate analysis.',
-        'card1.resource_raw_title': 'Complete Raw Dataset',
-        'card1.resource_raw_desc': 'Complete dataset repository containing all measurement data.',
-        'card1.resource_raw_alert': 'To be released with DOI upon paper acceptance.',
+        'card1.resource_raw_title': 'DANDI Archive',
+        'card1.resource_raw_desc': 'Data will be available on the DANDI Archive.',
+        'card1.resource_raw_alert': 'DOI will be assigned upon publication.',
         'card1.tutorials_title': 'Analysis Tutorials',
         'card1.tutorials_desc': 'We provide tutorials for utilizing this dataset.',
         'card1.tutorial_python_desc': 'List of Python codes for analyzing operant conditioning learning processes.',
