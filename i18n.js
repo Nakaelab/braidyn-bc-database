@@ -67,7 +67,7 @@ const translations = {
         // Tutorials (Index & Content)
         'tutorials.title': 'データ解析チュートリアル',
         'tutorials.desc': 'NWB形式のデータを活用するためのチュートリアルとドキュメントを提供しています。',
-        'tutorial1.title': 'MATLAB Tutorial: NWBからPeri-Event Time Histogram作成',
+        'tutorial1.title': 'MATLAB Tutorial: NWBからPETH作成',
         'tutorial1.title_h1': 'NWBからPETHを作成する',
         'tutorial1.subtitle': 'MatNWBライブラリを使用して、Neurodata Without Borders (NWB)形式のデータから特定のイベントに基づいた神経活動の可視化を行います。',
         'tutorial1.desc': 'MATLABを使用してNWBファイルからPETHを生成する方法をステップバイステップで解説します。',
@@ -334,7 +334,7 @@ const translations = {
         // Tutorials
         'tutorials.title': 'Data Analysis Tutorials',
         'tutorials.desc': 'We provide tutorials and documentation for utilizing NWB format data.',
-        'tutorial1.title': 'MATLAB Tutorial: Creating PETH from NWB',
+        'tutorial1.title': 'MATLAB: Creating PETH from NWB',
         'tutorial1.title_h1': 'Creating PETH from NWB',
         'tutorial1.subtitle': 'Visualize neural activity based on specific events from Neurodata Without Borders (NWB) format data using the MatNWB library.',
         'tutorial1.desc': 'Step-by-step guide on generating Peri-Event Time Histograms from NWB files using MATLAB.',
