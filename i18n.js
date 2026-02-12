@@ -17,8 +17,8 @@ const translations = {
         'database.desc': 'オペラント条件づけと古典条件づけの学習過程を記録した、高品質なデータセットにアクセスできます。',
 
         // Data Cards Title/Desc (Index & Page Titles)
-        'card1.title': 'レバー引き運動の学習過程',
-        'card1.desc': '2週間にわたり、水報酬のためにレバーを引くことを学習するマウスの学習過程を追跡したデータセット。',
+        'card1.title': 'オペラント条件づけの学習過程',
+        'card1.desc': '25匹のマウスがレバーを引いて水の報酬を得るよう訓練された、2週間にわたる運動技能学習15セッションを含むデータセット。高速ビデオ撮影により体、顔、目の動きを記録。',
         'card2.title': '古典条件づけの学習過程',
         'card2.desc': '音弁別（6kHz vs 10kHz）と水報酬を用いた古典条件づけの完全な縦断的データセット。',
         'card3.title': '古典条件づけの学習過程',
@@ -27,7 +27,7 @@ const translations = {
         'card4.desc': '運動課題（レバー引き）における広域1光子およびM1の2光子イメージングのサンプルデータ。',
 
         // Page: Operant Conditioning Process (card1)
-        'card1.hero_desc': 'マウスがレバーを引いて水の報酬を得る学習過程を、広範な計測により追跡したデータセット。皮質動態と緻密な行動ビデオ記録がセットになっています。 FAIRS原則に基づきNWB形式で提供。',
+        'card1.hero_desc': '25匹のマウスがレバーを引いて水の報酬を得るよう訓練された、2週間にわたる運動技能学習15セッションを含むデータセット。高速ビデオ撮影により体、顔、目の動きを記録し、NWB形式で提供。',
         'card1.abstract_title': 'Abstract',
         'card1.abstract_p1': '25匹のマウスがレバーを引いて水の報酬を得るよう訓練された、2週間にわたる運動技能学習15セッションを含むデータセットを提供します。同時に高速ビデオ撮影を行い、体、顔、目の動きをとらえ、環境パラメータをモニターしました。',
         'card1.abstract_p2': 'このデータセットには、静止状態の皮質活動と感覚誘発反応も含まれており、学習に関連した神経ダイナミクス研究と感覚駆動型神経ダイナミクス研究の両方に有用です。',
@@ -284,8 +284,8 @@ const translations = {
         'database.desc': 'Access high-quality datasets recording the learning processes of operant and classical conditioning.',
 
         // Data Cards Title/Desc
-        'card1.title': 'Lever Pull Motor Learning Process',
-        'card1.desc': 'Dataset tracking mouse learning to pull a lever for water reward over a 2-week period.',
+        'card1.title': 'Operant Conditioning Learning Process',
+        'card1.desc': 'Dataset including 15 sessions over two weeks of motor skill learning in which 25 mice were trained to pull a lever for water rewards. Body, face, and eye movements recorded via high-speed videography.',
         'card2.title': 'Classical Conditioning Learning Process',
         'card2.desc': 'Complete longitudinal dataset of classical conditioning using tone discrimination (6kHz vs 10kHz) and water reward.',
         'card3.title': 'Classical Conditioning Learning Process',
@@ -294,7 +294,7 @@ const translations = {
         'card4.desc': 'Sample data of wide-field 1-photon and M1 2-photon imaging during motor task (lever pulling).',
 
         // Page: Operant Conditioning Process (card1)
-        'card1.hero_desc': 'A dataset tracking the learning process of mice pulling a lever to obtain water rewards, recorded with extensive measurements. Includes cortical dynamics and detailed behavioral video recordings. Provided in NWB format based on FAIR principles.',
+        'card1.hero_desc': 'Dataset including 15 sessions over two weeks of motor skill learning in which 25 mice were trained to pull a lever for water rewards. Body, face, and eye movements recorded via high-speed videography and provided in NWB format.',
         'card1.abstract_title': 'Abstract',
         'card1.abstract_p1': 'We provide a dataset containing 15 sessions of motor skill learning over 2 weeks, where 25 mice were trained to pull a lever to obtain a water reward. High-speed video recording was performed simultaneously to capture body, face, and eye movements, and environmental parameters were monitored.',
         'card1.abstract_p2': 'This dataset also includes resting-state cortical activity and sensory-evoked responses, making it useful for both learning-related neural dynamics research and sensory-driven neural dynamics research.',

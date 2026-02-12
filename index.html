@@ -36,6 +36,8 @@
                 <li><a href="#database">Database</a></li>
                 <li><a href="#tutorials">Tutorials</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="https://boatneck-weeder-7b7.notion.site/BraiDyn-BC-Database-1e972fb17ad1470b911aa108fb8c0713"
+                        target="_blank">Previous Site</a></li>
                 <li><a href="https://braidyn-bc.jp/" class="nav-cta" target="_blank">Project Site</a></li>
             </ul>
 
@@ -134,12 +136,12 @@
                 <a href="pages/operant-conditioning-process.html" class="data-card">
                     <div class="data-card-header">
                         <span class="complete-badge">Complete</span>
-                        <h3 data-i18n="card1.title">レバー引き運動の学習過程</h3>
-                        <p>Lever Pull Motor Learning Process</p>
+                        <h3 data-i18n="card1.title">オペラント条件づけの学習過程</h3>
+                        <p>Operant Conditioning Learning Process</p>
                     </div>
                     <div class="data-card-body">
                         <p style="margin-bottom: var(--space-md); font-size: 0.9rem;" data-i18n="card1.desc">
-                            2週間にわたり、水報酬のためにレバーを引くことを学習するマウスの学習過程を追跡したデータセット。
+                            25匹のマウスがレバーを引いて水の報酬を得るよう訓練された、2週間にわたる運動技能学習15セッションを含むデータセット。高速ビデオ撮影により体、顔、目の動きを記録。
                         </p>
                         <div class="data-meta">
                             <div class="meta-item">
@@ -322,52 +324,23 @@
                 </p>
             </div>
 
-            <div class="tutorial-content">
-                <div class="tutorial-visual">
-                    <div class="code-window">
-                        <div class="code-header">
-                            <span class="code-dot red"></span>
-                            <span class="code-dot yellow"></span>
-                            <span class="code-dot green"></span>
-                        </div>
-                        <div class="code-body" data-i18n="index.code_window_content">
-                            <span class="comment">% NWBファイルからPETHを作成</span><br>
-                            <span class="keyword">nwb</span> = nwbRead(<span
-                                class="string">'sample_data.nwb'</span>);<br><br>
-                            <span class="comment">% 脳活動データの取得</span><br>
-                            <span class="keyword">fluorescence</span> = nwb.processing...<br>
-                            &nbsp;&nbsp;.get(<span class="string">'ophys'</span>).nwbdatainterface...<br>
-                            &nbsp;&nbsp;.get(<span class="string">'DfOverF'</span>);<br><br>
-                            <span class="comment">% Peri-Event Time Histogram</span><br>
-                            <span class="function">plotPETH</span>(fluorescence, events);
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tutorial-list">
-                    <a href="pages/matlab-tutorial-peth.html" class="tutorial-item">
-                        <div class="tutorial-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-                            </svg>
-                        </div>
-                        <div class="tutorial-info">
-                            <h4 data-i18n="tutorial1.title">MATLAB Tutorial: NWBからPETH作成</h4>
-                            <p data-i18n="tutorial1.desc">MATLABを使用してNWBファイルからPETHを生成する方法をステップバイステップで解説します。</p>
-                        </div>
-                    </a>
-
+            <div class="tutorial-content" style="display: flex; justify-content: center; align-items: center;">
+                <div class="tutorial-list" style="max-width: 800px; width: 100%;">
                     <a href="https://drive.google.com/drive/folders/1nf2_1snzNbYD71VT1sMRoWhpkwzBbI7z"
-                        class="tutorial-item" target="_blank">
-                        <div class="tutorial-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        class="tutorial-item" target="_blank"
+                        style="padding: 2rem 2.5rem; display: flex; align-items: center; gap: 1.5rem;">
+                        <div class="tutorial-icon"
+                            style="width: 60px; height: 60px; min-width: 60px; display: flex; align-items: center; justify-content: center;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                style="width: 36px; height: 36px;">
                                 <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
                             </svg>
                         </div>
                         <div class="tutorial-info">
-                            <h4 data-i18n="tutorial2.title">Python Tutorial: オペラント条件づけ学習過程の解析</h4>
-                            <p data-i18n="tutorial2.desc">Google Driveからオペラント条件づけの学習過程に関するPythonチュートリアル一覧にアクセスできます。</p>
+                            <h4 data-i18n="tutorial2.title" style="font-size: 1.3rem; margin-bottom: 0.5rem;">Python
+                                Tutorial: オペラント条件づけ学習過程の解析</h4>
+                            <p data-i18n="tutorial2.desc" style="font-size: 1rem;">Google
+                                Driveからオペラント条件づけの学習過程に関するPythonチュートリアル一覧にアクセスできます。</p>
                         </div>
                     </a>
                 </div>
