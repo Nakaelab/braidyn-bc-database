@@ -15,6 +15,7 @@ const translations = {
         // Database (Index)
         'database.title': '利用可能なデータセット',
         'database.desc': 'オペラント条件づけと古典条件づけの学習過程を記録した、高品質なデータセットにアクセスできます。',
+        'nav.archive': 'アーカイブサイト',
 
         // Data Cards Title/Desc (Index & Page Titles)
         'card1.title': 'オペラント条件づけの学習過程',
@@ -282,6 +283,7 @@ const translations = {
         // Database
         'database.title': 'Available Datasets',
         'database.desc': 'Access high-quality datasets recording the learning processes of operant and classical conditioning.',
+        'nav.archive': 'Archive Site',
 
         // Data Cards Title/Desc
         'card1.title': 'Operant Conditioning Learning Process',

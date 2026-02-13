@@ -17,13 +17,14 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
 
                 <div class="logo-text">
                     <span class="logo-main">BraiDyn-BC</span>
@@ -36,9 +37,9 @@
                 <li><a href="#database">Database</a></li>
                 <li><a href="#tutorials">Tutorials</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="https://braidyn-bc.jp/" target="_blank">Project Site</a></li>
                 <li><a href="https://boatneck-weeder-7b7.notion.site/BraiDyn-BC-Database-1e972fb17ad1470b911aa108fb8c0713"
-                        target="_blank">Previous Site</a></li>
-                <li><a href="https://braidyn-bc.jp/" class="nav-cta" target="_blank">Project Site</a></li>
+                        class="nav-cta" target="_blank" data-i18n="nav.archive">アーカイブサイト</a></li>
             </ul>
 
             <!-- Language Toggle -->
@@ -132,53 +133,96 @@
             </div>
 
             <div class="database-grid">
-                <!-- Data Card 1 -->
-                <a href="pages/operant-conditioning-process.html" class="data-card">
-                    <div class="data-card-header">
-                        <span class="complete-badge">Complete</span>
-                        <h3 data-i18n="card1.title">オペラント条件づけの学習過程</h3>
-                        <p>Operant Conditioning Learning Process</p>
-                    </div>
-                    <div class="data-card-body">
-                        <p style="margin-bottom: var(--space-md); font-size: 0.9rem;" data-i18n="card1.desc">
+                <!-- Featured Dataset Card -->
+                <a href="pages/operant-conditioning-process.html" class="featured-dataset-card">
+                    <div class="featured-accent-bar"></div>
+                    <div class="featured-content">
+                        <div class="featured-top">
+                            <div class="featured-badge-row">
+                                <span class="complete-badge">Complete Dataset</span>
+                                <span class="featured-date">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                        <line x1="16" y1="2" x2="16" y2="6" />
+                                        <line x1="8" y1="2" x2="8" y2="6" />
+                                        <line x1="3" y1="10" x2="21" y2="10" />
+                                    </svg>
+                                    August 8, 2024
+                                </span>
+                            </div>
+                            <h3 class="featured-title" data-i18n="card1.title">オペラント条件づけの学習過程</h3>
+                            <p class="featured-subtitle">Operant Conditioning Learning Process</p>
+                        </div>
+
+                        <!-- Stats Row -->
+                        <div class="featured-stats-row">
+                            <div class="fstat-item">
+                                <span class="fstat-number">1,700</span>
+                                <span class="fstat-unit">GB</span>
+                                <span class="fstat-name">Data Size</span>
+                            </div>
+                            <div class="fstat-divider"></div>
+                            <div class="fstat-item">
+                                <span class="fstat-number">25</span>
+                                <span class="fstat-unit"></span>
+                                <span class="fstat-name">Individuals</span>
+                            </div>
+                            <div class="fstat-divider"></div>
+                            <div class="fstat-item">
+                                <span class="fstat-number">15</span>
+                                <span class="fstat-unit"></span>
+                                <span class="fstat-name">Sessions</span>
+                            </div>
+                            <div class="fstat-divider"></div>
+                            <div class="fstat-item">
+                                <span class="fstat-number">Mouse</span>
+                                <span class="fstat-unit"></span>
+                                <span class="fstat-name">Animal</span>
+                            </div>
+                            <div class="fstat-divider"></div>
+                            <div class="fstat-item">
+                                <span class="fstat-number">Whole Cortex</span>
+                                <span class="fstat-unit"></span>
+                                <span class="fstat-name">Brain Regions</span>
+                            </div>
+                        </div>
+
+                        <p class="featured-desc" data-i18n="card1.desc">
                             25匹のマウスがレバーを引いて水の報酬を得るよう訓練された、2週間にわたる運動技能学習15セッションを含むデータセット。高速ビデオ撮影により体、顔、目の動きを記録。
                         </p>
-                        <div class="data-meta">
-                            <div class="meta-item">
-                                <span class="meta-label">Data Size</span>
-                                <span class="meta-value">1700 GB</span>
+
+                        <div class="featured-bottom">
+                            <div class="featured-tags">
+                                <span class="ftag ftag-green">Learning Process</span>
+                                <span class="ftag">Wide-field 1p</span>
+                                <span class="ftag">Face Camera</span>
+                                <span class="ftag">Body Camera</span>
                             </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Individuals</span>
-                                <span class="meta-value">25</span>
+                            <div class="featured-footer">
+                                <div class="featured-authors">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.5">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                        <circle cx="12" cy="7" r="4" />
+                                    </svg>
+                                    <span>Masashi Kondo, Masanori Matsuzaki</span>
+                                </div>
+                                <div class="featured-cta">
+                                    <span>View Dataset</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                </div>
                             </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Sessions</span>
-                                <span class="meta-value">15</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Animal</span>
-                                <span class="meta-value">Mouse</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="data-card-footer">
-                        <div class="data-tags">
-                            <span class="tag">Wide-field 1p</span>
-                            <span class="tag">Face Camera</span>
-                            <span class="tag">Body Camera</span>
-                        </div>
-                        <div class="data-card-action" aria-label="View details">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7" />
-                            </svg>
                         </div>
                     </div>
                 </a>
 
                 <!-- Data Card 2 -->
-                <a href="pages/classical-conditioning-complete.html" class="data-card">
+                <a href="pages/classical-conditioning-complete.html" class="data-card"
+                    style="display: none !important;">
                     <div class="data-card-header">
                         <span class="complete-badge">Complete</span>
                         <h3 data-i18n="card2.title">古典条件づけの学習過程</h3>
@@ -222,7 +266,7 @@
                 </a>
 
                 <!-- Data Card 3 -->
-                <a href="pages/classical-conditioning-sample.html" class="data-card">
+                <a href="pages/classical-conditioning-sample.html" class="data-card" style="display: none !important;">
                     <div class="data-card-header">
                         <span class="sample-badge">Sample</span>
                         <h3 data-i18n="card3.title">古典条件づけの学習過程</h3>
@@ -266,7 +310,7 @@
                 </a>
 
                 <!-- Data Card 4 -->
-                <a href="pages/motor-learning-sample.html" class="data-card">
+                <a href="pages/motor-learning-sample.html" class="data-card" style="display: none !important;">
                     <div class="data-card-header">
                         <span class="sample-badge">Sample</span>
                         <h3 data-i18n="card4.title">レバー引き運動の学習</h3>
