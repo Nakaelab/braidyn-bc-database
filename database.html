@@ -598,6 +598,189 @@
                 left: 20px;
             }
         }
+
+        @media (max-width: 768px) {
+            .db-hero {
+                padding: 80px 0 32px;
+            }
+
+            .db-header-area {
+                text-align: left;
+            }
+
+            .db-header-area h1 {
+                font-size: 1.8rem;
+                margin-bottom: 16px;
+            }
+
+            .db-header-area p {
+                font-size: 0.9rem;
+                margin-bottom: 16px;
+                margin-left: 0;
+                margin-right: 0;
+                text-align: left;
+                line-height: 1.6;
+            }
+
+            .explorer-container {
+                padding: 24px 0 40px;
+            }
+
+            .explorer-grid {
+                gap: 16px;
+            }
+
+            .filter-sidebar {
+                padding: 16px;
+                margin-bottom: 16px;
+            }
+
+            /* Collapse subject list on mobile */
+            .subject-grid {
+                max-height: 160px;
+            }
+
+            .filter-group:not(:last-child) {
+                margin-bottom: 20px;
+                padding-bottom: 16px;
+            }
+
+            /* Table responsive */
+            .table-wrapper {
+                border-radius: 14px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            table {
+                min-width: 520px;
+            }
+
+            th {
+                padding: 14px 12px;
+                font-size: 0.65rem;
+            }
+
+            td {
+                padding: 14px 12px;
+                font-size: 0.85rem;
+            }
+
+            .subject-id {
+                font-size: 0.9rem;
+            }
+
+            .session-type {
+                padding: 6px 12px;
+                font-size: 0.7rem;
+                min-width: 60px;
+            }
+
+            .file-actions {
+                gap: 6px;
+            }
+
+            .btn-file {
+                padding: 7px 10px;
+                font-size: 0.7rem;
+                border-radius: 8px;
+                gap: 4px;
+            }
+
+            .btn-file svg {
+                width: 12px;
+                height: 12px;
+            }
+
+            .table-controls {
+                margin-bottom: 12px;
+            }
+
+            .results-count {
+                font-size: 0.75rem;
+                padding: 6px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .db-hero {
+                padding: 72px 0 24px;
+            }
+
+            .db-hero::before {
+                width: 300px;
+                height: 300px;
+            }
+
+            .db-header-area h1 {
+                font-size: 1.5rem;
+                margin-bottom: 12px;
+            }
+
+            .db-header-area p {
+                font-size: 0.82rem;
+                margin-bottom: 12px;
+                line-height: 1.6;
+            }
+
+            .explorer-container {
+                padding: 16px 0 32px;
+            }
+
+            .explorer-grid {
+                gap: 12px;
+            }
+
+            .filter-sidebar {
+                padding: 12px;
+                border-radius: 12px;
+                margin-bottom: 12px;
+            }
+
+            .filter-title {
+                font-size: 0.7rem;
+            }
+
+            .subject-grid {
+                max-height: 140px;
+                border-radius: 8px;
+            }
+
+            .subject-chip {
+                font-size: 0.8rem;
+                padding: 8px 10px;
+            }
+
+            .subject-chip::before {
+                width: 16px;
+                height: 16px;
+                margin-right: 8px;
+            }
+
+            .type-toggle {
+                padding: 8px 10px;
+                border-radius: 8px;
+                margin-bottom: 4px;
+            }
+
+            .type-label {
+                font-size: 0.82rem;
+            }
+
+            .checkbox-fake {
+                width: 16px;
+                height: 16px;
+            }
+
+            .table-wrapper {
+                border-radius: 10px;
+            }
+
+            .table-controls {
+                margin-bottom: 8px;
+                padding: 0 4px;
+            }
+        }
     </style>
 </head>
 
@@ -625,6 +808,12 @@
                 <li><a href="https://boatneck-weeder-7b7.notion.site/BraiDyn-BC-Database-1e972fb17ad1470b911aa108fb8c0713"
                         class="nav-cta" target="_blank" data-i18n="nav.archive">過去のサイト</a></li>
             </ul>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
@@ -1452,6 +1641,22 @@
 
             // Initial Run
             updateUI();
+
+            // Mobile menu toggle
+            const navToggle = document.getElementById('nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            if (navToggle && navLinks) {
+                navToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                });
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                        navToggle.classList.remove('active');
+                    });
+                });
+            }
         });
     </script>
 </body>
