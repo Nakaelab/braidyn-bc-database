@@ -434,6 +434,8 @@
             border: 1px solid var(--glass-border);
             border-radius: 20px;
             overflow: hidden;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
 
@@ -633,6 +635,20 @@
             .filter-sidebar {
                 padding: 16px;
                 margin-bottom: 16px;
+            }
+
+            .filter-header-row {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .filter-actions {
+                gap: 8px;
+            }
+
+            .btn-text {
+                font-size: 0.65rem;
+                padding: 3px 6px;
             }
 
             /* Collapse subject list on mobile */
