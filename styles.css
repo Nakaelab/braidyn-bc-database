@@ -1406,28 +1406,32 @@ a {
 .featured-cta {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  background: #1e3a8a;
-  color: #ffffff;
-  border-radius: 10px;
-  font-size: 0.82rem;
-  font-weight: 700;
+  gap: 10px;
+  padding: 12px 28px;
+  background: transparent;
+  color: #1e3a8a;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
   font-family: var(--font-display);
-  letter-spacing: 0.02em;
-  transition: all 0.3s ease;
+  letter-spacing: 0.03em;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .featured-dataset-card:hover .featured-cta {
-  background: #1d4ed8;
+  background: #1e3a8a;
+  color: #ffffff;
+  border-color: #1e3a8a;
+  box-shadow: 0 4px 16px rgba(30, 58, 138, 0.25);
 }
 
 .featured-cta svg {
-  transition: transform 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .featured-dataset-card:hover .featured-cta svg {
-  transform: translateX(3px);
+  transform: translateX(4px);
 }
 
 /* Responsive */

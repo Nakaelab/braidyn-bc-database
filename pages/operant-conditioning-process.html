@@ -546,7 +546,7 @@
                 <li><a href="../index.html#contact">Contact</a></li>
                 <li><a href="https://braidyn-bc.jp/" target="_blank">Project Site</a></li>
                 <li><a href="https://boatneck-weeder-7b7.notion.site/BraiDyn-BC-Database-1e972fb17ad1470b911aa108fb8c0713"
-                        class="nav-cta" target="_blank" data-i18n="nav.archive">アーカイブサイト</a></li>
+                        class="nav-cta" target="_blank" data-i18n="nav.archive">過去のサイト</a></li>
             </ul>
 
             <!-- Language Toggle -->
@@ -760,9 +760,10 @@
                                 </svg>
                             </div>
                             <div class="resource-info">
-                                <span class="badge badge-nwb">NWB Format</span>
-                                <h3>Dataset in NWB format</h3>
-                                <p data-i18n="card1.resource_nwb_desc">NWB形式のデータセット。即座に解析に利用可能です。</p>
+                                <span class="badge badge-nwb">NWB / Raw Data</span>
+                                <h3>Interactive Session Database</h3>
+                                <p data-i18n="card1.resource_nwb_desc">
+                                    セッションごとにNWB形式データとRawデータを閲覧・ダウンロードできるインタラクティブデータベース。</p>
                                 <a href="../database.html" style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; 
                                            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%); 
                                            color: white; text-decoration: none; border-radius: 10px; 
@@ -797,17 +798,17 @@
                                 </svg>
                             </div>
                             <div class="resource-info">
-                                <span class="badge badge-raw">Raw</span>
-                                <h3 data-i18n="card1.resource_raw_title">Complete Raw Dataset</h3>
-                                <p data-i18n="card1.resource_raw_desc">全ての計測データを含む完全なデータセットリポジトリ。</p>
-                                <div class="info-alert"
-                                    style="margin-top: 12px; margin-bottom: 12px; font-size: 0.8rem;"
-                                    data-i18n="card1.resource_raw_alert">
-                                    論文受理後、DOIとともに公開予定。
+                                <span class="badge badge-raw">DANDI</span>
+                                <h3 data-i18n="card1.resource_raw_title">DANDI Archive</h3>
+                                <p data-i18n="card1.resource_raw_desc">DANDIアーカイブにてNWB形式の全データを公開中。DOI付きで引用可能です。</p>
+                                <div
+                                    style="margin-top: 12px; margin-bottom: 12px; font-size: 0.8rem; color: var(--color-text-muted);">
+                                    DOI: <a href="https://doi.org/10.48324/dandi.001425/0.250705.0947" target="_blank"
+                                        style="color: var(--color-accent); text-decoration: none;">10.48324/dandi.001425/0.250705.0947</a>
                                 </div>
-                                <a href="https://mmlab-repo.m.u-tokyo.ac.jp/r/Matsuzaki/BraiDyn-BC_CuedLeverPull/"
-                                    class="resource-link" target="_blank">
-                                    View Repository
+                                <a href="https://dandiarchive.org/dandiset/001425/" class="resource-link"
+                                    target="_blank">
+                                    View on DANDI
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2">
                                         <path
