@@ -9,8 +9,7 @@ const translations = {
         // About (Index)
         'about.title': 'BraiDyn-BC Databaseについて',
         'about.text1': '学術変革領域A「<a href="https://braidyn-bc.jp/" target="_blank">行動変容を創発する脳ダイナミクスの解読と操作が開く多元生物学</a>」では、生体が新しい行動を自発的に行うようになる行動変容を解明する「行動変容生物学（BraiDyn-BC）」の創成を行います。BraiDyn-BC Databaseでは、行動変容生物学に参画する研究者を増やすため、主に総括班により取得された高品質な脳活動と行動データの利活用の促進とデータ公開を行います。',
-        'about.text2': '論文化されていないデータの場合、1個体1セッションの<strong>Sample dataset</strong>については一般公開を行います。同様の手順で計測された複数個体のデータを<strong>Complete dataset</strong>と呼び、この利用に関してはデータ出典元の研究室との共同研究をベースとしたデータ共有を行います。Sample datasetを利用することでCreative Commonsなどのライセンスに基づき、研究者は自由に解析を試すことができます。',
-        'about.text3': '現在のデータや解析法の標準化はなされていませんが、今後のアップデートで対応する予定です。',
+
 
         // Database (Index)
         'database.title': '利用可能なデータセット',
@@ -276,8 +275,7 @@ const translations = {
         // About
         'about.title': 'About BraiDyn-BC Database',
         'about.text1': 'The Transformative Research Area A "<a href="https://braidyn-bc.jp/" target="_blank">Multi-dimensional Biology Directed by Brain Dynamics Underlying Behavioral Transformation</a>" aims to establish "Behavioral Transformation Biology (BraiDyn-BC)" to elucidate how organisms spontaneously acquire new behaviors. The BraiDyn-BC Database promotes the utilization and publication of high-quality brain activity and behavioral data, primarily acquired by the core research group, to expand the community of researchers in behavioral transformation biology.',
-        'about.text2': 'For unpublished data, <strong>Sample datasets</strong> (single individual, single session) are publicly available. Data from multiple individuals measured using the same procedures are called <strong>Complete datasets</strong>, which are shared through collaborative research with the originating laboratory. Researchers can freely experiment with Sample datasets under Creative Commons or similar licenses.',
-        'about.text3': 'Data and analysis methods are not yet standardized, but we plan to address this in future updates.',
+
 
         // Database
         'database.title': 'Available Datasets',
