@@ -46,7 +46,7 @@
     <section class="hero">
       <div class="container">
         <p class="eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> <span data-i18n="cli.eyebrow">Download Guide</span></p>
-        <h1>Download & Access the BraiDyn-BC Dataset</h1>
+        <h1 data-i18n="cli.h1">Download & Access the BraiDyn-BC Dataset</h1>
         <p class="lead" data-i18n="cli.lead">Get the BraiDyn-BC data your way. Easily download files to your local computer for quick exploration, or connect via AWS EC2 to process large amounts of data in the cloud.</p>
 
         <div class="hero-links">
@@ -62,7 +62,7 @@
           <div class="info-card">
             <span class="info-label" data-i18n="cli.browser_view">Browser View</span>
             <a href="https://braidyn-bc-buckets.s3.amazonaws.com/index.html" target="_blank" rel="noopener noreferrer">
-              <span data-i18n="cli.open_s3\">Open S3 index page</span></a>
+              <span data-i18n="cli.open_s3">Open S3 index page</span></a>
           </div>
         </div>
       </div>
@@ -71,14 +71,14 @@
     <section class="section" id="overview">
       <div class="container narrow">
         <h2 data-i18n="cli.method_title">Choose Your Download Method</h2>
-        <p data-i18n="cli.method_desc\">Depending on your needs, you can either download the dataset to your own computer or work with it directly in the cloud.</p>
+        <p data-i18n="cli.method_desc">Depending on your needs, you can either download the dataset to your own computer or work with it directly in the cloud.</p>
         <div class="grid two">
           <article class="card">
             <h3 data-i18n="cli.local_title">Local Download (AWS CLI)</h3>
             <p data-i18n="cli.local_desc">Best for downloading the data to your personal computer to explore, test scripts, and work offline.</p>
           </article>
           <article class="card">
-            <h3 data-i18n="cli.ec2_title\">Cloud Access (AWS EC2)</h3>
+            <h3 data-i18n="cli.ec2_title">Cloud Access (AWS EC2)</h3>
             <p data-i18n="cli.ec2_desc">Best for analyzing massive amounts of data directly in the cloud without using up your local storage space.</p>
           </article>
         </div>
@@ -139,7 +139,7 @@ sudo installer -pkg AWSCLIV2.pkg -target /</code></pre>
 unzip awscliv2.zip
 sudo ./aws/install</code></pre>
               </div>
-              <p data-i18n="cli.linux_p2\"><strong>ARM (aarch64)</strong> users should use this URL instead:</p>
+              <p data-i18n="cli.linux_p2"><strong>ARM (aarch64)</strong> users should use this URL instead:</p>
               <div class="code-block">
                 <button class="copy-button" data-copy-target="code-install-linux-arm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
                 <pre><code id="code-install-linux-arm">curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip"
@@ -226,7 +226,7 @@ sudo ./aws/install</code></pre>
       <div class="container narrow">
         <div class="section-heading">
           <p class="section-kicker" data-i18n="cli.method2">Method 2</p>
-          <h2 data-i18n="cli.step2_h2\">Access the data directly from AWS EC2</h2>
+          <h2 data-i18n="cli.step2_h2">Access the data directly from AWS EC2</h2>
         </div>
 
         <p class="section-intro" data-i18n="cli.step2_intro">This option is useful when the dataset is large and you want to analyze it on AWS instead of downloading it to your personal computer.</p>
@@ -320,12 +320,12 @@ sudo ./aws/install</code></pre>
         <div class="grid two">
           <article class="card note-card">
             <h3 data-i18n="cli.storage_title">Storage</h3>
-            <p data-i18n="cli.storage_desc\">Make sure your local machine or EC2 instance has enough disk space before starting a large download.</p>
+            <p data-i18n="cli.storage_desc">Make sure your local machine or EC2 instance has enough disk space before starting a large download.</p>
           </article>
 
           <article class="card note-card">
             <h3 data-i18n="cli.costs_title">AWS costs</h3>
-            <p data-i18n="cli.costs_desc\">Downloading on your own computer does not require EC2, but using an EC2 instance may incur AWS charges.</p>
+            <p data-i18n="cli.costs_desc">Downloading on your own computer does not require EC2, but using an EC2 instance may incur AWS charges.</p>
           </article>
 
           <article class="card note-card">
@@ -334,7 +334,7 @@ sudo ./aws/install</code></pre>
           </article>
 
           <article class="card note-card">
-            <h3 data-i18n="cli.shutdown_title\">EC2 shutdown</h3>
+            <h3 data-i18n="cli.shutdown_title">EC2 shutdown</h3>
             <p data-i18n="cli.shutdown_desc">If you use EC2, stop the instance after you are done to avoid unnecessary charges.</p>
           </article>
         </div>
