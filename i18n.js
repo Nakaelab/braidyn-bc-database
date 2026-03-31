@@ -103,6 +103,9 @@ const translations = {
         'tutorial2.title': 'Python Tutorial: オペラント条件づけ学習過程の解析',
         'tutorial2.desc': 'Google Driveからオペラント条件づけの学習過程に関するPythonチュートリアル一覧にアクセスできます。',
 
+        'tutorial3.title': 'CLI / EC2 Access Guide',
+        'tutorial3.desc': 'AWS CLIやEC2を用いてデータセットをダウンロード・アクセスするための詳細な手順を確認できます。',
+
         // Resources (Index)
         'resources.title': '関連リソース',
         'resources.desc': '論文、コード、データブラウザなど、プロジェクトに関連する外部リソースへのリンク集。',
@@ -368,6 +371,9 @@ const translations = {
 
         'tutorial2.title': 'Python Tutorial: Operant Conditioning Analysis',
         'tutorial2.desc': 'Access Python tutorials for analyzing operant conditioning learning processes on Google Drive.',
+
+        'tutorial3.title': 'CLI / EC2 Access Guide',
+        'tutorial3.desc': 'Check out detailed instructions for downloading and accessing the dataset using AWS CLI or EC2.',
 
         // Resources
         'resources.title': 'Related Resources',
