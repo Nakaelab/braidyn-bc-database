@@ -10,11 +10,17 @@ const translations = {
         'about.title': 'BraiDyn-BC Databaseについて',
         'about.text1': '学術変革領域A「<a href="https://braidyn-bc.jp/" target="_blank">行動変容を創発する脳ダイナミクスの解読と操作が開く多元生物学</a>」では、生体が新しい行動を自発的に行うようになる行動変容を解明する「行動変容生物学（BraiDyn-BC）」の創成を行います。BraiDyn-BC Databaseでは、行動変容生物学に参画する研究者を増やすため、主に総括班により取得された高品質な脳活動と行動データの利活用の促進とデータ公開を行います。',
 
+        'nav.about': 'プロジェクト概要',
+        'nav.database': 'データベース',
+        'nav.tutorials': 'チュートリアル',
+        'nav.contact': 'お問い合わせ',
+        'nav.news': '最新情報',
+        'nav.archive': '過去のサイト',
+        'nav.open_guide': 'ガイドを開く',
 
         // Database (Index)
         'database.title': '利用可能なデータセット',
         'database.desc': 'オペラント条件づけと古典条件づけの学習過程を記録した、高品質なデータセットにアクセスできます。',
-        'nav.archive': '過去のサイト',
 
         // Data Cards Title/Desc (Index & Page Titles)
         'card1.title': 'オペラント条件づけの学習過程',
@@ -206,7 +212,6 @@ const translations = {
         'sample_cl.desc_note': 'データの詳細はData Descriptionを参照のこと。',
         'msg.coming_soon': '※現在提供準備中',
         'sample_cl.desc_intro': 'マウスの個体番号RCtg_Pv12、RCtg_Pv13の2個体をそれぞれ合計17日間計測した。1日に4セッションの計測を行った。',
-        'sample_cl.raw_accordion_title': '生データファイル形式と詳細',
 
         // Classical Conditioning Complete Details
         'complete_cl.dir_raw': 'オリジナル計測データ',
@@ -279,11 +284,17 @@ const translations = {
         'about.title': 'About BraiDyn-BC Database',
         'about.text1': 'The Transformative Research Area A "<a href="https://braidyn-bc.jp/" target="_blank">Multi-dimensional Biology Directed by Brain Dynamics Underlying Behavioral Transformation</a>" aims to establish "Behavioral Transformation Biology (BraiDyn-BC)" to elucidate how organisms spontaneously acquire new behaviors. The BraiDyn-BC Database promotes the utilization and publication of high-quality brain activity and behavioral data, primarily acquired by the core research group, to expand the community of researchers in behavioral transformation biology.',
 
+        'nav.about': 'About',
+        'nav.database': 'Database',
+        'nav.tutorials': 'Tutorials',
+        'nav.contact': 'Contact',
+        'nav.news': 'News',
+        'nav.archive': 'Archive Site',
+        'nav.open_guide': 'Open Guide',
 
         // Database
         'database.title': 'Available Datasets',
         'database.desc': 'Access high-quality datasets recording the learning processes of operant and classical conditioning.',
-        'nav.archive': 'Archive Site',
 
         // Data Cards Title/Desc
         'card1.title': 'Operant Conditioning Learning Process',
