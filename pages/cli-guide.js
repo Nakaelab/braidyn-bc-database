@@ -49,19 +49,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const BUCKET = "s3://braidyn-bc-buckets";
 
-  // Session-type labels for descriptions
-  const SESSION_LABELS = {
-    "all":            "all sessions",
-    "resting-state":  "resting-state sessions",
-    "task":           "task sessions",
-    "sensory-stim":   "sensory-stim sessions",
-  };
-
   function buildDescription(session, filetype, scope) {
-    const sessionText = SESSION_LABELS[session];
-    const fileText    = filetype === "nwb" ? "NWB (.nwb) files" : "all file types";
-    const scopeText   = scope === "subject" ? "the specified subject" : "all subjects";
-    return `Download ${fileText} from ${sessionText} for ${scopeText}.`;
+    const isJP = document.documentElement.lang === 'ja';
+    
+    if (isJP) {
+      const sessionJP = {
+        "all": "すべてのセッション",
+        "resting-state": "安静時セッション",
+        "task": "タスクセッション",
+        "sensory-stim": "感覚刺激セッション"
+      };
+      const fileText = filetype === "nwb" ? "NWB (.nwb) ファイル" : "すべてのファイル";
+      const scopeText = scope === "subject" ? "指定した被験体の" : "すべての被験体の";
+      return `${scopeText}${sessionJP[session]}から${fileText}をダウンロードします。`;
+    } else {
+      const sessionEN = {
+        "all": "all sessions",
+        "resting-state": "resting-state sessions",
+        "task": "task sessions",
+        "sensory-stim": "sensory-stim sessions"
+      };
+      const fileText = filetype === "nwb" ? "NWB (.nwb) files" : "all file types";
+      const scopeText = scope === "subject" ? "the specified subject" : "all subjects";
+      return `Download ${fileText} from ${sessionEN[session]} for ${scopeText}.`;
+    }
   }
 
   function buildCommand(session, filetype, scope, subjectName) {
@@ -148,11 +159,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Apply initial state
     update();
+    
+    return update;
   }
 
   // Initialise both selectors
-  initSelector("selector-local", "code-generated-local", "desc-local",
-                "subject-input-local", "subject-name-local");
-  initSelector("selector-ec2",   "code-generated-ec2",   "desc-ec2",
-                "subject-input-ec2",   "subject-name-ec2");
+  const updates = [
+    initSelector("selector-local", "code-generated-local", "desc-local", "subject-input-local", "subject-name-local"),
+    initSelector("selector-ec2", "code-generated-ec2", "desc-ec2", "subject-input-ec2", "subject-name-ec2")
+  ];
+
+  // Re-run update on language toggle to refresh localized descriptions
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Small timeout ensures i18n triggers lang attribute change first
+      setTimeout(() => {
+        updates.forEach(fn => fn && fn());
+      }, 50);
+    });
+  });
 });
