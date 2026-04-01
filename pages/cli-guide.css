@@ -741,6 +741,27 @@ pre {
   color: var(--muted);
 }
 
+.os-note {
+  margin-top: 24px;
+  padding: 16px 20px;
+  background: var(--surface-alt);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.os-note h4 {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  color: var(--primary-dark);
+}
+
+.os-note p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 /* ── Download selector ── */
 .download-selector {
   margin-top: 16px;

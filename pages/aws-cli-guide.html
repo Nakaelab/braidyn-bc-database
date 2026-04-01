@@ -105,12 +105,12 @@
             </div>
 
             <div class="os-panel active" data-os="windows" id="os-panel-local-windows">
-              <p data-i18n="cli.win_p1">Download and run the official MSI installer:</p>
+              <p data-i18n="cli.win_p1">Using the official MSI installer is recommended on Windows:</p>
               <ol>
                 <li data-i18n="cli.win_li1">Download the installer from the <a href="https://awscli.amazonaws.com/AWSCLIV2.msi" target="_blank" rel="noopener noreferrer">official download link (AWSCLIV2.msi)</a>.</li>
                 <li data-i18n="cli.win_li2">Run the downloaded <code>.msi</code> file and follow the on-screen instructions.</li>
               </ol>
-              <p data-i18n="cli.win_p2">Or install via the command line (PowerShell as Administrator):</p>
+              <p data-i18n="cli.win_p2">If installing via the command line, use PowerShell (Administrator):</p>
               <div class="code-block">
                 <button class="copy-button" data-copy-target="code-install-win"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
                 <pre><code id="code-install-win">msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi</code></pre>
@@ -154,6 +154,11 @@ sudo ./aws/install</code></pre>
               <pre><code id="code-check-cli">aws --version</code></pre>
             </div>
             <p class="install-note" data-i18n="cli.install_note">For more details, see the <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html" target="_blank" rel="noopener noreferrer">official AWS CLI installation guide</a>.</p>
+
+            <div class="os-note">
+              <h4 data-i18n="cli.os_note_title">Note</h4>
+              <p data-i18n="cli.os_note_desc">Once the AWS CLI is installed, the following <code>aws</code> commands can be run in essentially the same way across Windows (PowerShell), macOS, and Linux.<br>Platform-specific differences primarily involve <strong>installation methods</strong> and <strong>file path syntax</strong>.</p>
+            </div>
           </div>
         </article>
 
