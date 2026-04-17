@@ -252,7 +252,8 @@ pre {
 .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
 @media (max-width: 768px) {
-  .nav-toggle { display: flex; }
+  .navbar .container { gap: 12px; }
+  .nav-toggle { display: flex; flex-shrink: 0; }
   .nav-links {
     display: none;
     position: fixed;
@@ -270,7 +271,7 @@ pre {
   .nav-links a { font-size: 1.2rem; color: rgba(255, 255, 255, 0.9); }
   .nav-links a:not(.nav-cta)::after { display: none; }
   .nav-cta { margin-top: 16px; }
-  .lang-toggle { position: relative; z-index: 1001; }
+  .lang-toggle { position: relative; z-index: 1001; margin-left: auto; flex-shrink: 0; }
 }
 
 /* ── Hero ── */

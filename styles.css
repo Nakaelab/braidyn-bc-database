@@ -290,8 +290,13 @@ a {
     padding: 0 16px;
   }
 
+  .navbar .container {
+    gap: 12px;
+  }
+
   .nav-toggle {
     display: flex;
+    flex-shrink: 0;
   }
 
   .nav-links {
@@ -331,6 +336,8 @@ a {
   .lang-toggle {
     position: relative;
     z-index: 1001;
+    margin-left: auto;
+    flex-shrink: 0;
   }
 }
 
