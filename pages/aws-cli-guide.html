@@ -371,14 +371,30 @@ sudo ./aws/install</code></pre>
     const navToggle = document.getElementById('nav-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (navToggle && navLinks) {
+      const openMenu = () => {
+        navToggle.classList.add('active');
+        navLinks.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
+      };
+      const closeMenu = () => {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
+      };
       navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
-        navLinks.classList.toggle('active');
+        if (navLinks.classList.contains('active')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
       });
       document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
-          navToggle.classList.remove('active');
-          navLinks.classList.remove('active');
+          closeMenu();
         });
       });
     }

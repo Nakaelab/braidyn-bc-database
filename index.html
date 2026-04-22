@@ -642,16 +642,33 @@
         const navToggle = document.getElementById('nav-toggle');
         const navLinks = document.querySelector('.nav-links');
         if (navToggle && navLinks) {
+            const openMenu = () => {
+                navLinks.classList.add('active');
+                navToggle.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                document.body.style.position = 'fixed';
+                document.body.style.width = '100%';
+            };
+            const closeMenu = () => {
+                navLinks.classList.remove('active');
+                navToggle.classList.remove('active');
+                document.body.style.overflow = '';
+                document.body.style.position = '';
+                document.body.style.width = '';
+            };
+
             navToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                navToggle.classList.toggle('active');
+                if (navLinks.classList.contains('active')) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
             });
 
             // Close menu when clicking a link
             navLinks.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                    navToggle.classList.remove('active');
+                    closeMenu();
                 });
             });
         }
