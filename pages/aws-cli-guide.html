@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -367,37 +367,55 @@ sudo ./aws/install</code></pre>
       }
     });
 
-    // Mobile menu toggle
-    const navToggle = document.getElementById('nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    if (navToggle && navLinks) {
-      const openMenu = () => {
-        navToggle.classList.add('active');
-        navLinks.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        document.body.style.position = 'fixed';
-        document.body.style.width = '100%';
-      };
-      const closeMenu = () => {
-        navToggle.classList.remove('active');
-        navLinks.classList.remove('active');
-        document.body.style.overflow = '';
-        document.body.style.position = '';
-        document.body.style.width = '';
-      };
-      navToggle.addEventListener('click', () => {
-        if (navLinks.classList.contains('active')) {
-          closeMenu();
-        } else {
-          openMenu();
+            // Mobile menu toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (navToggle && navLinks) {
+            const openMenu = () => {
+                navLinks.classList.add('active');
+                navToggle.classList.add('active');
+                navToggle.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+                if (navbar) navbar.classList.add('menu-open');
+            };
+            const closeMenu = () => {
+                navLinks.classList.remove('active');
+                navToggle.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                if (navbar) navbar.classList.remove('menu-open');
+            };
+
+            navToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (navLinks.classList.contains('active')) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            });
+
+            // Close menu when clicking a link inside nav
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                        closeMenu();
+                        setTimeout(() => {
+                            const target = document.querySelector(href);
+                            if (target) {
+                                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                        }, 10);
+                    } else {
+                        closeMenu();
+                    }
+                });
+            });
         }
-      });
-      document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-          closeMenu();
-        });
-      });
-    }
   </script>
 </body>
 </html>
+
