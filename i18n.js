@@ -379,7 +379,7 @@ const translations = {
         'card1.abstract_p3': 'Data is formatted according to Neurodata Without Borders (NWB) standards, ensuring compatibility with existing analysis tools and adhering to FAIR principles. For detailed data description and methods, please refer to the preprint paper below.',
         'card1.biorxiv_btn': 'Read on bioRxiv',
         'card1.resources_title': 'Dataset Resources',
-        'card1.resource_nwb_desc': 'Interactive database to browse and download NWB and Raw data for each session.',
+        'card1.resource_nwb_desc': 'Interactive database to browse and download Raw data from AWS for each session.',
         'card1.resource_raw_title': 'DANDI Archive',
         'card1.resource_raw_desc': 'Full dataset available on DANDI Archive in NWB format. Citable with DOI.',
         'card1.tutorials_title': 'Analysis Tutorials',
